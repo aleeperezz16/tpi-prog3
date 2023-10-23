@@ -67,9 +67,81 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="FormularioArticulos.aspx" />
+    <Content Include="FormularioCategorias.aspx" />
+    <Content Include="FormularioClientes.aspx" />
+    <Content Include="FormularioHome.aspx" />
+    <Content Include="FormularioLogin.aspx" />
+    <Content Include="FormularioPedidos.aspx" />
+    <Content Include="FormularioProveedores.aspx" />
+    <Content Include="FormularioRegistro.aspx" />
+    <Content Include="FormularioVentas.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormularioArticulos.aspx.cs">
+      <DependentUpon>FormularioArticulos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormularioArticulos.aspx.designer.cs">
+      <DependentUpon>FormularioArticulos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioCategorias.aspx.cs">
+      <DependentUpon>FormularioCategorias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormularioCategorias.aspx.designer.cs">
+      <DependentUpon>FormularioCategorias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioClientes.aspx.cs">
+      <DependentUpon>FormularioClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormularioClientes.aspx.designer.cs">
+      <DependentUpon>FormularioClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioHome.aspx.cs">
+      <DependentUpon>FormularioHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormularioHome.aspx.designer.cs">
+      <DependentUpon>FormularioHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioLogin.aspx.cs">
+      <DependentUpon>FormularioLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormularioLogin.aspx.designer.cs">
+      <DependentUpon>FormularioLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioPedidos.aspx.cs">
+      <DependentUpon>FormularioPedidos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormularioPedidos.aspx.designer.cs">
+      <DependentUpon>FormularioPedidos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioProveedores.aspx.cs">
+      <DependentUpon>FormularioProveedores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormularioProveedores.aspx.designer.cs">
+      <DependentUpon>FormularioProveedores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioRegistro.aspx.cs">
+      <DependentUpon>FormularioRegistro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormularioRegistro.aspx.designer.cs">
+      <DependentUpon>FormularioRegistro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioVentas.aspx.cs">
+      <DependentUpon>FormularioVentas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormularioVentas.aspx.designer.cs">
+      <DependentUpon>FormularioVentas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
