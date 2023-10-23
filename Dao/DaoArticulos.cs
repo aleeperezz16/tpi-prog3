@@ -33,12 +33,22 @@ namespace Dao
             return _datos.EjecutarConsulta($"DELETE FROM Articulos WHERE IDArticulo = {id}");
         }
 
-        public DataTable ObtenerArticulos(int id)
+        public DataTable ObtenerArticulosActivos(int id)
+        {
+            string consulta = "SELECT * FROM Articulos WHERE Estado = 1";
+
+            if (id > 0)
+                consulta += $" AND IDArticulo = {id}";
+
+            return _datos.ObtenerTabla("Articulos", consulta);
+        }
+
+        public DataTable ObtenerArticulosCompletos(int id)
         {
             string consulta = "SELECT * FROM Articulos";
 
             if (id > 0)
-                consulta += $" WHERE IDArticulo = {id}";
+                consulta += $" AND IDArticulo = {id}";
 
             return _datos.ObtenerTabla("Articulos", consulta);
         }
