@@ -10,15 +10,18 @@ namespace Entidades
     {
         public string Alias { get; set; }
         public string Contrasenia { get; set; }
-        public bool Tipo { get; set; }
+        public char Tipo { get; set; }
+        public bool Estado { get; set; }
+
 
         public Usuario() { }
 
-        public Usuario(string alias, string contrasenia, bool tipo)
+        public Usuario(string alias, string contrasenia, char tipo, bool estado)
         {
             Alias = alias;
             Contrasenia = contrasenia;
             Tipo = tipo;
+            Estado = estado;
         }
     }
 }
