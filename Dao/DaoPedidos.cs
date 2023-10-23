@@ -7,19 +7,19 @@ using System.Data;
 
 namespace Dao
 {
-    public class DaoClientes
+    public class DaoPedidos
     {
         private AccesoDatos _datos = new AccesoDatos("TPIntegradorGrupo6");
-        public DaoClientes() { }
+        public DaoPedidos() { }
 
-        public DataTable ObtenerClientes(int id)
+        public DataTable ObtenerPedidos(int id)
         {
-            string consulta = "SELECT * FROM Clientes";
+            string consulta = "SELECT * FROM Pedidos";
 
             if (id > 0)
-                consulta += $" WHERE Dni = {id}";
+                consulta += $" WHERE IDPedido = {id}";
 
-            return _datos.ObtenerTabla("Clientes", consulta);
+            return _datos.ObtenerTabla("Pedidos", consulta);
         }
     }
 }

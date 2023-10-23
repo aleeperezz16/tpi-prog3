@@ -42,9 +42,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccesoDatos.cs" />
+    <Compile Include="DaoArticulos.cs" />
+    <Compile Include="DaoCategorias.cs" />
     <Compile Include="DaoClientes.cs" />
+    <Compile Include="DaoPedidos.cs" />
+    <Compile Include="DaoProveedores.cs" />
     <Compile Include="DaoVentas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{f6be9ad7-a935-4166-82ff-c5062d5ac6bc}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

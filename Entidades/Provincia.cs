@@ -10,15 +10,13 @@ namespace Entidades
     {
         public int Codigo { get; set; }
         public string Nombre { get; set; }
-        public Pais Pais { get; set; }
-
+        
         public Provincia() { }
 
-        public Provincia(int codigo, string nombre, Pais pais)
+        public Provincia(int codigo, string nombre)
         {
             Codigo = codigo;
             Nombre = nombre;
-            Pais = pais;
         }
     }
 }

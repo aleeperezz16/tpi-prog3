@@ -82,5 +82,22 @@ namespace Dao
                 return 0;
             }
         }
+
+        public int EjecutarConsulta(string consulta)
+        {
+            SqlConnection cn = ObtenerConexion();
+            SqlCommand cmd = new SqlCommand(consulta, cn);
+            
+            try
+            {
+                int filasCambiadas = cmd.ExecuteNonQuery();
+                cn.Close();
+                return filasCambiadas;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
     }
 }

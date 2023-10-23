@@ -12,12 +12,12 @@ namespace Entidades
         public Articulo Articulo { get; set; }
         public Proveedor Proveedor { get; set; }
         public int Cantidad { get; set; }
-        public string Fecha { get; set; }
-        public float CostoTotal { get; set; }
+        public DateTime Fecha { get; set; }
+        public decimal CostoTotal { get; set; }
 
         public Pedido() { }
 
-        public Pedido(int id, Articulo articulo, Proveedor proveedor, int cantidad, string fecha, float costoTotal)
+        public Pedido(int id, Articulo articulo, Proveedor proveedor, int cantidad, DateTime fecha, decimal costoTotal)
         {
             Id = id;
             Articulo = articulo;

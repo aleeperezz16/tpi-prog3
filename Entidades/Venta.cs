@@ -12,8 +12,8 @@ namespace Entidades
         public Articulo Articulo { get; set; }
         public Cliente Cliente { get; set; }
         public int Cantidad { get; set; }
-        public float PrecioTotal { get; set; }
-        public string Fecha { get; set; }
+        public decimal PrecioTotal { get; set; }
+        public DateTime Fecha { get; set; }
 
         
         public Venta()
@@ -21,7 +21,7 @@ namespace Entidades
 
         }
 
-        public Venta(int id, Articulo articulo, Cliente cliente, int cantidad, float precioTotal, string fecha)
+        public Venta(int id, Articulo articulo, Cliente cliente, int cantidad, decimal precioTotal, DateTime fecha)
         {
             Id = id;
             Articulo = articulo;
