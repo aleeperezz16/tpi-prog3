@@ -38,6 +38,10 @@
             height: 26px;
             text-align: center;
         }
+        .auto-style11 {
+            height: 26px;
+            margin-left: 80px;
+        }
     </style>
 </head>
 <body>
@@ -70,7 +74,8 @@
                         <asp:Label ID="lbUsuario" runat="server" Text="Usuario:"></asp:Label>
                     </td>
                     <td class="auto-style9">
-                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="tbUserName" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvUserName" runat="server" ControlToValidate="tbUserName" ErrorMessage="Ingrese usuario"></asp:RequiredFieldValidator>
                     </td>
                     <td class="auto-style9"></td>
                 </tr>
@@ -80,15 +85,18 @@
                         <asp:Label ID="lbContraseña" runat="server" Text="Contraseña"></asp:Label>
                     </td>
                     <td class="auto-style9">
-                        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="tbUserPssw" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvUserPssw" runat="server" ControlToValidate="tbUserPssw" ErrorMessage="Ingrese Contraseña"></asp:RequiredFieldValidator>
                     </td>
                     <td class="auto-style9"></td>
                 </tr>
                 <tr>
                     <td class="auto-style6"></td>
                     <td class="auto-style3"></td>
-                    <td class="auto-style3">
-                        <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" />
+                    <td class="auto-style11">
+                        <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Label ID="lblErrorLogeo" runat="server"></asp:Label>
                     </td>
                     <td class="auto-style3"></td>
                 </tr>
