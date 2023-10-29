@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FormularioLogin.aspx.cs" Inherits="Vistas.FormularioLogin" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Vistas.FormularioLogin" %>
 
 <!DOCTYPE html>
 
@@ -104,14 +104,15 @@
                     <td class="auto-style5">&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>
-                        <asp:LinkButton ID="lkbRegistrarse" runat="server">No tenes cuenta? Registrate!</asp:LinkButton>
-                    </td>
+                        &nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style5">&nbsp;</td>
                     <td>&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td>
+                        <asp:LinkButton ID="lkbRegistrarse" runat="server">No tenes cuenta? Registrate!</asp:LinkButton>
+                    </td>
                     <td>&nbsp;</td>
                 </tr>
             </table>

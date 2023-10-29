@@ -67,80 +67,96 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="FormularioArticulos.aspx" />
-    <Content Include="FormularioCategorias.aspx" />
-    <Content Include="FormularioClientes.aspx" />
-    <Content Include="FormularioHome.aspx" />
-    <Content Include="FormularioLogin.aspx" />
-    <Content Include="FormularioPedidos.aspx" />
-    <Content Include="FormularioProveedores.aspx" />
-    <Content Include="FormularioRegistro.aspx" />
-    <Content Include="FormularioVentas.aspx" />
+    <Content Include="Admin\ListarArticulos.aspx" />
+    <Content Include="Admin\ListarCategorias.aspx" />
+    <Content Include="Admin\ListarClientes.aspx" />
+    <Content Include="Admin\ListarPedidos.aspx" />
+    <Content Include="Admin\ListarVentas.aspx" />
+    <Content Include="Inicio.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="MisPedidos.aspx" />
+    <Content Include="Admin\ListarProveedores.aspx" />
+    <Content Include="Registro.aspx" />
+    <Content Include="Articulos.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormularioArticulos.aspx.cs">
-      <DependentUpon>FormularioArticulos.aspx</DependentUpon>
+    <Compile Include="Admin\ListarArticulos.aspx.cs">
+      <DependentUpon>ListarArticulos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FormularioArticulos.aspx.designer.cs">
-      <DependentUpon>FormularioArticulos.aspx</DependentUpon>
+    <Compile Include="Admin\ListarArticulos.aspx.designer.cs">
+      <DependentUpon>ListarArticulos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="FormularioCategorias.aspx.cs">
-      <DependentUpon>FormularioCategorias.aspx</DependentUpon>
+    <Compile Include="Admin\ListarCategorias.aspx.cs">
+      <DependentUpon>ListarCategorias.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FormularioCategorias.aspx.designer.cs">
-      <DependentUpon>FormularioCategorias.aspx</DependentUpon>
+    <Compile Include="Admin\ListarCategorias.aspx.designer.cs">
+      <DependentUpon>ListarCategorias.aspx</DependentUpon>
     </Compile>
-    <Compile Include="FormularioClientes.aspx.cs">
-      <DependentUpon>FormularioClientes.aspx</DependentUpon>
+    <Compile Include="Admin\ListarClientes.aspx.cs">
+      <DependentUpon>ListarClientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FormularioClientes.aspx.designer.cs">
-      <DependentUpon>FormularioClientes.aspx</DependentUpon>
+    <Compile Include="Admin\ListarClientes.aspx.designer.cs">
+      <DependentUpon>ListarClientes.aspx</DependentUpon>
     </Compile>
-    <Compile Include="FormularioHome.aspx.cs">
-      <DependentUpon>FormularioHome.aspx</DependentUpon>
+    <Compile Include="Admin\ListarPedidos.aspx.cs">
+      <DependentUpon>ListarPedidos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FormularioHome.aspx.designer.cs">
-      <DependentUpon>FormularioHome.aspx</DependentUpon>
+    <Compile Include="Admin\ListarPedidos.aspx.designer.cs">
+      <DependentUpon>ListarPedidos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="FormularioLogin.aspx.cs">
-      <DependentUpon>FormularioLogin.aspx</DependentUpon>
+    <Compile Include="Admin\ListarVentas.aspx.cs">
+      <DependentUpon>ListarVentas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FormularioLogin.aspx.designer.cs">
-      <DependentUpon>FormularioLogin.aspx</DependentUpon>
+    <Compile Include="Admin\ListarVentas.aspx.designer.cs">
+      <DependentUpon>ListarVentas.aspx</DependentUpon>
     </Compile>
-    <Compile Include="FormularioPedidos.aspx.cs">
-      <DependentUpon>FormularioPedidos.aspx</DependentUpon>
+    <Compile Include="Inicio.aspx.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FormularioPedidos.aspx.designer.cs">
-      <DependentUpon>FormularioPedidos.aspx</DependentUpon>
+    <Compile Include="Inicio.aspx.designer.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
     </Compile>
-    <Compile Include="FormularioProveedores.aspx.cs">
-      <DependentUpon>FormularioProveedores.aspx</DependentUpon>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FormularioProveedores.aspx.designer.cs">
-      <DependentUpon>FormularioProveedores.aspx</DependentUpon>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="FormularioRegistro.aspx.cs">
-      <DependentUpon>FormularioRegistro.aspx</DependentUpon>
+    <Compile Include="MisPedidos.aspx.cs">
+      <DependentUpon>MisPedidos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FormularioRegistro.aspx.designer.cs">
-      <DependentUpon>FormularioRegistro.aspx</DependentUpon>
+    <Compile Include="MisPedidos.aspx.designer.cs">
+      <DependentUpon>MisPedidos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="FormularioVentas.aspx.cs">
-      <DependentUpon>FormularioVentas.aspx</DependentUpon>
+    <Compile Include="Admin\ListarProveedores.aspx.cs">
+      <DependentUpon>ListarProveedores.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FormularioVentas.aspx.designer.cs">
-      <DependentUpon>FormularioVentas.aspx</DependentUpon>
+    <Compile Include="Admin\ListarProveedores.aspx.designer.cs">
+      <DependentUpon>ListarProveedores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registro.aspx.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registro.aspx.designer.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Articulos.aspx.cs">
+      <DependentUpon>Articulos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Articulos.aspx.designer.cs">
+      <DependentUpon>Articulos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
