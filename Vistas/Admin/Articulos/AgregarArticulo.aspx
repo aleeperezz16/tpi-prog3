@@ -68,7 +68,7 @@
                                 </td>
                                 <td class="auto-style15"></td>
                                 <td class="auto-style12">
-                                    <asp:HyperLink ID="hlAgregarArt" runat="server" NavigateUrl="~/Inicio.aspx">Volver al menu Principal</asp:HyperLink>
+                                    <asp:HyperLink ID="hlAgregarArt" runat="server" NavigateUrl="~/Inicio.aspx">Volver al menú Principal</asp:HyperLink>
                                 </td>
                             </tr>
                             <tr>

@@ -156,7 +156,7 @@
                 <tr>
                     <td class="auto-style3">&nbsp;</td>
                     <td>
-                        <asp:Label ID="lbObservaciones" runat="server" Font-Bold="True" Text="Observación: Las acciones dentro del Gridview serán Editar,Agregar,Eliminar."></asp:Label>
+                        <asp:Label ID="lbObservaciones" runat="server" Font-Bold="True" Text="Observación: Las acciones dentro del Gridview serán Editar,Eliminar."></asp:Label>
                     </td>
                     <td>&nbsp;</td>
                 </tr>

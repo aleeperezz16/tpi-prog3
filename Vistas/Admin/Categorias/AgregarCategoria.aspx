@@ -31,6 +31,12 @@
             height: 26px;
             width: 642px;
         }
+        .auto-style8 {
+            width: 138px;
+        }
+        .auto-style9 {
+            width: 431px;
+        }
     </style>
 </head>
 <body>
@@ -40,21 +46,21 @@
                 <td class="auto-style3">
                     <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Agregar Categoria"></asp:Label>
                 </td>
-                <td class="auto-style6">&nbsp;</td>
+                <td class="auto-style6" colspan="2">&nbsp;</td>
                 <td>
-                    <asp:HyperLink ID="hlAgregarcat" runat="server">Volver al menu Principal</asp:HyperLink>
+                    <asp:HyperLink ID="hlAgregarcat" runat="server" NavigateUrl="~/Inicio.aspx">Volver al menú Principal</asp:HyperLink>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style4"></td>
-                <td class="auto-style7"></td>
+                <td class="auto-style7" colspan="2"></td>
                 <td class="auto-style2"></td>
             </tr>
             <tr>
                 <td class="auto-style5">
                     <asp:Label ID="lbNombrecat" runat="server" Text="Nombre de la categoría:"></asp:Label>
                 </td>
-                <td class="auto-style6">
+                <td class="auto-style6" colspan="2">
                     <asp:TextBox ID="tbNombre" runat="server"></asp:TextBox>
                 </td>
                 <td>&nbsp;</td>
@@ -63,37 +69,39 @@
                 <td class="auto-style5">
                     <asp:Label ID="lbDescripcioncat" runat="server" Text="Descripción:"></asp:Label>
                 </td>
-                <td class="auto-style6">
+                <td class="auto-style6" colspan="2">
                     <asp:TextBox ID="tbDescripcion" runat="server" Height="146px" Width="540px"></asp:TextBox>
                 </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style3">&nbsp;</td>
-                <td class="auto-style6">
+                <td class="auto-style8">
                     <asp:Button ID="btnAgregarcat" runat="server" Text="Agregar" OnClick="btnAgregarcat_Click" />
+                </td>
+                <td class="auto-style9">
                     <asp:Label ID="lblResultado" runat="server"></asp:Label>
                 </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style3">&nbsp;</td>
-                <td class="auto-style6">&nbsp;</td>
+                <td class="auto-style6" colspan="2">&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style3">&nbsp;</td>
-                <td class="auto-style6">&nbsp;</td>
+                <td class="auto-style6" colspan="2">&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style3">&nbsp;</td>
-                <td class="auto-style6">&nbsp;</td>
+                <td class="auto-style6" colspan="2">&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style3">&nbsp;</td>
-                <td class="auto-style6">&nbsp;</td>
+                <td class="auto-style6" colspan="2">&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
         </table>
