@@ -11,73 +11,23 @@ namespace Negocio
 {
     public class NegocioProveedores
     {
-        
+        private DaoProveedores _dao = new DaoProveedores();
 
         public NegocioProveedores() { }
 
-
-        public DataTable ObtenerProveedoresParaMostrar(int id)
+        public DataTable ObtenerProveedores(int id = 0, string nombre = "")
         {
-            DaoProveedores dao = new DaoProveedores();
-            return dao.ObtenerProveedoresParaMostrar(id);
-        }
-        public DataTable ObtenerProveedores(int id)
-        {
-            DaoProveedores dao = new DaoProveedores();
-            return dao.ObtenerProveedores(id);
-        }
-
-        public Proveedor ObtenerProveedorObjeto(int id)
-        {
-            DaoProveedores dao = new DaoProveedores();
-            DataTable dtProv = dao.ObtenerProveedores(id);
-            DataRow dtRow = dtProv.Rows[0];
-            Proveedor prov = new Proveedor();
-            prov.Id = id;
-            prov.Nombre = dtRow.ItemArray[1].ToString();
-            prov.Telefono = dtRow.ItemArray[2].ToString();
-            prov.Email = dtRow.ItemArray[3].ToString();
-            prov.Direccion = dtRow.ItemArray[4].ToString();
-            prov.Ciudad = Convert.ToInt32(dtRow.ItemArray[5].ToString());
-            prov.Estado = Convert.ToBoolean(dtRow.ItemArray[6].ToString());
-            return prov;
+            return _dao.ObtenerProveedores(id, nombre);
         }
 
         public bool AgregarProveedor(Proveedor proveedor)
         {
-            DaoProveedores dao = new DaoProveedores();
-            int cantFilas = 0;
-
-           
-            /*if (dao.existeCategoría(cat) == false)
-            {
-                
-            }*/
-            cantFilas = dao.AgregarProveedor(proveedor);
-
-            if (cantFilas == 1)
-                return true;
-            else
-                return false;
+            return _dao.AgregarProveedor(proveedor) == 1;
         }
 
-        public bool eliminarProveedor(int id)
+        public bool EliminarProveedor(int id)
         {
-            DaoProveedores dao = new DaoProveedores();
-            int cantidadFilas = 0;
-            /*if (!Conexion.existe(consulta))
-            {
-                
-            }*/
-            cantidadFilas = dao.BorrarProveedor(id);
-            if (cantidadFilas == 1)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return _dao.BorrarProveedor(id) == 1;
         }
     }
 }

@@ -21,7 +21,7 @@ namespace Dao
             return _datos.EjecutarProcedimientoAlmacenado(ref cmd, "sp_AgregarVenta");
         }
 
-        public DataTable ObtenerVentas(string id, string articulo, string fecha, string dni)
+        public DataTable ObtenerVentas(int id, string articulo, string fecha, long dni)
         {
             string consulta = "SELECT V.IDVenta AS [ID Venta]," +
                 "A.NombreArticulo AS Articulo," +
@@ -36,34 +36,34 @@ namespace Dao
 
             string filtro = "";
 
-            if (id.Length > 0)
+            if (id > 0)
                 filtro += $"V.IDVenta={id}";
 
-            if (articulo.Length > 0)
+            if (articulo != "")
             {
-                if (filtro.Length > 0)
+                if (filtro != "")
                     filtro += " AND ";
                 
                 filtro += $"A.IDArticulo={articulo}";
             }
 
-            if (fecha.Length > 0)
+            if (fecha != "")
             {
-                if (filtro.Length > 0)
+                if (filtro != "")
                     filtro += " AND ";
                 
                 filtro += $"V.FechaVenta='{fecha}'";
             }
 
-            if (dni.Length > 0)
+            if (dni > 0)
             {
-                if (filtro.Length > 0)
+                if (filtro != "")
                     filtro += " AND ";
 
                 filtro += $"C.DNI={dni}";
             }
 
-            if (filtro.Length > 0)
+            if (filtro != "")
                 consulta += $" WHERE {filtro}";
 
             return _datos.ObtenerTabla("Ventas", consulta);

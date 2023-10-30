@@ -67,10 +67,13 @@ namespace Vistas
             NegocioCategorias _negocioCat = new NegocioCategorias();
             NegocioProveedores _negocioProv = new NegocioProveedores();
             Articulo articuloEditado = new Articulo();
+            Proveedor prov = new Proveedor();
+            prov.Id = Convert.ToInt32(((DropDownList)gvArticulos.Rows[e.RowIndex].FindControl("ddl_eit_IdProveedor")).SelectedValue);
+
             articuloEditado.Id = Convert.ToInt32(((Label)gvArticulos.Rows[e.RowIndex].FindControl("lbl_eit_idArticulo")).Text);
             articuloEditado.Nombre = ((TextBox)gvArticulos.Rows[e.RowIndex].FindControl("txt_eit_NombreArticulo")).Text;
             articuloEditado.Categoria = _negocioCat.ObtenerCategoriaObjeto(Convert.ToInt32(((DropDownList)gvArticulos.Rows[e.RowIndex].FindControl("ddl_eit_IdCategoria")).SelectedValue));
-            articuloEditado.Proveedor = _negocioProv.ObtenerProveedorObjeto(Convert.ToInt32(((DropDownList)gvArticulos.Rows[e.RowIndex].FindControl("ddl_eit_IdProveedor")).SelectedValue));
+            articuloEditado.Proveedor = prov;
             articuloEditado.PrecioVenta = Convert.ToDecimal(((TextBox)gvArticulos.Rows[e.RowIndex].FindControl("txt_eit_PrecioDeVenta")).Text);
             articuloEditado.PrecioCompra = Convert.ToDecimal(((TextBox)gvArticulos.Rows[e.RowIndex].FindControl("txt_eit_PrecioDeCompra")).Text);
             articuloEditado.Stock = Convert.ToInt32(((TextBox)gvArticulos.Rows[e.RowIndex].FindControl("txt_eit_Stock")).Text);

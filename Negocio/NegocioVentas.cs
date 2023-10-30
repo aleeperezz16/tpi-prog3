@@ -14,7 +14,7 @@ namespace Negocio
         private DaoArticulos _daoArticulos = new DaoArticulos();
         public NegocioVentas() { }
 
-        public DataTable ObtenerVentas(string id = "", string articulo = "", string fecha = "", string dni = "")
+        public DataTable ObtenerVentas(int id = 0, string articulo = "", string fecha = "", long dni = 0)
         {
             return _daoVentas.ObtenerVentas(id, articulo, fecha, dni);
         }

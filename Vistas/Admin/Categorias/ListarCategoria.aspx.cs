@@ -27,7 +27,7 @@ namespace Vistas.Admin.Categorias
         {
             int s_IdCategoria = Convert.ToInt32(((Label)gdvCategorias.Rows[e.RowIndex].FindControl("lb_eit_IDcategoria")).Text);
             NegocioCategorias negocio = new NegocioCategorias();
-            bool Borro = negocio.eliminarCategoria(s_IdCategoria)
+            bool Borro = negocio.eliminarCategoria(s_IdCategoria);
 
             if (Borro)
             {
@@ -60,7 +60,7 @@ namespace Vistas.Admin.Categorias
         {
             NegocioCategorias _negocioCat = new NegocioCategorias();
             Categoria cat = new Categoria();
-            int s_IdCategoria = Convert.ToInt32((Label)gdvCategorias.Rows[e.RowIndex].FindControl("lb_eit_IDcategoria")).Text;
+            int s_IdCategoria = Convert.ToInt32(((Label)gdvCategorias.Rows[e.RowIndex].FindControl("lb_eit_IDcategoria")).Text);
             string s_Nombrecat = ((TextBox)gdvCategorias.Rows[e.RowIndex].FindControl("lb_eit_NombreCategoria")).Text;
             string s_Descripcion = ((TextBox)gdvCategorias.Rows[e.RowIndex].FindControl("lb_eit_Descripcion")).Text;
 

@@ -7,11 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Vistas
+namespace Vistas.Admin.Proveedores
 {
 
 
-    public partial class FormularioCategorias
+    public partial class ListarProveedores
     {
 
         /// <summary>
@@ -24,66 +24,39 @@ namespace Vistas
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control lbCategorias.
+        /// Control gvProveedores.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbCategorias;
+        protected global::System.Web.UI.WebControls.GridView gvProveedores;
 
         /// <summary>
-        /// Control hlHome.
+        /// Control txtIdProveedor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlHome;
+        protected global::System.Web.UI.WebControls.TextBox txtIdProveedor;
 
         /// <summary>
-        /// Control lbBuscarcategoriaid.
+        /// Control txtNombreProveedor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbBuscarcategoriaid;
+        protected global::System.Web.UI.WebControls.TextBox txtNombreProveedor;
 
         /// <summary>
-        /// Control tbBuscarcategoriaid.
+        /// Control btnFiltrar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbBuscarcategoriaid;
-
-        /// <summary>
-        /// Control btnBuscarcategoriasid.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscarcategoriasid;
-
-        /// <summary>
-        /// Control GridView1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
-
-        /// <summary>
-        /// Control lbObservaciones.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbObservaciones;
+        protected global::System.Web.UI.WebControls.Button btnFiltrar;
     }
 }

@@ -38,7 +38,7 @@ namespace Vistas.Admin
             if (articulo == "--Seleccionar--")
                 articulo = "";
 
-            gvVentas.DataSource = _negocio.ObtenerVentas(idVenta, articulo, $"{anio}{(mes.Length == 1 ? "0" : "")}{mes}{(dia.Length == 1 ? "0" : "")}{dia}", dni);
+            gvVentas.DataSource = _negocio.ObtenerVentas(idVenta != "" ? int.Parse(idVenta) : 0, articulo, $"{anio}{(mes.Length == 1 ? "0" : "")}{mes}{(dia.Length == 1 ? "0" : "")}{dia}", dni != "" ? long.Parse(dni) : 0);
             gvVentas.DataBind();
         }
     }

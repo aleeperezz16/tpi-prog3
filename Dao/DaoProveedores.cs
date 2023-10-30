@@ -34,32 +34,33 @@ namespace Dao
             return _datos.EjecutarConsulta($"DELETE FROM Proveedores WHERE IDProveedor = {id}");
         }
 
-        public DataTable ObtenerProveedoresParaMostrar(int id)
+        public DataTable ObtenerProveedores(int id, string nombre)
         {
-            string consulta = "SELECT PV.IDProveedor, " +
-                "PV.NombreProveedor, " +
-                "PV.Telefono, " +
-                "PV.EMail, " +
-                "PV.Direccion, " +
-                "C.NombreCiudad AS Ciudad, " +
-                "P.NombreProvincia AS Provincia, " +
-                "PV.Estado " +
-                "FROM PROVEEDORES PV " +
-                "INNER JOIN CIUDAD C ON PV.CodigoCiudad = C.CodigoCiudad " +
-                "INNER JOIN PROVINCIA P ON C.CodigoProvincia = P.CodigoProvincia" ;
+            string consulta = "SELECT P.IDProveedor," +
+                "P.NombreProveedor," +
+                "P.Telefono," +
+                "P.EMail," +
+                "P.Direccion," +
+                "C.NombreCiudad," +
+                "P.Estado " +
+                "FROM PROVEEDORES AS P INNER JOIN CIUDAD AS C " +
+                "ON P.CodigoCiudad = C.CodigoCiudad";
+
+            string filtro = "";
 
             if (id > 0)
-                consulta += $" WHERE IDProveedor = {id}";
+                filtro += $"P.IDProveedor={id}";
 
-            return _datos.ObtenerTabla("Proveedores", consulta);
-        }
+            if (nombre != "")
+            {
+                if (filtro != "")
+                    filtro += " AND ";
+                
+                filtro += $"P.NombreProveedor LIKE '%{nombre}%'";
+            }
 
-        public DataTable ObtenerProveedores(int id)
-        {
-            string consulta = "SELECT * FROM PROVEEDORES";
-
-            if (id > 0)
-                consulta += $" AND IDProveedor = {id}";
+            if (filtro != "")
+                consulta += $" WHERE {filtro}";
 
             return _datos.ObtenerTabla("Proveedores", consulta);
         }

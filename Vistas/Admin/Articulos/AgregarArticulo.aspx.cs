@@ -34,10 +34,12 @@ namespace Vistas
 
             Articulo nuevaArticulo = new Articulo();
             NegocioArticulos manejoArt = new NegocioArticulos();
+            Proveedor prov = new Proveedor();
+            prov.Id = Convert.ToInt32(ddlProveedor.SelectedValue);
 
             nuevaArticulo.Nombre = txtNombreArticulo.Text.Trim();
             nuevaArticulo.Categoria = _negocioCat.ObtenerCategoriaObjeto(Convert.ToInt32(ddlCategoria.SelectedValue));
-            nuevaArticulo.Proveedor = _negocioProv.ObtenerProveedorObjeto(Convert.ToInt32(ddlProveedor.SelectedValue));
+            nuevaArticulo.Proveedor = prov;
             nuevaArticulo.PrecioVenta = Convert.ToDecimal(txtPrecioDeVenta.Text.Trim());
             nuevaArticulo.PrecioCompra = Convert.ToDecimal(txtPrecioDeCompra.Text.Trim());
             nuevaArticulo.Stock = Convert.ToInt32(txtStock.Text.Trim());
