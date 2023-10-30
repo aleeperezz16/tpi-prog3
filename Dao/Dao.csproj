@@ -44,9 +44,11 @@
     <Compile Include="AccesoDatos.cs" />
     <Compile Include="DaoArticulos.cs" />
     <Compile Include="DaoCategorias.cs" />
+    <Compile Include="DaoCiudad.cs" />
     <Compile Include="DaoClientes.cs" />
     <Compile Include="DaoPedidos.cs" />
     <Compile Include="DaoProveedores.cs" />
+    <Compile Include="DaoProvincia.cs" />
     <Compile Include="DaoUsuarios.cs" />
     <Compile Include="DaoVentas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
