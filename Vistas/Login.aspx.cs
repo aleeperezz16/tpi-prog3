@@ -15,7 +15,7 @@ namespace Vistas
 
         }
 
-        protected System.Void btnIngresar_Click(System.Object sender, System.EventArgs e)
+        protected void btnIngresar_Click(System.Object sender, System.EventArgs e)
         {
             LogearUsuario logearUsuario = new LogearUsuario();
             char Tipo = logearUsuario.TipoDeIngreso(tbUserName.Text, tbUserPssw.Text);

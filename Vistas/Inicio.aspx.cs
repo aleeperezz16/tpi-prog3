@@ -13,5 +13,10 @@ namespace Vistas
         {
 
         }
+
+        protected void btnCerrarsesion_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

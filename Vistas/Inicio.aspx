@@ -142,7 +142,7 @@
                 <tr>
                     <td class="auto-style4">&nbsp;</td>
                     <td class="auto-style9">
-                        <asp:Button ID="btnCerrarsesion" runat="server" Text="Cerrar sesión" />
+                        <asp:Button ID="btnCerrarsesion" runat="server" Text="Cerrar sesión" OnClick="btnCerrarsesion_Click" />
                     </td>
                     <td>&nbsp;</td>
                 </tr>

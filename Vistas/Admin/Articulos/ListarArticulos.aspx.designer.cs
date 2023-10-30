@@ -11,7 +11,7 @@ namespace Vistas
 {
 
 
-    public partial class FormularioHome
+    public partial class FormularioArticulos
     {
 
         /// <summary>
@@ -24,93 +24,66 @@ namespace Vistas
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Label1 control.
+        /// lbArticulos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lbArticulos;
 
         /// <summary>
-        /// lbSecciones control.
+        /// hlHome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbSecciones;
+        protected global::System.Web.UI.WebControls.HyperLink hlHome;
 
         /// <summary>
-        /// lbBienvenido control.
+        /// lbBuscararticulosid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbBienvenido;
+        protected global::System.Web.UI.WebControls.Label lbBuscararticulosid;
 
         /// <summary>
-        /// hlArticulos control.
+        /// TextBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlArticulos;
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
 
         /// <summary>
-        /// hlCategorias control.
+        /// btnBuscararticulosid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlCategorias;
+        protected global::System.Web.UI.WebControls.Button btnBuscararticulosid;
 
         /// <summary>
-        /// hlVentas control.
+        /// gvArticulos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlVentas;
+        protected global::System.Web.UI.WebControls.GridView gvArticulos;
 
         /// <summary>
-        /// hlPedidos control.
+        /// lbObservaciones control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlPedidos;
-
-        /// <summary>
-        /// HyperLink5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink5;
-
-        /// <summary>
-        /// hlClientes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlClientes;
-
-        /// <summary>
-        /// btnCerrarsesion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCerrarsesion;
+        protected global::System.Web.UI.WebControls.Label lbObservaciones;
     }
 }

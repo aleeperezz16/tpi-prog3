@@ -37,5 +37,6 @@ namespace Dao
 
             return _datos.ObtenerTabla("Categorias", consulta);
         }
+
     }
 }

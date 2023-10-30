@@ -44,6 +44,16 @@ namespace Dao
             return _datos.ObtenerTabla("Proveedores", consulta);
         }
 
+        public DataTable ObtenerProveedoresActivos(int id)
+        {
+            string consulta = "SELECT * FROM Proveedores WHERE Estado = 1";
+
+            if (id > 0)
+                consulta += $" AND IDProveedor = {id}";
+
+            return _datos.ObtenerTabla("Proveedores", consulta);
+        }
+
         private void ArmarParametrosAgregar(ref SqlCommand cmd, Proveedor prov)
         {
             cmd.Parameters.AddWithValue("@NOMBRE", prov.Nombre);

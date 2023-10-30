@@ -48,7 +48,7 @@ namespace Dao
             string consulta = "SELECT * FROM Articulos";
 
             if (id > 0)
-                consulta += $" AND IDArticulo = {id}";
+                consulta += $" WHERE IDArticulo = {id}";
 
             return _datos.ObtenerTabla("Articulos", consulta);
         }
