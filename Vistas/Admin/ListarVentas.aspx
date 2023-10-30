@@ -12,54 +12,23 @@
         }
 
         .auto-style2 {
-            height: 25px;
+            font-size: xx-large;
         }
-
         .auto-style3 {
-            height: 26px;
+            font-size: large;
         }
-
         .auto-style4 {
-            height: 25px;
-            text-align: center;
-            width: 690px;
+            font-size: medium;
         }
-
         .auto-style5 {
-            width: 206px;
+            font-size: medium;
+            width: 58px;
         }
-
         .auto-style6 {
-            height: 25px;
-            width: 206px;
+            width: 58px;
         }
-
         .auto-style7 {
-            height: 26px;
-            width: 206px;
-        }
-
-        .auto-style8 {
-            width: 690px;
-        }
-
-        .auto-style9 {
-            height: 26px;
-            width: 690px;
-        }
-
-        .auto-style10 {
-            width: 206px;
-            height: 120px;
-        }
-
-        .auto-style11 {
-            width: 690px;
-            height: 120px;
-        }
-
-        .auto-style12 {
-            height: 120px;
+            height: 23px;
         }
     </style>
 </head>
@@ -68,53 +37,120 @@
         <div>
             <table class="auto-style1">
                 <tr>
-                    <td class="auto-style5">&nbsp;</td>
-                    <td class="auto-style8">&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td colspan="2">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style6"></td>
-                    <td class="auto-style4">
-                        <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Ventas"></asp:Label>
-                    </td>
-                    <td class="auto-style2"></td>
-                </tr>
-                <tr>
-                    <td class="auto-style5">
-                        <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="~/FormularioHome.aspx">Volver al menú Principal</asp:HyperLink>
-                    </td>
-                    <td class="auto-style8">&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style2"><strong>Listado de ventas</strong></td>
+                    <td class="auto-style2"><strong>Filtros de búsqueda</strong></td>
                 </tr>
                 <tr>
                     <td class="auto-style7"></td>
-                    <td class="auto-style9">
-                        <asp:Label ID="lbBuscarventasid" runat="server" Text="Buscar venta por ID:"></asp:Label>
-                        <asp:TextBox ID="tbBuscarventasid" runat="server"></asp:TextBox>
-                        <asp:Button ID="btnBuscarventasid" runat="server" Text="Buscar" />
-                    </td>
-                    <td class="auto-style3"></td>
-                </tr>
-                <tr>
-                    <td class="auto-style7">&nbsp;</td>
-                    <td class="auto-style9">&nbsp;</td>
-                    <td class="auto-style3"></td>
-                </tr>
-                <tr>
-                    <td class="auto-style10"></td>
-                    <td class="auto-style11">
-                        <asp:DataList ID="dtlVentas" runat="server">
-                        </asp:DataList>
-                        <asp:SqlDataSource ID="sqldsVentas" runat="server"></asp:SqlDataSource>
-                    </td>
-                    <td class="auto-style12"></td>
-                </tr>
-                <tr>
                     <td class="auto-style7"></td>
-                    <td class="auto-style9">
-                        <asp:Label ID="lbObservaciones1" runat="server" Font-Bold="True" Text="Observación: Solo se buscará por ID."></asp:Label>
+                </tr>
+                <tr>
+                    <td rowspan="14">
+                        <asp:GridView ID="gvVentas" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
+                            <AlternatingRowStyle BackColor="White" />
+                            <Columns>
+                                <asp:BoundField DataField="ID Venta" HeaderText="ID Venta" InsertVisible="False" ReadOnly="True" SortExpression="ID Venta" />
+                                <asp:BoundField DataField="Articulo" HeaderText="Articulo" SortExpression="Articulo" />
+                                <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" SortExpression="Cantidad" />
+                                <asp:BoundField DataField="Total" HeaderText="Total" SortExpression="Total" />
+                                <asp:BoundField DataField="Fecha Venta" HeaderText="Fecha Venta" SortExpression="Fecha Venta" />
+                                <asp:BoundField DataField="Comprador" HeaderText="Comprador" ReadOnly="True" SortExpression="Comprador" />
+                                <asp:BoundField DataField="DNI" HeaderText="DNI" SortExpression="DNI" />
+                            </Columns>
+                            <EditRowStyle BackColor="#7C6F57" />
+                            <EmptyDataTemplate>
+                                <strong><em>No hay ventas realizadas con los criterios de búsqueda propuestos</em></strong>
+                            </EmptyDataTemplate>
+                            <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                            <RowStyle BackColor="#E3EAEB" />
+                            <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                            <SortedAscendingCellStyle BackColor="#F8FAFA" />
+                            <SortedAscendingHeaderStyle BackColor="#246B61" />
+                            <SortedDescendingCellStyle BackColor="#D4DFE1" />
+                            <SortedDescendingHeaderStyle BackColor="#15524A" />
+                        </asp:GridView>
                     </td>
-                    <td class="auto-style3"></td>
+                    <td class="auto-style3"><strong>Artículos</strong></td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:DropDownList ID="ddlArticulos" runat="server" AppendDataBoundItems="True">
+                            <asp:ListItem>--Seleccionar--</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style3"><strong>ID Venta</strong></td>
+                </tr>
+                <tr>
+                    <td class="auto-style3">
+                        <asp:TextBox ID="txtIdVenta" runat="server"></asp:TextBox>
+                        <asp:CompareValidator runat="server" ControlToValidate="txtIdVenta" Operator="GreaterThan" Type="Integer" ValueToCompare="0"></asp:CompareValidator>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style3"><strong>Fecha Venta</strong></td>
+                </tr>
+                <tr>
+                    <td class="auto-style3">
+                        <table class="auto-style1">
+                            <tr>
+                                <td class="auto-style5">Día:</td>
+                                <td class="auto-style5">Mes:</td>
+                                <td class="auto-style4">Año:</td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style6">
+                                    <asp:TextBox ID="txtFechaDia" runat="server" Width="50px"></asp:TextBox>
+                                    <asp:RangeValidator runat="server" ControlToValidate="txtFechaDia" MaximumValue="31" MinimumValue="1" Type="Integer"></asp:RangeValidator>
+                                </td>
+                                <td class="auto-style6">
+                                    <asp:TextBox ID="txtFechaMes" runat="server" Width="50px"></asp:TextBox>
+                                    <asp:RangeValidator runat="server" ControlToValidate="txtFechaMes" MaximumValue="12" MinimumValue="1" Type="Integer"></asp:RangeValidator>
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="txtFechaAnio" runat="server" Width="50px"></asp:TextBox>
+                                    <asp:CompareValidator runat="server" ControlToValidate="txtFechaAnio" Operator="GreaterThan" Type="Integer" ValueToCompare="0"></asp:CompareValidator>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style3"><strong>DNI Cliente</strong></td>
+                </tr>
+                <tr>
+                    <td class="auto-style3">
+                        <asp:TextBox ID="txtDniCliente" runat="server"></asp:TextBox>
+                        <asp:CompareValidator runat="server" ControlToValidate="txtDniCliente" Operator="GreaterThan" Type="Integer" ValueToCompare="0"></asp:CompareValidator>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style3">
+                        <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" OnClick="btnFiltrar_Click" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br />
+                    </td>
                 </tr>
             </table>
         </div>

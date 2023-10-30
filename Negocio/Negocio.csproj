@@ -46,6 +46,7 @@
     <Compile Include="NegocioProveedores.cs" />
     <Compile Include="NegocioArticulos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="NegocioVentas.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dao\Dao.csproj">

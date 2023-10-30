@@ -33,7 +33,7 @@ namespace Dao
             return _datos.EjecutarConsulta($"DELETE FROM Articulos WHERE IDArticulo = {id}");
         }
 
-        public DataTable ObtenerArticulosActivos(int id)
+        public DataTable ObtenerArticulosActivos(int id = 0)
         {
             string consulta = "SELECT * FROM Articulos WHERE Estado = 1";
 
@@ -43,7 +43,7 @@ namespace Dao
             return _datos.ObtenerTabla("Articulos", consulta);
         }
 
-        public DataTable ObtenerArticulosCompletos(int id)
+        public DataTable ObtenerArticulosCompletos(int id = 0)
         {
             string consulta = "SELECT * FROM Articulos";
 
