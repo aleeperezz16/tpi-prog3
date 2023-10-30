@@ -7,11 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Vistas
+namespace Vistas.Admin.Categorias
 {
 
 
-    public partial class FormularioArticulos
+    public partial class AgregarCategoria
     {
 
         /// <summary>
@@ -24,66 +24,75 @@ namespace Vistas
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control lbArticulos.
+        /// Control Label1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbArticulos;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// Control hlHome.
+        /// Control hlAgregarcat.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlHome;
+        protected global::System.Web.UI.WebControls.HyperLink hlAgregarcat;
 
         /// <summary>
-        /// Control lbBuscararticulosid.
+        /// Control lbNombrecat.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbBuscararticulosid;
+        protected global::System.Web.UI.WebControls.Label lbNombrecat;
 
         /// <summary>
-        /// Control TextBox1.
+        /// Control tbNombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox tbNombre;
 
         /// <summary>
-        /// Control btnBuscararticulosid.
+        /// Control lbDescripcioncat.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscararticulosid;
+        protected global::System.Web.UI.WebControls.Label lbDescripcioncat;
 
         /// <summary>
-        /// Control gvArticulos.
+        /// Control tbDescripcion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvArticulos;
+        protected global::System.Web.UI.WebControls.TextBox tbDescripcion;
 
         /// <summary>
-        /// Control lbObservaciones.
+        /// Control btnAgregarcat.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbObservaciones;
+        protected global::System.Web.UI.WebControls.Button btnAgregarcat;
+
+        /// <summary>
+        /// Control lblResultado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblResultado;
     }
 }

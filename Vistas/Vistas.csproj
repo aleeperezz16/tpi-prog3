@@ -69,6 +69,8 @@
   <ItemGroup>
     <Content Include="Admin\Articulos\AgregarArticulo.aspx" />
     <Content Include="Admin\Articulos\ListarArticulos.aspx" />
+    <Content Include="Admin\Categorias\AgregarCategoria.aspx" />
+    <Content Include="Admin\Categorias\ListarCategoria.aspx" />
     <Content Include="Admin\ListarCategorias.aspx" />
     <Content Include="Admin\ListarClientes.aspx" />
     <Content Include="Admin\ListarPedidos.aspx" />
@@ -95,6 +97,20 @@
     </Compile>
     <Compile Include="Admin\Articulos\ListarArticulos.aspx.designer.cs">
       <DependentUpon>ListarArticulos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Categorias\AgregarCategoria.aspx.cs">
+      <DependentUpon>AgregarCategoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Categorias\AgregarCategoria.aspx.designer.cs">
+      <DependentUpon>AgregarCategoria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Categorias\ListarCategoria.aspx.cs">
+      <DependentUpon>ListarCategoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Categorias\ListarCategoria.aspx.designer.cs">
+      <DependentUpon>ListarCategoria.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ListarCategorias.aspx.cs">
       <DependentUpon>ListarCategorias.aspx</DependentUpon>
@@ -187,6 +203,7 @@
       <Name>Negocio</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

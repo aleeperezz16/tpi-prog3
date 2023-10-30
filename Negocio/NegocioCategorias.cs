@@ -15,6 +15,12 @@ namespace Negocio
 
         public NegocioCategorias() { }
 
+        public DataTable ObtenerTodaslasCategorias()
+        {
+            DaoCategorias dao = new DaoCategorias();
+            return dao.ObtenerTodasCategorias();
+
+        }
 
         public DataTable ObtenerCategorias(int id)
         {
@@ -68,6 +74,18 @@ namespace Negocio
             {
                 return false;
             }
+
+
         }
+
+        public bool ModificarCategorias(Categoria cat)
+        {
+            DaoCategorias dao = new DaoCategorias();
+            int cantfilas = dao.ModificarCategoria(cat);
+            return cantfilas > 1 ? true : false;
+        }
+
+
+
     }
 }

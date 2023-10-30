@@ -13,6 +13,7 @@
 
         .auto-style2 {
             text-align: center;
+            height: 49px;
         }
 
         .auto-style3 {
@@ -27,6 +28,13 @@
         .auto-style5 {
             height: 26px;
         }
+        .auto-style6 {
+            width: 222px;
+            height: 49px;
+        }
+        .auto-style7 {
+            height: 49px;
+        }
     </style>
 </head>
 <body>
@@ -39,11 +47,11 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">&nbsp;</td>
+                    <td class="auto-style6"></td>
                     <td class="auto-style2">
                         <asp:Label ID="lbArticulos" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Artículos"></asp:Label>
                     </td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style7"></td>
                 </tr>
                 <tr>
                     <td class="auto-style3">

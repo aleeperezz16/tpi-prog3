@@ -32,6 +32,7 @@
         }
         .auto-style12 {
             height: 50px;
+            text-align: right;
         }
         .auto-style21 {
             margin-left: 0px;
@@ -66,7 +67,9 @@
                                     <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Agregar Articulo"></asp:Label>
                                 </td>
                                 <td class="auto-style15"></td>
-                                <td class="auto-style12"></td>
+                                <td class="auto-style12">
+                                    <asp:HyperLink ID="hlAgregarArt" runat="server" NavigateUrl="~/Inicio.aspx">Volver al menu Principal</asp:HyperLink>
+                                </td>
                             </tr>
                             <tr>
                                 <td class="auto-style22"></td>
