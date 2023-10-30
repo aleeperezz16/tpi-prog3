@@ -13,12 +13,12 @@ namespace Entidades
         public string Telefono { get; set; }
         public string Email { get; set; }
         public string Direccion { get; set; }
-        public Ciudad Ciudad { get; set; }
+        public int Ciudad { get; set; }
         public bool Estado { get; set; }
 
         public Proveedor() { }
 
-        public Proveedor(int id, string nombre, string telefono, string email, string dir, Ciudad ciudad, bool estado)
+        public Proveedor(int id, string nombre, string telefono, string email, string dir,int ciudad, bool estado)
         {
             Id = id;
             Nombre = nombre;

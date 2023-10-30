@@ -16,21 +16,21 @@ namespace Negocio
         public NegocioProveedores() { }
 
 
+        public DataTable ObtenerProveedoresParaMostrar(int id)
+        {
+            DaoProveedores dao = new DaoProveedores();
+            return dao.ObtenerProveedoresParaMostrar(id);
+        }
         public DataTable ObtenerProveedores(int id)
         {
             DaoProveedores dao = new DaoProveedores();
             return dao.ObtenerProveedores(id);
         }
-        public DataTable ObtenerProveedoresActivos(int id)
-        {
-            DaoProveedores dao = new DaoProveedores();
-            return dao.ObtenerProveedoresActivos(id);
-        }
 
         public Proveedor ObtenerProveedorObjeto(int id)
         {
             DaoProveedores dao = new DaoProveedores();
-            DataTable dtProv = dao.ObtenerProveedoresActivos(id);
+            DataTable dtProv = dao.ObtenerProveedores(id);
             DataRow dtRow = dtProv.Rows[0];
             Proveedor prov = new Proveedor();
             prov.Id = id;
@@ -38,7 +38,7 @@ namespace Negocio
             prov.Telefono = dtRow.ItemArray[2].ToString();
             prov.Email = dtRow.ItemArray[3].ToString();
             prov.Direccion = dtRow.ItemArray[4].ToString();
-            //prov.CiudadID =  FALTA AGREGAR LOGICA CON LA PROBLEMATICA DE CIUDAD
+            prov.Ciudad = Convert.ToInt32(dtRow.ItemArray[5].ToString());
             prov.Estado = Convert.ToBoolean(dtRow.ItemArray[6].ToString());
             return prov;
         }

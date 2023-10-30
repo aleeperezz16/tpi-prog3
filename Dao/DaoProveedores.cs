@@ -34,9 +34,19 @@ namespace Dao
             return _datos.EjecutarConsulta($"DELETE FROM Proveedores WHERE IDProveedor = {id}");
         }
 
-        public DataTable ObtenerProveedores(int id)
+        public DataTable ObtenerProveedoresParaMostrar(int id)
         {
-            string consulta = "SELECT * FROM Proveedores";
+            string consulta = "SELECT PV.IDProveedor, " +
+                "PV.NombreProveedor, " +
+                "PV.Telefono, " +
+                "PV.EMail, " +
+                "PV.Direccion, " +
+                "C.NombreCiudad AS Ciudad, " +
+                "P.NombreProvincia AS Provincia, " +
+                "PV.Estado " +
+                "FROM PROVEEDORES PV " +
+                "INNER JOIN CIUDAD C ON PV.CodigoCiudad = C.CodigoCiudad " +
+                "INNER JOIN PROVINCIA P ON C.CodigoProvincia = P.CodigoProvincia" ;
 
             if (id > 0)
                 consulta += $" WHERE IDProveedor = {id}";
@@ -44,9 +54,9 @@ namespace Dao
             return _datos.ObtenerTabla("Proveedores", consulta);
         }
 
-        public DataTable ObtenerProveedoresActivos(int id)
+        public DataTable ObtenerProveedores(int id)
         {
-            string consulta = "SELECT * FROM Proveedores WHERE Estado = 1";
+            string consulta = "SELECT * FROM PROVEEDORES";
 
             if (id > 0)
                 consulta += $" AND IDProveedor = {id}";
@@ -60,7 +70,7 @@ namespace Dao
             cmd.Parameters.AddWithValue("@TELEFONO", prov.Telefono);
             cmd.Parameters.AddWithValue("@EMAIL", prov.Email);
             cmd.Parameters.AddWithValue("@DIRECCION", prov.Direccion);
-            cmd.Parameters.AddWithValue("@CODCIUDAD", prov.Ciudad.Codigo);
+            cmd.Parameters.AddWithValue("@CODCIUDAD", prov.Ciudad);
         }
 
         private void ArmarParametrosModificar(ref SqlCommand cmd, Proveedor prov)

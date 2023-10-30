@@ -114,7 +114,7 @@ namespace Vistas
                     ddlCat.DataBind();
 
 
-                    ddlProv.DataSource = _negocioProv.ObtenerProveedoresActivos(-1);
+                    ddlProv.DataSource = _negocioProv.ObtenerProveedores(-1);
                     ddlProv.DataTextField = "NombreProveedor";
                     ddlProv.DataValueField = "IDProveedor";
                     ddlProv.DataBind();

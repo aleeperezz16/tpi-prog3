@@ -21,9 +21,21 @@ namespace Dao
             return _datos.EjecutarProcedimientoAlmacenado(ref cmd, "sp_ModificarCliente");
         }
 
-        public DataTable ObtenerClientes(int id)
+        public DataTable ObtenerClientesParaMostrar(int id)
         {
-            string consulta = "SELECT * FROM Clientes";
+            string consulta = "SELECT CNT.DNI, " +
+                "CNT.Apellido," +
+                "CNT.Nombre, " +
+                "CNT.Alias, " +
+                "CNT.Telefono, " +
+                "CNT.EMail, " +
+                "CNT.Direccion, " +
+                "C.NombreCiudad AS Ciudad, " +
+                "P.NombreProvincia AS Provincia, " +
+                "CNT.Estado " +
+                "FROM CLIENTES CNT " +
+                "INNER JOIN CIUDAD C ON CNT.CodigoCiudad = C.CodigoCiudad " +
+                "INNER JOIN PROVINCIA P ON C.CodigoProvincia = P.CodigoProvincia ";
 
             if (id > 0)
                 consulta += $" WHERE Dni = {id}";

@@ -22,7 +22,7 @@ namespace Vistas
                 ddlCategoria.DataValueField = "IDCategoria";
                 ddlCategoria.DataBind();
 
-                ddlProveedor.DataSource = _negocioProv.ObtenerProveedoresActivos(-1);
+                ddlProveedor.DataSource = _negocioProv.ObtenerProveedores(-1);
                 ddlProveedor.DataTextField = "NombreProveedor";
                 ddlProveedor.DataValueField = "IDProveedor";
                 ddlProveedor.DataBind();
