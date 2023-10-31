@@ -49,7 +49,7 @@
                 </tr>
                 <tr>
                     <td rowspan="14">
-                        <asp:GridView ID="gvVentas" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
+                        <asp:GridView ID="gvVentas" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnPageIndexChanging="gvVentas_PageIndexChanging">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
                                 <asp:BoundField DataField="ID Venta" HeaderText="ID Venta" InsertVisible="False" ReadOnly="True" SortExpression="ID Venta" />

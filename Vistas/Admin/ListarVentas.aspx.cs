@@ -21,8 +21,7 @@ namespace Vistas.Admin
                 ddlArticulos.DataValueField = "IDArticulo";
                 ddlArticulos.DataBind();
 
-                gvVentas.DataSource = _negocio.ObtenerVentas();
-                gvVentas.DataBind();
+                CargarVentasEnGrilla();
             }
         }
 
@@ -38,7 +37,18 @@ namespace Vistas.Admin
             if (articulo == "--Seleccionar--")
                 articulo = "";
 
-            gvVentas.DataSource = _negocio.ObtenerVentas(idVenta != "" ? int.Parse(idVenta) : 0, articulo, $"{anio}{(mes.Length == 1 ? "0" : "")}{mes}{(dia.Length == 1 ? "0" : "")}{dia}", dni != "" ? long.Parse(dni) : 0);
+            CargarVentasEnGrilla(idVenta != "" ? int.Parse(idVenta) : 0, articulo, $"{anio}{(mes.Length == 1 ? "0" : "")}{mes}{(dia.Length == 1 ? "0" : "")}{dia}", dni != "" ? long.Parse(dni) : 0);
+        }
+
+        protected void gvVentas_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvVentas.PageIndex = e.NewPageIndex;
+            CargarVentasEnGrilla();
+        }
+
+        private void CargarVentasEnGrilla(int id = 0, string articulo = "", string fecha = "", long dni = 0)
+        {
+            gvVentas.DataSource = _negocio.ObtenerVentas(id, articulo, fecha, dni);
             gvVentas.DataBind();
         }
     }

@@ -13,12 +13,12 @@ namespace Dao
 
         public DaoCiudad() { }
 
-        public DataTable ObtenerCiudades (int id)
+        public DataTable ObtenerCiudades(int id)
         {
             string consulta = "SELECT * FROM CIUDAD";
 
             if (id > 0)
-                consulta += $" WHERE IDCiudad = {id}";
+                consulta += $" WHERE CodigoCiudad = {id}";
 
             return _datos.ObtenerTabla("Ciudades", consulta);
 

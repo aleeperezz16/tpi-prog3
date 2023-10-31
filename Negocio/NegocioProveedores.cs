@@ -11,23 +11,34 @@ namespace Negocio
 {
     public class NegocioProveedores
     {
-        private DaoProveedores _dao = new DaoProveedores();
+        private DaoProveedores _daoProveedores = new DaoProveedores();
+        private DaoCiudad _daoCiudad = new DaoCiudad();
 
         public NegocioProveedores() { }
 
         public DataTable ObtenerProveedores(int id = 0, string nombre = "")
         {
-            return _dao.ObtenerProveedores(id, nombre);
+            return _daoProveedores.ObtenerProveedores(id, nombre);
+        }
+
+        public bool ModificarProveedor(Proveedor proveedor)
+        {
+            return _daoProveedores.ModificarProveedor(proveedor) == 1;
         }
 
         public bool AgregarProveedor(Proveedor proveedor)
         {
-            return _dao.AgregarProveedor(proveedor) == 1;
+            return _daoProveedores.AgregarProveedor(proveedor) == 1;
         }
 
         public bool EliminarProveedor(int id)
         {
-            return _dao.BorrarProveedor(id) == 1;
+            return _daoProveedores.BorrarProveedor(id) == 1;
+        }
+
+        public DataTable ObtenerCiudades(int id = 0)
+        {
+            return _daoCiudad.ObtenerCiudades(id);
         }
     }
 }
