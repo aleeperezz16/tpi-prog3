@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -23,42 +23,20 @@ namespace Vistas.Admin.Proveedores
                 ddlProvincia.DataValueField = "CodigoProvincia";
                 ddlProvincia.DataTextField = "NombreProvincia";
                 ddlProvincia.DataBind();
-<<<<<<< Updated upstream
-
-
-                ddlCiudad.DataValueField = "CodigoCiudad";
-                ddlProvincia.DataTextField = "NombreCiudad";
-                ddlCiudad.DataSource = negocioCiudad.ObtenerCiudades();
-                ddlCiudad.DataBind();
-
-
-=======
->>>>>>> Stashed changes
             }
         }
 
         protected void ddlProvincia_SelectedIndexChanged(object sender, EventArgs e)
         {
-<<<<<<< Updated upstream
-            string id = ddlProvincia.SelectedValue;
-
-
-            for (int i = 1; i < ddlCiudad.Items.Count; i++)
-=======
             if (ddlProvincia.SelectedValue != "--Seleccionar--")
->>>>>>> Stashed changes
             {
                 CargarCiudades(idProvincia: int.Parse(ddlProvincia.SelectedValue));
             }
-<<<<<<< Updated upstream
-
-=======
             else
             {
                 ddlCiudad.Items.Clear();
                 ddlCiudad.Items.Add(new ListItem("--Seleccione una provincia--", "--Seleccione una provincia--"));
             }
->>>>>>> Stashed changes
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
