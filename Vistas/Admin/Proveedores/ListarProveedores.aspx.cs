@@ -72,7 +72,7 @@ namespace Vistas.Admin.Proveedores
             Ciudad ciudad = new Ciudad();
             ciudad.Codigo = codigoCiudad;
 
-            Proveedor proveedor = new Proveedor(idProv, nombre, telefono, email, direccion, ciudad, estado);
+            Proveedor proveedor = new Proveedor(idProv, nombre, telefono, email, direccion, ciudad.Codigo, estado);
             _negocio.ModificarProveedor(proveedor);
 
             gvProveedores.EditIndex = -1;
@@ -84,7 +84,7 @@ namespace Vistas.Admin.Proveedores
             int idProv = int.Parse(((Label)gvProveedores.Rows[e.RowIndex].FindControl("lblItemId")).Text);
             _negocio.EliminarProveedor(idProv);
 
-            CargarProductosEnGrilla();
+            CargarProveedoresEnGrilla();
         }
     }
 }

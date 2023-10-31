@@ -23,7 +23,7 @@ namespace Vistas.Admin.Proveedores
                 ddlProvincia.DataTextField = "NombreProvincia";
                 ddlProvincia.DataSource = negocioProvincia.ObtenerProvincias();
                 ddlProvincia.DataBind();
-               
+
 
                 ddlCiudad.DataValueField = "CodigoCiudad";
                 ddlProvincia.DataTextField = "NombreCiudad";
@@ -39,7 +39,7 @@ namespace Vistas.Admin.Proveedores
         protected void ddlProvincia_SelectedIndexChanged(object sender, EventArgs e)
         {
             string id = ddlProvincia.SelectedValue;
-            
+
 
             for (int i = 1; i < ddlCiudad.Items.Count; i++)
             {
@@ -49,7 +49,7 @@ namespace Vistas.Admin.Proveedores
 
             }
 
-    }
+        }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -70,3 +70,4 @@ namespace Vistas.Admin.Proveedores
 
         }
     }
+}

@@ -22,7 +22,11 @@ namespace Vistas
 
         protected void btnBuscararticulosid_Click(object sender, EventArgs e)
         {
-
+            NegocioArticulos negocioArt = new NegocioArticulos();
+            int id = 0;
+            if (txtIdBuscarArticulo.Text.Trim().Length > 0) {id = Convert.ToInt32(txtIdBuscarArticulo.Text.Trim());}
+            gvArticulos.DataSource = negocioArt.ObtenerArticulosActivos(id);
+            gvArticulos.DataBind();
         }
 
         protected void gvArticulos_PageIndexChanging(object sender, GridViewPageEventArgs e)

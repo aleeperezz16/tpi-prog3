@@ -64,7 +64,7 @@
                     <td class="auto-style3">&nbsp;</td>
                     <td>
                         <asp:Label ID="lbBuscararticulosid" runat="server" Text="Buscar Artículos por ID:"></asp:Label>
-                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtIdBuscarArticulo" runat="server"></asp:TextBox>
                         <asp:Button ID="btnBuscararticulosid" runat="server" Text="Buscar" OnClick="btnBuscararticulosid_Click" />
                     </td>
                     <td>&nbsp;</td>
