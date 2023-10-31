@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="LogearUsuario.cs" />
     <Compile Include="NegocioCategorias.cs" />
-    <Compile Include="NegocioCiudad.cs" />
+    <Compile Include="NegocioClientes.cs" />
     <Compile Include="NegocioProveedores.cs" />
     <Compile Include="NegocioArticulos.cs" />
     <Compile Include="NegocioProvincia.cs" />

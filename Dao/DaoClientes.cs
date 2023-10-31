@@ -21,7 +21,7 @@ namespace Dao
             return _datos.EjecutarProcedimientoAlmacenado(ref cmd, "sp_ModificarCliente");
         }
 
-        public DataTable ObtenerClientesParaMostrar(int id)
+        public DataTable ObtenerClientes(int id)
         {
             string consulta = "SELECT CNT.DNI, " +
                 "CNT.Apellido," +
@@ -43,10 +43,16 @@ namespace Dao
             return _datos.ObtenerTabla("Clientes", consulta);
         }
 
+        public int BorrarCliente(int id)
+        {
+            return _datos.EjecutarConsulta($"DELETE FROM Clientes WHERE Dni = {id}");
+        }
+
         private void ArmarParametrosModificar(ref SqlCommand cmd, Cliente cli)
         {
             cmd.Parameters.AddWithValue("@DNI", cli.Dni);
             cmd.Parameters.AddWithValue("@APELLIDO", cli.Apellido);
+            cmd.Parameters.AddWithValue("@NOMBRE", cli.Nombre);
             cmd.Parameters.AddWithValue("@ALIAS", cli.Usuario.Alias);
             cmd.Parameters.AddWithValue("@CONTRASENIA", cli.Usuario.Contrasenia);
             cmd.Parameters.AddWithValue("@TELEFONO", cli.Telefono);

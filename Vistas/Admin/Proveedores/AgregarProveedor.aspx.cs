@@ -13,16 +13,17 @@ namespace Vistas.Admin.Proveedores
 {
     public partial class AgregarProveedor : System.Web.UI.Page
     {
-        private NegocioCiudad negocioCiudad = new NegocioCiudad();
-        private NegocioProvincia negocioProvincia = new NegocioProvincia();
+        private NegocioProveedores _negocio = new NegocioProveedores();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                ddlProvincia.DataSource = _negocio.ObtenerProvincias();
                 ddlProvincia.DataValueField = "CodigoProvincia";
                 ddlProvincia.DataTextField = "NombreProvincia";
-                ddlProvincia.DataSource = negocioProvincia.ObtenerProvincias();
                 ddlProvincia.DataBind();
+<<<<<<< Updated upstream
 
 
                 ddlCiudad.DataValueField = "CodigoCiudad";
@@ -31,43 +32,57 @@ namespace Vistas.Admin.Proveedores
                 ddlCiudad.DataBind();
 
 
+=======
+>>>>>>> Stashed changes
             }
-
-
         }
 
         protected void ddlProvincia_SelectedIndexChanged(object sender, EventArgs e)
         {
+<<<<<<< Updated upstream
             string id = ddlProvincia.SelectedValue;
 
 
             for (int i = 1; i < ddlCiudad.Items.Count; i++)
+=======
+            if (ddlProvincia.SelectedValue != "--Seleccionar--")
+>>>>>>> Stashed changes
             {
-                ListItem item = ddlCiudad.Items[i];
-                item.Enabled = item.Value != id;
-
-
+                CargarCiudades(idProvincia: int.Parse(ddlProvincia.SelectedValue));
             }
+<<<<<<< Updated upstream
 
+=======
+            else
+            {
+                ddlCiudad.Items.Clear();
+                ddlCiudad.Items.Add(new ListItem("--Seleccione una provincia--", "--Seleccione una provincia--"));
+            }
+>>>>>>> Stashed changes
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
             Proveedor proveedor = new Proveedor();
+            Ciudad ciudad = new Ciudad();
+            ciudad.Codigo = int.Parse(ddlCiudad.SelectedValue);
 
-            proveedor.Nombre = tbNombreProveedor.Text;
-            proveedor.Telefono = tbTelefono.Text;
-            proveedor.Email = tbEmail.Text;
-            proveedor.Direccion = tbDireccion.Text;
-            proveedor.Ciudad = Convert.ToInt32(ddlCiudad.SelectedValue);
+            proveedor.Nombre = txtNombreProveedor.Text.Trim();
+            proveedor.Telefono = txtTelefono.Text.Trim();
+            proveedor.Email = txtEmail.Text.Trim();
+            proveedor.Direccion = txtDireccion.Text.Trim();
+            proveedor.Ciudad = ciudad;
 
-            NegocioProveedores negocioProveedores = new NegocioProveedores();
-
-            if (!negocioProveedores.AgregarProveedor(proveedor))
-            {
+            if (!_negocio.AgregarProveedor(proveedor))
                 lblError.Text = "No se pudo agregar el proveedor";
-            }
+        }
 
+        private void CargarCiudades(int id = 0, int idProvincia = 0)
+        {
+            ddlCiudad.DataSource = _negocio.ObtenerCiudades(id, idProvincia);
+            ddlCiudad.DataValueField = "CodigoCiudad";
+            ddlCiudad.DataTextField = "NombreCiudad";
+            ddlCiudad.DataBind();
         }
     }
 }

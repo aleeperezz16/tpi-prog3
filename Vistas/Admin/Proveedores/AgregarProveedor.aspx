@@ -48,54 +48,60 @@
             <tr>
                 <td class="auto-style2">Nombre:</td>
                 <td class="auto-style3">
-                    <asp:TextBox ID="tbNombreProveedor" runat="server" Width="259px"></asp:TextBox>
+                    <asp:TextBox ID="txtNombreProveedor" runat="server" Width="259px"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="rfvNombreProveedor" runat="server" ControlToValidate="tbNombreProveedor" ErrorMessage="Ingrese Nombre"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvNombreProveedor" runat="server" ControlToValidate="txtNombreProveedor" ErrorMessage="Ingrese Nombre"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style2">Telefono:</td>
                 <td class="auto-style3">
-                    <asp:TextBox ID="tbTelefono" runat="server" Width="258px"></asp:TextBox>
+                    <asp:TextBox ID="txtTelefono" runat="server" Width="258px"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="rfvTelefono" runat="server" ControlToValidate="tbTelefono" ErrorMessage="Ingrese Telefono"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvTelefono" runat="server" ControlToValidate="txtTelefono" ErrorMessage="Ingrese Telefono"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style5">EMail:</td>
                 <td class="auto-style6">
-                    <asp:TextBox ID="tbEmail" runat="server" Width="256px"></asp:TextBox>
+                    <asp:TextBox ID="txtEmail" runat="server" Width="256px"></asp:TextBox>
                 </td>
                 <td class="auto-style7">
-                    <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="tbEmail" ErrorMessage="Ingrese Email"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail" ErrorMessage="Ingrese Email"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style2">Direccion:</td>
                 <td class="auto-style3">
-                    <asp:TextBox ID="tbDireccion" runat="server" CssClass="auto-style4" Width="256px"></asp:TextBox>
+                    <asp:TextBox ID="txtDireccion" runat="server" CssClass="auto-style4" Width="256px"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="rfvDireccion" runat="server" ControlToValidate="tbDireccion" ErrorMessage="Ingrese Direccion"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvDireccion" runat="server" ControlToValidate="txtDireccion" ErrorMessage="Ingrese Direccion"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style2">Provincia:</td>
                 <td class="auto-style3">
-                    <asp:DropDownList ID="ddlProvincia" runat="server" AutoPostBack="True" Height="16px" OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged" Width="114px">
+                    <asp:DropDownList ID="ddlProvincia" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged" Width="180px" AppendDataBoundItems="True">
+                        <asp:ListItem>--Seleccionar--</asp:ListItem>
                     </asp:DropDownList>
                 </td>
-                <td>&nbsp;</td>
+                <td>
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="ddlProvincia" InitialValue="--Seleccionar--">Seleccione una provincia</asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style2">Ciudad:</td>
                 <td class="auto-style3">
-                    <asp:DropDownList ID="ddlCiudad" runat="server" Height="16px" Width="110px">
+                    <asp:DropDownList ID="ddlCiudad" runat="server" Width="180px">
+                        <asp:ListItem>--Seleccione una provincia--</asp:ListItem>
                     </asp:DropDownList>
                 </td>
-                <td>&nbsp;</td>
+                <td>
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="ddlCiudad" InitialValue="--Seleccione una provincia--">Seleccione una ciudad</asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style2">&nbsp;</td>

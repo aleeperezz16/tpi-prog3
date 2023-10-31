@@ -51,40 +51,31 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// Control TextBox1.
+        /// Control lblBuscarClientePorId.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox lblBuscarClientePorId;
 
         /// <summary>
-        /// Control btnBuscarclientesid.
+        /// Control btnBuscarClientePorId.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscarclientesid;
+        protected global::System.Web.UI.WebControls.Button btnBuscarClientePorId;
 
         /// <summary>
-        /// Control dtlBuscarclientes.
+        /// Control gdvClientes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dtlBuscarclientes;
-
-        /// <summary>
-        /// Control sqldsBuscarclientes.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sqldsBuscarclientes;
+        protected global::System.Web.UI.WebControls.GridView gdvClientes;
 
         /// <summary>
         /// Control lbObservaciones1.
