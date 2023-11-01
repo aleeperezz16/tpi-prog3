@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using Entidades;
+using System.Data.SqlClient;
 
 namespace Dao
 {
@@ -15,12 +16,16 @@ namespace Dao
 
         public int AgregarCategoria(Categoria cat)
         {
-            return _datos.EjecutarConsulta($"INSERT INTO Categorias (NombreCategoria, Descripcion) VALUES ({cat.Nombre}, {cat.Descripcion})");
+            SqlCommand cmd = new SqlCommand();
+            ArmarParametrosAgregar(ref cmd, cat);
+            return _datos.EjecutarProcedimientoAlmacenado(ref cmd, "sp_AgregarCategoria");
         }
 
         public int ModificarCategoria(Categoria cat)
         {
-            return _datos.EjecutarConsulta($"UPDATE Categorias SET NombreCategoria = {cat.Nombre}, Descripcion = {cat.Descripcion} WHERE IDCategoria = {cat.Id}");
+            SqlCommand cmd = new SqlCommand();
+            ArmarParametrosModificar(ref cmd, cat);
+            return _datos.EjecutarProcedimientoAlmacenado(ref cmd, "sp_ModificarCategoria");
         }
 
         public int BorrarCategoria(int id)
@@ -43,6 +48,20 @@ namespace Dao
                 consulta += $" WHERE IDCategoria = {id}";
 
             return _datos.ObtenerTabla("Categorias", consulta);
+        }
+
+        private void ArmarParametrosAgregar(ref SqlCommand cmd, Categoria cat)
+        {
+
+            cmd.Parameters.AddWithValue("@NOMBRECAT", cat.Nombre);
+            cmd.Parameters.AddWithValue("@DESCRIP", cat.Descripcion);
+        }
+        private void ArmarParametrosModificar(ref SqlCommand cmd, Categoria cat)
+        {
+
+            cmd.Parameters.AddWithValue("@IDCAT", cat.Id);
+            cmd.Parameters.AddWithValue("@NOMBRECAT", cat.Nombre);
+            cmd.Parameters.AddWithValue("@DESCRIP", cat.Descripcion);
         }
 
     }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 using Entidades;
 using Negocio;
 
@@ -14,20 +15,33 @@ namespace Vistas.Admin.Categorias
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lblResultado.Text = "";
         }
 
         protected void btnAgregarcat_Click(object sender, EventArgs e)
         {
             Categoria nuevacategoria = new Categoria();
-            
+           
             NegocioCategorias manejoCat = new NegocioCategorias();
 
             nuevacategoria.Nombre = tbNombre.Text.Trim();
             nuevacategoria.Descripcion = tbDescripcion.Text.Trim();
 
-
-            lblResultado.Text = manejoCat.agregarCategoria(nuevacategoria) ? "La Categoria se ha agregado con exito" : "No se pudo agregar la categoria";
+            tbNombre.Text = "";
+            tbDescripcion.Text = "";
+            
+                bool agrego = manejoCat.agregarCategoria(nuevacategoria);
+            if (!agrego) 
+            {
+                MessageBox.Show("Se agregó la Categoría correctamente","Mensaje");
+                //lblResultado.Text = "Se agregó la categoría correctamente";
+            }
+            else
+            {
+                MessageBox.Show("No se pudo agregar la categoria", "Mensaje");
+               // lblResultado.Text = "No se pudo agregar la categoria ";
+            }
+            
         }
        
     }

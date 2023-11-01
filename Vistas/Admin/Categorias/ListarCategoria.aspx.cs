@@ -15,17 +15,17 @@ namespace Vistas.Admin.Categorias
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(IsPostBack == false)
+            if(!IsPostBack)
             {
                 cargarCategoriasEnGrilla();
             }
 
         }
-
+        
         //PARA ELIMINAR UNA CATEGORIA A TRAVES DEL ID SELECCIONADO
         protected void gdvCategorias_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            int s_IdCategoria = Convert.ToInt32(((Label)gdvCategorias.Rows[e.RowIndex].FindControl("lb_eit_IDcategoria")).Text);
+            int s_IdCategoria = Convert.ToInt32(((Label)gdvCategorias.Rows[e.RowIndex].FindControl("lbl_it_IDCategoria")).Text);
             NegocioCategorias negocio = new NegocioCategorias();
             bool Borro = negocio.eliminarCategoria(s_IdCategoria);
 
@@ -60,9 +60,9 @@ namespace Vistas.Admin.Categorias
         {
             NegocioCategorias _negocioCat = new NegocioCategorias();
             Categoria cat = new Categoria();
-            int s_IdCategoria = Convert.ToInt32(((Label)gdvCategorias.Rows[e.RowIndex].FindControl("lb_eit_IDcategoria")).Text);
-            string s_Nombrecat = ((TextBox)gdvCategorias.Rows[e.RowIndex].FindControl("lb_eit_NombreCategoria")).Text;
-            string s_Descripcion = ((TextBox)gdvCategorias.Rows[e.RowIndex].FindControl("lb_eit_Descripcion")).Text;
+            int s_IdCategoria = Convert.ToInt32(((Label)gdvCategorias.Rows[e.RowIndex].FindControl("lbl_eit_IDCategoria")).Text);
+            string s_Nombrecat = ((TextBox)gdvCategorias.Rows[e.RowIndex].FindControl("tbt_eit_NombreCategoria")).Text;
+            string s_Descripcion = ((TextBox)gdvCategorias.Rows[e.RowIndex].FindControl("tbt_eit_DescripcionCategoria")).Text;
 
             cat.Id = s_IdCategoria;
             cat.Nombre = s_Nombrecat;
@@ -84,7 +84,7 @@ namespace Vistas.Admin.Categorias
             gdvCategorias.PageIndex = e.NewPageIndex;
             cargarCategoriasEnGrilla();
         }
-
+        
         //PARA BUSCAR POR EL ID INGRESADO
         protected void Button1_Click(object sender, EventArgs e)
         {
@@ -93,7 +93,7 @@ namespace Vistas.Admin.Categorias
             gdvCategorias.DataBind();
         }
 
-
+        
         //CARGA TODAS LAS CATEGORIAS
         private void cargarCategoriasEnGrilla()
         {

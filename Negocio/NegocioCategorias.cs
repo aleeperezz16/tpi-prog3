@@ -45,11 +45,7 @@ namespace Negocio
             DaoCategorias dao = new DaoCategorias();
             int cantFilas = 0;
 
-           
-            /*if (dao.existeCategoría(cat) == false)
-            {
-                
-            }*/
+          
             cantFilas = dao.AgregarCategoria(cat);
 
             if (cantFilas == 1)

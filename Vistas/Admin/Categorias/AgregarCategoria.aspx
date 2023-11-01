@@ -62,6 +62,8 @@
                 </td>
                 <td class="auto-style6" colspan="2">
                     <asp:TextBox ID="tbNombre" runat="server"></asp:TextBox>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:RequiredFieldValidator ID="rfvNombreCategoria" runat="server" ControlToValidate="tbNombre">Ingrese un nombre de Categoria</asp:RequiredFieldValidator>
                 </td>
                 <td>&nbsp;</td>
             </tr>
@@ -95,9 +97,9 @@
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style3">&nbsp;</td>
-                <td class="auto-style6" colspan="2">&nbsp;</td>
-                <td>&nbsp;</td>
+                <td class="auto-style4"></td>
+                <td class="auto-style7" colspan="2"></td>
+                <td class="auto-style2"></td>
             </tr>
             <tr>
                 <td class="auto-style3">&nbsp;</td>
