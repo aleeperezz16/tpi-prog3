@@ -14,36 +14,15 @@ namespace Dao
 
         public DaoUsuarios() { }
 
-        public char VerificarUsuario(string alias,string password)
+        public DataTable ObtenerUsuario(Usuario usuario)
         {
-            char Resultado = 'E';
-
-            string consulta = $"SELECT * FROM LOGINUSUARIOS WHERE Alias ={alias} AND Contrasenia = {password}";
-
-            int Seleccion = _datos.EjecutarConsulta(consulta);
-
-            if ( Seleccion == 1)
+            DataTable data =_datos.ObtenerTabla("Usuario", $"SELECT Alias, Contrasenia, Tipo FROM LOGINUSUARIOS WHERE Estado = 1 AND Alias = '{usuario.Alias}' AND Contrasenia = '{usuario.Contrasenia}'");
+            if (data?.Rows.Count == 1)
             {
-                DataTable usuario = _datos.ObtenerTabla("user", consulta);
-
-                int estado = usuario.Rows[0].Field<int>("Estado");
-
-                if (estado == 1) 
-                { 
-                    Resultado = usuario.Rows[0].Field<char>("Tipo");
-                }
-
+                return data;
             }
 
-            return Resultado;
-        }
-
-        public DataTable obtenerCliente (string alias)
-        {
-            string consulta = $"SELECT * FROM LOGINUSUARIOS WHERE Alias ={alias}";
-            DataTable usuario = _datos.ObtenerTabla("user", consulta);
-
-            return usuario;
+            return null;
         }
     }
 }

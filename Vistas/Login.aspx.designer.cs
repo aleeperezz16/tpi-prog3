@@ -51,22 +51,22 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label lbUsuario;
 
         /// <summary>
-        /// Control tbUserName.
+        /// Control txtUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbUserName;
+        protected global::System.Web.UI.WebControls.TextBox txtUsuario;
 
         /// <summary>
-        /// Control rfvUserName.
+        /// Control rfvUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUserName;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUsuario;
 
         /// <summary>
         /// Control lbContraseña.
@@ -78,13 +78,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label lbContraseña;
 
         /// <summary>
-        /// Control tbUserPssw.
+        /// Control txtContrasenia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbUserPssw;
+        protected global::System.Web.UI.WebControls.TextBox txtContrasenia;
 
         /// <summary>
         /// Control rfvUserPssw.

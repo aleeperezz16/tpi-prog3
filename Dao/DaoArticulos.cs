@@ -72,7 +72,6 @@ namespace Dao
             cmd.Parameters.AddWithValue("@PRECIOVENTA", art.PrecioVenta);
             cmd.Parameters.AddWithValue("@PRECIOCOMPRA", art.PrecioCompra);
             cmd.Parameters.AddWithValue("@STOCK", art.Stock);
-            cmd.Parameters.AddWithValue("@ESTADO", art.Estado);
         }
     }
 }

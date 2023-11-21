@@ -20,21 +20,20 @@ namespace Dao
             string filtro = "";
 
             if (id > 0)
-                filtro += $"CodigoCiudad={id}";
+                filtro += $"CodigoCiudad = {id}";
 
             if (idProvincia > 0)
             {
                 if (filtro != "")
                     filtro += " AND ";
 
-                filtro += $"CodigoProvincia={idProvincia}";
+                filtro += $"CodigoProvincia = {idProvincia}";
             }
 
             if (filtro != "")
                 consulta += $" WHERE {filtro}";
 
             return _datos.ObtenerTabla("Ciudades", consulta);
-
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Negocio;
+using Entidades;
 
 namespace Vistas
 {
@@ -15,28 +16,25 @@ namespace Vistas
 
         }
 
-        protected void btnIngresar_Click(System.Object sender, System.EventArgs e)
+        protected void btnIngresar_Click(object sender, EventArgs e)
         {
-            LogearUsuario logearUsuario = new LogearUsuario();
-            char Tipo = logearUsuario.TipoDeIngreso(tbUserName.Text, tbUserPssw.Text);
-
-            switch (Tipo)
+            Usuario usuario = new Usuario
             {
-                case 'C':
-                    Session["Permisos"] = "Cliente";
-                    //Obtener datos del cliente
-                    break;
-                case 'V':
-                    Session["Permisos"] = "Vendedor";
-                    break;
-                case 'E':
-                    lblErrorLogeo.Text = "Error al ingresar, intente nuevamente";
-                    break;
-                default:
-                    break;
+                Alias = txtUsuario.Text.Trim(),
+                Contrasenia = txtContrasenia.Text.Trim()
+            };
+
+            LogearUsuario negocioLogIn = new LogearUsuario();
+            var usuarioLogueado = negocioLogIn.IniciarSesion(usuario);
+
+            if (usuarioLogueado == null)
+            {
+                lblErrorLogeo.Text = "Error al ingresar, intente nuevamente";
+                return;
             }
 
-
+            Session["Datos"] = usuarioLogueado;
+            Response.Redirect("Inicio.aspx");
         }
     }
 }

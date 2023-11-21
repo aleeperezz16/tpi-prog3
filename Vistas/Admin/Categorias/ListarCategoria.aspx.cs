@@ -98,7 +98,7 @@ namespace Vistas.Admin.Categorias
         private void cargarCategoriasEnGrilla()
         {
             NegocioCategorias negocio = new NegocioCategorias();
-            gdvCategorias.DataSource = negocio.ObtenerTodaslasCategorias();
+            gdvCategorias.DataSource = negocio.ObtenerCategorias();
             gdvCategorias.DataBind();
         }
 

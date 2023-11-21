@@ -43,13 +43,13 @@ namespace Dao
                 "P.Direccion," +
                 "C.NombreCiudad," +
                 "P.Estado " +
-                "FROM PROVEEDORES AS P INNER JOIN CIUDAD AS C " +
+                "FROM PROVEEDORES P INNER JOIN CIUDAD C " +
                 "ON P.CodigoCiudad = C.CodigoCiudad";
 
             string filtro = "";
 
             if (id > 0)
-                filtro += $"P.IDProveedor={id}";
+                filtro += $"P.IDProveedor = {id}";
 
             if (nombre != "")
             {
@@ -79,9 +79,9 @@ namespace Dao
             cmd.Parameters.AddWithValue("@IDPROVEEDOR", prov.Id);
             cmd.Parameters.AddWithValue("@NOMBRE", prov.Nombre);
             cmd.Parameters.AddWithValue("@TELEFONO", prov.Telefono);
+            cmd.Parameters.AddWithValue("@EMAIL", prov.Email);
             cmd.Parameters.AddWithValue("@DIRECCION", prov.Direccion);
             cmd.Parameters.AddWithValue("@CODCIUDAD", prov.Ciudad);
-            cmd.Parameters.AddWithValue("@ESTADO", prov.Estado);
         }
     }
 }

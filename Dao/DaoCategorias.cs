@@ -32,13 +32,6 @@ namespace Dao
         {
             return _datos.EjecutarConsulta($"DELETE FROM Categorias WHERE IDCategoria = {id}");
         }
-
-        public DataTable ObtenerTodasCategorias()
-        {
-            string consulta = "SELECT * FROM Categorias";
-
-            return _datos.ObtenerTabla("Categorias", consulta);
-        }
         
         public DataTable ObtenerCategorias(int id)
         {

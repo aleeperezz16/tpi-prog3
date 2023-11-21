@@ -11,26 +11,28 @@ namespace Negocio
 {
     public class LogearUsuario
     {
-        private DaoUsuarios dao;
-
         public LogearUsuario() { }
 
-        public char TipoDeIngreso(string user, string password)
+        public object IniciarSesion(Usuario usuario)
         {
-            char Tipo = dao.VerificarUsuario(user, password);
+            DaoUsuarios daoUsuarios = new DaoUsuarios();
+            DataTable data = daoUsuarios.ObtenerUsuario(usuario);
 
-            return Tipo;
-           
+            if (data != null)
+            {
+                usuario.Tipo = data.Rows[0].Field<string>("Tipo")[0];
+
+                if (usuario.Tipo != 'V')
+                {
+                    DaoClientes daoClientes = new DaoClientes();
+                    Cliente cliente = daoClientes.ObtenerCliente(usuario);
+                    return cliente;
+                }
+
+                return usuario;
+            }
+
+            return null;
         }
-
-        public Cliente DatosCliente(string Alias)
-        {
-            Cliente cliente = new Cliente();
-
-            return cliente;
-        }
-
     }
-
-
 }

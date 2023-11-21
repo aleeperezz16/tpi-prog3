@@ -21,7 +21,7 @@ namespace Dao
             return _datos.EjecutarProcedimientoAlmacenado(ref cmd, "sp_ModificarCliente");
         }
 
-        public DataTable ObtenerClientes(int id)
+        public DataTable ObtenerCliente(int id)
         {
             string consulta = "SELECT CNT.DNI, " +
                 "CNT.Apellido," +
@@ -34,13 +34,49 @@ namespace Dao
                 "P.NombreProvincia AS Provincia, " +
                 "CNT.Estado " +
                 "FROM CLIENTES CNT " +
-                "INNER JOIN CIUDAD C ON CNT.CodigoCiudad = C.CodigoCiudad " +
-                "INNER JOIN PROVINCIA P ON C.CodigoProvincia = P.CodigoProvincia ";
+                "INNER JOIN CIUDAD C ON CNT.CodigoCiudad = C.CodigoCiudad" +
+                "INNER JOIN PROVINCIA P ON C.CodigoProvincia = P.CodigoProvincia";
 
             if (id > 0)
-                consulta += $" WHERE Dni = {id}";
+                consulta += $" WHERE CNT.DNI = {id}";
 
             return _datos.ObtenerTabla("Clientes", consulta);
+        }
+
+        public Cliente ObtenerCliente(Usuario usuario)
+        {
+            string consulta = "SELECT " +
+                "C.Apellido," +
+                "C.Direccion," +
+                "C.DNI," +
+                "C.EMail," +
+                "C.Estado," +
+                "C.Nombre," +
+                "C.Telefono," +
+                "CI.CodigoCiudad," +
+                "CI.NombreCiudad AS Ciudad," +
+                "P.CodigoProvincia," +
+                "P.NombreProvincia AS Provincia " +
+                "FROM CLIENTES C INNER JOIN CIUDAD CI " +
+                "ON C.CodigoCiudad = CI.CodigoCiudad INNER JOIN PROVINCIA P " +
+                $"ON P.CodigoProvincia = CI.CodigoProvincia WHERE C.Alias = '{usuario.Alias}'";
+
+            DataTable dt = _datos.ObtenerTabla("Clientes", consulta);
+            DataRow dr = dt.Rows[0];
+            Provincia provincia = new Provincia(dr.Field<int>("CodigoProvincia"), dr.Field<string>("Provincia"));
+            Ciudad ciudad = new Ciudad(dr.Field<int>("CodigoCiudad"), dr.Field<string>("Ciudad"), provincia);
+
+            Cliente cliente = new Cliente(dr.Field<int>("DNI"),
+                dr.Field<string>("Apellido"),
+                dr.Field<string>("Nombre"),
+                usuario,
+                dr.Field<string>("Telefono"),
+                dr.Field<string>("EMail"),
+                dr.Field<string>("Direccion"),
+                ciudad,
+                dr.Field<bool>("Estado"));
+
+            return cliente;
         }
 
         public int BorrarCliente(int id)
@@ -59,7 +95,6 @@ namespace Dao
             cmd.Parameters.AddWithValue("@EMAIL", cli.Email);
             cmd.Parameters.AddWithValue("@DIRECCION", cli.Direccion);
             cmd.Parameters.AddWithValue("@CODCIUDAD", cli.Ciudad.Codigo);
-            cmd.Parameters.AddWithValue("@ESTADO", cli.Estado);
         }
     }
 }

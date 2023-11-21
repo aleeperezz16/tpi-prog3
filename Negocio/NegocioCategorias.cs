@@ -15,14 +15,7 @@ namespace Negocio
 
         public NegocioCategorias() { }
 
-        public DataTable ObtenerTodaslasCategorias()
-        {
-            DaoCategorias dao = new DaoCategorias();
-            return dao.ObtenerTodasCategorias();
-
-        }
-
-        public DataTable ObtenerCategorias(int id)
+        public DataTable ObtenerCategorias(int id = 0)
         {
             DaoCategorias dao = new DaoCategorias();
             return dao.ObtenerCategorias(id);

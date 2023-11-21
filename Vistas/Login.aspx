@@ -74,19 +74,19 @@
                         <asp:Label ID="lbUsuario" runat="server" Text="Usuario:"></asp:Label>
                     </td>
                     <td class="auto-style9">
-                        <asp:TextBox ID="tbUserName" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvUserName" runat="server" ControlToValidate="tbUserName" ErrorMessage="Ingrese usuario"></asp:RequiredFieldValidator>
+                        <asp:TextBox ID="txtUsuario" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvUsuario" runat="server" ControlToValidate="txtUsuario">Ingrese usuario</asp:RequiredFieldValidator>
                     </td>
                     <td class="auto-style9"></td>
                 </tr>
                 <tr>
                     <td class="auto-style7"></td>
                     <td class="auto-style8">
-                        <asp:Label ID="lbContraseña" runat="server" Text="Contraseña"></asp:Label>
+                        <asp:Label ID="lbContraseña" runat="server" Text="Contraseña:"></asp:Label>
                     </td>
                     <td class="auto-style9">
-                        <asp:TextBox ID="tbUserPssw" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvUserPssw" runat="server" ControlToValidate="tbUserPssw" ErrorMessage="Ingrese Contraseña"></asp:RequiredFieldValidator>
+                        <asp:TextBox ID="txtContrasenia" runat="server" TextMode="Password"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvUserPssw" runat="server" ControlToValidate="txtContrasenia">Ingrese contraseña</asp:RequiredFieldValidator>
                     </td>
                     <td class="auto-style9"></td>
                 </tr>

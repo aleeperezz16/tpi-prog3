@@ -16,7 +16,7 @@ namespace Negocio
 
         public DataTable ObtenerClientes(int id = 0)
         {
-            return _dao.ObtenerClientes(id);
+            return _dao.ObtenerCliente(id);
         }
 
         public bool EliminarCliente(int dni)
