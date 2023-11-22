@@ -32,16 +32,11 @@
         .auto-style6 {
             width: 212px;
             height: 49px;
+            text-align: center;
         }
 
         .auto-style7 {
             height: 49px;
-        }
-
-        .auto-style8 {
-            width: 212px;
-            text-align: center;
-            height: 26px;
         }
 
         .auto-style9 {
@@ -73,6 +68,31 @@
             width: 212px;
             text-align: center;
         }
+        .auto-style16 {
+            width: 212px;
+            text-align: center;
+            height: 33px;
+        }
+        .auto-style17 {
+            text-align: center;
+            height: 33px;
+        }
+        .auto-style18 {
+            height: 33px;
+        }
+        .auto-style19 {
+            width: 212px;
+            text-align: left;
+            height: 26px;
+        }
+        .auto-style20 {
+            height: 24px;
+            width: 212px;
+            text-align: center;
+        }
+        .auto-style21 {
+            height: 24px;
+        }
     </style>
 </head>
 <body>
@@ -85,7 +105,9 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style6"></td>
+                    <td class="auto-style6">
+                        <asp:Label ID="lbSecciones" runat="server" Text="▬ Secciones ▬" Font-Bold="True" Font-Italic="True" Font-Size="Large"></asp:Label>
+                    </td>
                     <td class="auto-style2">
                         <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Overline="False" Font-Size="XX-Large" Text="Home"></asp:Label>
                     </td>
@@ -93,104 +115,107 @@
                 </tr>
                 <tr>
                     <td class="auto-style13">
-                        <asp:Label ID="lbSecciones" runat="server" Text="▬ Secciones ▬" Font-Bold="True" Font-Italic="True" Font-Size="Large"></asp:Label>
+                        <asp:Label ID="lblSeccionarticulos" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Artículos▬"></asp:Label>
                     </td>
                     <td class="auto-style14"></td>
                     <td class="auto-style14"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style8">
-                        <asp:Label ID="lblSeccionarticulos" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Artículos▬"></asp:Label>
-                    </td>
+                    <td class="auto-style19">
+                        <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/Admin/Articulos/ListarArticulos.aspx">Listar Articulos</asp:HyperLink>
+                    &nbsp;U</td>
                     <td class="auto-style12">
                         <asp:Label ID="lbBienvenido" runat="server" Text="Bienvenido/a a este software de gestión."></asp:Label>
                     </td>
                     <td class="auto-style3"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style5">
-                        <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/Admin/Articulos/ListarArticulos.aspx">Listar Articulos</asp:HyperLink>
+                    <td class="auto-style10">
+                        <asp:HyperLink ID="hlAgregararticulos" runat="server" NavigateUrl="~/Admin/Articulos/AgregarArticulo.aspx">Agregar Articulos</asp:HyperLink>
                     </td>
-                    <td class="auto-style3">usuario/admin</td>
-                    <td class="auto-style3"></td>
+                    <td class="auto-style11">&nbsp;</td>
+                    <td class="auto-style11"></td>
+                </tr>
+                <tr>
+                    <td class="auto-style20">
+                        <asp:Label ID="lblSeccioncategoria" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Categoría▬"></asp:Label>
+                    </td>
+                    <td class="auto-style21">&nbsp;</td>
+                    <td class="auto-style21"></td>
+                </tr>
+                <tr>
+                    <td class="auto-style10">
+                        <asp:HyperLink ID="hlCategorias" runat="server" NavigateUrl="~/Admin/Categorias/ListarCategoria.aspx">Listar Categorías</asp:HyperLink>
+                    &nbsp;U</td>
+                    <td class="auto-style11">&nbsp;</td>
+                    <td class="auto-style11"></td>
                 </tr>
                 <tr>
                     <td class="auto-style5">
-                        <asp:HyperLink ID="hlAgregararticulos" runat="server" NavigateUrl="~/Admin/Articulos/AgregarArticulo.aspx">Agregar Articulos</asp:HyperLink>
+                        <asp:HyperLink ID="hlAgregarcategoria" runat="server" NavigateUrl="~/Admin/Categorias/AgregarCategoria.aspx">Agregar Categoría</asp:HyperLink>
                     </td>
-                    <td class="auto-style3">usuario/admin</td>
+                    <td class="auto-style3">&nbsp;</td>
                     <td class="auto-style3"></td>
                 </tr>
                 <tr>
                     <td class="auto-style15">
-                        <asp:Label ID="lblSeccioncategoria" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Categoría▬"></asp:Label>
-                    </td>
-                    <td class="auto-style11">usuario/admin</td>
-                    <td class="auto-style11"></td>
-                </tr>
-                <tr>
-                    <td class="auto-style5">
-                        <asp:HyperLink ID="hlCategorias" runat="server" NavigateUrl="~/Admin/Categorias/ListarCategoria.aspx">Listar Categorías</asp:HyperLink>
-                    </td>
-                    <td class="auto-style3">admin</td>
-                    <td class="auto-style3"></td>
-                </tr>
-                <tr>
-                    <td class="auto-style10">
-                        <asp:HyperLink ID="hlAgregarcategoria" runat="server" NavigateUrl="~/Admin/Categorias/AgregarCategoria.aspx">Agregar Categoría</asp:HyperLink>
-                    </td>
-                    <td class="auto-style11">admin</td>
-                    <td class="auto-style11"></td>
-                </tr>
-                <tr>
-                    <td class="auto-style5">
                         <asp:Label ID="lblSeccionproveedores" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Proveedores▬"></asp:Label>
                     </td>
-                    <td class="auto-style3">admin/ usuario, su propio cliente</td>
+                    <td class="auto-style11">&nbsp;</td>
+                    <td class="auto-style11"></td>
+                </tr>
+                <tr>
+                    <td class="auto-style19">
+                        <asp:HyperLink ID="hlListarproveedores" runat="server" NavigateUrl="~/Admin/Proveedores/ListarProveedores.aspx">Listar Proveedores</asp:HyperLink>
+                    &nbsp;</td>
+                    <td class="auto-style3">&nbsp;</td>
                     <td class="auto-style3"></td>
                 </tr>
                 <tr>
                     <td class="auto-style4">
-                        <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/FormularioProveedores.aspx">Proveedores</asp:HyperLink>
+                        <asp:HyperLink ID="hlAgregarproveedores" runat="server" NavigateUrl="~/Admin/Proveedores/AgregarProveedor.aspx">Agregar Proveedores</asp:HyperLink>
                     </td>
                     <td>&nbsp;&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style5">&nbsp;</td>
+                    <td class="auto-style5">
+                        <asp:HyperLink ID="hlListarpedidos" runat="server" NavigateUrl="~/Admin/ListarPedidos.aspx">Listar Pedidos</asp:HyperLink>
+                    </td>
                     <td class="auto-style3"></td>
                     <td class="auto-style3"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td class="auto-style9">
+                    <td class="auto-style16">
+                        <asp:Label ID="lblSeccionVentas" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Ventas▬"></asp:Label>
+                    </td>
+                    <td class="auto-style17">
                         <asp:Button ID="btnCerrarsesion" runat="server" Text="Cerrar sesión" OnClick="btnCerrarsesion_Click" />
                     </td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style18"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style5">
-                        <asp:HyperLink ID="hlVentas" runat="server" NavigateUrl="~/FormularioVentas.aspx">Ventas</asp:HyperLink>
-                    </td>
-                    <td class="auto-style12">
-                    </td>
-                    <td class="auto-style3"></td>
-                </tr>
-                <tr>
-                    <td class="auto-style5">
-                        <asp:HyperLink ID="hlPedidos" runat="server" NavigateUrl="~/FormularioPedidos.aspx">Pedidos</asp:HyperLink>
-                    </td>
+                    <td class="auto-style19">
+                        <asp:HyperLink ID="hlListarventas" runat="server" NavigateUrl="~/Admin/ListarVentas.aspx">Listar Ventas</asp:HyperLink>
+                    &nbsp;U</td>
                     <td class="auto-style12">
                     </td>
                     <td class="auto-style3"></td>
                 </tr>
                 <tr>
                     <td class="auto-style4">
-                        <asp:HyperLink ID="hlClientes" runat="server" NavigateUrl="~/FormularioClientes.aspx">Clientes</asp:HyperLink>
+                        <asp:HyperLink ID="hlListarclientes" runat="server" NavigateUrl="~/Admin/ListarClientes.aspx">Listar Clientes</asp:HyperLink>
                     </td>
                     <td class="auto-style9">
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="auto-style5">
                         &nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style12">
+                        </td>
+                    <td class="auto-style3"></td>
                 </tr>
                 <tr>
                     <td class="auto-style4">&nbsp;</td>

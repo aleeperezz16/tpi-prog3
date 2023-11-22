@@ -24,15 +24,6 @@ namespace Vistas
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control Label1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-
-        /// <summary>
         /// Control lbSecciones.
         /// </summary>
         /// <remarks>
@@ -40,6 +31,15 @@ namespace Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbSecciones;
+
+        /// <summary>
+        /// Control Label1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
         /// Control lblSeccionarticulos.
@@ -51,15 +51,6 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label lblSeccionarticulos;
 
         /// <summary>
-        /// Control lbBienvenido.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbBienvenido;
-
-        /// <summary>
         /// Control HyperLink6.
         /// </summary>
         /// <remarks>
@@ -67,6 +58,15 @@ namespace Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink HyperLink6;
+
+        /// <summary>
+        /// Control lbBienvenido.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbBienvenido;
 
         /// <summary>
         /// Control hlAgregararticulos.
@@ -114,13 +114,40 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label lblSeccionproveedores;
 
         /// <summary>
-        /// Control HyperLink5.
+        /// Control hlListarproveedores.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink5;
+        protected global::System.Web.UI.WebControls.HyperLink hlListarproveedores;
+
+        /// <summary>
+        /// Control hlAgregarproveedores.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlAgregarproveedores;
+
+        /// <summary>
+        /// Control hlListarpedidos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlListarpedidos;
+
+        /// <summary>
+        /// Control lblSeccionVentas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSeccionVentas;
 
         /// <summary>
         /// Control btnCerrarsesion.
@@ -132,30 +159,21 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Button btnCerrarsesion;
 
         /// <summary>
-        /// Control hlVentas.
+        /// Control hlListarventas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlVentas;
+        protected global::System.Web.UI.WebControls.HyperLink hlListarventas;
 
         /// <summary>
-        /// Control hlPedidos.
+        /// Control hlListarclientes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlPedidos;
-
-        /// <summary>
-        /// Control hlClientes.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlClientes;
+        protected global::System.Web.UI.WebControls.HyperLink hlListarclientes;
     }
 }

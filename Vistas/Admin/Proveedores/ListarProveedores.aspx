@@ -28,6 +28,12 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <asp:HyperLink ID="hlVolverInicio" runat="server" NavigateUrl="~/Inicio.aspx">Volver al Menú Principal</asp:HyperLink>
+                    </td>
+                </tr>
+                <tr>
                     <td class="auto-style2"><strong>Proveedores</strong></td>
                     <td class="auto-style2">&nbsp;</td>
                 </tr>

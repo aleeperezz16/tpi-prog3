@@ -30,6 +30,10 @@
         .auto-style7 {
             height: 26px;
         }
+        .auto-style8 {
+            text-align: right;
+            height: 26px;
+        }
     </style>
 </head>
 <body>
@@ -41,9 +45,11 @@
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style2">&nbsp;</td>
-                <td class="auto-style3">&nbsp;</td>
-                <td>&nbsp;</td>
+                <td class="auto-style5"></td>
+                <td class="auto-style6"></td>
+                <td class="auto-style8">
+                    <asp:HyperLink ID="hlVolverInicio" runat="server" NavigateUrl="~/Inicio.aspx">Volver al Menú Principal</asp:HyperLink>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style2">Nombre:</td>

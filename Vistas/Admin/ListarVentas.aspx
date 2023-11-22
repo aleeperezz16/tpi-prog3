@@ -40,6 +40,11 @@
                     <td colspan="2">&nbsp;</td>
                 </tr>
                 <tr>
+                    <td colspan="2">
+                        <asp:HyperLink ID="hlVolverInicio" runat="server" NavigateUrl="~/Inicio.aspx">Volver al Menú Principal</asp:HyperLink>
+                    </td>
+                </tr>
+                <tr>
                     <td class="auto-style2"><strong>Listado de ventas</strong></td>
                     <td class="auto-style2"><strong>Filtros de búsqueda</strong></td>
                 </tr>
