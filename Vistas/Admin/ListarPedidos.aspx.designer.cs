@@ -51,13 +51,13 @@ namespace Vistas.Admin
         protected global::System.Web.UI.WebControls.Label lbBuscarpedidosID;
 
         /// <summary>
-        /// Control lblBuscarPedidoPorId.
+        /// Control tbBuscarPedidoPorId.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lblBuscarPedidoPorId;
+        protected global::System.Web.UI.WebControls.TextBox tbBuscarPedidoPorId;
 
         /// <summary>
         /// Control btnBuscarPedidoPorId.
@@ -67,6 +67,15 @@ namespace Vistas.Admin
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnBuscarPedidoPorId;
+
+        /// <summary>
+        /// Control gdvListarPedidos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gdvListarPedidos;
 
         /// <summary>
         /// Control lbObservaciones1.

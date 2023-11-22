@@ -44,6 +44,7 @@
     <Compile Include="LogearUsuario.cs" />
     <Compile Include="NegocioCategorias.cs" />
     <Compile Include="NegocioClientes.cs" />
+    <Compile Include="NegocioPedidos.cs" />
     <Compile Include="NegocioProveedores.cs" />
     <Compile Include="NegocioArticulos.cs" />
     <Compile Include="NegocioProvincia.cs" />
@@ -59,6 +60,9 @@
       <Project>{f6be9ad7-a935-4166-82ff-c5062d5ac6bc}</Project>
       <Name>Entidades</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

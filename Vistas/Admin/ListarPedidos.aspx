@@ -55,8 +55,8 @@
                     <td class="auto-style8"></td>
                     <td class="auto-style5">
                         <asp:Label ID="lbBuscarpedidosID" runat="server" Text="Buscar  cliente por ID:"></asp:Label>
-                        <asp:TextBox ID="lblBuscarPedidoPorId" runat="server"></asp:TextBox>
-                        <asp:Button ID="btnBuscarPedidoPorId" runat="server" Text="Buscar" />
+                        <asp:TextBox ID="tbBuscarPedidoPorId" runat="server"></asp:TextBox>
+                        <asp:Button ID="btnBuscarPedidoPorId" runat="server" Text="Buscar" OnClick="btnBuscarPedidoPorId_Click" />
                     </td>
                     <td class="auto-style2"></td>
                 </tr>
@@ -67,7 +67,42 @@
                 </tr>
                 <tr>
                     <td class="auto-style9">&nbsp;</td>
-                    <td class="auto-style6">&nbsp;</td>
+                    <td class="auto-style6">
+                        <asp:GridView ID="gdvListarPedidos" runat="server" AutoGenerateColumns="False">
+                            <Columns>
+                                <asp:TemplateField HeaderText="IDPedido">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbl_it_IDPedido" runat="server" Text='<%# Bind ("IDPedido") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="IDArticulo">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbl_it_IDArticulo" runat="server" Text='<%# Bind ("IDArticulo") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="IDProveedor">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbl_it_IDProveedor" runat="server" Text='<%# Bind("IDProveedor") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Cantidad">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbl_it_Cantidad" runat="server" Text='<%# Bind ("Cantidad") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="FechaPedido">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbl_it_FechaPedido" runat="server" Text='<%# Bind("FechaPedido") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="CostoTotal">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbl_it_CostoTotal" runat="server" Text='<%# Bind ("CostoTotal") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
+                    </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
