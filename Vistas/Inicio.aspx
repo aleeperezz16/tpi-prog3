@@ -21,16 +21,16 @@
         }
 
         .auto-style4 {
-            width: 212px;
+            width: 179px;
         }
 
         .auto-style5 {
             height: 26px;
-            width: 212px;
+            width: 179px;
         }
 
         .auto-style6 {
-            width: 212px;
+            width: 179px;
             height: 49px;
             text-align: center;
         }
@@ -45,7 +45,7 @@
 
         .auto-style10 {
             height: 25px;
-            width: 212px;
+            width: 179px;
         }
 
         .auto-style11 {
@@ -56,7 +56,7 @@
             height: 26px;
         }
         .auto-style13 {
-            width: 212px;
+            width: 179px;
             height: 30px;
             text-align: center;
         }
@@ -65,12 +65,12 @@
         }
         .auto-style15 {
             height: 25px;
-            width: 212px;
+            width: 179px;
             text-align: center;
         }
         .auto-style16 {
-            width: 212px;
-            text-align: center;
+            width: 179px;
+            text-align: left;
             height: 33px;
         }
         .auto-style17 {
@@ -81,17 +81,22 @@
             height: 33px;
         }
         .auto-style19 {
-            width: 212px;
+            width: 179px;
             text-align: left;
             height: 26px;
         }
         .auto-style20 {
             height: 24px;
-            width: 212px;
+            width: 179px;
             text-align: center;
         }
         .auto-style21 {
             height: 24px;
+        }
+        .auto-style22 {
+            width: 179px;
+            text-align: center;
+            height: 26px;
         }
     </style>
 </head>
@@ -187,7 +192,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style16">
-                        <asp:Label ID="lblSeccionVentas" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Ventas▬"></asp:Label>
+                        <asp:HyperLink ID="hlAgregarPedido" runat="server" NavigateUrl="~/Admin/Pedidos/AgregarPedido.aspx">Agregar Pedido</asp:HyperLink>
                     </td>
                     <td class="auto-style17">
                         <asp:Button ID="btnCerrarsesion" runat="server" Text="Cerrar sesión" OnClick="btnCerrarsesion_Click" />
@@ -195,24 +200,25 @@
                     <td class="auto-style18"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style19">
-                        <asp:HyperLink ID="hlListarventas" runat="server" NavigateUrl="~/Admin/ListarVentas.aspx">Listar Ventas</asp:HyperLink>
-                    &nbsp;U</td>
+                    <td class="auto-style22">
+                        <asp:Label ID="lblSeccionVentas" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Ventas▬"></asp:Label>
+                    </td>
                     <td class="auto-style12">
                     </td>
                     <td class="auto-style3"></td>
                 </tr>
                 <tr>
                     <td class="auto-style4">
-                        <asp:HyperLink ID="hlListarclientes" runat="server" NavigateUrl="~/Admin/ListarClientes.aspx">Listar Clientes</asp:HyperLink>
-                    </td>
+                        <asp:HyperLink ID="hlListarventas" runat="server" NavigateUrl="~/Admin/ListarVentas.aspx">Listar Ventas</asp:HyperLink>
+                    &nbsp;U</td>
                     <td class="auto-style9">
                     </td>
                     <td></td>
                 </tr>
                 <tr>
                     <td class="auto-style5">
-                        &nbsp;</td>
+                        <asp:HyperLink ID="hlListarclientes" runat="server" NavigateUrl="~/Admin/ListarClientes.aspx">Listar Clientes</asp:HyperLink>
+                    </td>
                     <td class="auto-style12">
                         </td>
                     <td class="auto-style3"></td>

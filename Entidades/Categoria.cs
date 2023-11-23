@@ -20,5 +20,6 @@ namespace Entidades
             Nombre = nombre;
             Descripcion = descripcion;
         }
+
     }
 }

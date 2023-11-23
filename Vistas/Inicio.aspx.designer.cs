@@ -141,13 +141,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.HyperLink hlListarpedidos;
 
         /// <summary>
-        /// Control lblSeccionVentas.
+        /// Control hlAgregarPedido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSeccionVentas;
+        protected global::System.Web.UI.WebControls.HyperLink hlAgregarPedido;
 
         /// <summary>
         /// Control btnCerrarsesion.
@@ -157,6 +157,15 @@ namespace Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCerrarsesion;
+
+        /// <summary>
+        /// Control lblSeccionVentas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSeccionVentas;
 
         /// <summary>
         /// Control hlListarventas.

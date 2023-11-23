@@ -75,6 +75,7 @@
     <Content Include="Admin\ListarClientes.aspx" />
     <Content Include="Admin\ListarPedidos.aspx" />
     <Content Include="Admin\ListarVentas.aspx" />
+    <Content Include="Admin\Pedidos\AgregarPedido.aspx" />
     <Content Include="Admin\Proveedores\AgregarProveedor.aspx" />
     <Content Include="Admin\Proveedores\ListarProveedores.aspx" />
     <Content Include="Inicio.aspx" />
@@ -133,6 +134,13 @@
     </Compile>
     <Compile Include="Admin\ListarVentas.aspx.designer.cs">
       <DependentUpon>ListarVentas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pedidos\AgregarPedido.aspx.cs">
+      <DependentUpon>AgregarPedido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pedidos\AgregarPedido.aspx.designer.cs">
+      <DependentUpon>AgregarPedido.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Proveedores\AgregarProveedor.aspx.cs">
       <DependentUpon>AgregarProveedor.aspx</DependentUpon>

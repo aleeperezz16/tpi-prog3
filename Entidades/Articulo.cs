@@ -29,5 +29,8 @@ namespace Entidades
             Stock = stock;
             Estado = estado;
         }
+
     }
+
 }
+

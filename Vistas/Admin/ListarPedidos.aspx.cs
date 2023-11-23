@@ -27,7 +27,9 @@ namespace Vistas.Admin
             gdvListarPedidos.DataSource = negocio.ObtenerTablaPedidos();
             gdvListarPedidos.DataBind();
         }
-
+     
+        /// int id, Articulo articulo, Proveedor proveedor, int cantidad, DateTime fecha, decimal costoTotal
+     
         protected void btnBuscarPedidoPorId_Click(object sender, EventArgs e)
         {
             int num = Convert.ToInt32(tbBuscarPedidoPorId.Text.Trim());

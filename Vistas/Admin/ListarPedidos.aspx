@@ -68,19 +68,20 @@
                 <tr>
                     <td class="auto-style9">&nbsp;</td>
                     <td class="auto-style6">
-                        <asp:GridView ID="gdvListarPedidos" runat="server" AutoGenerateColumns="False">
+                        <asp:GridView ID="gdvListarPedidos" runat="server" AutoGenerateColumns="False" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" PageIndex="2">
+                            <AlternatingRowStyle BackColor="White" />
                             <Columns>
-                                <asp:TemplateField HeaderText="IDPedido">
+                                <asp:TemplateField HeaderText="ID Pedido">
                                     <ItemTemplate>
                                         <asp:Label ID="lbl_it_IDPedido" runat="server" Text='<%# Bind ("IDPedido") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="IDArticulo">
+                                <asp:TemplateField HeaderText="ID Articulo">
                                     <ItemTemplate>
                                         <asp:Label ID="lbl_it_IDArticulo" runat="server" Text='<%# Bind ("IDArticulo") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="IDProveedor">
+                                <asp:TemplateField HeaderText="ID Proveedor">
                                     <ItemTemplate>
                                         <asp:Label ID="lbl_it_IDProveedor" runat="server" Text='<%# Bind("IDProveedor") %>'></asp:Label>
                                     </ItemTemplate>
@@ -90,17 +91,27 @@
                                         <asp:Label ID="lbl_it_Cantidad" runat="server" Text='<%# Bind ("Cantidad") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="FechaPedido">
+                                <asp:TemplateField HeaderText="Fecha del Pedido">
                                     <ItemTemplate>
                                         <asp:Label ID="lbl_it_FechaPedido" runat="server" Text='<%# Bind("FechaPedido") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="CostoTotal">
+                                <asp:TemplateField HeaderText="Costo Total">
                                     <ItemTemplate>
                                         <asp:Label ID="lbl_it_CostoTotal" runat="server" Text='<%# Bind ("CostoTotal") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
+                            <EditRowStyle BackColor="#2461BF" />
+                            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                            <RowStyle BackColor="#EFF3FB" />
+                            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                            <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                            <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                            <SortedDescendingHeaderStyle BackColor="#4870BE" />
                         </asp:GridView>
                     </td>
                     <td>&nbsp;</td>

@@ -31,10 +31,13 @@ namespace Vistas.Admin.Categorias
 
             if (Borro)
             {
+                System.Windows.Forms.MessageBox.Show("Se Elimino correctamente la categoria", "Mensaje");
                 ///SE ELIMINO CORRECTAMENTE
 
             }
+            else
             {
+                System.Windows.Forms.MessageBox.Show("No se pudo eliminar la categoria, Checkee que no posea articulos adheridos a la misma", "Mensaje");
                 ///NO SE ELIMINO
             }
 

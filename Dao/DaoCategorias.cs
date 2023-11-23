@@ -30,7 +30,7 @@ namespace Dao
 
         public int BorrarCategoria(int id)
         {
-            return _datos.EjecutarConsulta($"DELETE FROM Categorias WHERE IDCategoria = {id}");
+            return _datos.EjecutarConsulta($"BEGIN TRY DELETE Categorias WHERE IDCategoria = {id} END TRY BEGIN CATCH RAISERROR ('Error al intentar borrar el registro',16,1) END CATCH");
         }
         
         public DataTable ObtenerCategorias(int id)

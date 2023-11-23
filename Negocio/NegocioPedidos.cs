@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using Dao;
+using Entidades;
 
 namespace Negocio
 {
@@ -19,6 +20,24 @@ namespace Negocio
             
             return _dao.ObtenerPedidos(id);
         }
+        
+
+        public bool agregarPedido(Pedido pedido)
+        {
+            DaoPedidos dao = new DaoPedidos();
+            int cantFilas = 0;
+
+
+            cantFilas = dao.AgregarPedido(pedido);
+
+            if (cantFilas == 1)
+                return true;
+            else
+                return false;
+        }
+        
+
+
 
 
     }

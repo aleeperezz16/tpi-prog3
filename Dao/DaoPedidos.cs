@@ -23,5 +23,25 @@ namespace Dao
 
             return _datos.ObtenerTabla("Pedidos", consulta);
         }
+
+
+        
+        public int AgregarPedido(Pedido pedido)
+        {
+            SqlCommand cmd = new SqlCommand();
+            ArmarParametrosAgregar(ref cmd, pedido);
+            return _datos.EjecutarProcedimientoAlmacenado(ref cmd, "sp_AgregarPedido");
+        }
+        
+        
+        private void ArmarParametrosAgregar(ref SqlCommand cmd, Pedido pedido)
+        {
+            cmd.Parameters.AddWithValue("@IDART", pedido.Articulo.Id);
+            cmd.Parameters.AddWithValue("@IDPROV", pedido.Proveedor.Id);
+            cmd.Parameters.AddWithValue("@CANT", pedido.Cantidad);
+            cmd.Parameters.AddWithValue("@TOTAL", pedido.CostoTotal);
+        }
+        
+
     }
 }

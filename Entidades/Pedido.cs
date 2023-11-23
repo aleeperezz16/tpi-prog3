@@ -17,6 +17,14 @@ namespace Entidades
 
         public Pedido() { }
 
+
+        public Pedido(Articulo articulo, Proveedor proveedor, int cantidad, decimal costoTotal)
+        {
+            Articulo = articulo;
+            Proveedor = proveedor;
+            Cantidad = cantidad;
+            CostoTotal = costoTotal;
+        }
         public Pedido(int id, Articulo articulo, Proveedor proveedor, int cantidad, DateTime fecha, decimal costoTotal)
         {
             Id = id;
@@ -26,5 +34,8 @@ namespace Entidades
             Fecha = fecha;
             CostoTotal = costoTotal;
         }
+
+
+
     }
 }

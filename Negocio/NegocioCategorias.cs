@@ -50,10 +50,7 @@ namespace Negocio
         {
             DaoCategorias dao = new DaoCategorias();
             int cantidadFilas = 0;
-            /*if (!Conexion.existe(consulta))
-            {
-                
-            }*/
+        
             cantidadFilas = dao.BorrarCategoria(id);
             if (cantidadFilas == 1)
             {
