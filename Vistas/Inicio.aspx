@@ -68,18 +68,6 @@
             width: 179px;
             text-align: center;
         }
-        .auto-style16 {
-            width: 179px;
-            text-align: left;
-            height: 33px;
-        }
-        .auto-style17 {
-            text-align: center;
-            height: 33px;
-        }
-        .auto-style18 {
-            height: 33px;
-        }
         .auto-style19 {
             width: 179px;
             text-align: left;
@@ -97,6 +85,15 @@
             width: 179px;
             text-align: center;
             height: 26px;
+        }
+        .auto-style23 {
+            width: 179px;
+            text-align: left;
+            height: 25px;
+        }
+        .auto-style24 {
+            text-align: center;
+            height: 25px;
         }
     </style>
 </head>
@@ -136,7 +133,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style10">
-                        <asp:HyperLink ID="hlAgregararticulos" runat="server" NavigateUrl="~/Admin/Articulos/AgregarArticulo.aspx">Agregar Articulos</asp:HyperLink>
+                        <asp:HyperLink ID="hlAgregararticulos" runat="server" NavigateUrl="~/Admin/Articulos/AgregarArticulo.aspx">Agregar Articulo</asp:HyperLink>
                     </td>
                     <td class="auto-style11">&nbsp;</td>
                     <td class="auto-style11"></td>
@@ -150,7 +147,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style10">
-                        <asp:HyperLink ID="hlCategorias" runat="server" NavigateUrl="~/Admin/Categorias/ListarCategoria.aspx">Listar Categorías</asp:HyperLink>
+                        <asp:HyperLink ID="hlCategorias" runat="server" NavigateUrl="~/Admin/Categorias/ListarCategoria.aspx">Listar Categoría</asp:HyperLink>
                     &nbsp;U</td>
                     <td class="auto-style11">&nbsp;</td>
                     <td class="auto-style11"></td>
@@ -177,11 +174,11 @@
                     <td class="auto-style3"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style4">
-                        <asp:HyperLink ID="hlAgregarproveedores" runat="server" NavigateUrl="~/Admin/Proveedores/AgregarProveedor.aspx">Agregar Proveedores</asp:HyperLink>
+                    <td class="auto-style10">
+                        <asp:HyperLink ID="hlAgregarproveedores" runat="server" NavigateUrl="~/Admin/Proveedores/AgregarProveedor.aspx">Agregar Proveedor</asp:HyperLink>
                     </td>
-                    <td>&nbsp;&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style11">&nbsp;&nbsp;</td>
+                    <td class="auto-style11"></td>
                 </tr>
                 <tr>
                     <td class="auto-style5">
@@ -191,13 +188,13 @@
                     <td class="auto-style3"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style16">
+                    <td class="auto-style23">
                         <asp:HyperLink ID="hlAgregarPedido" runat="server" NavigateUrl="~/Admin/Pedidos/AgregarPedido.aspx">Agregar Pedido</asp:HyperLink>
                     </td>
-                    <td class="auto-style17">
+                    <td class="auto-style24">
                         <asp:Button ID="btnCerrarsesion" runat="server" Text="Cerrar sesión" OnClick="btnCerrarsesion_Click" />
                     </td>
-                    <td class="auto-style18"></td>
+                    <td class="auto-style11"></td>
                 </tr>
                 <tr>
                     <td class="auto-style22">
