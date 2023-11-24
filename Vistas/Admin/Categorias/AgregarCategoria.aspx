@@ -34,8 +34,23 @@
         .auto-style8 {
             width: 138px;
         }
-        .auto-style9 {
-            width: 431px;
+        .auto-style10 {
+            width: 642px;
+            text-align: left;
+        }
+        .auto-style11 {
+            width: 454px;
+        }
+        .auto-style12 {
+            width: 237px;
+            height: 39px;
+        }
+        .auto-style13 {
+            width: 642px;
+            height: 39px;
+        }
+        .auto-style14 {
+            height: 39px;
         }
     </style>
 </head>
@@ -43,11 +58,11 @@
     <form id="form1" runat="server">
         <table class="auto-style1">
             <tr>
-                <td class="auto-style3">
+                <td class="auto-style12">
                     <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Agregar Categoria"></asp:Label>
                 </td>
-                <td class="auto-style6" colspan="2">&nbsp;</td>
-                <td>
+                <td class="auto-style13" colspan="2"></td>
+                <td class="auto-style14">
                     <asp:HyperLink ID="hlAgregarcat" runat="server" NavigateUrl="~/Inicio.aspx">Volver al menú Principal</asp:HyperLink>
                 </td>
             </tr>
@@ -63,7 +78,7 @@
                 <td class="auto-style6" colspan="2">
                     <asp:TextBox ID="tbNombre" runat="server"></asp:TextBox>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:RequiredFieldValidator ID="rfvNombreCategoria" runat="server" ControlToValidate="tbNombre">Ingrese un nombre de Categoria</asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvNombreCategoria" runat="server" ControlToValidate="tbNombre" ForeColor="#FF3300">Ingrese un nombre de Categoria</asp:RequiredFieldValidator>
                 </td>
                 <td>&nbsp;</td>
             </tr>
@@ -71,17 +86,17 @@
                 <td class="auto-style5">
                     <asp:Label ID="lbDescripcioncat" runat="server" Text="Descripción:"></asp:Label>
                 </td>
-                <td class="auto-style6" colspan="2">
-                    <asp:TextBox ID="tbDescripcion" runat="server" Height="146px" Width="540px"></asp:TextBox>
+                <td class="auto-style10" colspan="2">
+                    <asp:TextBox ID="tbDescripcion" runat="server" Height="146px" Width="626px"></asp:TextBox>
                 </td>
-                <td>&nbsp;</td>
+                <td>(Opcional)</td>
             </tr>
             <tr>
                 <td class="auto-style3">&nbsp;</td>
                 <td class="auto-style8">
                     <asp:Button ID="btnAgregarcat" runat="server" Text="Agregar" OnClick="btnAgregarcat_Click" />
                 </td>
-                <td class="auto-style9">
+                <td class="auto-style11">
                     <asp:Label ID="lblResultado" runat="server"></asp:Label>
                 </td>
                 <td>&nbsp;</td>

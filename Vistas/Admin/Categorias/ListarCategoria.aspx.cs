@@ -87,16 +87,28 @@ namespace Vistas.Admin.Categorias
             gdvCategorias.PageIndex = e.NewPageIndex;
             cargarCategoriasEnGrilla();
         }
-        
+
         //PARA BUSCAR POR EL ID INGRESADO
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void btnBuscarCat_Click(object sender, EventArgs e)
         {
             NegocioCategorias negocio = new NegocioCategorias();
-            gdvCategorias.DataSource =negocio.ObtenerCategorias(Convert.ToInt32(tbCategoriaporid.Text));
+            gdvCategorias.DataSource = negocio.ObtenerCategorias(Convert.ToInt32(tbCategoriaporid.Text));
             gdvCategorias.DataBind();
+            tbCategoriaporid.Text = "";
+
+            try
+            {
+                ///USO LA EXCEPCION DE FUERA DE RANGO del Row Con un Try Catch PARA CUANDO SÉ QUE NO ENCONTRÓ NADA
+                String IDCategoria = ((Label)gdvCategorias.Rows[0].FindControl("lbl_it_IDCategoria")).Text;//agarre cualquier dato
+            }
+            catch
+            {
+                System.Windows.Forms.MessageBox.Show("No hubo coincidencias, por favor intente con otro ID", "Informe");
+            }
+
         }
 
-        
+
         //CARGA TODAS LAS CATEGORIAS
         private void cargarCategoriasEnGrilla()
         {
@@ -105,5 +117,10 @@ namespace Vistas.Admin.Categorias
             gdvCategorias.DataBind();
         }
 
+        protected void btnVistaInicial_Click(object sender, EventArgs e)
+        {
+            tbCategoriaporid.Text = "";
+            cargarCategoriasEnGrilla();
+        }
     }
 }

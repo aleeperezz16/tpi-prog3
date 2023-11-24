@@ -23,13 +23,25 @@
         .auto-style7 {
             width: 692px;
             text-align: center;
+            height: 74px;
         }
-        .auto-style8 {
+        .auto-style11 {
+            height: 74px;
+        }
+        .auto-style12 {
             height: 26px;
-            width: 270px;
+            width: 249px;
         }
-        .auto-style9 {
-            width: 270px;
+        .auto-style13 {
+            height: 74px;
+            width: 249px;
+        }
+        .auto-style14 {
+            width: 249px;
+        }
+        .auto-style15 {
+            height: 26px;
+            width: 1083px;
         }
     </style>
 </head>
@@ -38,37 +50,47 @@
         <div>
             <table class="auto-style1">
                 <tr>
-                    <td class="auto-style8">&nbsp;</td>
-                    <td class="auto-style5"></td>
-                    <td class="auto-style2"></td>
-                </tr>
-                <tr>
-                    <td class="auto-style9">
+                    <td class="auto-style12">&nbsp;</td>
+                    <td class="auto-style5" colspan="2">
                         <asp:HyperLink ID="hlVolverinicio" runat="server" BorderStyle="None" NavigateUrl="~/Inicio.aspx">Volver al Menú Principal</asp:HyperLink>
                     </td>
-                    <td class="auto-style7">
-                        <asp:Label ID="lbListarpedidos" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Listar Pedidos"></asp:Label>
-                    </td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style8"></td>
-                    <td class="auto-style5">
-                        <asp:Label ID="lbBuscarpedidosID" runat="server" Text="Buscar  cliente por ID:"></asp:Label>
-                        <asp:TextBox ID="tbBuscarPedidoPorId" runat="server"></asp:TextBox>
-                        <asp:Button ID="btnBuscarPedidoPorId" runat="server" Text="Buscar" OnClick="btnBuscarPedidoPorId_Click" />
-                    </td>
                     <td class="auto-style2"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style9">&nbsp;</td>
-                    <td class="auto-style6">&nbsp;</td>
+                    <td class="auto-style13">
+                    </td>
+                    <td class="auto-style7" colspan="2">
+                        <asp:Label ID="lbListarpedidos" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Listar Pedidos"></asp:Label>
+                    </td>
+                    <td class="auto-style11"></td>
+                </tr>
+                <tr>
+                    <td class="auto-style12" rowspan="2"></td>
+                    <td class="auto-style15" rowspan="2">
+                        <asp:Label ID="lbBuscarpedidosID" runat="server" Text="Buscar Pedido por ID:"></asp:Label>
+                        <asp:TextBox ID="tbBuscarPedidoPorId" runat="server" ValidationGroup="1"></asp:TextBox>
+                        <asp:Button ID="btnBuscarPedidoPorId" runat="server" Text="Buscar" OnClick="btnBuscarPedidoPorId_Click" ValidationGroup="1" />
+                        <asp:Button ID="btnVistaInicial" runat="server" OnClick="btnVistaInicial_Click" Text="Vista Inicial" />
+                    </td>
+                    <td class="auto-style5">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="tbBuscarPedidoPorId" ForeColor="#FF3300" ValidationGroup="1">*Por favor Ingrese un número de ID.</asp:RequiredFieldValidator>
+                    </td>
+                    <td class="auto-style2" rowspan="2"></td>
+                </tr>
+                <tr>
+                    <td class="auto-style5">
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="tbBuscarPedidoPorId" ErrorMessage="*Solo debe ingresar números." ForeColor="#FF3300" ValidationExpression="^\d+$" ValidationGroup="1"></asp:RegularExpressionValidator>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style14">&nbsp;</td>
+                    <td class="auto-style6" colspan="2">&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style9">&nbsp;</td>
-                    <td class="auto-style6">
-                        <asp:GridView ID="gdvListarPedidos" runat="server" AutoGenerateColumns="False" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" PageIndex="2">
+                    <td class="auto-style14">&nbsp;</td>
+                    <td class="auto-style6" colspan="2">
+                        <asp:GridView ID="gdvListarPedidos" runat="server" AutoGenerateColumns="False" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" OnPageIndexChanging="gdvListarPedidos_PageIndexChanging" OnSelectedIndexChanging="gdvListarPedidos_SelectedIndexChanging">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
                                 <asp:TemplateField HeaderText="ID Pedido">
@@ -117,25 +139,25 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style9">&nbsp;</td>
-                    <td class="auto-style6">&nbsp;</td>
+                    <td class="auto-style14">&nbsp;</td>
+                    <td class="auto-style6" colspan="2">&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style9">&nbsp;</td>
-                    <td class="auto-style6">
+                    <td class="auto-style14">&nbsp;</td>
+                    <td class="auto-style6" colspan="2">
                         <asp:Label ID="lbObservaciones1" runat="server" Font-Bold="True" Text="Observación: Solo se buscará por ID."></asp:Label>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style9">&nbsp;</td>
-                    <td class="auto-style6">&nbsp;</td>
+                    <td class="auto-style14">&nbsp;</td>
+                    <td class="auto-style6" colspan="2">&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style9">&nbsp;</td>
-                    <td class="auto-style6">&nbsp;</td>
+                    <td class="auto-style14">&nbsp;</td>
+                    <td class="auto-style6" colspan="2">&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
             </table>

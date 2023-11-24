@@ -14,19 +14,8 @@
             text-align: center;
             height: 48px;
         }
-        .auto-style3 {
-            width: 241px;
-        }
-        .auto-style4 {
-            width: 241px;
-            height: 26px;
-        }
         .auto-style5 {
             height: 26px;
-        }
-        .auto-style6 {
-            width: 241px;
-            height: 48px;
         }
         .auto-style7 {
             height: 48px;
@@ -37,48 +26,94 @@
         .auto-style9 {
             text-align: left;
         }
+        .auto-style11 {
+            height: 64px;
+        }
+        .auto-style12 {
+            height: 64px;
+            width: 580px;
+            text-align: center;
+        }
+        .auto-style14 {
+            height: 40px;
+        }
+        .auto-style15 {
+            height: 24px;
+        }
+        .auto-style16 {
+            height: 42px;
+        }
+        .auto-style17 {
+            width: 39px;
+        }
+        .auto-style18 {
+            height: 48px;
+            width: 39px;
+        }
+        .auto-style19 {
+            height: 24px;
+            width: 39px;
+        }
+        .auto-style20 {
+            height: 64px;
+            width: 39px;
+        }
+        .auto-style21 {
+            height: 26px;
+            width: 39px;
+        }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <table class="auto-style1">
             <tr>
-                <td class="auto-style3">&nbsp;</td>
-                <td>&nbsp;</td>
+                <td class="auto-style17">&nbsp;</td>
+                <td colspan="2">
+                    <asp:HyperLink ID="hlVolverInicio" runat="server" NavigateUrl="~/Inicio.aspx">Volver al Menú Principal</asp:HyperLink>
+                </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style6">
-                    <asp:HyperLink ID="hlVolverInicio" runat="server" NavigateUrl="~/Inicio.aspx">Volver al Menú Principal</asp:HyperLink>
-                </td>
-                <td class="auto-style2">
+                <td class="auto-style18">
+                    &nbsp;</td>
+                <td class="auto-style2" colspan="2">
                     <asp:Label ID="lbl_TituloPagina" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Agregar Pedido"></asp:Label>
                 </td>
                 <td class="auto-style7"></td>
             </tr>
             <tr>
-                <td class="auto-style3">&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td class="auto-style19"></td>
+                <td class="auto-style15" colspan="2"></td>
+                <td class="auto-style15"></td>
             </tr>
             <tr>
-                <td class="auto-style3">&nbsp;</td>
-                <td>
+                <td class="auto-style20" rowspan="2"></td>
+                <td class="auto-style12" rowspan="2">
                     <asp:Label ID="lblBuscarArticuloxID" runat="server" Text="Buscar Articulo Por ID:"></asp:Label>
-                    <asp:TextBox ID="tbBuscarArticuloxID" runat="server"></asp:TextBox>
-                    <asp:Button ID="btnBuscar" runat="server" OnClick="btnBuscar_Click" Text="Buscar" />
+                    <asp:TextBox ID="tbBuscarArticuloxID" runat="server" ValidationGroup="1"></asp:TextBox>
+                    <asp:Button ID="btnBuscar" runat="server" OnClick="btnBuscar_Click" Text="Buscar" ValidationGroup="1" />
+                    <asp:Button ID="btnVistaInicial" runat="server" OnClick="btnVistaInicial_Click" Text="Vista Inicial" />
                 </td>
+                <td class="auto-style16">
+                    <asp:RequiredFieldValidator ID="rfvBuscarxID" runat="server" ControlToValidate="tbBuscarArticuloxID" ForeColor="#CC3300" ValidationGroup="1">*Ingrese un número de ID para buscarlo.</asp:RequiredFieldValidator>
+                </td>
+                <td class="auto-style11" rowspan="2"></td>
+            </tr>
+            <tr>
+                <td class="auto-style14">
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="tbBuscarArticuloxID" ErrorMessage="RegularExpressionValidator" ForeColor="#FF3300" ValidationExpression="^\d+$" ValidationGroup="1">*Solo debe ingresar Números</asp:RegularExpressionValidator>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style17">&nbsp;</td>
+                <td class="auto-style9" colspan="2">Especificar la cantidad de unidades que se desea ordenar al proveedor, del articulo deseado y presionar Agregar, para ordenarlo.</td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style3">&nbsp;</td>
-                <td class="auto-style9">Especificar la cantidad de unidades que se desea ordenar al proveedor, del articulo deseado y presionar Agregar, para ordenarlo.</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style3">&nbsp;</td>
-                <td class="auto-style8">
-                    <asp:GridView ID="gdvAgregarpedido" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowCommand="gdvAgregarpedido_RowCommand" PageSize="5">
+                <td class="auto-style17">&nbsp;</td>
+                <td class="auto-style8" colspan="2">
+                    <asp:GridView ID="gdvAgregarpedido" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowCommand="gdvAgregarpedido_RowCommand" PageSize="5" OnPageIndexChanging="gdvAgregarpedido_PageIndexChanging">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
                             <asp:TemplateField HeaderText="ID Articulo">
@@ -143,25 +178,25 @@
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style4"></td>
-                <td class="auto-style5">
+                <td class="auto-style21"></td>
+                <td class="auto-style5" colspan="2">
                     <asp:Label ID="lbl_ItemsAgregados" runat="server"></asp:Label>
                 </td>
                 <td class="auto-style5"></td>
             </tr>
             <tr>
-                <td class="auto-style3">&nbsp;</td>
-                <td>&nbsp;</td>
+                <td class="auto-style17">&nbsp;</td>
+                <td colspan="2">&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style4"></td>
-                <td class="auto-style5">&nbsp;</td>
+                <td class="auto-style21"></td>
+                <td class="auto-style5" colspan="2">&nbsp;</td>
                 <td class="auto-style5"></td>
             </tr>
             <tr>
-                <td class="auto-style3">&nbsp;</td>
-                <td>&nbsp;</td>
+                <td class="auto-style17">&nbsp;</td>
+                <td colspan="2">&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
         </table>
