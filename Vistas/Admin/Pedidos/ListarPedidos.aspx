@@ -90,7 +90,7 @@
                 <tr>
                     <td class="auto-style14">&nbsp;</td>
                     <td class="auto-style6" colspan="2">
-                        <asp:GridView ID="gdvListarPedidos" runat="server" AutoGenerateColumns="False" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" OnPageIndexChanging="gdvListarPedidos_PageIndexChanging" OnSelectedIndexChanging="gdvListarPedidos_SelectedIndexChanging">
+                        <asp:GridView ID="gdvListarPedidos" runat="server" AutoGenerateColumns="False" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" OnPageIndexChanging="gdvListarPedidos_PageIndexChanging">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
                                 <asp:TemplateField HeaderText="ID Pedido">

@@ -21,15 +21,12 @@ namespace Vistas.Admin
             }
         }
 
-
         private void cargarPedidosEnGrilla()
         {
             NegocioPedidos negocio = new NegocioPedidos();
             gdvListarPedidos.DataSource = negocio.ObtenerTablaPedidos(0);
             gdvListarPedidos.DataBind();
         }
-
-        /// int id, Articulo articulo, Proveedor proveedor, int cantidad, DateTime fecha, decimal costoTotal
 
         protected void btnBuscarPedidoPorId_Click(object sender, EventArgs e)
         {
@@ -48,14 +45,12 @@ namespace Vistas.Admin
             {
                 System.Windows.Forms.MessageBox.Show("No hubo coincidencias, por favor intente con otro ID", "Informe");
             }
-           
         }
 
         protected void btnVistaInicial_Click(object sender, EventArgs e)
         {
             tbBuscarPedidoPorId.Text = "";
             cargarPedidosEnGrilla();
-            /// gdvListarPedidos.PageIndex = 0;
         }
 
         protected void gdvListarPedidos_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -63,14 +58,8 @@ namespace Vistas.Admin
             gdvListarPedidos.PageIndex = e.NewPageIndex;
             cargarPedidosEnGrilla();
         }
-        
-        protected void gdvListarPedidos_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
-        {
 
-        }
-        
     }
-
 
 }
 

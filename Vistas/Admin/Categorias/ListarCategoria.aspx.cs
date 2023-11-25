@@ -19,7 +19,6 @@ namespace Vistas.Admin.Categorias
             {
                 cargarCategoriasEnGrilla();
             }
-
         }
         
         //PARA ELIMINAR UNA CATEGORIA A TRAVES DEL ID SELECCIONADO
@@ -32,33 +31,26 @@ namespace Vistas.Admin.Categorias
             if (Borro)
             {
                 System.Windows.Forms.MessageBox.Show("Se Elimino correctamente la categoria", "Mensaje");
-                ///SE ELIMINO CORRECTAMENTE
-
             }
             else
             {
                 System.Windows.Forms.MessageBox.Show("No se pudo eliminar la categoria, Checkee que no posea articulos adheridos a la misma", "Mensaje");
-                ///NO SE ELIMINO
             }
-
             cargarCategoriasEnGrilla();
         }
 
-        // PARA EDITAR DENTRO DEL GRIDVIEW
         protected void gdvCategorias_RowEditing(object sender, GridViewEditEventArgs e)
         {
             gdvCategorias.PageIndex = e.NewEditIndex;
             cargarCategoriasEnGrilla();
         }
 
-        //CANCELAR LA EDICION DE LA GRILLA
         protected void gdvCategorias_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             gdvCategorias.EditIndex = -1;
             cargarCategoriasEnGrilla();
         }
 
-        //CUANDO SE APRETA EL BOTON ACTUALIZAR
         protected void gdvCategorias_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             NegocioCategorias _negocioCat = new NegocioCategorias();
@@ -72,11 +64,10 @@ namespace Vistas.Admin.Categorias
             cat.Descripcion = s_Descripcion;
 
             bool filasAfectadas = _negocioCat.ModificarCategorias(cat);
-            if (filasAfectadas)
+            if (!filasAfectadas)
             {
-                //se actualizó
+                System.Windows.Forms.MessageBox.Show("El registro se ha modificado correctamente!","Mensaje de edición");
             }
-
             gdvCategorias.EditIndex = -1;
             cargarCategoriasEnGrilla();
         }
@@ -105,9 +96,7 @@ namespace Vistas.Admin.Categorias
             {
                 System.Windows.Forms.MessageBox.Show("No hubo coincidencias, por favor intente con otro ID", "Informe");
             }
-
         }
-
 
         //CARGA TODAS LAS CATEGORIAS
         private void cargarCategoriasEnGrilla()

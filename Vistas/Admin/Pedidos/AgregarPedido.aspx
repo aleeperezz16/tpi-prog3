@@ -180,8 +180,7 @@
             <tr>
                 <td class="auto-style21"></td>
                 <td class="auto-style5" colspan="2">
-                    <asp:Label ID="lbl_ItemsAgregados" runat="server"></asp:Label>
-                </td>
+                    &nbsp;</td>
                 <td class="auto-style5"></td>
             </tr>
             <tr>

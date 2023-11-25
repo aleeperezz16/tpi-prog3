@@ -21,7 +21,6 @@ namespace Vistas.Admin.Categorias
         protected void btnAgregarcat_Click(object sender, EventArgs e)
         {
             Categoria nuevacategoria = new Categoria();
-           
             NegocioCategorias manejoCat = new NegocioCategorias();
 
             nuevacategoria.Nombre = tbNombre.Text.Trim();
@@ -34,12 +33,10 @@ namespace Vistas.Admin.Categorias
             if (!agrego) 
             {
                 MessageBox.Show("Se agregó la Categoría correctamente","Mensaje");
-                //lblResultado.Text = "Se agregó la categoría correctamente";
             }
             else
             {
                 MessageBox.Show("No se pudo agregar la categoria", "Mensaje");
-               // lblResultado.Text = "No se pudo agregar la categoria ";
             }
             
         }

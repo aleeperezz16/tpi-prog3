@@ -73,16 +73,15 @@
     <Content Include="Admin\Categorias\AgregarCategoria.aspx" />
     <Content Include="Admin\Categorias\ListarCategoria.aspx" />
     <Content Include="Admin\ListarClientes.aspx" />
-    <Content Include="Admin\ListarPedidos.aspx" />
+    <Content Include="Admin\Pedidos\ListarPedidos.aspx" />
     <Content Include="Admin\ListarVentas.aspx" />
     <Content Include="Admin\Pedidos\AgregarPedido.aspx" />
     <Content Include="Admin\Proveedores\AgregarProveedor.aspx" />
     <Content Include="Admin\Proveedores\ListarProveedores.aspx" />
+    <Content Include="Cliente\CompraArticulo.aspx" />
     <Content Include="Inicio.aspx" />
     <Content Include="Login.aspx" />
-    <Content Include="MisPedidos.aspx" />
     <Content Include="Registro.aspx" />
-    <Content Include="Articulos.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -121,11 +120,11 @@
     <Compile Include="Admin\ListarClientes.aspx.designer.cs">
       <DependentUpon>ListarClientes.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\ListarPedidos.aspx.cs">
+    <Compile Include="Admin\Pedidos\ListarPedidos.aspx.cs">
       <DependentUpon>ListarPedidos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\ListarPedidos.aspx.designer.cs">
+    <Compile Include="Admin\Pedidos\ListarPedidos.aspx.designer.cs">
       <DependentUpon>ListarPedidos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ListarVentas.aspx.cs">
@@ -156,6 +155,13 @@
     <Compile Include="Admin\Proveedores\ListarProveedores.aspx.designer.cs">
       <DependentUpon>ListarProveedores.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Cliente\CompraArticulo.aspx.cs">
+      <DependentUpon>CompraArticulo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\CompraArticulo.aspx.designer.cs">
+      <DependentUpon>CompraArticulo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -170,26 +176,12 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="MisPedidos.aspx.cs">
-      <DependentUpon>MisPedidos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MisPedidos.aspx.designer.cs">
-      <DependentUpon>MisPedidos.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Registro.aspx.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Registro.aspx.designer.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Articulos.aspx.cs">
-      <DependentUpon>Articulos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Articulos.aspx.designer.cs">
-      <DependentUpon>Articulos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

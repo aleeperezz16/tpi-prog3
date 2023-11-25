@@ -29,7 +29,6 @@ namespace Vistas.Admin.Pedidos
         {
             if (e.CommandName == "EventoAgregar")
             {
-                
                 int fila = Convert.ToInt32(e.CommandArgument);
                
                 String PrecioCompra = ((Label)gdvAgregarpedido.Rows[fila].FindControl("lbl_it_PrecioCompra")).Text;
@@ -50,16 +49,12 @@ namespace Vistas.Admin.Pedidos
                 {
 
                     String IDArticulo = ((Label)gdvAgregarpedido.Rows[fila].FindControl("lbl_it_IDArticulo")).Text;///
-                    ///String NombreArticulo = ((Label)gdvAgregarpedido.Rows[fila].FindControl("lbl_it_NombreArticulo")).Text;
                     String IDProveedor = ((Label)gdvAgregarpedido.Rows[fila].FindControl("lbl_it_IDProveedor")).Text;///
-                    ///String PrecioVenta = ((Label)gdvAgregarpedido.Rows[fila].FindControl("lbl_it_PrecioVenta")).Text;
                     String Estado = ((Label)gdvAgregarpedido.Rows[fila].FindControl("lbl_it_Estado")).Text;
-                    ///String Stock = ((Label)gdvAgregarpedido.Rows[fila].FindControl("lbl_it_Stock")).Text;
                     int Idart = Convert.ToInt32(IDArticulo);
                     int Idprov = Convert.ToInt32(IDProveedor);
                     int cant = Convert.ToInt32(CantidadAComprar);
-                    /// lbl_ItemsAgregados.Text = "Se ha agregado: " + IDArticulo + " " + NombreArticulo + " " + IDCategoria + " " + IDProveedor + " " + PrecioVenta + " " +
-                    ///      PrecioCompra + " " + Estado + " " + Stock + " " + CantidadAComprar;
+
                     articulo.Id = Idart;
                     proveedor.Id = Idprov;
 
@@ -87,9 +82,7 @@ namespace Vistas.Admin.Pedidos
                 else
                 {
                     System.Windows.Forms.MessageBox.Show("El pedido de compra, se ha cancelado.", "Mensaje de Cancelación");
-                    
                 }
-
 
             }
 
@@ -100,7 +93,6 @@ namespace Vistas.Admin.Pedidos
             NegocioArticulos negocio = new NegocioArticulos();
             gdvAgregarpedido.DataSource = negocio.ObtenerTodosLosArticulos();
             gdvAgregarpedido.DataBind();
-
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)
@@ -125,8 +117,6 @@ namespace Vistas.Admin.Pedidos
             gdvAgregarpedido.DataSource = negocioArt.ObtenerArticulosActivos(id);
             gdvAgregarpedido.DataBind();
         }
-
-
 
         protected void gdvAgregarpedido_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
