@@ -23,5 +23,10 @@ namespace Negocio
         {
             return _dao.BorrarCliente(dni) == 1;
         }
+        public bool ModificarCliente(Cliente cliente)
+        {
+            int cantFilas = _dao.ModificarCliente(cliente);
+            return cantFilas > 1 ? true : false;
+        }
     }
 }

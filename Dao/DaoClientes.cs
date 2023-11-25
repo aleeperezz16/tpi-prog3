@@ -30,12 +30,10 @@ namespace Dao
                 "CNT.Telefono, " +
                 "CNT.EMail, " +
                 "CNT.Direccion, " +
-                "C.NombreCiudad AS Ciudad, " +
-                "P.NombreProvincia AS Provincia, " +
+                "C.CodigoCiudad AS Ciudad, " +
                 "CNT.Estado " +
                 "FROM CLIENTES CNT " +
-                "INNER JOIN CIUDAD C ON CNT.CodigoCiudad = C.CodigoCiudad" +
-                "INNER JOIN PROVINCIA P ON C.CodigoProvincia = P.CodigoProvincia";
+                "INNER JOIN CIUDAD C ON CNT.CodigoCiudad = C.CodigoCiudad";
 
             if (id > 0)
                 consulta += $" WHERE CNT.DNI = {id}";
@@ -89,12 +87,13 @@ namespace Dao
             cmd.Parameters.AddWithValue("@DNI", cli.Dni);
             cmd.Parameters.AddWithValue("@APELLIDO", cli.Apellido);
             cmd.Parameters.AddWithValue("@NOMBRE", cli.Nombre);
-            cmd.Parameters.AddWithValue("@ALIAS", cli.Usuario.Alias);
-            cmd.Parameters.AddWithValue("@CONTRASENIA", cli.Usuario.Contrasenia);
+            //cmd.Parameters.AddWithValue("@ALIAS", cli.Usuario.Alias);
+           // cmd.Parameters.AddWithValue("@CONTRASENIA", cli.Usuario.Contrasenia);
             cmd.Parameters.AddWithValue("@TELEFONO", cli.Telefono);
             cmd.Parameters.AddWithValue("@EMAIL", cli.Email);
             cmd.Parameters.AddWithValue("@DIRECCION", cli.Direccion);
             cmd.Parameters.AddWithValue("@CODCIUDAD", cli.Ciudad.Codigo);
+            cmd.Parameters.AddWithValue("@ESTADO", cli.Estado);
         }
     }
 }
