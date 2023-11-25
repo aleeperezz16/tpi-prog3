@@ -18,12 +18,10 @@ namespace Entidades
         public Pedido() { }
 
 
-        public Pedido(Articulo articulo, Proveedor proveedor, int cantidad, decimal costoTotal)
+        public Pedido(Articulo articulo, int cantidad)
         {
             Articulo = articulo;
-            Proveedor = proveedor;
             Cantidad = cantidad;
-            CostoTotal = costoTotal;
         }
         public Pedido(int id, Articulo articulo, Proveedor proveedor, int cantidad, DateTime fecha, decimal costoTotal)
         {

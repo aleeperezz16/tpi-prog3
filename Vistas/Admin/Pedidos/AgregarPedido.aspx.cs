@@ -27,63 +27,75 @@ namespace Vistas.Admin.Pedidos
 
         protected void gdvAgregarpedido_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+
             if (e.CommandName == "EventoAgregar")
             {
                 int fila = Convert.ToInt32(e.CommandArgument);
-               
-                String PrecioCompra = ((Label)gdvAgregarpedido.Rows[fila].FindControl("lbl_it_PrecioCompra")).Text;
-                String CantidadAComprar = ((TextBox)gdvAgregarpedido.Rows[fila].FindControl("tbCantidadaComprar")).Text;///
-                ((TextBox)gdvAgregarpedido.Rows[fila].FindControl("tbCantidadaComprar")).Text = "";
-                tbBuscarArticuloxID.Text = "";
-                decimal precio = Convert.ToDecimal(PrecioCompra);
-                decimal CostoTotal = Convert.ToDecimal(PrecioCompra) * Convert.ToDecimal(CantidadAComprar);
-
-                string mensaje = "Usted está a punto de hacer un pedido total de: $"+ CostoTotal.ToString()+"\n"  +
-                "¿Está seguro que quiere adquirir el producto y la cantidad especificada?" + "\n \n "+
-                "  ALERTA!: ÉSTA ACCIÓN NO SE PUEDE DESHACER. " ;
-                string titulo = "Mensaje de Confirmacion";
-                System.Windows.Forms.MessageBoxButtons botones = System.Windows.Forms.MessageBoxButtons.YesNo;
-                System.Windows.Forms.DialogResult resultado;
-                resultado = System.Windows.Forms.MessageBox.Show(mensaje, titulo, botones);
-                if (resultado == System.Windows.Forms.DialogResult.Yes)
+                ///Como no pude hacer funcionar requiredfieldvni regularexpresionv dentro del gridview lo hardcodié
+                String Cantidad = ((TextBox)gdvAgregarpedido.Rows[fila].FindControl("tbCantidadaComprar")).Text.Trim();///
+                if (Cantidad == "")
                 {
-
-                    String IDArticulo = ((Label)gdvAgregarpedido.Rows[fila].FindControl("lbl_it_IDArticulo")).Text;///
-                    String IDProveedor = ((Label)gdvAgregarpedido.Rows[fila].FindControl("lbl_it_IDProveedor")).Text;///
-                    String Estado = ((Label)gdvAgregarpedido.Rows[fila].FindControl("lbl_it_Estado")).Text;
-                    int Idart = Convert.ToInt32(IDArticulo);
-                    int Idprov = Convert.ToInt32(IDProveedor);
-                    int cant = Convert.ToInt32(CantidadAComprar);
-
-                    articulo.Id = Idart;
-                    proveedor.Id = Idprov;
-
-                    Pedido pedidoarmado = new Pedido(articulo, proveedor, cant, CostoTotal);
-                    
-                    if (Estado == "True")
-                    {
-                        bool agrego = n_pedido.agregarPedido(pedidoarmado);
-
-                        if (!agrego)
-                        {
-                            System.Windows.Forms.MessageBox.Show("Se agregó el pedido correctamente.", "Mensaje");
-                        }
-                        else
-                        {
-                            System.Windows.Forms.MessageBox.Show("No se pudo agregar el pedido.", "Alerta");
-                        }
-                    }
-                    else
-                    {
-                        System.Windows.Forms.MessageBox.Show("No se pueden comprar articulos dados de baja.", "Alerta");
-                    }
-
+                    System.Windows.Forms.MessageBox.Show("Debe ingresar una cantidad a comprar", "Mensaje Alerta");
                 }
                 else
                 {
-                    System.Windows.Forms.MessageBox.Show("El pedido de compra, se ha cancelado.", "Mensaje de Cancelación");
-                }
+                    int CantidadAComprar = 0;
+                    bool valornumerico = int.TryParse(Cantidad, out CantidadAComprar);
+                    if (valornumerico)
+                    {
 
+                            String PrecioCompra = ((Label)gdvAgregarpedido.Rows[fila].FindControl("lbl_it_PrecioCompra")).Text;
+                            ((TextBox)gdvAgregarpedido.Rows[fila].FindControl("tbCantidadaComprar")).Text = "";
+                            tbBuscarArticuloxID.Text = "";
+                            decimal precio = Convert.ToDecimal(PrecioCompra);
+                            decimal CostoTotal = Convert.ToDecimal(PrecioCompra) * Convert.ToDecimal(CantidadAComprar);
+
+                            string mensaje = "Usted está a punto de hacer un pedido total de: $" + CostoTotal.ToString() + "\n" +
+                            "¿Está seguro que quiere adquirir el producto y la cantidad especificada?" + "\n \n " +
+                            "  ALERTA!: ÉSTA ACCIÓN NO SE PUEDE DESHACER. ";
+                            string titulo = "Mensaje de Confirmacion";
+                            System.Windows.Forms.MessageBoxButtons botones = System.Windows.Forms.MessageBoxButtons.YesNo;
+                            System.Windows.Forms.DialogResult resultado;
+                            resultado = System.Windows.Forms.MessageBox.Show(mensaje, titulo, botones);
+                            if (resultado == System.Windows.Forms.DialogResult.Yes)
+                            {
+
+                                String IDArticulo = ((Label)gdvAgregarpedido.Rows[fila].FindControl("lbl_it_IDArticulo")).Text;///
+                                String Estado = ((Label)gdvAgregarpedido.Rows[fila].FindControl("lbl_it_Estado")).Text;
+                                int Idart = Convert.ToInt32(IDArticulo);
+                                int cant = Convert.ToInt32(CantidadAComprar);
+                                articulo.Id = Idart;
+
+                                Pedido pedidoarmado = new Pedido(articulo, cant);
+
+                                if (Estado == "True")
+                                {
+                                    bool agrego = n_pedido.agregarPedido(pedidoarmado);
+
+                                    if (!agrego)
+                                    {
+                                        System.Windows.Forms.MessageBox.Show("Se agregó el pedido correctamente.", "Mensaje");
+                                    }
+                                    else
+                                    {
+                                        System.Windows.Forms.MessageBox.Show("No se pudo agregar el pedido.", "Alerta");
+                                    }
+                                }
+                                else
+                                {
+                                    System.Windows.Forms.MessageBox.Show("No se pueden comprar articulos dados de baja.", "Alerta");
+                                }
+
+                            }
+                            else
+                            {
+                                System.Windows.Forms.MessageBox.Show("El pedido de compra, se ha cancelado.", "Mensaje de Cancelación");
+                            }
+
+                    }
+                    else
+                    { System.Windows.Forms.MessageBox.Show("Ha ingresado un caracteres inválidos, ingrese una cantidad válida", "Mensaje"); }
+                }
             }
 
         }

@@ -182,7 +182,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style5">
-                        <asp:HyperLink ID="hlListarpedidos" runat="server" NavigateUrl="~/Admin/ListarPedidos.aspx">Listar Pedidos</asp:HyperLink>
+                        <asp:HyperLink ID="hlListarpedidos" runat="server" NavigateUrl="~/Admin/Pedidos/ListarPedidos.aspx">Listar Pedidos</asp:HyperLink>
                     </td>
                     <td class="auto-style3"></td>
                     <td class="auto-style3"></td>

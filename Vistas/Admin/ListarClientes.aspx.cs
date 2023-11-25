@@ -50,7 +50,7 @@ namespace Vistas
             gdvClientes.EditIndex = e.NewEditIndex;
             CargarClientesEnGrilla();
         }
-
+        /*
         protected void gdvClientes_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             Cliente clienteAEditar = new Cliente();
@@ -91,7 +91,7 @@ namespace Vistas
                 }
             }
         }
-
+        */
         protected void gdvClientes_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             gdvClientes.EditIndex = -1;

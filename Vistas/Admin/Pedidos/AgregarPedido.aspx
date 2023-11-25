@@ -62,6 +62,10 @@
             height: 26px;
             width: 39px;
         }
+        .auto-style22 {
+            height: 26px;
+            text-align: right;
+        }
     </style>
 </head>
 <body>
@@ -158,10 +162,10 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Cantidad a Comprar">
                                 <ItemTemplate>
-                                    <asp:TextBox ID="tbCantidadaComprar" runat="server" Height="24px" Width="55px"></asp:TextBox>
+                                    <asp:TextBox ID="tbCantidadaComprar" runat="server" Height="24px" Width="55px" ValidationGroup="2"></asp:TextBox>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:ButtonField ButtonType="Button" CommandName="EventoAgregar" Text="Agregar" />
+                            <asp:ButtonField ButtonType="Button" CommandName="EventoAgregar" Text="Comprar" />
                         </Columns>
                         <EditRowStyle BackColor="#2461BF" />
                         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -179,7 +183,7 @@
             </tr>
             <tr>
                 <td class="auto-style21"></td>
-                <td class="auto-style5" colspan="2">
+                <td class="auto-style22" colspan="2">
                     &nbsp;</td>
                 <td class="auto-style5"></td>
             </tr>
