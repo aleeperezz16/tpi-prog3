@@ -50,7 +50,7 @@ namespace Vistas.Admin.Pedidos
                             decimal precio = Convert.ToDecimal(PrecioCompra);
                             decimal CostoTotal = Convert.ToDecimal(PrecioCompra) * Convert.ToDecimal(CantidadAComprar);
 
-                            string mensaje = "Usted está a punto de hacer un pedido total de: $" + CostoTotal.ToString() + "\n" +
+                            string mensaje = "Usted está a punto de hacer un pedido total de:  $" + CostoTotal.ToString() + "\n" +
                             "¿Está seguro que quiere adquirir el producto y la cantidad especificada?" + "\n \n " +
                             "  ALERTA!: ÉSTA ACCIÓN NO SE PUEDE DESHACER. ";
                             string titulo = "Mensaje de Confirmacion";

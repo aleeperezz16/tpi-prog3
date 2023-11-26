@@ -22,14 +22,11 @@ namespace Vistas.Admin.Categorias
         {
             Categoria nuevacategoria = new Categoria();
             NegocioCategorias manejoCat = new NegocioCategorias();
-
             nuevacategoria.Nombre = tbNombre.Text.Trim();
             nuevacategoria.Descripcion = tbDescripcion.Text.Trim();
-
             tbNombre.Text = "";
             tbDescripcion.Text = "";
-            
-                bool agrego = manejoCat.agregarCategoria(nuevacategoria);
+            bool agrego = manejoCat.agregarCategoria(nuevacategoria);
             if (!agrego) 
             {
                 MessageBox.Show("Se agregó la Categoría correctamente","Mensaje");

@@ -95,6 +95,10 @@
             text-align: center;
             height: 25px;
         }
+        .auto-style25 {
+            width: 179px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -170,7 +174,7 @@
                     <td class="auto-style19">
                         <asp:HyperLink ID="hlListarproveedores" runat="server" NavigateUrl="~/Admin/Proveedores/ListarProveedores.aspx">Listar Proveedores</asp:HyperLink>
                     &nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
+                    <td class="auto-style3"></td>
                     <td class="auto-style3"></td>
                 </tr>
                 <tr>
@@ -221,13 +225,13 @@
                     <td class="auto-style3"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td class="auto-style9">
-                        &nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style22">&nbsp;</td>
+                    <td class="auto-style12">
+                        </td>
+                    <td class="auto-style3"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style4">&nbsp;</td>
+                    <td class="auto-style25">&nbsp;</td>
                     <td class="auto-style9">
                         &nbsp;</td>
                     <td>&nbsp;</td>

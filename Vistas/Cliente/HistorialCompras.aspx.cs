@@ -7,14 +7,9 @@ using System.Web.UI.WebControls;
 
 namespace Vistas.Cliente
 {
-    public partial class CompraArticulo : System.Web.UI.Page
+    public partial class HistorialCompras : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void Button2_Click(object sender, EventArgs e)
         {
 
         }

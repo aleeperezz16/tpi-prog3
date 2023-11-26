@@ -25,15 +25,17 @@ namespace Vistas
             };
 
             LogearUsuario negocioLogIn = new LogearUsuario();
-            var usuarioLogueado = negocioLogIn.IniciarSesion(usuario);
+            var usuarioLogueado = negocioLogIn.IniciarSesion(usuario); ///Devuelve un su
 
             if (usuarioLogueado == null)
             {
                 lblErrorLogeo.Text = "Error al ingresar, intente nuevamente";
                 return;
             }
-
+          
             Session["Datos"] = usuarioLogueado;
+            string lawea = Session["Datos"].ToString();
+            System.Windows.Forms.MessageBox.Show(lawea, "la weaaa");
             Response.Redirect("Inicio.aspx");
         }
     }

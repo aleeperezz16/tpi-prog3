@@ -111,7 +111,7 @@
                     <td class="auto-style5">&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>
-                        <asp:LinkButton ID="lkbRegistrarse" runat="server">No tenes cuenta? Registrate!</asp:LinkButton>
+                        <asp:LinkButton ID="lkbRegistrarse" runat="server" PostBackUrl="~/Registro.aspx">No tenes cuenta? Registrate!</asp:LinkButton>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
