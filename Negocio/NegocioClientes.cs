@@ -34,14 +34,24 @@ namespace Negocio
             int cantFilas = _dao.agregarCliente(cliente);
             return cantFilas > 1 ? true : false;
         }
-        
-        public bool ExisteCliente(Clientes cliente)
-        {
-            int Existe = _dao.existeCliente(cliente);
-            return Existe > 1 ? true : false;
-            }
 
+        public DataTable ObtenerDNIClientes(Clientes cliente)
+        {
+        
+            return _dao.ObtenerDNICliente(cliente);
         }
+
+        public DataTable ObtenerALIASClientes(Clientes cliente)
+        {
+
+            return _dao.ObtenerALIASCliente(cliente);
+        }
+
 
     }
 }
+
+
+
+    
+

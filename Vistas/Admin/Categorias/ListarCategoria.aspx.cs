@@ -109,6 +109,7 @@ namespace Vistas.Admin.Categorias
         protected void btnVistaInicial_Click(object sender, EventArgs e)
         {
             tbCategoriaporid.Text = "";
+            gdvCategorias.PageIndex = 0;
             cargarCategoriasEnGrilla();
         }
     }
