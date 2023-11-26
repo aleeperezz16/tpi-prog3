@@ -21,11 +21,11 @@
 
         .auto-style4 {
             height: 26px;
-            width: 181px;
+            width: 157px;
         }
 
         .auto-style5 {
-            width: 181px;
+            width: 157px;
         }
 
         .auto-style8 {
@@ -38,10 +38,6 @@
             width: 261px;
         }
 
-        .auto-style10 {
-            width: 261px;
-        }
-
         .auto-style11 {
             width: 261px;
             text-align: right;
@@ -49,7 +45,7 @@
         }
 
         .auto-style12 {
-            width: 181px;
+            width: 157px;
             height: 29px;
         }
 
@@ -192,14 +188,14 @@
                     <td class="auto-style2"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style5">&nbsp;</td>
-                    <td class="auto-style8">
+                    <td class="auto-style12"></td>
+                    <td class="auto-style13">
                         <asp:Label ID="lbUsuario" runat="server" Text="Nombre de usuario:"></asp:Label>
                     </td>
-                    <td>
+                    <td class="auto-style14">
                         <asp:TextBox ID="tbNombreusuario" runat="server"></asp:TextBox>
                     </td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style14"></td>
                 </tr>
                 <tr>
                     <td class="auto-style5">&nbsp;</td>

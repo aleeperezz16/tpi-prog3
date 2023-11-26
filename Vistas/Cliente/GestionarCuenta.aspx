@@ -44,7 +44,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style4">
-                        <asp:HyperLink ID="HyperLink1" runat="server">Volver al menu Principal</asp:HyperLink>
+                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/InicioClientes.aspx">Volver al menu Principal</asp:HyperLink>
                     </td>
                     <td class="auto-style6">
                         <asp:Label ID="lblTituloGestionar" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Gestionar Cuenta"></asp:Label>

@@ -34,8 +34,6 @@ namespace Vistas
             }
           
             Session["Datos"] = usuarioLogueado;
-            string lawea = Session["Datos"].ToString();
-            System.Windows.Forms.MessageBox.Show(lawea, "la weaaa");
             Response.Redirect("Inicio.aspx");
         }
     }
