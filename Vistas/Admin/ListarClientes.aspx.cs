@@ -50,14 +50,15 @@ namespace Vistas
             gdvClientes.EditIndex = e.NewEditIndex;
             CargarClientesEnGrilla();
         }
-        /*
+        
         protected void gdvClientes_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            Cliente clienteAEditar = new Cliente();
+            Clientes clienteAEditar = new Clientes();
             Ciudad ciudad = new Ciudad();
             Usuario usuario = new Usuario();
             ciudad.Codigo = Convert.ToInt32(((DropDownList)gdvClientes.Rows[e.RowIndex].FindControl("ddl_eit_Ciudad")).SelectedValue);
             usuario.Alias = ((TextBox)gdvClientes.Rows[e.RowIndex].FindControl("txt_eit_Alias")).Text;
+            usuario.Contrasenia = ((TextBox)gdvClientes.Rows[e.RowIndex].FindControl("txt_eit_Contrasenia")).Text;
 
             clienteAEditar.Dni = Convert.ToInt32(((TextBox)gdvClientes.Rows[e.RowIndex].FindControl("txt_eit_DNI")).Text);
             clienteAEditar.Apellido = ((TextBox)gdvClientes.Rows[e.RowIndex].FindControl("txt_eit_Apellido")).Text;
@@ -91,7 +92,7 @@ namespace Vistas
                 }
             }
         }
-        */
+        
         protected void gdvClientes_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             gdvClientes.EditIndex = -1;

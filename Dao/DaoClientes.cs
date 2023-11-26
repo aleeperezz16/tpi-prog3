@@ -14,7 +14,7 @@ namespace Dao
         private AccesoDatos _datos = new AccesoDatos("TPIntegradorGrupo6");
         public DaoClientes() { }
 
-        public int ModificarCliente(Cliente cli)
+        public int ModificarCliente(Clientes cli)
         {
             SqlCommand cmd = new SqlCommand();
             ArmarParametrosModificar(ref cmd, cli);
@@ -24,16 +24,18 @@ namespace Dao
         public DataTable ObtenerCliente(int id)
         {
             string consulta = "SELECT CNT.DNI, " +
-                "CNT.Apellido," +
-                "CNT.Nombre, " +
-                "CNT.Alias, " +
-                "CNT.Telefono, " +
-                "CNT.EMail, " +
-                "CNT.Direccion, " +
-                "C.CodigoCiudad AS Ciudad, " +
-                "CNT.Estado " +
-                "FROM CLIENTES CNT " +
-                "INNER JOIN CIUDAD C ON CNT.CodigoCiudad = C.CodigoCiudad";
+              "CNT.Apellido," +
+              "CNT.Nombre, " +
+              "CNT.Alias, " +
+              "CNT.Telefono, " +
+              "CNT.EMail, " +
+              "CNT.Direccion, " +
+              "C.CodigoCiudad AS Ciudad, " +
+              "CNT.Estado, " +
+              "LOGIN.Contrasenia " +
+              "FROM CLIENTES CNT " +
+              "INNER JOIN CIUDAD C ON CNT.CodigoCiudad = C.CodigoCiudad " +
+              "INNER JOIN LOGINUSUARIOS LOGIN ON LOGIN.Alias = CNT.Alias";
 
             if (id > 0)
                 consulta += $" WHERE CNT.DNI = {id}";
@@ -41,7 +43,7 @@ namespace Dao
             return _datos.ObtenerTabla("Clientes", consulta);
         }
 
-        public Cliente ObtenerCliente(Usuario usuario)
+        public Clientes ObtenerCliente(Usuario usuario)
         {
             string consulta = "SELECT " +
                 "C.Apellido," +
@@ -64,7 +66,7 @@ namespace Dao
             Provincia provincia = new Provincia(dr.Field<int>("CodigoProvincia"), dr.Field<string>("Provincia"));
             Ciudad ciudad = new Ciudad(dr.Field<int>("CodigoCiudad"), dr.Field<string>("Ciudad"), provincia);
 
-            Cliente cliente = new Cliente(dr.Field<int>("DNI"),
+            Clientes cliente = new Clientes(dr.Field<int>("DNI"),
                 dr.Field<string>("Apellido"),
                 dr.Field<string>("Nombre"),
                 usuario,
@@ -82,13 +84,13 @@ namespace Dao
             return _datos.EjecutarConsulta($"DELETE FROM Clientes WHERE Dni = {id}");
         }
 
-        private void ArmarParametrosModificar(ref SqlCommand cmd, Cliente cli)
+        private void ArmarParametrosModificar(ref SqlCommand cmd, Clientes cli)
         {
             cmd.Parameters.AddWithValue("@DNI", cli.Dni);
             cmd.Parameters.AddWithValue("@APELLIDO", cli.Apellido);
             cmd.Parameters.AddWithValue("@NOMBRE", cli.Nombre);
-            //cmd.Parameters.AddWithValue("@ALIAS", cli.Usuario.Alias);
-           // cmd.Parameters.AddWithValue("@CONTRASENIA", cli.Usuario.Contrasenia);
+            cmd.Parameters.AddWithValue("@ALIAS", cli.Usuario.Alias);
+            cmd.Parameters.AddWithValue("@CONTRASENIA", cli.Usuario.Contrasenia);
             cmd.Parameters.AddWithValue("@TELEFONO", cli.Telefono);
             cmd.Parameters.AddWithValue("@EMAIL", cli.Email);
             cmd.Parameters.AddWithValue("@DIRECCION", cli.Direccion);

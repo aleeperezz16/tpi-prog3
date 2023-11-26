@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class Cliente
+    public class Clientes
     {
         public int Dni { get; set; }
         public string Apellido { get; set; }
@@ -18,9 +18,9 @@ namespace Entidades
         public Ciudad Ciudad { get; set; }
         public bool Estado { get; set; }
 
-        public Cliente() { }
+        public Clientes() { }
 
-        public Cliente(int dni, string apellido, string nombre, Usuario usuario, string telefono, string email, string direccion, Ciudad ciudad, bool estado)
+        public Clientes(int dni, string apellido, string nombre, Usuario usuario, string telefono, string email, string direccion, Ciudad ciudad, bool estado)
         {
             Dni = dni;
             Apellido = apellido;
