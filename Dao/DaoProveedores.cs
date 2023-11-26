@@ -19,8 +19,7 @@ namespace Dao
         {
             SqlCommand cmd = new SqlCommand();
             ArmarParametrosAgregar(ref cmd, prov);
-             int enter =_datos.EjecutarProcedimientoAlmacenado(ref cmd, "sp_AgregarProveedor");
-            return enter;
+            return _datos.EjecutarProcedimientoAlmacenado(ref cmd, "sp_AgregarProveedor");
         }
 
         public int ModificarProveedor(Proveedor prov)
