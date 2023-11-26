@@ -53,7 +53,11 @@ namespace Vistas.Admin.Proveedores
 
             if (_negocio.AgregarProveedor(proveedor))
             {
-                lblNotificacion.Text = "Se pudo agregar el proveedor exitosamente";       
+                lblNotificacion.Text = "Se pudo agregar el proveedor exitosamente";
+                txtNombreProveedor.Text = "";
+                txtTelefono.Text = "";
+                txtEmail.Text = "";
+                txtDireccion.Text = "";
             }
             else
             {
