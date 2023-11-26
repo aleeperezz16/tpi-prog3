@@ -19,7 +19,8 @@ namespace Dao
         {
             SqlCommand cmd = new SqlCommand();
             ArmarParametrosAgregar(ref cmd, prov);
-            return _datos.EjecutarProcedimientoAlmacenado(ref cmd, "sp_AgregarProveedor");
+             int enter =_datos.EjecutarProcedimientoAlmacenado(ref cmd, "sp_AgregarProveedor");
+            return enter;
         }
 
         public int ModificarProveedor(Proveedor prov)
@@ -71,7 +72,7 @@ namespace Dao
             cmd.Parameters.AddWithValue("@TELEFONO", prov.Telefono);
             cmd.Parameters.AddWithValue("@EMAIL", prov.Email);
             cmd.Parameters.AddWithValue("@DIRECCION", prov.Direccion);
-            cmd.Parameters.AddWithValue("@CODCIUDAD", prov.Ciudad);
+            cmd.Parameters.AddWithValue("@CODCIUDAD", prov.Ciudad.Codigo);
         }
 
         private void ArmarParametrosModificar(ref SqlCommand cmd, Proveedor prov)
@@ -81,7 +82,7 @@ namespace Dao
             cmd.Parameters.AddWithValue("@TELEFONO", prov.Telefono);
             cmd.Parameters.AddWithValue("@EMAIL", prov.Email);
             cmd.Parameters.AddWithValue("@DIRECCION", prov.Direccion);
-            cmd.Parameters.AddWithValue("@CODCIUDAD", prov.Ciudad);
+            cmd.Parameters.AddWithValue("@CODCIUDAD", prov.Ciudad.Codigo);
         }
     }
 }

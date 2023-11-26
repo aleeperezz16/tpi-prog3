@@ -120,7 +120,7 @@
                     <asp:Button ID="btnAgregar" runat="server" OnClick="btnAgregar_Click" Text="Aceptar" />
                 </td>
                 <td>
-                    <asp:Label ID="lblError" runat="server"></asp:Label>
+                    <asp:Label ID="lblNotificacion" runat="server"></asp:Label>
                 </td>
             </tr>
         </table>

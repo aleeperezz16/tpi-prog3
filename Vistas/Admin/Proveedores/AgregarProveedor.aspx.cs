@@ -51,8 +51,15 @@ namespace Vistas.Admin.Proveedores
             proveedor.Direccion = txtDireccion.Text.Trim();
             proveedor.Ciudad = ciudad;
 
-            if (!_negocio.AgregarProveedor(proveedor))
-                lblError.Text = "No se pudo agregar el proveedor";
+            if (_negocio.AgregarProveedor(proveedor))
+            {
+                lblNotificacion.Text = "Se pudo agregar el proveedor exitosamente";       
+            }
+            else
+            {
+                lblNotificacion.Text = "No se pudo agregar el proveedor exitosamente";
+            }
+                
         }
 
         private void CargarCiudades(int id = 0, int idProvincia = 0)
