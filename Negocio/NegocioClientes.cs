@@ -28,5 +28,20 @@ namespace Negocio
             int cantFilas = _dao.ModificarCliente(cliente);
             return cantFilas > 1 ? true : false;
         }
+
+        public bool AgregarCliente(Clientes cliente)
+        {
+            int cantFilas = _dao.agregarCliente(cliente);
+            return cantFilas > 1 ? true : false;
+        }
+        
+        public bool ExisteCliente(Clientes cliente)
+        {
+            int Existe = _dao.existeCliente(cliente);
+            return Existe > 1 ? true : false;
+            }
+
+        }
+
     }
 }

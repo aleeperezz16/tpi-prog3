@@ -97,5 +97,45 @@ namespace Dao
             cmd.Parameters.AddWithValue("@CODCIUDAD", cli.Ciudad.Codigo);
             cmd.Parameters.AddWithValue("@ESTADO", cli.Estado);
         }
+
+
+
+        public int agregarCliente(Clientes cliente)
+        {
+            SqlCommand cmd = new SqlCommand();
+            ArmarParametrosAgregar(ref cmd, cliente);
+            return _datos.EjecutarProcedimientoAlmacenado(ref cmd, "sp_AgregarCliente");
+        }
+
+        private void ArmarParametrosAgregar(ref SqlCommand cmd, Clientes cli)
+        {
+            cmd.Parameters.AddWithValue("@DNI",  cli.Dni );
+            cmd.Parameters.AddWithValue("@APELLIDO", cli.Apellido);
+            cmd.Parameters.AddWithValue("@NOMBRE", cli.Nombre);
+            cmd.Parameters.AddWithValue("@ALIAS", cli.Usuario.Alias);
+            cmd.Parameters.AddWithValue("@CONTRASENIA", cli.Usuario.Contrasenia);
+            cmd.Parameters.AddWithValue("@TELEFONO", cli.Telefono);
+            cmd.Parameters.AddWithValue("@EMAIL", cli.Email);
+            cmd.Parameters.AddWithValue("@DIRECCION", cli.Direccion);
+            cmd.Parameters.AddWithValue("@CODCIUDAD", cli.Ciudad.Codigo);
+            cmd.Parameters.AddWithValue("@ESTADO", cli.Usuario.Estado);
+        }
+        
+        public int existeCliente(Clientes cliente)
+        {
+            SqlCommand cmd = new SqlCommand();
+            ArmarParametrosAgregar(ref cmd, cliente);
+            return _datos.EjecutarProcedimientoAlmacenado(ref cmd, "sp_ExisteCliente");
+        }
+
+        private void ArmarParametrosExisteCliente(ref SqlCommand cmd, Clientes cli)
+        {
+            cmd.Parameters.AddWithValue("@DNI", cli.Dni);
+            cmd.Parameters.AddWithValue("@ALIAS", cli.Usuario.Alias);
+        }
+
+
+    }
+
     }
 }

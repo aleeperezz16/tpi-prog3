@@ -21,11 +21,11 @@
 
         .auto-style4 {
             height: 26px;
-            width: 157px;
+            width: 156px;
         }
 
         .auto-style5 {
-            width: 157px;
+            width: 156px;
         }
 
         .auto-style8 {
@@ -45,7 +45,7 @@
         }
 
         .auto-style12 {
-            width: 157px;
+            width: 156px;
             height: 29px;
         }
 
@@ -62,6 +62,18 @@
         .auto-style15 {
             text-align: left;
             height: 26px;
+        }
+        .auto-style16 {
+            width: 156px;
+            height: 34px;
+        }
+        .auto-style17 {
+            width: 261px;
+            text-align: right;
+            height: 34px;
+        }
+        .auto-style18 {
+            height: 34px;
         }
     </style>
 </head>
@@ -101,6 +113,7 @@
                     </td>
                     <td class="auto-style2">
                         <asp:TextBox ID="tbNombres" runat="server"></asp:TextBox>
+                    &nbsp;<asp:RequiredFieldValidator ID="rfvNombres" runat="server" ControlToValidate="tbNombres" ForeColor="Red" ValidationGroup="1">*Debe ingresar su/s Nombre/s</asp:RequiredFieldValidator>
                     </td>
                     <td class="auto-style2"></td>
                 </tr>
@@ -111,6 +124,7 @@
                     </td>
                     <td class="auto-style2">
                         <asp:TextBox ID="tbApellido" runat="server"></asp:TextBox>
+                    &nbsp;<asp:RequiredFieldValidator ID="rfvApellidos" runat="server" ControlToValidate="tbApellido" ForeColor="#FF3300" ValidationGroup="1">*Debe ingresar su/s Apellido/s</asp:RequiredFieldValidator>
                     </td>
                     <td class="auto-style2"></td>
                 </tr>
@@ -121,6 +135,9 @@
                     </td>
                     <td class="auto-style2">
                         <asp:TextBox ID="tbDni" runat="server"></asp:TextBox>
+                    &nbsp;<asp:RequiredFieldValidator ID="rfvDNI" runat="server" ControlToValidate="tbDni" ForeColor="#FF3300">*Debe ingresar su DNI</asp:RequiredFieldValidator>
+&nbsp;
+                        <asp:RegularExpressionValidator ID="revDNI" runat="server" ControlToValidate="tbDni" ForeColor="#FF3300" ValidationExpression="^\d+$" ValidationGroup="1">*Solo se aceptan números</asp:RegularExpressionValidator>
                     </td>
                     <td class="auto-style2"></td>
                 </tr>
@@ -130,21 +147,25 @@
                         <asp:Label ID="lbProvincia" runat="server" Text="Provincia:"></asp:Label>
                     </td>
                     <td class="auto-style14">
-                        <asp:DropDownList ID="ddlProvincias" runat="server">
+                        <asp:DropDownList ID="ddlProvincias" runat="server" AppendDataBoundItems="True" CausesValidation="True" DataTextField="-- Seleccionar --" DataValueField="0">
+                            <asp:ListItem Value="0">-- Seleccionar --</asp:ListItem>
                         </asp:DropDownList>
+                    &nbsp;<asp:RequiredFieldValidator ID="rfvddlProvincias" runat="server" ControlToValidate="ddlProvincias" ForeColor="#FF3300" InitialValue="0" ValidationGroup="1">*Debe seleccionar una Provincia</asp:RequiredFieldValidator>
                     </td>
                     <td class="auto-style14"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style5">&nbsp;</td>
-                    <td class="auto-style8">
+                    <td class="auto-style12"></td>
+                    <td class="auto-style13">
                         <asp:Label ID="lbCiudad" runat="server" Text="Ciudad:"></asp:Label>
                     </td>
-                    <td>
-                        <asp:DropDownList ID="ddlCiudades" runat="server">
+                    <td class="auto-style14">
+                        <asp:DropDownList ID="ddlCiudades" runat="server" AppendDataBoundItems="True" DataTextField="-- Seleccionar --" DataValueField="0">
+                            <asp:ListItem Selected="True" Value="0">-- Seleccionar --</asp:ListItem>
                         </asp:DropDownList>
+                    &nbsp;<asp:RequiredFieldValidator ID="rfvddlCiudades" runat="server" ControlToValidate="ddlCiudades" ForeColor="#FF3300" InitialValue="0" ValidationGroup="1"> *Debe Seleccionar una Ciudad</asp:RequiredFieldValidator>
                     </td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style14"></td>
                 </tr>
                 <tr>
                     <td class="auto-style4"></td>
@@ -153,6 +174,7 @@
                     </td>
                     <td class="auto-style2">
                         <asp:TextBox ID="tbDireccion" runat="server"></asp:TextBox>
+                    &nbsp;<asp:RequiredFieldValidator ID="rfvDireccion" runat="server" ControlToValidate="tbDireccion" ForeColor="#FF3300" ValidationGroup="1">*Debe ingresar una Dirección</asp:RequiredFieldValidator>
                     </td>
                     <td class="auto-style2"></td>
                 </tr>
@@ -163,6 +185,9 @@
                     </td>
                     <td>
                         <asp:TextBox ID="tbTelefono" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvTelefono" runat="server" ControlToValidate="tbTelefono" ForeColor="#FF3300">*Debe Seleccionar un Telefono</asp:RequiredFieldValidator>
+&nbsp;
+                        <asp:RegularExpressionValidator ID="revTelefono" runat="server" ControlToValidate="tbTelefono" ForeColor="#FF3300" ValidationExpression="^\d+$" ValidationGroup="1">*Solo se aceptan números</asp:RegularExpressionValidator>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
@@ -173,6 +198,8 @@
                     </td>
                     <td class="auto-style2">
                         <asp:TextBox ID="tbEmail" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="tbEmail" ForeColor="#FF3300" ValidationGroup="1">*Debe ingresar un Email</asp:RequiredFieldValidator>
+&nbsp;<asp:RegularExpressionValidator ID="revEmail" runat="server" ControlToValidate="tbEmail" ForeColor="#FF3300" ValidationExpression="^[^@]+@[^@]+\.[a-zA-Z]{2,}$" ValidationGroup="1">*Debe ingresar una sintaxis de Email válida</asp:RegularExpressionValidator>
                     </td>
                     <td class="auto-style2"></td>
                 </tr>
@@ -194,16 +221,31 @@
                     </td>
                     <td class="auto-style14">
                         <asp:TextBox ID="tbNombreusuario" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvNombreUsuario" runat="server" ControlToValidate="tbNombreusuario" ForeColor="#FF3300" ValidationGroup="1">*Debe Ingresar un Nombre de usuario</asp:RequiredFieldValidator>
                     </td>
                     <td class="auto-style14"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style5">&nbsp;</td>
-                    <td class="auto-style8">
+                    <td class="auto-style16"></td>
+                    <td class="auto-style17">
                         <asp:Label ID="lbContraseña" runat="server" Text="Contraseña:"></asp:Label>
                     </td>
-                    <td>
+                    <td class="auto-style18">
                         <asp:TextBox ID="tbContraseña" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvContraseña" runat="server" ControlToValidate="tbContraseña" ForeColor="#FF3300" ValidationGroup="1">*Debe completar su contraseña</asp:RequiredFieldValidator>
+&nbsp;<asp:CompareValidator ID="cvContraseñas" runat="server" ControlToCompare="tbRepetirContraseña" ControlToValidate="tbContraseña" ForeColor="#FF3300" ValidationGroup="1">*Las contraseñas deben coincidir</asp:CompareValidator>
+                    </td>
+                    <td class="auto-style18"></td>
+                </tr>
+                <tr>
+                    <td class="auto-style5">&nbsp;</td>
+                    <td class="auto-style8">
+                        <asp:Label ID="lbContraseña0" runat="server" Text="Repetir Contraseña:"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="tbRepetirContraseña" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvRepetirContraseña" runat="server" ControlToValidate="tbRepetirContraseña" ErrorMessage="RequiredFieldValidator" ForeColor="#FF3300" ValidationGroup="1">*Debe volver a repetir su contraseña</asp:RequiredFieldValidator>
+&nbsp;
                     </td>
                     <td>&nbsp;</td>
                 </tr>
@@ -211,7 +253,7 @@
                     <td class="auto-style5">&nbsp;</td>
                     <td class="auto-style8">&nbsp;</td>
                     <td>
-                        <asp:Button ID="btnCrear" runat="server" Text="Crear" />
+                        <asp:Button ID="btnCrear" runat="server" Text="Crear" OnClick="btnCrear_Click" ValidationGroup="1" />
                     </td>
                     <td>&nbsp;</td>
                 </tr>
