@@ -115,7 +115,7 @@
             </tr>
             <tr>
                 <td class="auto-style18">
-                    <asp:HyperLink ID="HyperLink1" runat="server">Historial Compras</asp:HyperLink>
+                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Cliente/HistorialCompra.aspx">Historial Compras</asp:HyperLink>
                 </td>
                 <td class="auto-style24">
                     <asp:Button ID="btnCerrarSesion" runat="server" Text="Cerrar Sesión" />
@@ -131,7 +131,7 @@
             </tr>
             <tr>
                 <td class="auto-style15">
-                    <asp:HyperLink ID="hlGestionarCuenta" runat="server">Gestionar Cuenta</asp:HyperLink>
+                    <asp:HyperLink ID="hlGestionarCuenta" runat="server" NavigateUrl="~/Cliente/GestionCuenta.aspx">Gestionar Cuenta</asp:HyperLink>
                 </td>
                 <td class="auto-style22"></td>
                 <td class="auto-style16"></td>

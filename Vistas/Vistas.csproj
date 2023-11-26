@@ -79,7 +79,8 @@
     <Content Include="Admin\Proveedores\AgregarProveedor.aspx" />
     <Content Include="Admin\Proveedores\ListarProveedores.aspx" />
     <Content Include="Cliente\CompraArticulo.aspx" />
-    <Content Include="GestionarCuenta.aspx" />
+    <Content Include="Cliente\GestionCuenta.aspx" />
+    <Content Include="Cliente\HistorialCompra.aspx" />
     <Content Include="Inicio.aspx" />
     <Content Include="InicioClientes.aspx" />
     <Content Include="Login.aspx" />
@@ -164,12 +165,19 @@
     <Compile Include="Cliente\CompraArticulo.aspx.designer.cs">
       <DependentUpon>CompraArticulo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GestionarCuenta.aspx.cs">
-      <DependentUpon>GestionarCuenta.aspx</DependentUpon>
+    <Compile Include="Cliente\GestionCuenta.aspx.cs">
+      <DependentUpon>GestionCuenta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GestionarCuenta.aspx.designer.cs">
-      <DependentUpon>GestionarCuenta.aspx</DependentUpon>
+    <Compile Include="Cliente\GestionCuenta.aspx.designer.cs">
+      <DependentUpon>GestionCuenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\HistorialCompra.aspx.cs">
+      <DependentUpon>HistorialCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\HistorialCompra.aspx.designer.cs">
+      <DependentUpon>HistorialCompra.aspx</DependentUpon>
     </Compile>
     <Compile Include="Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
