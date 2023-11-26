@@ -50,6 +50,7 @@ namespace Vistas.Admin
         protected void btnVistaInicial_Click(object sender, EventArgs e)
         {
             tbBuscarPedidoPorId.Text = "";
+            gdvListarPedidos.PageIndex = 0;
             cargarPedidosEnGrilla();
         }
 

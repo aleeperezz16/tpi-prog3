@@ -74,8 +74,8 @@
                         <asp:Label ID="lbUsuario" runat="server" Text="Usuario:"></asp:Label>
                     </td>
                     <td class="auto-style9">
-                        <asp:TextBox ID="txtUsuario" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvUsuario" runat="server" ControlToValidate="txtUsuario">Ingrese usuario</asp:RequiredFieldValidator>
+                        <asp:TextBox ID="txtUsuario" runat="server" ValidationGroup="1"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvUsuario" runat="server" ControlToValidate="txtUsuario" ValidationGroup="1">Ingrese usuario</asp:RequiredFieldValidator>
                     </td>
                     <td class="auto-style9"></td>
                 </tr>
@@ -85,8 +85,8 @@
                         <asp:Label ID="lbContraseña" runat="server" Text="Contraseña:"></asp:Label>
                     </td>
                     <td class="auto-style9">
-                        <asp:TextBox ID="txtContrasenia" runat="server" TextMode="Password"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvUserPssw" runat="server" ControlToValidate="txtContrasenia">Ingrese contraseña</asp:RequiredFieldValidator>
+                        <asp:TextBox ID="txtContrasenia" runat="server" TextMode="Password" ValidationGroup="1"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvUserPssw" runat="server" ControlToValidate="txtContrasenia" ValidationGroup="1">Ingrese contraseña</asp:RequiredFieldValidator>
                     </td>
                     <td class="auto-style9"></td>
                 </tr>
@@ -94,18 +94,18 @@
                     <td class="auto-style6"></td>
                     <td class="auto-style3"></td>
                     <td class="auto-style11">
-                        <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" />
+                        <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" ValidationGroup="1" />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Label ID="lblErrorLogeo" runat="server"></asp:Label>
                     </td>
                     <td class="auto-style3"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style5">&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>
-                        &nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style6"></td>
+                    <td class="auto-style3"></td>
+                    <td class="auto-style3">
+                        </td>
+                    <td class="auto-style3"></td>
                 </tr>
                 <tr>
                     <td class="auto-style5">&nbsp;</td>
