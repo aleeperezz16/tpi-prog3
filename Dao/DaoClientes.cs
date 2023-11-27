@@ -100,14 +100,14 @@ namespace Dao
 
 
 
-        public int agregarCliente(Clientes cliente)
+        public int agregarCliente(Cliente cliente)
         {
             SqlCommand cmd = new SqlCommand();
             ArmarParametrosAgregar(ref cmd, cliente);
             return _datos.EjecutarProcedimientoAlmacenado(ref cmd, "sp_RegistrarCliente");
         }
 
-        private void ArmarParametrosAgregar(ref SqlCommand cmd, Clientes cli)
+        private void ArmarParametrosAgregar(ref SqlCommand cmd, Cliente cli)
         {
             cmd.Parameters.AddWithValue("@ALIAS", cli.Usuario.Alias);
             cmd.Parameters.AddWithValue("@CONTRASENIA", cli.Usuario.Contrasenia);
@@ -121,12 +121,12 @@ namespace Dao
            
         }
 
-        public DataTable ObtenerDNICliente(Clientes cli)
+        public DataTable ObtenerDNICliente(Cliente cli)
         {
             string consulta = "SELECT * FROM CLIENTES WHERE DNI = "+cli.Dni;
             return _datos.ObtenerTabla("Clientes", consulta);
         }
-        public DataTable ObtenerALIASCliente(Clientes cli)
+        public DataTable ObtenerALIASCliente(Cliente cli)
         {
             string consulta = "SELECT * FROM CLIENTES WHERE ALIAS = '" + cli.Usuario.Alias+"'";
             return _datos.ObtenerTabla("Clientes", consulta);

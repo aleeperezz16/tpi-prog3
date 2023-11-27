@@ -80,9 +80,9 @@
     <Content Include="Admin\Pedidos\AgregarPedido.aspx" />
     <Content Include="Admin\Proveedores\AgregarProveedor.aspx" />
     <Content Include="Admin\Proveedores\ListarProveedores.aspx" />
-    <Content Include="Clientes\CompraArticulo.aspx" />
-    <Content Include="Clientes\GestionCuenta.aspx" />
-    <Content Include="Clientes\HistorialCompra.aspx" />
+    <Content Include="Articulos\CompraArticulo.aspx" />
+    <Content Include="MiCuenta\GestionCuenta.aspx" />
+    <Content Include="MiCuenta\HistorialCompra.aspx" />
     <Content Include="Inicio.aspx" />
     <Content Include="InicioClientes.aspx" />
     <Content Include="Login.aspx" />
@@ -174,25 +174,25 @@
     <Compile Include="Admin\Proveedores\ListarProveedores.aspx.designer.cs">
       <DependentUpon>ListarProveedores.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Clientes\CompraArticulo.aspx.cs">
+    <Compile Include="Articulos\CompraArticulo.aspx.cs">
       <DependentUpon>CompraArticulo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Clientes\CompraArticulo.aspx.designer.cs">
+    <Compile Include="Articulos\CompraArticulo.aspx.designer.cs">
       <DependentUpon>CompraArticulo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Clientes\GestionCuenta.aspx.cs">
+    <Compile Include="MiCuenta\GestionCuenta.aspx.cs">
       <DependentUpon>GestionCuenta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Clientes\GestionCuenta.aspx.designer.cs">
+    <Compile Include="MiCuenta\GestionCuenta.aspx.designer.cs">
       <DependentUpon>GestionCuenta.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Clientes\HistorialCompra.aspx.cs">
+    <Compile Include="MiCuenta\HistorialCompra.aspx.cs">
       <DependentUpon>HistorialCompra.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Clientes\HistorialCompra.aspx.designer.cs">
+    <Compile Include="MiCuenta\HistorialCompra.aspx.designer.cs">
       <DependentUpon>HistorialCompra.aspx</DependentUpon>
     </Compile>
     <Compile Include="Inicio.aspx.cs">

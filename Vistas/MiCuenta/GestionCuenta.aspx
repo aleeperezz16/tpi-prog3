@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="GestionCuenta.aspx.cs" Inherits="Vistas.Cliente.GestionCuenta" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="GestionCuenta.aspx.cs" Inherits="Vistas.MiCuenta.GestionCuenta" %>
 
 <!DOCTYPE html>
 

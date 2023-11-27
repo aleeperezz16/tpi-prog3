@@ -29,19 +29,19 @@ namespace Negocio
             return cantFilas > 1 ? true : false;
         }
 
-        public bool AgregarCliente(Clientes cliente)
+        public bool AgregarCliente(Cliente cliente)
         {
             int cantFilas = _dao.agregarCliente(cliente);
             return cantFilas > 1 ? true : false;
         }
 
-        public DataTable ObtenerDNIClientes(Clientes cliente)
+        public DataTable ObtenerDNIClientes(Cliente cliente)
         {
         
             return _dao.ObtenerDNICliente(cliente);
         }
 
-        public DataTable ObtenerALIASClientes(Clientes cliente)
+        public DataTable ObtenerALIASClientes(Cliente cliente)
         {
 
             return _dao.ObtenerALIASCliente(cliente);

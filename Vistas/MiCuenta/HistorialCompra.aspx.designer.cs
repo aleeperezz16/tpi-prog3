@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Vistas.Clientes
+namespace Vistas.MiCuenta
 {
 
 

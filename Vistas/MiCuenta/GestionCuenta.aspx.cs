@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Vistas.Clientes
+namespace Vistas.MiCuenta
 {
     public partial class GestionCuenta : System.Web.UI.Page
     {

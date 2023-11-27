@@ -10,7 +10,7 @@ using System.Data;
 
 namespace Vistas
 {
-    public partial class FormularioRegistro : System.Web.UI.Page
+    public partial class Registro : System.Web.UI.Page
     {
         NegocioClientes n_Clientes = new NegocioClientes();
         NegocioCiudades _negocioCiud = new NegocioCiudades();
@@ -35,30 +35,30 @@ namespace Vistas
 
         protected void btnCrear_Click(object sender, EventArgs e)
         {
-            Clientes client = new Clientes();
+            Cliente client = new Cliente();
             client = PrepararCliente();
             int alias = ALIASRepetido(client);
             int DNI = DNIRepetido(client);
             bool aux = false;
             int res = alias + DNI;
 
-            if (res==2)
+            if (res == 2)
             {
                 System.Windows.Forms.MessageBox.Show("Usted está intentando registrarse con un DNI y Nombre de Usuario en USO.\n\n" +
                     "Cambielos e intente Nuevamente.", "AVISO");
                 aux = true;
-                
+
             }
-            else if (alias == 1 )
-                  {
-                  System.Windows.Forms.MessageBox.Show("El Nombre de Usuario ingresado, ya se encuentra en uso", "Alerta");
-                    aux = true;
-                  }
-                else  if (DNI == 1)
-                      {
-                          System.Windows.Forms.MessageBox.Show("Ya hay una cuenta registrada con el DNI ingresado", "Alerta");
-                          aux = true;
-                       }
+            else if (alias == 1)
+            {
+                System.Windows.Forms.MessageBox.Show("El Nombre de Usuario ingresado, ya se encuentra en uso", "Alerta");
+                aux = true;
+            }
+            else if (DNI == 1)
+            {
+                System.Windows.Forms.MessageBox.Show("Ya hay una cuenta registrada con el DNI ingresado", "Alerta");
+                aux = true;
+            }
             if (!aux)
             {
                 bool Agrego = n_Clientes.AgregarCliente(client);
@@ -89,14 +89,14 @@ namespace Vistas
             tbTelefono.Text = "";
         }
 
-        public int DNIRepetido(Clientes cliente)
+        public int DNIRepetido(Cliente cliente)
         {
-            Clientes cli = new Clientes();
+            Cliente cli = new Cliente();
             cli = PrepararCliente();
             DataTable data = n_Clientes.ObtenerDNIClientes(cli);
-         
 
-            if (data.Rows.Count!=0)
+
+            if (data.Rows.Count != 0)
             {
                 return 1;
             }
@@ -104,16 +104,16 @@ namespace Vistas
             {
                 return 0;
             }
-          
+
         }
 
-        public int ALIASRepetido(Clientes cliente)
+        public int ALIASRepetido(Cliente cliente)
 
         {
-            Clientes cli = new Clientes();
+            Cliente cli = new Cliente();
             cli = PrepararCliente();
             DataTable data = n_Clientes.ObtenerALIASClientes(cli);
-            if (data.Rows.Count!=0)
+            if (data.Rows.Count != 0)
             {
                 return 1;
             }
@@ -123,9 +123,9 @@ namespace Vistas
             }
         }
 
-        public Clientes PrepararCliente()
+        public Cliente PrepararCliente()
         {
-            Clientes cliente = new Clientes();
+            Cliente cliente = new Cliente();
             Usuario usuario = new Usuario();
             Ciudad ciudad = new Ciudad();
             cliente.Dni = Convert.ToInt32(tbDni.Text.Trim());

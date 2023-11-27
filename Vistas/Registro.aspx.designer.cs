@@ -11,7 +11,7 @@ namespace Vistas
 {
 
 
-    public partial class FormularioRegistro
+    public partial class Registro
     {
 
         /// <summary>

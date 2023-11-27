@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HistorialCompra.aspx.cs" Inherits="Vistas.Cliente.HistorialCompra" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HistorialCompra.aspx.cs" Inherits="Vistas.MiCuenta.HistorialCompra" %>
 
 <!DOCTYPE html>
 

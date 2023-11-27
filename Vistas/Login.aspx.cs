@@ -9,7 +9,7 @@ using Entidades;
 
 namespace Vistas
 {
-    public partial class FormularioLogin : System.Web.UI.Page
+    public partial class Login : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
