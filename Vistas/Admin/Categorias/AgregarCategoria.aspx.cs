@@ -11,7 +11,7 @@ using Negocio;
 
 namespace Vistas.Admin.Categorias
 {
-    public partial class AgregarCategoria : System.Web.UI.Page
+    public partial class AgregarCategoria : Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {

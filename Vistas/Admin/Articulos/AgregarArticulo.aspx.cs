@@ -7,9 +7,9 @@ using System.Web.UI.WebControls;
 using Negocio;
 using Entidades;
 
-namespace Vistas
+namespace Vistas.Admin.Articulos
 {
-    public partial class AgregarSucursal : System.Web.UI.Page
+    public partial class AgregarArticulo : Admin
     {
         static private NegocioCategorias _negocioCat = new NegocioCategorias();
         static private NegocioProveedores _negocioProv = new NegocioProveedores();

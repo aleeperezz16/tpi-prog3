@@ -9,7 +9,7 @@ using Entidades;
 
 namespace Vistas.Admin.Proveedores
 {
-    public partial class ListarProveedores : System.Web.UI.Page
+    public partial class ListarProveedores : Admin
     {
         private NegocioProveedores _negocio = new NegocioProveedores();
         protected void Page_Load(object sender, EventArgs e)

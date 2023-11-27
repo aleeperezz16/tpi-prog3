@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ListarArticulos.aspx.cs" Inherits="Vistas.FormularioArticulos" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ListarArticulos.aspx.cs" Inherits="Vistas.Admin.Articulos.ListarArticulos" %>
 
 <!DOCTYPE html>
 

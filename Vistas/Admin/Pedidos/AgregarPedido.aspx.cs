@@ -10,7 +10,7 @@ using Negocio;
 
 namespace Vistas.Admin.Pedidos
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class AgregarPedido : Admin
     {
         NegocioPedidos n_pedido = new NegocioPedidos();
         Articulo articulo = new Articulo();

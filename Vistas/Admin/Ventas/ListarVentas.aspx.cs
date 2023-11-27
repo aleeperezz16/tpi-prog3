@@ -7,9 +7,9 @@ using System.Web.UI.WebControls;
 using System.Data;
 using Negocio;
 
-namespace Vistas.Admin
+namespace Vistas.Admin.Ventas
 {
-    public partial class ListarVentas : System.Web.UI.Page
+    public partial class ListarVentas : Admin
     {
         private NegocioVentas _negocio = new NegocioVentas();
         protected void Page_Load(object sender, EventArgs e)

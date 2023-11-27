@@ -68,19 +68,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\Admin.aspx" />
     <Content Include="Admin\Articulos\AgregarArticulo.aspx" />
     <Content Include="Admin\Articulos\ListarArticulos.aspx" />
     <Content Include="Admin\Categorias\AgregarCategoria.aspx" />
     <Content Include="Admin\Categorias\ListarCategoria.aspx" />
-    <Content Include="Admin\ListarClientes.aspx" />
+    <Content Include="Admin\Clientes\ListarClientes.aspx" />
+    <Content Include="Admin\Error.aspx" />
     <Content Include="Admin\Pedidos\ListarPedidos.aspx" />
-    <Content Include="Admin\ListarVentas.aspx" />
+    <Content Include="Admin\Ventas\ListarVentas.aspx" />
     <Content Include="Admin\Pedidos\AgregarPedido.aspx" />
     <Content Include="Admin\Proveedores\AgregarProveedor.aspx" />
     <Content Include="Admin\Proveedores\ListarProveedores.aspx" />
-    <Content Include="Cliente\CompraArticulo.aspx" />
-    <Content Include="Cliente\GestionCuenta.aspx" />
-    <Content Include="Cliente\HistorialCompra.aspx" />
+    <Content Include="Clientes\CompraArticulo.aspx" />
+    <Content Include="Clientes\GestionCuenta.aspx" />
+    <Content Include="Clientes\HistorialCompra.aspx" />
     <Content Include="Inicio.aspx" />
     <Content Include="InicioClientes.aspx" />
     <Content Include="Login.aspx" />
@@ -88,6 +90,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Admin.aspx.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Admin.aspx.designer.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Articulos\AgregarArticulo.aspx.cs">
       <DependentUpon>AgregarArticulo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -116,12 +125,19 @@
     <Compile Include="Admin\Categorias\ListarCategoria.aspx.designer.cs">
       <DependentUpon>ListarCategoria.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\ListarClientes.aspx.cs">
+    <Compile Include="Admin\Clientes\ListarClientes.aspx.cs">
       <DependentUpon>ListarClientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\ListarClientes.aspx.designer.cs">
+    <Compile Include="Admin\Clientes\ListarClientes.aspx.designer.cs">
       <DependentUpon>ListarClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Pedidos\ListarPedidos.aspx.cs">
       <DependentUpon>ListarPedidos.aspx</DependentUpon>
@@ -130,11 +146,11 @@
     <Compile Include="Admin\Pedidos\ListarPedidos.aspx.designer.cs">
       <DependentUpon>ListarPedidos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\ListarVentas.aspx.cs">
+    <Compile Include="Admin\Ventas\ListarVentas.aspx.cs">
       <DependentUpon>ListarVentas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\ListarVentas.aspx.designer.cs">
+    <Compile Include="Admin\Ventas\ListarVentas.aspx.designer.cs">
       <DependentUpon>ListarVentas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Pedidos\AgregarPedido.aspx.cs">
@@ -158,25 +174,25 @@
     <Compile Include="Admin\Proveedores\ListarProveedores.aspx.designer.cs">
       <DependentUpon>ListarProveedores.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cliente\CompraArticulo.aspx.cs">
+    <Compile Include="Clientes\CompraArticulo.aspx.cs">
       <DependentUpon>CompraArticulo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cliente\CompraArticulo.aspx.designer.cs">
+    <Compile Include="Clientes\CompraArticulo.aspx.designer.cs">
       <DependentUpon>CompraArticulo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cliente\GestionCuenta.aspx.cs">
+    <Compile Include="Clientes\GestionCuenta.aspx.cs">
       <DependentUpon>GestionCuenta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cliente\GestionCuenta.aspx.designer.cs">
+    <Compile Include="Clientes\GestionCuenta.aspx.designer.cs">
       <DependentUpon>GestionCuenta.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cliente\HistorialCompra.aspx.cs">
+    <Compile Include="Clientes\HistorialCompra.aspx.cs">
       <DependentUpon>HistorialCompra.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cliente\HistorialCompra.aspx.designer.cs">
+    <Compile Include="Clientes\HistorialCompra.aspx.designer.cs">
       <DependentUpon>HistorialCompra.aspx</DependentUpon>
     </Compile>
     <Compile Include="Inicio.aspx.cs">

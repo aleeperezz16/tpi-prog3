@@ -25,7 +25,7 @@ namespace Negocio
                 if (usuario.Tipo != 'V')
                 {
                     DaoClientes daoClientes = new DaoClientes();
-                    Clientes cliente = daoClientes.ObtenerCliente(usuario);
+                    Cliente cliente = daoClientes.ObtenerCliente(usuario);
                     return cliente;
                 }
 

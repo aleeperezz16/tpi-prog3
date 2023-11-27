@@ -11,7 +11,7 @@ using System.Data;
 
 namespace Vistas.Admin.Proveedores
 {
-    public partial class AgregarProveedor : System.Web.UI.Page
+    public partial class AgregarProveedor : Admin
     {
         private NegocioProveedores _negocio = new NegocioProveedores();
 

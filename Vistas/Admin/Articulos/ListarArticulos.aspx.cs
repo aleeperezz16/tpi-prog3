@@ -8,9 +8,9 @@ using Entidades;
 using System.Data;
 using Negocio;
 
-namespace Vistas
+namespace Vistas.Admin.Articulos
 {
-    public partial class FormularioArticulos : System.Web.UI.Page
+    public partial class ListarArticulos : Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {

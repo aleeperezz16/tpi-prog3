@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Vistas.Cliente
+namespace Vistas.Clientes
 {
 
 

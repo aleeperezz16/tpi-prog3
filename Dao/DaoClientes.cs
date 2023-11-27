@@ -14,7 +14,7 @@ namespace Dao
         private AccesoDatos _datos = new AccesoDatos("TPIntegradorGrupo6");
         public DaoClientes() { }
 
-        public int ModificarCliente(Clientes cli)
+        public int ModificarCliente(Cliente cli)
         {
             SqlCommand cmd = new SqlCommand();
             ArmarParametrosModificar(ref cmd, cli);
@@ -43,7 +43,7 @@ namespace Dao
             return _datos.ObtenerTabla("Clientes", consulta);
         }
 
-        public Clientes ObtenerCliente(Usuario usuario)
+        public Cliente ObtenerCliente(Usuario usuario)
         {
             string consulta = "SELECT " +
                 "C.Apellido," +
@@ -66,7 +66,7 @@ namespace Dao
             Provincia provincia = new Provincia(dr.Field<int>("CodigoProvincia"), dr.Field<string>("Provincia"));
             Ciudad ciudad = new Ciudad(dr.Field<int>("CodigoCiudad"), dr.Field<string>("Ciudad"), provincia);
 
-            Clientes cliente = new Clientes(dr.Field<int>("DNI"),
+            Cliente cliente = new Cliente(dr.Field<int>("DNI"),
                 dr.Field<string>("Apellido"),
                 dr.Field<string>("Nombre"),
                 usuario,
@@ -84,7 +84,7 @@ namespace Dao
             return _datos.EjecutarConsulta($"DELETE FROM Clientes WHERE Dni = {id}");
         }
 
-        private void ArmarParametrosModificar(ref SqlCommand cmd, Clientes cli)
+        private void ArmarParametrosModificar(ref SqlCommand cmd, Cliente cli)
         {
             cmd.Parameters.AddWithValue("@DNI", cli.Dni);
             cmd.Parameters.AddWithValue("@APELLIDO", cli.Apellido);

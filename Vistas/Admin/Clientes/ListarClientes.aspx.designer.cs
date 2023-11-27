@@ -7,101 +7,74 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Vistas.Admin
+namespace Vistas.Admin.Clientes
 {
 
 
-    public partial class ListarVentas
+    public partial class ListarClientes
     {
 
         /// <summary>
-        /// Control form1.
+        /// Control Label1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// Control hlVolverInicio.
+        /// Control hlHome.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlVolverInicio;
+        protected global::System.Web.UI.WebControls.HyperLink hlHome;
 
         /// <summary>
-        /// Control gvVentas.
+        /// Control Label2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvVentas;
+        protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// Control ddlArticulos.
+        /// Control lblBuscarClientePorId.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlArticulos;
+        protected global::System.Web.UI.WebControls.TextBox lblBuscarClientePorId;
 
         /// <summary>
-        /// Control txtIdVenta.
+        /// Control btnBuscarClientePorId.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdVenta;
+        protected global::System.Web.UI.WebControls.Button btnBuscarClientePorId;
 
         /// <summary>
-        /// Control txtFechaDia.
+        /// Control gdvClientes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaDia;
+        protected global::System.Web.UI.WebControls.GridView gdvClientes;
 
         /// <summary>
-        /// Control txtFechaMes.
+        /// Control lbObservaciones1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaMes;
-
-        /// <summary>
-        /// Control txtFechaAnio.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaAnio;
-
-        /// <summary>
-        /// Control txtDniCliente.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDniCliente;
-
-        /// <summary>
-        /// Control btnFiltrar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFiltrar;
+        protected global::System.Web.UI.WebControls.Label lbObservaciones1;
     }
 }

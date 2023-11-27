@@ -8,9 +8,9 @@ using System.Data;
 using Entidades;
 using Negocio;
 
-namespace Vistas
+namespace Vistas.Admin.Clientes
 {
-    public partial class FormularioClientes : System.Web.UI.Page
+    public partial class ListarClientes : Admin
     {
         private NegocioClientes _negocio = new NegocioClientes();
 
@@ -53,7 +53,7 @@ namespace Vistas
         
         protected void gdvClientes_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            Clientes clienteAEditar = new Clientes();
+            Cliente clienteAEditar = new Cliente();
             Ciudad ciudad = new Ciudad();
             Usuario usuario = new Usuario();
             ciudad.Codigo = Convert.ToInt32(((DropDownList)gdvClientes.Rows[e.RowIndex].FindControl("ddl_eit_Ciudad")).SelectedValue);
