@@ -71,11 +71,18 @@ namespace Dao
 
         private void ArmarParametrosAgregar(ref SqlCommand cmd, Venta venta)
         {
-            cmd.Parameters.AddWithValue("@IDARTICULO", venta.Articulo.Id);
-            cmd.Parameters.AddWithValue("@DNICLIENTE", venta.Cliente.Dni);
-            cmd.Parameters.AddWithValue("@CANTIDAD", venta.Cantidad);
-            cmd.Parameters.AddWithValue("@PRECIOTOTAL", venta.PrecioTotal);
-            cmd.Parameters.AddWithValue("@FECHA", venta.Fecha);
+           
+            cmd.Parameters.AddWithValue("@IDArticulo", venta.Articulo.Id);
+            cmd.Parameters.AddWithValue("@DNICliente", venta.Cliente.Dni);
+            cmd.Parameters.AddWithValue("@Cantidad", venta.Cantidad);
+
         }
+
+
+
+
+
+
+
     }
 }

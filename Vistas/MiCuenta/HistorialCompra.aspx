@@ -11,14 +11,27 @@
             width: 100%;
         }
         .auto-style2 {
-            width: 184px;
+            width: 203px;
         }
         .auto-style3 {
             width: 826px;
         }
+        .auto-style4 {
+            width: 203px;
+            height: 26px;
+        }
+        .auto-style5 {
+            width: 826px;
+            height: 26px;
+            text-align: center;
+        }
+        .auto-style6 {
+            height: 26px;
+        }
     </style>
 </head>
 <body>
+    <form id="form1" runat="server">
     <table class="auto-style1">
         <tr>
             <td class="auto-style2">&nbsp;</td>
@@ -26,14 +39,18 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style2">&nbsp;</td>
+            <td class="auto-style2">
+                <asp:HyperLink ID="hlInicio" runat="server" NavigateUrl="~/InicioClientes.aspx">Volver al menú Principal</asp:HyperLink>
+            </td>
             <td class="auto-style3">&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style2">&nbsp;</td>
-            <td class="auto-style3">&nbsp;</td>
-            <td>&nbsp;</td>
+            <td class="auto-style4"></td>
+            <td class="auto-style5">
+                <asp:Label ID="lblTitulo" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Mi Historial"></asp:Label>
+            </td>
+            <td class="auto-style6"></td>
         </tr>
         <tr>
             <td class="auto-style2">&nbsp;</td>
@@ -66,7 +83,6 @@
             <td>&nbsp;</td>
         </tr>
     </table>
-    <form id="form1" runat="server">
         <div>
         </div>
     </form>

@@ -90,7 +90,7 @@
             <tr>
                 <td class="auto-style2">&nbsp;</td>
                 <td colspan="2">
-                    <asp:GridView ID="gdvComprarArticulos" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnPageIndexChanging="gdvComprarArticulos_PageIndexChanging">
+                    <asp:GridView ID="gdvComprarArticulos" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnPageIndexChanging="gdvComprarArticulos_PageIndexChanging" OnRowCommand="gdvComprarArticulos_RowCommand">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
                             <asp:TemplateField HeaderText="ID Articulo">
@@ -123,7 +123,7 @@
                                     <asp:TextBox ID="tbCantidad" runat="server" Height="20px" Width="86px"></asp:TextBox>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:ButtonField ButtonType="Button" Text="Comprar" />
+                            <asp:ButtonField ButtonType="Button" Text="Comprar" CommandName="EventoComprar" />
                         </Columns>
                         <EditRowStyle BackColor="#2461BF" />
                         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

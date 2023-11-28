@@ -68,6 +68,13 @@
             width: 825px;
             text-align: center;
         }
+        .auto-style25 {
+            width: 825px;
+            height: 30px;
+        }
+        .auto-style26 {
+            height: 30px;
+        }
     </style>
 </head>
 <body>
@@ -96,12 +103,12 @@
                     <td class="auto-style13">
                         <asp:Label ID="lblSeccionarticulos" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Artículos▬"></asp:Label>
                     </td>
-                    <td class="auto-style20">&nbsp;</td>
-                <td>&nbsp;</td>
+                    <td class="auto-style25"></td>
+                <td class="auto-style26"></td>
             </tr>
             <tr>
                 <td class="auto-style18">
-                    <asp:HyperLink ID="hlGestionarArticulos" runat="server" NavigateUrl="~/Cliente/CompraArticulo.aspx">Ver/Buscar/Comprar Articulos</asp:HyperLink>
+                    <asp:HyperLink ID="hlGestionarArticulos" runat="server" NavigateUrl="~/Articulos/CompraArticulo.aspx">Ver/Buscar/Comprar Articulos</asp:HyperLink>
                 </td>
                 <td class="auto-style21"></td>
                 <td class="auto-style19"></td>
@@ -115,7 +122,7 @@
             </tr>
             <tr>
                 <td class="auto-style18">
-                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Cliente/HistorialCompra.aspx">Historial Compras</asp:HyperLink>
+                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/MiCuenta/HistorialCompra.aspx">Historial Compras</asp:HyperLink>
                 </td>
                 <td class="auto-style24">
                     <asp:Button ID="btnCerrarSesion" runat="server" Text="Cerrar Sesión" />
@@ -131,7 +138,7 @@
             </tr>
             <tr>
                 <td class="auto-style15">
-                    <asp:HyperLink ID="hlGestionarCuenta" runat="server" NavigateUrl="~/Cliente/GestionCuenta.aspx">Gestionar Cuenta</asp:HyperLink>
+                    <asp:HyperLink ID="hlGestionarCuenta" runat="server" NavigateUrl="~/MiCuenta/GestionCuenta.aspx">Gestionar Cuenta</asp:HyperLink>
                 </td>
                 <td class="auto-style22"></td>
                 <td class="auto-style16"></td>

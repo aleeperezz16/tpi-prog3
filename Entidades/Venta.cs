@@ -30,5 +30,16 @@ namespace Entidades
             PrecioTotal = precioTotal;
             Fecha = fecha;
         }
+
+
+
+        public Venta(Articulo articulo, Cliente cliente, int cantidad)
+        {
+            Articulo = articulo;
+            Cliente = cliente;
+            Cantidad = cantidad;
+
+        }
+
     }
 }
