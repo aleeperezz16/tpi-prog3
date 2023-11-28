@@ -44,7 +44,7 @@ namespace Vistas.Admin.Articulos
             nuevaArticulo.PrecioCompra = Convert.ToDecimal(txtPrecioDeCompra.Text.Trim());
             nuevaArticulo.Stock = Convert.ToInt32(txtStock.Text.Trim());
 
-            lblResultado.Text = manejoArt.agregarArticulo(nuevaArticulo) ? "La sucursal se ha agregado con exito" : "No se pudo agregar la sucursal";
+            lblResultado.Text = manejoArt.agregarArticulo(nuevaArticulo) ? "El articulo se ha agregado con exito" : "No se pudo agregar el articulo";
         }
     }
 }

@@ -67,8 +67,8 @@ namespace Vistas.Admin.Clientes
             clienteAEditar.Direccion = ((TextBox)gdvClientes.Rows[e.RowIndex].FindControl("txt_eit_Direccion")).Text;
             clienteAEditar.Email = ((TextBox)gdvClientes.Rows[e.RowIndex].FindControl("txt_eit_EMail")).Text;
             clienteAEditar.Usuario = usuario;
-            clienteAEditar.Ciudad = ciudad;
-            clienteAEditar.Estado = Convert.ToBoolean(((DropDownList)gdvClientes.Rows[e.RowIndex].FindControl("ddl_eit_Estado")).Text);
+            clienteAEditar.Ciudad = ciudad; 
+            clienteAEditar.Estado = ((CheckBox)gdvClientes.Rows[e.RowIndex].FindControl("chkBoxEditEstado")).Checked;
 
             _negocio.ModificarCliente(clienteAEditar);
             gdvClientes.EditIndex = -1;

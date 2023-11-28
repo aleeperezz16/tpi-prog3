@@ -101,10 +101,10 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Estado" SortExpression="Estado">
                                     <EditItemTemplate>
-                                        <asp:CheckBox ID="chkEditEstado" runat="server" Checked='<%# Bind("Estado") %>' />
+                                        <asp:CheckBox ID="chkBoxEditEstado" runat="server" Checked='<%# Bind("Estado") %>' Enabled="false" />
                                     </EditItemTemplate>
                                     <ItemTemplate>
-                                        <asp:CheckBox ID="CheckBox1" runat="server" Checked='<%# Bind("Estado") %>' Enabled="false" />
+                                        <asp:CheckBox ID="chkBoxEstado" runat="server" Checked='<%# Bind("Estado") %>' Enabled="false" />
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>

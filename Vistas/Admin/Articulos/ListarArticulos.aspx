@@ -139,13 +139,10 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Estado">
                                     <EditItemTemplate>
-                                        <asp:DropDownList ID="ddl_eit_Estado" runat="server">
-                                            <asp:ListItem Value="True">Activado</asp:ListItem>
-                                            <asp:ListItem Value="False">Dado de baja</asp:ListItem>
-                                        </asp:DropDownList>
+                                        <asp:CheckBox ID="chkBoxEditEstado" runat="server" Checked='<%# Bind("Estado") %>' Enabled="false" />
                                     </EditItemTemplate>
                                     <ItemTemplate>
-                                        <asp:Label ID="lbl_it_Estado" runat="server" Text='<%# Bind("Estado") %>'></asp:Label>
+                                        <asp:CheckBox ID="CheckBox1" runat="server" Checked='<%# Bind("Estado") %>' Enabled="false" />
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>

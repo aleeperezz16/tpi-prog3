@@ -67,7 +67,7 @@ namespace Vistas.Admin.Proveedores
             string email = ((TextBox)gvProveedores.Rows[e.RowIndex].FindControl("txtEditEmail")).Text.Trim();
             string direccion = ((TextBox)gvProveedores.Rows[e.RowIndex].FindControl("txtEditDireccion")).Text.Trim();
             int codigoCiudad = int.Parse(((DropDownList)gvProveedores.Rows[e.RowIndex].FindControl("ddlEditCiudad")).SelectedValue);
-            bool estado = ((CheckBox)gvProveedores.Rows[e.RowIndex].FindControl("chkEditEstado")).Checked;
+            bool estado = ((CheckBox)gvProveedores.Rows[e.RowIndex].FindControl("chkBoxEditEstado")).Checked;
 
             Ciudad ciudad = new Ciudad();
             ciudad.Codigo = codigoCiudad;

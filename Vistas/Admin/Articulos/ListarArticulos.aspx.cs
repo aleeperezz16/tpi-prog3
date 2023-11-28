@@ -81,7 +81,7 @@ namespace Vistas.Admin.Articulos
             articuloEditado.PrecioVenta = Convert.ToDecimal(((TextBox)gvArticulos.Rows[e.RowIndex].FindControl("txt_eit_PrecioDeVenta")).Text);
             articuloEditado.PrecioCompra = Convert.ToDecimal(((TextBox)gvArticulos.Rows[e.RowIndex].FindControl("txt_eit_PrecioDeCompra")).Text);
             articuloEditado.Stock = Convert.ToInt32(((TextBox)gvArticulos.Rows[e.RowIndex].FindControl("txt_eit_Stock")).Text);
-            articuloEditado.Estado = Convert.ToBoolean(((DropDownList)gvArticulos.Rows[e.RowIndex].FindControl("ddl_eit_Estado")).SelectedValue);
+            articuloEditado.Estado = ((CheckBox)gvArticulos.Rows[e.RowIndex].FindControl("chkBoxEditEstado")).Checked;
 
             bool filasAfectadas = _negocioArt.ModificarArticulo(articuloEditado);
             if (filasAfectadas)
