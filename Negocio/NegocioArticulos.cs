@@ -32,6 +32,12 @@ namespace Negocio
             return dao.ObtenerArticulosActivos(id);
         }
 
+        public DataTable ObtenerArticulosxCategoriaActivos(int id)
+        {
+            DaoArticulos dao = new DaoArticulos();
+            return dao.ObtenerArticulosxCategoriaActivos(id);
+        }
+
         public bool agregarArticulo(Articulo Articulo)
         {
             DaoArticulos dao = new DaoArticulos();

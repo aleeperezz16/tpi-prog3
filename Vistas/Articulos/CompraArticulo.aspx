@@ -20,7 +20,7 @@
             width: 577px;
         }
         .auto-style5 {
-            height: 30px;
+            height: 29px;
         }
     </style>
 </head>
@@ -62,8 +62,8 @@
                 <td class="auto-style4" rowspan="2">
                     <asp:Label ID="lblBuscarxID" runat="server" Text="Buscar Artículos por ID:"></asp:Label>
                     <asp:TextBox ID="tbBuscarxID" runat="server" ValidationGroup="1"></asp:TextBox>
-                    <asp:Button ID="btnBuscarxID" runat="server" Text="Buscar" ValidationGroup="1" />
-                    <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Vista Principal" Width="132px" />
+                    <asp:Button ID="btnBuscarxID" runat="server" Text="Buscar" ValidationGroup="1" OnClick="btnBuscarxID_Click" />
+                    <asp:Button ID="btnVistaPrincipal" runat="server" OnClick="btnVistaPrincipal_Click" Text="Vista Principal" Width="132px" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
                 <td>
                     <asp:RequiredFieldValidator ID="rfvBuscarxID" runat="server" ControlToValidate="tbBuscarxID" Font-Bold="False" ForeColor="#FF3300" ValidationGroup="1">*Por favor, ingrese algun valor ID numerico</asp:RequiredFieldValidator>
@@ -80,7 +80,8 @@
                 <td class="auto-style2">&nbsp;</td>
                 <td colspan="2">
                     <asp:Label ID="lblFiltrarxCategoria" runat="server" Text="Filtrar por Categoria:"></asp:Label>
-                    <asp:DropDownList ID="DropDownList1" runat="server">
+                    &nbsp;<asp:DropDownList ID="ddlCategorias" runat="server" AppendDataBoundItems="True" AutoPostBack="True" DataTextField="-- Seleccione --" DataValueField="0" OnSelectedIndexChanged="ddlCategorias_SelectedIndexChanged" ValidationGroup="2">
+                        <asp:ListItem Selected="True" Value="0">-- Seleccione --</asp:ListItem>
                     </asp:DropDownList>
                 </td>
                 <td>&nbsp;</td>
@@ -89,7 +90,51 @@
             <tr>
                 <td class="auto-style2">&nbsp;</td>
                 <td colspan="2">
-                    <asp:GridView ID="GridView1" runat="server">
+                    <asp:GridView ID="gdvComprarArticulos" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnPageIndexChanging="gdvComprarArticulos_PageIndexChanging">
+                        <AlternatingRowStyle BackColor="White" />
+                        <Columns>
+                            <asp:TemplateField HeaderText="ID Articulo">
+                                <ItemTemplate>
+                                    <asp:Label ID="lbl_it_IDArticulo" runat="server" Text='<%# Bind ("IDArticulo") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="ID Categoria">
+                                <ItemTemplate>
+                                    <asp:Label ID="lbl_it_IDCategoria" runat="server" Text='<%# Bind ("IDCategoria") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Nombre Articulo">
+                                <ItemTemplate>
+                                    <asp:Label ID="lbl_it_NombreArticulo" runat="server" Text='<%# Bind ("NombreArticulo") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Precio de Venta">
+                                <ItemTemplate>
+                                    <asp:Label ID="lbl_it_PrecioVenta" runat="server" Text='<%# Bind("PrecioDeVenta") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Stock">
+                                <ItemTemplate>
+                                    <asp:Label ID="lbl_it_Stock" runat="server" Text='<%# Bind ("Stock") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Cantidad">
+                                <ItemTemplate>
+                                    <asp:TextBox ID="tbCantidad" runat="server" Height="20px" Width="86px"></asp:TextBox>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:ButtonField ButtonType="Button" Text="Comprar" />
+                        </Columns>
+                        <EditRowStyle BackColor="#2461BF" />
+                        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                        <RowStyle BackColor="#EFF3FB" />
+                        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                        <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                        <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                        <SortedDescendingHeaderStyle BackColor="#4870BE" />
                     </asp:GridView>
                 </td>
                 <td>&nbsp;</td>

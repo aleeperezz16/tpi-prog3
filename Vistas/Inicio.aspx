@@ -129,7 +129,7 @@
                 <tr>
                     <td class="auto-style19">
                         <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/Admin/Articulos/ListarArticulos.aspx">Listar Articulos</asp:HyperLink>
-                    &nbsp;U</td>
+                        &nbsp;</td>
                     <td class="auto-style12">
                         <asp:Label ID="lbBienvenido" runat="server" Text="Bienvenido/a a este software de gestión."></asp:Label>
                     </td>
@@ -152,7 +152,7 @@
                 <tr>
                     <td class="auto-style10">
                         <asp:HyperLink ID="hlCategorias" runat="server" NavigateUrl="~/Admin/Categorias/ListarCategoria.aspx">Listar Categoría</asp:HyperLink>
-                    &nbsp;U</td>
+                        &nbsp;</td>
                     <td class="auto-style11">&nbsp;</td>
                     <td class="auto-style11"></td>
                 </tr>
@@ -211,7 +211,7 @@
                 <tr>
                     <td class="auto-style4">
                         <asp:HyperLink ID="hlListarventas" runat="server" NavigateUrl="~/Admin/ListarVentas.aspx">Listar Ventas</asp:HyperLink>
-                    &nbsp;U</td>
+                        &nbsp;</td>
                     <td class="auto-style9">
                     </td>
                     <td></td>

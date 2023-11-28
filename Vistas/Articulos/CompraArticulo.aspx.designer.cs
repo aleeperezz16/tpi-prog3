@@ -78,13 +78,13 @@ namespace Vistas.Articulos
         protected global::System.Web.UI.WebControls.Button btnBuscarxID;
 
         /// <summary>
-        /// Control Button2.
+        /// Control btnVistaPrincipal.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button btnVistaPrincipal;
 
         /// <summary>
         /// Control rfvBuscarxID.
@@ -114,21 +114,21 @@ namespace Vistas.Articulos
         protected global::System.Web.UI.WebControls.Label lblFiltrarxCategoria;
 
         /// <summary>
-        /// Control DropDownList1.
+        /// Control ddlCategorias.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCategorias;
 
         /// <summary>
-        /// Control GridView1.
+        /// Control gdvComprarArticulos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView gdvComprarArticulos;
     }
 }

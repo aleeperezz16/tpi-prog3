@@ -52,6 +52,15 @@ namespace Dao
 
             return _datos.ObtenerTabla("Articulos", consulta);
         }
+        public DataTable ObtenerArticulosxCategoriaActivos(int id = 0)
+        {
+            string consulta = "SELECT * FROM Articulos WHERE Estado = 1";
+
+            if (id > 0)
+                consulta += $" AND IDCategoria = {id}";
+
+            return _datos.ObtenerTabla("Articulos", consulta);
+        }
 
         private void ArmarParametrosAgregar(ref SqlCommand cmd, Articulo art)
         {
