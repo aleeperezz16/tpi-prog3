@@ -119,13 +119,10 @@ namespace Vistas.Articulos
                             String IDArticulo = ((Label)gdvComprarArticulos.Rows[fila].FindControl("lbl_it_IDArticulo")).Text;///
                             int Idart = Convert.ToInt32(IDArticulo);
                             int cant = Convert.ToInt32(CantidadAComprar);
-
-                            Cliente cliente = new Cliente();
+                            var usuario = HttpContext.Current.Session["Datos"];
+                            Cliente cliente = (Cliente)usuario;
                             Articulo articulo = new Articulo();
                             articulo.Id = Idart;
-                            int DNI = 0;
-                            /// ME FALTA EL DNI DE LA PERSONA QUE LOGEA.
-                            cliente.Dni = DNI;
                             NegocioVentas ventas = new NegocioVentas();
                             Venta ventaarmada = new Venta(articulo,cliente, cant);
 

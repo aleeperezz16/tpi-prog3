@@ -54,7 +54,32 @@
         </tr>
         <tr>
             <td class="auto-style2">&nbsp;</td>
-            <td class="auto-style3">&nbsp;</td>
+            <td class="auto-style3">
+                        <asp:GridView ID="gvHistorial" runat="server" AllowPaging="True" AutoGenerateColumns="False" >
+                            <Columns>
+                                <asp:TemplateField HeaderText="Articulo">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbl_it_NombreArticulo" runat="server" Text='<%# Bind("Articulo") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Cantidad">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbl_it_Cantidad" runat="server" Text='<%# Bind("Cantidad") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Total">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbl_it_PrecioTotal" runat="server" Text='<%# Bind("Total") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Fecha">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbl_it_FechaVenta" runat="server" Text='<%# Bind("FechaVenta") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
+                    </td>
             <td>&nbsp;</td>
         </tr>
         <tr>
