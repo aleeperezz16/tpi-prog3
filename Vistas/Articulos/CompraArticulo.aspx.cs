@@ -132,6 +132,7 @@ namespace Vistas.Articulos
                                 if (agrego)
                                 {
                                     System.Windows.Forms.MessageBox.Show("Se agregó el pedido correctamente.", "Mensaje");
+                                    cargarArticulosEnGrilla();
                                 }
                                 else
                                 {

@@ -33,7 +33,7 @@ namespace Negocio
 
             cantFilas = dao.AgregarVenta(venta);
 
-            if (cantFilas == 1)
+            if (cantFilas == 2)
                 return true;
             else
                 return false;
