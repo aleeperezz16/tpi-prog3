@@ -51,6 +51,15 @@ namespace Vistas.Admin.Articulos
         protected global::System.Web.UI.WebControls.TextBox txtIdBuscarArticulo;
 
         /// <summary>
+        /// ddlEstado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlEstado;
+
+        /// <summary>
         /// btnBuscararticulosid control.
         /// </summary>
         /// <remarks>

@@ -25,7 +25,19 @@ namespace Vistas.Admin.Articulos
             NegocioArticulos negocioArt = new NegocioArticulos();
             int id = 0;
             if (txtIdBuscarArticulo.Text.Trim().Length > 0) {id = Convert.ToInt32(txtIdBuscarArticulo.Text.Trim());}
-            gvArticulos.DataSource = negocioArt.ObtenerArticulosActivos(id);
+            switch (ddlEstado.SelectedValue)
+            {
+                case "0":
+                    gvArticulos.DataSource = negocioArt.ObtenerTodosLosArticulos();
+                    break;
+                case "1":
+                    gvArticulos.DataSource = negocioArt.ObtenerArticulosActivos(id);
+                    break;
+                case "2":
+                    gvArticulos.DataSource = negocioArt.ObtenerArticulosInactivos(id);
+                    break;
+            }
+            
             gvArticulos.DataBind();
         }
 

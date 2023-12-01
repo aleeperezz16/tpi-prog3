@@ -65,6 +65,11 @@
                     <td>
                         <asp:Label ID="lbBuscararticulosid" runat="server" Text="Buscar Artículos por ID:"></asp:Label>
                         <asp:TextBox ID="txtIdBuscarArticulo" runat="server"></asp:TextBox>
+                        &nbsp;<asp:DropDownList ID="ddlEstado" runat="server">
+                            <asp:ListItem Value="0">Todos</asp:ListItem>
+                            <asp:ListItem Value="1">Activos</asp:ListItem>
+                            <asp:ListItem Value="2">Inactivos</asp:ListItem>
+                        </asp:DropDownList>
                         <asp:Button ID="btnBuscararticulosid" runat="server" Text="Buscar" OnClick="btnBuscararticulosid_Click" />
                     </td>
                     <td>&nbsp;</td>

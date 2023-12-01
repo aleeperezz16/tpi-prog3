@@ -43,6 +43,16 @@ namespace Dao
             return _datos.ObtenerTabla("Articulos", consulta);
         }
 
+        public DataTable ObtenerArticulosInactivos(int id = 0)
+        {
+            string consulta = "SELECT * FROM Articulos WHERE Estado = 0";
+
+            if (id > 0)
+                consulta += $" AND IDArticulo = {id}";
+
+            return _datos.ObtenerTabla("Articulos", consulta);
+        }
+
         public DataTable ObtenerArticulosCompletos(int id = 0)
         {
             string consulta = "SELECT * FROM Articulos";

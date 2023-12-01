@@ -21,7 +21,7 @@ namespace Negocio
             return dao.ObtenerArticulosCompletos(-1);
         }
 
-        public DataTable ObtenerArticulos(int id)
+        public DataTable ObtenerArticulo(int id)
         {
             DaoArticulos dao = new DaoArticulos();
             return dao.ObtenerArticulosCompletos(id);
@@ -30,6 +30,12 @@ namespace Negocio
         {
             DaoArticulos dao = new DaoArticulos();
             return dao.ObtenerArticulosActivos(id);
+        }
+
+        public DataTable ObtenerArticulosInactivos(int id)
+        {
+            DaoArticulos dao = new DaoArticulos();
+            return dao.ObtenerArticulosInactivos(id);
         }
 
         public DataTable ObtenerArticulosxCategoriaActivos(int id)
