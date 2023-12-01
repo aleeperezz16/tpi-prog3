@@ -34,7 +34,9 @@ namespace Vistas
             }
           
             Session["Datos"] = usuarioLogueado;
-            Response.Redirect("Inicio.aspx");
+
+            if (usuario.Tipo == 'C') { Response.Redirect("InicioClientes.aspx"); } else { Response.Redirect("Inicio.aspx"); }
+
         }
     }
 }

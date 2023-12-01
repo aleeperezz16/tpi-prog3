@@ -20,6 +20,7 @@ namespace Negocio
 
             if (data != null)
             {
+                usuario.Estado = true;
                 usuario.Tipo = data.Rows[0].Field<string>("Tipo")[0];
 
                 if (usuario.Tipo != 'V')

@@ -65,16 +65,15 @@ namespace Dao
             DataRow dr = dt.Rows[0];
             Provincia provincia = new Provincia(dr.Field<int>("CodigoProvincia"), dr.Field<string>("Provincia"));
             Ciudad ciudad = new Ciudad(dr.Field<int>("CodigoCiudad"), dr.Field<string>("Ciudad"), provincia);
-
-            Cliente cliente = new Cliente(dr.Field<int>("DNI"),
-                dr.Field<string>("Apellido"),
-                dr.Field<string>("Nombre"),
+            Cliente cliente = new Cliente(Convert.ToInt32(dr.ItemArray[2]),
+                Convert.ToString(dr.ItemArray[0]),
+                Convert.ToString(dr.ItemArray[5]),
                 usuario,
-                dr.Field<string>("Telefono"),
-                dr.Field<string>("EMail"),
-                dr.Field<string>("Direccion"),
+                Convert.ToString(dr.ItemArray[6]),
+                Convert.ToString(dr.ItemArray[3]),
+                Convert.ToString(dr.ItemArray[1]),
                 ciudad,
-                dr.Field<bool>("Estado"));
+                Convert.ToBoolean(dr.ItemArray[4]));
 
             return cliente;
         }
