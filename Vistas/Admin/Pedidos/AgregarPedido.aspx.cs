@@ -43,30 +43,12 @@ namespace Vistas.Admin.Pedidos
                     bool valornumerico = int.TryParse(Cantidad, out CantidadAComprar);
                     if (valornumerico)
                     {
+                        int resultado = ArmarDialogo(CantidadAComprar, fila);
 
-                            String PrecioCompra = ((Label)gdvAgregarpedido.Rows[fila].FindControl("lbl_it_PrecioCompra")).Text;
-                            ((TextBox)gdvAgregarpedido.Rows[fila].FindControl("tbCantidadaComprar")).Text = "";
-                            tbBuscarArticuloxID.Text = "";
-                            decimal precio = Convert.ToDecimal(PrecioCompra);
-                            decimal CostoTotal = Convert.ToDecimal(PrecioCompra) * Convert.ToDecimal(CantidadAComprar);
-
-                            string mensaje = "Usted está a punto de hacer un pedido total de:  $" + CostoTotal.ToString() + "\n" +
-                            "¿Está seguro que quiere adquirir el producto y la cantidad especificada?" + "\n \n " +
-                            "  ALERTA!: ÉSTA ACCIÓN NO SE PUEDE DESHACER. ";
-                            string titulo = "Mensaje de Confirmacion";
-                            System.Windows.Forms.MessageBoxButtons botones = System.Windows.Forms.MessageBoxButtons.YesNo;
-                            System.Windows.Forms.DialogResult resultado;
-                            resultado = System.Windows.Forms.MessageBox.Show(mensaje, titulo, botones);
-                            if (resultado == System.Windows.Forms.DialogResult.Yes)
+                        if (resultado == 6)
                             {
-
-                                String IDArticulo = ((Label)gdvAgregarpedido.Rows[fila].FindControl("lbl_it_IDArticulo")).Text;///
                                 String Estado = ((Label)gdvAgregarpedido.Rows[fila].FindControl("lbl_it_Estado")).Text;
-                                int Idart = Convert.ToInt32(IDArticulo);
-                                int cant = Convert.ToInt32(CantidadAComprar);
-                                articulo.Id = Idart;
-
-                                Pedido pedidoarmado = new Pedido(articulo, cant);
+                                Pedido pedidoarmado = ArmarPedido(CantidadAComprar, fila);
 
                                 if (Estado == "True")
                                 {
@@ -85,19 +67,49 @@ namespace Vistas.Admin.Pedidos
                                 {
                                     System.Windows.Forms.MessageBox.Show("No se pueden comprar articulos dados de baja.", "Alerta");
                                 }
-
                             }
                             else
                             {
                                 System.Windows.Forms.MessageBox.Show("El pedido de compra, se ha cancelado.", "Mensaje de Cancelación");
                             }
-
                     }
                     else
                     { System.Windows.Forms.MessageBox.Show("Ha ingresado un caracteres inválidos, ingrese una cantidad válida", "Mensaje"); }
                 }
             }
 
+        }
+
+        private Pedido ArmarPedido(int CantidadAComprar, int fila)
+        {
+            String IDArticulo = ((Label)gdvAgregarpedido.Rows[fila].FindControl("lbl_it_IDArticulo")).Text;///
+            String Estado = ((Label)gdvAgregarpedido.Rows[fila].FindControl("lbl_it_Estado")).Text;
+            int Idart = Convert.ToInt32(IDArticulo);
+            articulo.Id = Idart;
+            Pedido pedidoarmado = new Pedido(articulo, CantidadAComprar);
+
+            return pedidoarmado;
+        }
+
+
+        private int ArmarDialogo(int CantidadAComprar,int fila)
+        {
+         String NombreArt = ((Label)gdvAgregarpedido.Rows[fila].FindControl("lbl_it_NombreArticulo")).Text.Trim();///
+         String PrecioCompra = ((Label)gdvAgregarpedido.Rows[fila].FindControl("lbl_it_PrecioCompra")).Text;
+         ((TextBox) gdvAgregarpedido.Rows[fila].FindControl("tbCantidadaComprar")).Text = "";
+         tbBuscarArticuloxID.Text = "";
+         decimal precio = Convert.ToDecimal(PrecioCompra);
+         decimal CostoTotal = Convert.ToDecimal(PrecioCompra) * Convert.ToDecimal(CantidadAComprar);
+         string mensaje = "Usted está a punto de hacer un pedido de:\n" + "Producto: " + NombreArt + " \n Cantidad: " + CantidadAComprar + "\n TOTAL:  $" + CostoTotal.ToString() + "\n" +
+                           "¿Está seguro que quiere adquirir el producto y la cantidad especificada?" + "\n \n " +
+                           "  ALERTA!: ÉSTA ACCIÓN NO SE PUEDE DESHACER. ";
+
+            string titulo = "Mensaje de Confirmacion";
+        System.Windows.Forms.MessageBoxButtons botones = System.Windows.Forms.MessageBoxButtons.YesNo;
+        System.Windows.Forms.DialogResult resultado;
+        resultado = System.Windows.Forms.MessageBox.Show(mensaje, titulo, botones);
+
+            return (int)resultado;
         }
 
         private void cargarProductosEnGrilla()

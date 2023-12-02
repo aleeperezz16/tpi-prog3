@@ -99,33 +99,11 @@ namespace Vistas.Articulos
                     bool valornumerico = int.TryParse(Cantidad, out CantidadAComprar);
                     if (valornumerico)
                     {
-                        String NombreArt = ((Label)gdvComprarArticulos.Rows[fila].FindControl("lbl_it_NombreArticulo")).Text.Trim();///
-                        String PrecioCompra = ((Label)gdvComprarArticulos.Rows[fila].FindControl("lbl_it_PrecioVenta")).Text;
-                        ((TextBox)gdvComprarArticulos.Rows[fila].FindControl("tbCantidad")).Text = "";
-                        tbBuscarxID.Text = "";
-                        decimal precio = Convert.ToDecimal(PrecioCompra);
-                        decimal CostoTotal = Convert.ToDecimal(PrecioCompra) * Convert.ToDecimal(CantidadAComprar);
 
-                        string mensaje = "Usted está a punto de hacer una compra de:\n"+"Producto: "+NombreArt+" \n Cantidad: "+CantidadAComprar+"\n TOTAL:  $" + CostoTotal.ToString() + "\n" +
-                        "¿Está seguro que quiere adquirir el producto y la cantidad especificada?" + "\n \n " +
-                        "  ALERTA!: ÉSTA ACCIÓN NO SE PUEDE DESHACER. ";
-                        string titulo = "Mensaje de Confirmacion";
-                        System.Windows.Forms.MessageBoxButtons botones = System.Windows.Forms.MessageBoxButtons.YesNo;
-                        System.Windows.Forms.DialogResult resultado;
-                        resultado = System.Windows.Forms.MessageBox.Show(mensaje, titulo, botones);
-                        if (resultado == System.Windows.Forms.DialogResult.Yes)
+                        int resultado = ArmarDialogo(CantidadAComprar, fila);
+                        if (resultado == 6)
                         {
-
-                            String IDArticulo = ((Label)gdvComprarArticulos.Rows[fila].FindControl("lbl_it_IDArticulo")).Text;///
-                            int Idart = Convert.ToInt32(IDArticulo);
-                            int cant = Convert.ToInt32(CantidadAComprar);
-                            var usuario = HttpContext.Current.Session["Datos"];
-                            Cliente cliente = (Cliente)usuario;
-                            Articulo articulo = new Articulo();
-                            articulo.Id = Idart;
-                            NegocioVentas ventas = new NegocioVentas();
-                            Venta ventaarmada = new Venta(articulo,cliente, cant);
-
+                            Venta ventaarmada = ArmarVenta(CantidadAComprar,fila);
                           /// System.Windows.Forms.MessageBox.Show("art id: " + ventaarmada.Articulo.Id + " DNI:" + ventaarmada.Cliente.Dni + " Cant: " + ventaarmada.Cantidad, "mensaje");
                             bool agrego = ventas.agregarVenta(ventaarmada);
 
@@ -149,8 +127,51 @@ namespace Vistas.Articulos
                     }
                     else
                     { System.Windows.Forms.MessageBox.Show("Ha ingresado un caracteres inválidos, ingrese una cantidad válida", "Mensaje"); }
+
                 }
             }
         }
+
+        private Venta ArmarVenta(int CantidadAComprar, int fila)
+        {
+            String IDArticulo = ((Label)gdvComprarArticulos.Rows[fila].FindControl("lbl_it_IDArticulo")).Text;///
+            int Idart = Convert.ToInt32(IDArticulo);
+            int cant = Convert.ToInt32(CantidadAComprar);
+            var usuario = HttpContext.Current.Session["Datos"];
+            Cliente cliente = (Cliente)usuario;
+            Articulo articulo = new Articulo();
+            articulo.Id = Idart;
+            NegocioVentas ventas = new NegocioVentas();
+            Venta ventaarmada = new Venta(articulo, cliente, cant);
+           
+
+            return ventaarmada;
+        }
+
+
+        private int ArmarDialogo(int CantidadAComprar, int fila)
+        {
+            String NombreArt = ((Label)gdvComprarArticulos.Rows[fila].FindControl("lbl_it_NombreArticulo")).Text.Trim();///
+            String PrecioCompra = ((Label)gdvComprarArticulos.Rows[fila].FindControl("lbl_it_PrecioVenta")).Text;
+            ((TextBox)gdvComprarArticulos.Rows[fila].FindControl("tbCantidad")).Text = "";
+            tbBuscarxID.Text = "";
+            decimal precio = Convert.ToDecimal(PrecioCompra);
+            decimal CostoTotal = Convert.ToDecimal(PrecioCompra) * Convert.ToDecimal(CantidadAComprar);
+
+            string mensaje = "Usted está a punto de hacer una compra de:\n" + "Producto: " + NombreArt + " \n Cantidad: " + CantidadAComprar + "\n TOTAL:  $" + CostoTotal.ToString() + "\n" +
+            "¿Está seguro que quiere adquirir el producto y la cantidad especificada?" + "\n \n " +
+            "  ALERTA!: ÉSTA ACCIÓN NO SE PUEDE DESHACER. ";
+            string titulo = "Mensaje de Confirmacion";
+            System.Windows.Forms.MessageBoxButtons botones = System.Windows.Forms.MessageBoxButtons.YesNo;
+            System.Windows.Forms.DialogResult resultado;
+            resultado = System.Windows.Forms.MessageBox.Show(mensaje, titulo, botones);
+
+            return (int)resultado;
+        }
+
+
+
     }
+
+
 }
