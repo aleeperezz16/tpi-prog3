@@ -30,6 +30,7 @@
         .auto-style8 {
             text-align: right;
             height: 29px;
+            width: 297px;
         }
         .auto-style9 {
             height: 29px;
@@ -42,36 +43,63 @@
             height: 26px;
             margin-left: 80px;
         }
+        .auto-style12 {
+            width: 42px;
+            height: 24px;
+        }
+        .auto-style13 {
+            height: 24px;
+        }
+        .auto-style14 {
+            height: 26px;
+            width: 297px;
+        }
+        .auto-style15 {
+            height: 24px;
+            width: 297px;
+        }
     </style>
+     <link rel="stylesheet" href="StyleSheetG6.css"/>
 </head>
-<body>
+<body ID="FondoLocal">
     <form id="form1" runat="server">
         <div>
-            <table class="auto-style1">
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>
+            <table id="tablalogin" class="auto-style1">
                 <tr>
                     <td class="auto-style5">&nbsp;</td>
                     <td class="auto-style4" colspan="2">
-                        <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Software de Sistema de Gestión"></asp:Label>
+                        <asp:Label ID="lblGrupo6" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Electronica G6"></asp:Label>
+                        <br />
                     </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style6"></td>
                     <td class="auto-style10" colspan="2">
-                        <asp:Label ID="lbGrupo6" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Grupo 6"></asp:Label>
+                        <asp:Label ID="lblBienvenidoA" runat="server" Font-Bold="True" Font-Size="X-Large" Text="¡Bienvenido/a a nuestra tienda online!"></asp:Label>
                     </td>
                     <td class="auto-style3"></td>
                 </tr>
                 <tr>
                     <td class="auto-style6">&nbsp;</td>
-                    <td class="auto-style3"></td>
+                    <td class="auto-style14"></td>
                     <td class="auto-style3"></td>
                     <td class="auto-style3"></td>
                 </tr>
                 <tr>
                     <td class="auto-style7">&nbsp;</td>
                     <td class="auto-style8">
-                        <asp:Label ID="lbUsuario" runat="server" Text="Usuario:"></asp:Label>
+                        <asp:Label ID="lbUsuario" class="labels" runat="server" Text="Usuario:"></asp:Label>
                     </td>
                     <td class="auto-style9">
                         <asp:TextBox ID="txtUsuario" runat="server" ValidationGroup="1"></asp:TextBox>
@@ -82,7 +110,7 @@
                 <tr>
                     <td class="auto-style7"></td>
                     <td class="auto-style8">
-                        <asp:Label ID="lbContraseña" runat="server" Text="Contraseña:"></asp:Label>
+                        <asp:Label ID="lbContraseña" class="labels" runat="server" Text="Contraseña:"></asp:Label>
                     </td>
                     <td class="auto-style9">
                         <asp:TextBox ID="txtContrasenia" runat="server" TextMode="Password" ValidationGroup="1"></asp:TextBox>
@@ -92,7 +120,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style6"></td>
-                    <td class="auto-style3"></td>
+                    <td class="auto-style14"></td>
                     <td class="auto-style11">
                         <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" ValidationGroup="1" />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -102,21 +130,20 @@
                 </tr>
                 <tr>
                     <td class="auto-style6"></td>
-                    <td class="auto-style3"></td>
+                    <td class="auto-style14"></td>
                     <td class="auto-style3">
                         </td>
                     <td class="auto-style3"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style5">&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>
+                    <td class="auto-style12"></td>
+                    <td class="auto-style15"></td>
+                    <td class="auto-style13">
                         <asp:LinkButton ID="lkbRegistrarse" runat="server" PostBackUrl="~/Registro.aspx">No tenes cuenta? Registrate!</asp:LinkButton>
                     </td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style13"></td>
                 </tr>
             </table>
-        </div>
     </form>
 </body>
 </html>

@@ -1,0 +1,72 @@
+﻿
+/*Generales*/
+
+body {
+    background-color: lightblue;
+}
+.labels {
+    background-color:floralwhite;
+    color: red;
+    font-family: Consolas,sans-serif;
+}
+
+/*Inicio*/
+#lblTitulo{
+    color:forestgreen;
+    font-family: Consolas,sans-serif;
+}
+#lblBienvenido{
+    font-size:xx-large;
+    color:blueviolet
+}
+
+/*Login*/
+#FondoLocal{
+    background-image: url("Imagenes/Local.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size:cover;
+}
+
+#tablalogin {
+    table-layout:fixed;
+    margin-top:auto;
+    
+    
+}
+#lblGrupo6 {
+    background-color:floralwhite;
+    font-size: xx-large;
+    color: darkcyan;
+    font-family: Consolas,sans-serif;
+    animation: 3s linear infinite running rotacionColor;
+}
+#lblBienvenidoA {
+    background-color: floralwhite;
+    color: forestgreen;
+    font-family: Consolas,sans-serif;
+}
+
+#btnIngresar:hover{
+    background-color: darkgrey;
+}
+#lkbRegistrarse {
+    background-color: floralwhite;
+}
+
+@keyframes rotacionColor {
+    20%{color:aqua;}
+    40% {
+        color:aqua;
+    }
+    60% {
+        color:cornflowerblue;
+    }
+    80% {
+        color:darkcyan;
+    }
+    100% {
+        color:darkslategray;
+    }
+}

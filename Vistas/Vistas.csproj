@@ -87,6 +87,7 @@
     <Content Include="InicioClientes.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Registro.aspx" />
+    <Content Include="StyleSheetG6.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

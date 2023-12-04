@@ -42,7 +42,9 @@
         .auto-style9 {
             text-align: center;
         }
+
     </style>
+        <link rel="stylesheet" href="StyleSheetG6.css"/>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -55,16 +57,16 @@
                 </tr>
                 <tr>
                     <td class="auto-style9">
-                        <asp:Label ID="lbSecciones" runat="server" Text="▬ Secciones ▬" Font-Bold="True" Font-Italic="True" Font-Size="Large"></asp:Label>
+                        <asp:Label ID="lbSecciones" Class="labels" runat="server" Text="▬ Secciones ▬" Font-Bold="True" Font-Italic="True" Font-Size="Large"></asp:Label>
                     </td>
                     <td class="auto-style9">
-                        <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Overline="False" Font-Size="XX-Large" Text="Home"></asp:Label>
+                        <asp:Label ID="lblTitulo" runat="server" Font-Bold="True" Font-Overline="False" Font-Size="XX-Large" Text="Home"></asp:Label>
                     </td>
                     <td class="auto-style9"></td>
                 </tr>
                 <tr>
                     <td class="auto-style9">
-                        <asp:Label ID="lblSeccionarticulos" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Artículos▬"></asp:Label>
+                        <asp:Label ID="lblSeccionarticulos" Class="labels" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Artículos▬"></asp:Label>
                     </td>
                     <td class="auto-style9"></td>
                     <td class="auto-style9"></td>
@@ -74,7 +76,7 @@
                         <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/Admin/Articulos/ListarArticulos.aspx">Listar Articulos</asp:HyperLink>
                         &nbsp;</td>
                     <td class="auto-style9">
-                        <asp:Label ID="lbBienvenido" runat="server" Text="Bienvenido/a a este software de gestión."></asp:Label>
+                        <asp:Label ID="lbBienvenido" runat="server" Text="¡Bienvenido/a a la seccion administrativa!"></asp:Label>
                     </td>
                     <td class="auto-style9"></td>
                 </tr>
@@ -87,7 +89,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style9">
-                        <asp:Label ID="lblSeccioncategoria" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Categoría▬"></asp:Label>
+                        <asp:Label ID="lblSeccioncategoria" Class="labels" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Categoría▬"></asp:Label>
                     </td>
                     <td class="auto-style9">&nbsp;</td>
                     <td class="auto-style9"></td>
@@ -108,7 +110,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style9">
-                        <asp:Label ID="lblSeccionproveedores" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Proveedores▬"></asp:Label>
+                        <asp:Label ID="lblSeccionproveedores" Class="labels" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Proveedores▬"></asp:Label>
                     </td>
                     <td class="auto-style9">&nbsp;</td>
                     <td class="auto-style9"></td>
@@ -130,7 +132,7 @@
                 <tr>
                     <td class="auto-style9">
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Label ID="lblSeccionpedidos" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Pedidos▬"></asp:Label>
+                        <asp:Label ID="lblSeccionpedidos" Class="labels" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Pedidos▬"></asp:Label>
                         &nbsp;</td>
                     <td class="auto-style9"></td>
                     <td class="auto-style9"></td>
@@ -154,7 +156,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style9">
-                        <asp:Label ID="lblSeccionVentas" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Ventas▬"></asp:Label>
+                        <asp:Label ID="lblSeccionVentas" Class="labels" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Ventas▬"></asp:Label>
                     </td>
                     <td class="auto-style9">
                     </td>
