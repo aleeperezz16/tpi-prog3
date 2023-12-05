@@ -38,9 +38,10 @@
             height: 27px;
         }
     </style>
+     <link rel="stylesheet" href="../../StyleSheetG6.css"/>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" class="fontStyle" runat="server">
         <div>
             <table class="auto-style1">
                 <tr>
@@ -51,7 +52,7 @@
                 <tr>
                     <td class="auto-style5"></td>
                     <td class="auto-style2">
-                        <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Clientes"></asp:Label>
+                        <asp:Label ID="lblClientes" CssClass="mainItem" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Clientes"></asp:Label>
                     </td>
                     <td class="auto-style3"></td>
                 </tr>
@@ -65,9 +66,9 @@
                 <tr>
                     <td class="auto-style4">&nbsp;</td>
                     <td>
-                        <asp:Label ID="Label2" runat="server" Text="Buscar  cliente por DNI:"></asp:Label>
+                        <asp:Label ID="Label2" CssClass="subItem" runat="server" Text="Buscar  cliente por DNI:"></asp:Label>
                         <asp:TextBox ID="lblBuscarClientePorId" runat="server"></asp:TextBox>
-                        <asp:Button ID="btnBuscarClientePorId" runat="server" Text="Buscar" OnClick="btnBuscarClientePorId_Click" />
+                        <asp:Button ID="btnBuscarClientePorId" CssClass="myButton" runat="server" Text="Buscar" OnClick="btnBuscarClientePorId_Click" />
                     </td>
                     <td>&nbsp;</td>
                 </tr>

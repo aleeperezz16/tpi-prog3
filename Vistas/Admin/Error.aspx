@@ -40,9 +40,10 @@
             width: 9%;
         }
     </style>
+     <link rel="stylesheet" href="../StyleSheetG6.css"/>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" class="fontStyle" runat="server">
         <div>
             <table class="auto-style1">
                 <tr>
@@ -52,7 +53,7 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style12"><strong>Error al ingresar a</strong></td>
+                    <td class="auto-style12 mainItem"><strong>Error al ingresar a</strong></td>
                     <td class="auto-style17" colspan="2"><strong><em>
                         <asp:Label ID="lblErrorPagina" runat="server" CssClass="auto-style23"></asp:Label>
                         </em></strong></td>
@@ -67,7 +68,7 @@
                 <tr>
                     <td class="auto-style24">&nbsp;</td>
                     <td class="auto-style25">&nbsp;</td>
-                    <td class="auto-style22"><em>No tienes permisos para continuar</em></td>
+                    <td class="auto-style22 mainItem"><em>No tienes permisos para continuar</em></td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>

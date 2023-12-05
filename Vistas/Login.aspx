@@ -99,7 +99,7 @@
                 <tr>
                     <td class="auto-style7">&nbsp;</td>
                     <td class="auto-style8">
-                        <asp:Label ID="lbUsuario" class="labels" runat="server" Text="Usuario:"></asp:Label>
+                        <asp:Label ID="lbUsuario" class="subItem" runat="server" Text="Usuario:"></asp:Label>
                     </td>
                     <td class="auto-style9">
                         <asp:TextBox ID="txtUsuario" runat="server" ValidationGroup="1"></asp:TextBox>
@@ -110,7 +110,7 @@
                 <tr>
                     <td class="auto-style7"></td>
                     <td class="auto-style8">
-                        <asp:Label ID="lbContraseña" class="labels" runat="server" Text="Contraseña:"></asp:Label>
+                        <asp:Label ID="lbContraseña" class="subItem" runat="server" Text="Contraseña:"></asp:Label>
                     </td>
                     <td class="auto-style9">
                         <asp:TextBox ID="txtContrasenia" runat="server" TextMode="Password" ValidationGroup="1"></asp:TextBox>
@@ -122,7 +122,7 @@
                     <td class="auto-style6"></td>
                     <td class="auto-style14"></td>
                     <td class="auto-style11">
-                        <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" ValidationGroup="1" />
+                        <asp:Button ID="btnIngresar" class="myButton" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" ValidationGroup="1" />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Label ID="lblErrorLogeo" runat="server"></asp:Label>
                     </td>

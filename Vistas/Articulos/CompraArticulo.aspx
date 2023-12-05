@@ -23,9 +23,10 @@
             height: 29px;
         }
     </style>
+     <link rel="stylesheet" href="../StyleSheetG6.css"/>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" class="fontStyle" runat="server">
         <table class="auto-style1">
             <tr>
                 <td class="auto-style2">&nbsp;</td>
@@ -38,7 +39,7 @@
                     <asp:HyperLink ID="hlInicio" runat="server" NavigateUrl="~/InicioClientes.aspx">Volver al Menú Principal</asp:HyperLink>
                 </td>
                 <td class="auto-style3" colspan="2">
-                    <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Artículos"></asp:Label>
+                    <asp:Label ID="Label1" CssClass="mainItem" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Artículos"></asp:Label>
                 </td>
                 <td class="auto-style3">&nbsp;</td>
                 <td>&nbsp;</td>
@@ -46,7 +47,7 @@
             <tr>
                 <td class="auto-style2">&nbsp;</td>
                 <td class="auto-style3" colspan="2">
-                    <asp:Label ID="lblVer" runat="server" Text="Ver/Buscar/Comprar/Filtrar"></asp:Label>
+                    <asp:Label ID="lblVer" CssClass="subItem" runat="server" Text="Ver/Buscar/Comprar/Filtrar"></asp:Label>
                 </td>
                 <td class="auto-style3">&nbsp;</td>
                 <td>&nbsp;</td>
@@ -60,10 +61,13 @@
             <tr>
                 <td class="auto-style2" rowspan="2">&nbsp;</td>
                 <td class="auto-style4" rowspan="2">
-                    <asp:Label ID="lblBuscarxID" runat="server" Text="Buscar Artículos por ID:"></asp:Label>
+                    <asp:Label ID="lblBuscarxID" CssClass="subItem" runat="server" Text="Buscar Artículos por ID:"></asp:Label>
                     <asp:TextBox ID="tbBuscarxID" runat="server" ValidationGroup="1"></asp:TextBox>
-                    <asp:Button ID="btnBuscarxID" runat="server" Text="Buscar" ValidationGroup="1" OnClick="btnBuscarxID_Click" />
-                    <asp:Button ID="btnVistaPrincipal" runat="server" OnClick="btnVistaPrincipal_Click" Text="Vista Principal" Width="132px" />
+                    <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="btnBuscarxID" CssClass="myButton" runat="server" Text="Buscar" ValidationGroup="1" OnClick="btnBuscarxID_Click" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="btnVistaPrincipal" CssClass="myButton" runat="server" OnClick="btnVistaPrincipal_Click" Text="Vista Principal" Width="176px" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
                 <td>
                     <asp:RequiredFieldValidator ID="rfvBuscarxID" runat="server" ControlToValidate="tbBuscarxID" Font-Bold="False" ForeColor="#FF3300" ValidationGroup="1">*Por favor, ingrese algun valor ID numerico</asp:RequiredFieldValidator>
@@ -79,7 +83,7 @@
             <tr>
                 <td class="auto-style2">&nbsp;</td>
                 <td colspan="2">
-                    <asp:Label ID="lblFiltrarxCategoria" runat="server" Text="Filtrar por Categoria:"></asp:Label>
+                    <asp:Label ID="lblFiltrarxCategoria" CssClass="subItem" runat="server" Text="Filtrar por Categoria:"></asp:Label>
                     &nbsp;<asp:DropDownList ID="ddlCategorias" runat="server" AppendDataBoundItems="True" AutoPostBack="True" DataTextField="-- Seleccione --" DataValueField="0" OnSelectedIndexChanged="ddlCategorias_SelectedIndexChanged" ValidationGroup="2">
                         <asp:ListItem Selected="True" Value="0">-- Seleccione --</asp:ListItem>
                     </asp:DropDownList>

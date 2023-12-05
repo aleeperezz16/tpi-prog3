@@ -76,9 +76,10 @@
             height: 34px;
         }
     </style>
+     <link rel="stylesheet" href="StyleSheetG6.css"/>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" class="fontStyle" runat="server">
         <div>
             <table class="auto-style1">
                 <tr>
@@ -89,7 +90,7 @@
                 <tr>
                     <td class="auto-style5">&nbsp;</td>
                     <td class="auto-style3" colspan="2">
-                        <asp:Label ID="lbMenuregistro" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Menú de Registro"></asp:Label>
+                        <asp:Label ID="lbMenuregistro" CssClass="mainItem" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Menú de Registro"></asp:Label>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
@@ -103,13 +104,13 @@
                 </tr>
                 <tr>
                     <td class="auto-style4"></td>
-                    <td class="auto-style2" colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Datos Necesarios para el registro de la cuenta:</td>
+                    <td class="auto-style2 mainItem" colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Datos Necesarios para el registro de la cuenta:</td>
                     <td class="auto-style2"></td>
                 </tr>
                 <tr>
                     <td class="auto-style4"></td>
                     <td class="auto-style11">
-                        <asp:Label ID="lbNombre" runat="server" Text="Nombres:"></asp:Label>
+                        <asp:Label ID="lbNombre" CssClass="subItem" runat="server" Text="Nombres:"></asp:Label>
                     </td>
                     <td class="auto-style2">
                         <asp:TextBox ID="tbNombres" runat="server"></asp:TextBox>
@@ -120,7 +121,7 @@
                 <tr>
                     <td class="auto-style4"></td>
                     <td class="auto-style11">
-                        <asp:Label ID="lbApellido" runat="server" Text="Apellido:"></asp:Label>
+                        <asp:Label ID="lbApellido" CssClass="subItem" runat="server" Text="Apellido:"></asp:Label>
                     </td>
                     <td class="auto-style2">
                         <asp:TextBox ID="tbApellido" runat="server"></asp:TextBox>
@@ -131,7 +132,7 @@
                 <tr>
                     <td class="auto-style4"></td>
                     <td class="auto-style11">
-                        <asp:Label ID="Label3" runat="server" Text="DNI (Solo números):"></asp:Label>
+                        <asp:Label ID="Label3" CssClass="subItem" runat="server" Text="DNI (Solo números):"></asp:Label>
                     </td>
                     <td class="auto-style2">
                         <asp:TextBox ID="tbDni" runat="server"></asp:TextBox>
@@ -144,7 +145,7 @@
                 <tr>
                     <td class="auto-style12"></td>
                     <td class="auto-style13">
-                        <asp:Label ID="lbProvincia" runat="server" Text="Provincia:"></asp:Label>
+                        <asp:Label ID="lbProvincia" CssClass="subItem" runat="server" Text="Provincia:"></asp:Label>
                     </td>
                     <td class="auto-style14">
                         <asp:DropDownList ID="ddlProvincias" runat="server" AppendDataBoundItems="True" CausesValidation="True" DataTextField="-- Seleccionar --" DataValueField="0">
@@ -157,7 +158,7 @@
                 <tr>
                     <td class="auto-style12"></td>
                     <td class="auto-style13">
-                        <asp:Label ID="lbCiudad" runat="server" Text="Ciudad:"></asp:Label>
+                        <asp:Label ID="lbCiudad" CssClass="subItem" runat="server" Text="Ciudad:"></asp:Label>
                     </td>
                     <td class="auto-style14">
                         <asp:DropDownList ID="ddlCiudades" runat="server" AppendDataBoundItems="True" DataTextField="-- Seleccionar --" DataValueField="0">
@@ -170,7 +171,7 @@
                 <tr>
                     <td class="auto-style4"></td>
                     <td class="auto-style11">
-                        <asp:Label ID="lbDireccion" runat="server" Text="Dirección:"></asp:Label>
+                        <asp:Label ID="lbDireccion" CssClass="subItem" runat="server" Text="Dirección:"></asp:Label>
                     </td>
                     <td class="auto-style2">
                         <asp:TextBox ID="tbDireccion" runat="server"></asp:TextBox>
@@ -181,7 +182,7 @@
                 <tr>
                     <td class="auto-style5">&nbsp;</td>
                     <td class="auto-style8">
-                        <asp:Label ID="lbTelefono" runat="server" Text="Teléfono:"></asp:Label>
+                        <asp:Label ID="lbTelefono" CssClass="subItem" runat="server" Text="Teléfono:"></asp:Label>
                     </td>
                     <td>
                         <asp:TextBox ID="tbTelefono" runat="server"></asp:TextBox>
@@ -194,7 +195,7 @@
                 <tr>
                     <td class="auto-style4"></td>
                     <td class="auto-style11">
-                        <asp:Label ID="lbEmail" runat="server" Text="Email:"></asp:Label>
+                        <asp:Label ID="lbEmail" CssClass="subItem" runat="server" Text="Email:"></asp:Label>
                     </td>
                     <td class="auto-style2">
                         <asp:TextBox ID="tbEmail" runat="server"></asp:TextBox>
@@ -211,13 +212,13 @@
                 </tr>
                 <tr>
                     <td class="auto-style4"></td>
-                    <td class="auto-style15" colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Datos para el ingreso del Usuario a la plataforma:</td>
+                    <td class="auto-style15 mainItem" colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Datos para el ingreso del Usuario a la plataforma:</td>
                     <td class="auto-style2"></td>
                 </tr>
                 <tr>
                     <td class="auto-style12"></td>
                     <td class="auto-style13">
-                        <asp:Label ID="lbUsuario" runat="server" Text="Nombre de usuario:"></asp:Label>
+                        <asp:Label ID="lbUsuario" CssClass="subItem" runat="server" Text="Nombre de usuario:"></asp:Label>
                     </td>
                     <td class="auto-style14">
                         <asp:TextBox ID="tbNombreusuario" runat="server"></asp:TextBox>
@@ -228,7 +229,7 @@
                 <tr>
                     <td class="auto-style16"></td>
                     <td class="auto-style17">
-                        <asp:Label ID="lbContraseña" runat="server" Text="Contraseña:"></asp:Label>
+                        <asp:Label ID="lbContraseña" CssClass="subItem" runat="server" Text="Contraseña:"></asp:Label>
                     </td>
                     <td class="auto-style18">
                         <asp:TextBox ID="tbContraseña" runat="server"></asp:TextBox>
@@ -240,11 +241,11 @@
                 <tr>
                     <td class="auto-style5">&nbsp;</td>
                     <td class="auto-style8">
-                        <asp:Label ID="lbContraseña0" runat="server" Text="Repetir Contraseña:"></asp:Label>
+                        <asp:Label ID="lbContraseña0" CssClass="subItem" runat="server" Text="Repetir Contraseña:"></asp:Label>
                     </td>
                     <td>
                         <asp:TextBox ID="tbRepetirContraseña" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvRepetirContraseña" runat="server" ControlToValidate="tbRepetirContraseña" ErrorMessage="RequiredFieldValidator" ForeColor="#FF3300" ValidationGroup="1">*Debe volver a repetir su contraseña</asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvRepetirContraseña" CssClass="subItem" runat="server" ControlToValidate="tbRepetirContraseña" ErrorMessage="RequiredFieldValidator" ForeColor="#FF3300" ValidationGroup="1">*Debe volver a repetir su contraseña</asp:RequiredFieldValidator>
 &nbsp;
                     </td>
                     <td>&nbsp;</td>
@@ -253,7 +254,7 @@
                     <td class="auto-style5">&nbsp;</td>
                     <td class="auto-style8">&nbsp;</td>
                     <td>
-                        <asp:Button ID="btnCrear" runat="server" Text="Crear" OnClick="btnCrear_Click" ValidationGroup="1" />
+                        <asp:Button ID="btnCrear" CssClass="myButton" runat="server" Text="Crear" OnClick="btnCrear_Click" ValidationGroup="1" />
                     </td>
                     <td>&nbsp;</td>
                 </tr>

@@ -38,9 +38,10 @@
             height: 54px;
         }
     </style>
+     <link rel="stylesheet" href="../../StyleSheetG6.css"/>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" class="fontStyle" runat="server">
         <div>
             <table class="auto-style1">
                 <tr>
@@ -53,7 +54,7 @@
                 <tr>
                     <td class="auto-style5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</td>
                     <td class="auto-style3" colspan="2">
-                        <asp:Label ID="lbCategoria" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Categorías"></asp:Label>
+                        <asp:Label ID="lbCategoria" CssClass="mainItem" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Categorías"></asp:Label>
                     </td>
                     <td class="auto-style2"></td>
                 </tr>
@@ -66,10 +67,12 @@
                 <tr>
                     <td class="auto-style4" rowspan="2">&nbsp;</td>
                     <td class="auto-style6" rowspan="2">
-                        <asp:Label ID="Label1" runat="server" Text="Buscar Categoría por ID:"></asp:Label>
+                        <asp:Label ID="Label1" class="subItem" runat="server" Text="Buscar Categoría por ID:"></asp:Label>
                         <asp:TextBox ID="tbCategoriaporid" runat="server" ValidationGroup="1"></asp:TextBox>
-                        <asp:Button ID="btnBuscarCat" runat="server" OnClick="btnBuscarCat_Click" Text="Buscar" ValidationGroup="1" />
-                    &nbsp;<asp:Button ID="btnVistaInicial" runat="server" OnClick="btnVistaInicial_Click" Text="Vista Inicial" />
+                        <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;<asp:Button ID="btnBuscarCat" CssClass="myButton" runat="server" OnClick="btnBuscarCat_Click" Text="Buscar" ValidationGroup="1" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Button ID="btnVistaInicial" CssClass="myButton" runat="server" OnClick="btnVistaInicial_Click" Text="Vista Inicial" />
                     </td>
                     <td>
                         <asp:RequiredFieldValidator ID="rfvBuscarcatxID" runat="server" ControlToValidate="tbCategoriaporid" ForeColor="Red" ValidationGroup="1">*Por favor ingrese un ID a buscar.</asp:RequiredFieldValidator>

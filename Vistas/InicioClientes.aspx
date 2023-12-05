@@ -76,9 +76,10 @@
             height: 30px;
         }
     </style>
+     <link rel="stylesheet" href="StyleSheetG6.css"/>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" class="fontStyle" runat="server">
         <table class="auto-style1">
             <tr>
                 <td class="auto-style2">&nbsp;</td>
@@ -92,16 +93,16 @@
             </tr>
             <tr>
                     <td class="auto-style6">
-                        <asp:Label ID="lbSecciones" runat="server" Text="▬ Secciones ▬" Font-Bold="True" Font-Italic="True" Font-Size="Large"></asp:Label>
+                        <asp:Label ID="lbSecciones" CssClass="subItem" runat="server" Text="▬ Secciones ▬" Font-Bold="True" Font-Italic="True" Font-Size="Large"></asp:Label>
                     </td>
                     <td class="auto-style23">
-                        <asp:Label ID="lblHome" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Home"></asp:Label>
+                        <asp:Label ID="lblHome" CssClass="mainItem" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Home"></asp:Label>
                 </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                     <td class="auto-style13">
-                        <asp:Label ID="lblSeccionarticulos" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Artículos▬"></asp:Label>
+                        <asp:Label ID="lblSeccionarticulos" CssClass="subItem" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Artículos▬"></asp:Label>
                     </td>
                     <td class="auto-style25"></td>
                 <td class="auto-style26"></td>
@@ -115,7 +116,7 @@
             </tr>
             <tr>
                 <td class="auto-style18">
-                        <asp:Label ID="lblSeccionarticulos1" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Ventas▬"></asp:Label>
+                        <asp:Label ID="lblSeccionarticulos1" CssClass="subItem"  runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Ventas▬"></asp:Label>
                     </td>
                 <td class="auto-style21"></td>
                 <td class="auto-style19"></td>
@@ -125,13 +126,13 @@
                     <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/MiCuenta/HistorialCompra.aspx">Historial Compras</asp:HyperLink>
                 </td>
                 <td class="auto-style24">
-                    <asp:Button ID="btnCerrarSesion" runat="server" Text="Cerrar Sesión" />
+                    <asp:Button ID="btnCerrarSesion" CssClass="myButton" runat="server" Text="Cerrar Sesión" />
                 </td>
                 <td class="auto-style19"></td>
             </tr>
             <tr>
                 <td class="auto-style15">
-                        <asp:Label ID="lblSeccionarticulos0" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Cuenta▬"></asp:Label>
+                        <asp:Label ID="lblSeccionarticulos0" CssClass="subItem" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Cuenta▬"></asp:Label>
                     </td>
                 <td class="auto-style22"></td>
                 <td class="auto-style16"></td>

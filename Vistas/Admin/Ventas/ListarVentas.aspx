@@ -31,9 +31,10 @@
             height: 23px;
         }
     </style>
+     <link rel="stylesheet" href="../../StyleSheetG6.css"/>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" class="fontStyle" runat="server">
         <div>
             <table class="auto-style1">
                 <tr>
@@ -45,8 +46,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style2"><strong>Listado de ventas</strong></td>
-                    <td class="auto-style2"><strong>Filtros de búsqueda</strong></td>
+                    <td class="auto-style2 mainItem"><strong>Listado de ventas</strong></td>
+                    <td class="auto-style2 subItem"><strong>Filtros de búsqueda</strong></td>
                 </tr>
                 <tr>
                     <td class="auto-style7"></td>
@@ -149,7 +150,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style3">
-                        <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" OnClick="btnFiltrar_Click" />
+                        <asp:Button ID="btnFiltrar" class="myButton" runat="server" Text="Filtrar" OnClick="btnFiltrar_Click" />
                     </td>
                 </tr>
                 <tr>

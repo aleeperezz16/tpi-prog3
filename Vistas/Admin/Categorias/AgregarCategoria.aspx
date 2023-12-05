@@ -53,13 +53,14 @@
             height: 39px;
         }
     </style>
+     <link rel="stylesheet" href="../../StyleSheetG6.css"/>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" class="fontStyle" runat="server">
         <table class="auto-style1">
             <tr>
                 <td class="auto-style12">
-                    <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Agregar Categoria"></asp:Label>
+                    <asp:Label ID="Label1" class="mainItem" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Agregar Categoria"></asp:Label>
                 </td>
                 <td class="auto-style13" colspan="2"></td>
                 <td class="auto-style14">
@@ -73,7 +74,7 @@
             </tr>
             <tr>
                 <td class="auto-style5">
-                    <asp:Label ID="lbNombrecat" runat="server" Text="Nombre de la categoría:"></asp:Label>
+                    <asp:Label ID="lbNombrecat" class="subItem" runat="server" Text="Nombre de la categoría:"></asp:Label>
                 </td>
                 <td class="auto-style6" colspan="2">
                     <asp:TextBox ID="tbNombre" runat="server"></asp:TextBox>
@@ -84,7 +85,7 @@
             </tr>
             <tr>
                 <td class="auto-style5">
-                    <asp:Label ID="lbDescripcioncat" runat="server" Text="Descripción:"></asp:Label>
+                    <asp:Label ID="lbDescripcioncat" CssClass="subItem" runat="server" Text="Descripción:"></asp:Label>
                 </td>
                 <td class="auto-style10" colspan="2">
                     <asp:TextBox ID="tbDescripcion" runat="server" Height="146px" Width="626px"></asp:TextBox>
@@ -94,7 +95,7 @@
             <tr>
                 <td class="auto-style3">&nbsp;</td>
                 <td class="auto-style8">
-                    <asp:Button ID="btnAgregarcat" runat="server" Text="Agregar" OnClick="btnAgregarcat_Click" />
+                    <asp:Button ID="btnAgregarcat" class="myButton" runat="server" Text="Agregar" OnClick="btnAgregarcat_Click" />
                 </td>
                 <td class="auto-style11">
                     <asp:Label ID="lblResultado" runat="server"></asp:Label>

@@ -17,9 +17,10 @@
             font-size: x-large;
         }
     </style>
+    <link rel="stylesheet" href="../../StyleSheetG6.css"/>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" class="fontStyle" runat="server">
         <div>
 
             <table class="auto-style1">
@@ -34,12 +35,12 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style2"><strong>Proveedores</strong></td>
+                    <td class="auto-style2 mainItem"><strong>Proveedores</strong></td>
                     <td class="auto-style2">&nbsp;</td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
-                    <td class="auto-style3"><strong>Filtros de Búsqueda</strong></td>
+                    <td class="auto-style3 subItem"><strong>Filtros de Búsqueda</strong></td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
@@ -147,7 +148,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:Button ID="btnFiltrar" runat="server" OnClick="btnFiltrar_Click" Text="Filtrar" />
+                        <asp:Button ID="btnFiltrar" class="myButton" runat="server" OnClick="btnFiltrar_Click" Text="Filtrar" />
                     </td>
                 </tr>
                 <tr>

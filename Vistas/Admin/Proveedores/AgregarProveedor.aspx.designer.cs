@@ -15,7 +15,7 @@ namespace Vistas.Admin.Proveedores
     {
 
         /// <summary>
-        /// Control hlVolverInicio.
+        /// hlVolverInicio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.

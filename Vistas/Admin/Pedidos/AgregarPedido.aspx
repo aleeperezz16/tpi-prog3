@@ -67,9 +67,10 @@
             text-align: right;
         }
     </style>
+     <link rel="stylesheet" href="../../StyleSheetG6.css"/>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" class="fontStyle" runat="server">
         <table class="auto-style1">
             <tr>
                 <td class="auto-style17">&nbsp;</td>
@@ -82,7 +83,7 @@
                 <td class="auto-style18">
                     &nbsp;</td>
                 <td class="auto-style2" colspan="2">
-                    <asp:Label ID="lbl_TituloPagina" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Agregar Pedido"></asp:Label>
+                    <asp:Label ID="lbl_TituloPagina" CssClass="mainItem" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Agregar Pedido"></asp:Label>
                 </td>
                 <td class="auto-style7"></td>
             </tr>
@@ -94,10 +95,12 @@
             <tr>
                 <td class="auto-style20" rowspan="2"></td>
                 <td class="auto-style12" rowspan="2">
-                    <asp:Label ID="lblBuscarArticuloxID" runat="server" Text="Buscar Articulo Por ID:"></asp:Label>
+                    <asp:Label ID="lblBuscarArticuloxID" CssClass="subItem" runat="server" Text="Buscar Articulo Por ID:"></asp:Label>
                     <asp:TextBox ID="tbBuscarArticuloxID" runat="server" ValidationGroup="1"></asp:TextBox>
-                    <asp:Button ID="btnBuscar" runat="server" OnClick="btnBuscar_Click" Text="Buscar" ValidationGroup="1" />
-                    <asp:Button ID="btnVistaInicial" runat="server" OnClick="btnVistaInicial_Click" Text="Vista Inicial" />
+                    <br />
+                    <asp:Button ID="btnBuscar" CssClass="myButton" runat="server" OnClick="btnBuscar_Click" Text="Buscar" ValidationGroup="1" />
+                    &nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="btnVistaInicial" CssClass="myButton" runat="server" OnClick="btnVistaInicial_Click" Text="Vista Inicial" />
                 </td>
                 <td class="auto-style16">
                     <asp:RequiredFieldValidator ID="rfvBuscarxID" runat="server" ControlToValidate="tbBuscarArticuloxID" ForeColor="#CC3300" ValidationGroup="1">*Ingrese un número de ID para buscarlo.</asp:RequiredFieldValidator>

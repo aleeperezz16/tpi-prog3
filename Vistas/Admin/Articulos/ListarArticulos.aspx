@@ -36,9 +36,10 @@
             height: 49px;
         }
     </style>
+    <link rel="stylesheet" href="../../StyleSheetG6.css"/>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" class="fontStyle" runat="server">
         <div>
             <table class="auto-style1">
                 <tr>
@@ -49,7 +50,7 @@
                 <tr>
                     <td class="auto-style6"></td>
                     <td class="auto-style2">
-                        <asp:Label ID="lbArticulos" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Artículos"></asp:Label>
+                        <asp:Label ID="lbArticulos" CssClass="mainItem" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Artículos"></asp:Label>
                     </td>
                     <td class="auto-style7"></td>
                 </tr>
@@ -63,14 +64,14 @@
                 <tr>
                     <td class="auto-style3">&nbsp;</td>
                     <td>
-                        <asp:Label ID="lbBuscararticulosid" runat="server" Text="Buscar Artículos por ID:"></asp:Label>
+                        <asp:Label ID="lbBuscararticulosid" CssClass="labels" runat="server" Text="Buscar Artículos por ID:"></asp:Label>
                         <asp:TextBox ID="txtIdBuscarArticulo" runat="server"></asp:TextBox>
                         &nbsp;<asp:DropDownList ID="ddlEstado" runat="server">
                             <asp:ListItem Value="0">Todos</asp:ListItem>
                             <asp:ListItem Value="1">Activos</asp:ListItem>
                             <asp:ListItem Value="2">Inactivos</asp:ListItem>
                         </asp:DropDownList>
-                        <asp:Button ID="btnBuscararticulosid" runat="server" Text="Buscar" OnClick="btnBuscararticulosid_Click" />
+                        <asp:Button ID="btnBuscararticulosid" class="myButton" runat="server" Text="Buscar" OnClick="btnBuscararticulosid_Click" />
                     </td>
                     <td>&nbsp;</td>
                 </tr>

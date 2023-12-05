@@ -11,11 +11,6 @@
             width: 100%;
         }
 
-        .auto-style2 {
-            text-align: center;
-            height: 49px;
-        }
-
         .auto-style3 {
             height: 26px;
         }
@@ -24,49 +19,37 @@
             width: 179px;
         }
 
-        .auto-style5 {
-            height: 26px;
-            width: 179px;
-        }
-
-        .auto-style6 {
-            width: 179px;
-            height: 49px;
-            text-align: center;
-        }
-
-        .auto-style7 {
-            height: 49px;
-        }
-
         .auto-style9 {
             text-align: center;
+        }
+
+        .auto-style10 {
+            width: 179px;
+            height: 23px;
+        }
+        .auto-style11 {
+            height: 23px;
         }
 
     </style>
         <link rel="stylesheet" href="StyleSheetG6.css"/>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" class="fontStyle" runat="server">
         <div>
-            <table class="auto-style1">
-                <tr>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
+            <table id="tablaAdmin" class="auto-style1">
                 <tr>
                     <td class="auto-style9">
-                        <asp:Label ID="lbSecciones" Class="labels" runat="server" Text="▬ Secciones ▬" Font-Bold="True" Font-Italic="True" Font-Size="Large"></asp:Label>
+                        <asp:Label ID="lbSecciones"  CssClass="subItem" runat="server" Text="▬ Secciones ▬" Font-Bold="True" Font-Italic="True" Font-Size="Large"></asp:Label>
                     </td>
                     <td class="auto-style9">
-                        <asp:Label ID="lblTitulo" runat="server" Font-Bold="True" Font-Overline="False" Font-Size="XX-Large" Text="Home"></asp:Label>
+                        <asp:Label ID="lblTitulo"  CssClass="mainItem" runat="server" Font-Bold="True" Font-Overline="False" Font-Size="XX-Large" Text="Home" ForeColor="White"></asp:Label>
                     </td>
                     <td class="auto-style9"></td>
                 </tr>
                 <tr>
                     <td class="auto-style9">
-                        <asp:Label ID="lblSeccionarticulos" Class="labels" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Artículos▬"></asp:Label>
+                        <asp:Label ID="lblSeccionarticulos"  CssClass="subItem" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Artículos▬"></asp:Label>
                     </td>
                     <td class="auto-style9"></td>
                     <td class="auto-style9"></td>
@@ -89,7 +72,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style9">
-                        <asp:Label ID="lblSeccioncategoria" Class="labels" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Categoría▬"></asp:Label>
+                        <asp:Label ID="lblSeccioncategoria" CssClass="subItem" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Categoría▬"></asp:Label>
                     </td>
                     <td class="auto-style9">&nbsp;</td>
                     <td class="auto-style9"></td>
@@ -110,7 +93,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style9">
-                        <asp:Label ID="lblSeccionproveedores" Class="labels" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Proveedores▬"></asp:Label>
+                        <asp:Label ID="lblSeccionproveedores"  CssClass="subItem" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Proveedores▬"></asp:Label>
                     </td>
                     <td class="auto-style9">&nbsp;</td>
                     <td class="auto-style9"></td>
@@ -132,7 +115,7 @@
                 <tr>
                     <td class="auto-style9">
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Label ID="lblSeccionpedidos" Class="labels" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Pedidos▬"></asp:Label>
+                        <asp:Label ID="lblSeccionpedidos"  CssClass="subItem" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Pedidos▬"></asp:Label>
                         &nbsp;</td>
                     <td class="auto-style9"></td>
                     <td class="auto-style9"></td>
@@ -142,7 +125,7 @@
                         <asp:HyperLink ID="hlListarpedidos" runat="server" NavigateUrl="~/Admin/Pedidos/ListarPedidos.aspx">Listar Pedidos</asp:HyperLink>
                     </td>
                     <td class="auto-style9">
-                        <asp:Button ID="btnCerrarsesion" runat="server" Text="Cerrar sesión" OnClick="btnCerrarsesion_Click" />
+                        <asp:Button ID="btnCerrarsesion" CssClass="myButton" runat="server" Text="Cerrar sesión" OnClick="btnCerrarsesion_Click" />
                     </td>
                     <td class="auto-style9"></td>
                 </tr>
@@ -156,7 +139,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style9">
-                        <asp:Label ID="lblSeccionVentas" Class="labels" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Ventas▬"></asp:Label>
+                        <asp:Label ID="lblSeccionVentas"  CssClass="subItem" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Ventas▬"></asp:Label>
                     </td>
                     <td class="auto-style9">
                     </td>
@@ -178,19 +161,7 @@
                         </td>
                     <td class="auto-style3"></td>
                 </tr>
-                <tr>
-                    <td class="auto-style25">&nbsp;</td>
-                    <td class="auto-style9">
-                        &nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td class="auto-style9">
-                        &nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-            </table>
+                </table>
         </div>
     </form>
 </body>

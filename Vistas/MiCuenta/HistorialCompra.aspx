@@ -29,9 +29,10 @@
             height: 26px;
         }
     </style>
+     <link rel="stylesheet" href="../StyleSheetG6.css"/>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" class="fontStyle" runat="server">
     <table class="auto-style1">
         <tr>
             <td class="auto-style2">&nbsp;</td>
@@ -48,7 +49,7 @@
         <tr>
             <td class="auto-style4"></td>
             <td class="auto-style5">
-                <asp:Label ID="lblTitulo" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Mi Historial"></asp:Label>
+                <asp:Label ID="lblTitulo" CssClass="mainItem" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Mi Historial" ForeColor="White"></asp:Label>
             </td>
             <td class="auto-style6"></td>
         </tr>

@@ -44,9 +44,10 @@
             width: 1083px;
         }
     </style>
+     <link rel="stylesheet" href="../../StyleSheetG6.css"/>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" class="fontStyle" runat="server">
         <div>
             <table class="auto-style1">
                 <tr>
@@ -60,17 +61,20 @@
                     <td class="auto-style13">
                     </td>
                     <td class="auto-style7" colspan="2">
-                        <asp:Label ID="lbListarpedidos" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Listar Pedidos"></asp:Label>
+                        <asp:Label ID="lbListarpedidos" CssClass="mainItem" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Listar Pedidos"></asp:Label>
                     </td>
                     <td class="auto-style11"></td>
                 </tr>
                 <tr>
                     <td class="auto-style12" rowspan="2"></td>
                     <td class="auto-style15" rowspan="2">
-                        <asp:Label ID="lbBuscarpedidosID" runat="server" Text="Buscar Pedido por ID:"></asp:Label>
+                        <asp:Label ID="lbBuscarpedidosID" class="subItem" runat="server" Text="Buscar Pedido por ID:"></asp:Label>
                         <asp:TextBox ID="tbBuscarPedidoPorId" runat="server" ValidationGroup="1"></asp:TextBox>
-                        <asp:Button ID="btnBuscarPedidoPorId" runat="server" Text="Buscar" OnClick="btnBuscarPedidoPorId_Click" ValidationGroup="1" />
-                        <asp:Button ID="btnVistaInicial" runat="server" OnClick="btnVistaInicial_Click" Text="Vista Inicial" />
+                        <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Button ID="btnBuscarPedidoPorId" CssClass="myButton" runat="server" Text="Buscar" OnClick="btnBuscarPedidoPorId_Click" ValidationGroup="1" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Button ID="btnVistaInicial" CssClass="myButton" runat="server" OnClick="btnVistaInicial_Click" Text="Vista Inicial" />
                     </td>
                     <td class="auto-style5">
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="tbBuscarPedidoPorId" ForeColor="#FF3300" ValidationGroup="1">*Por favor Ingrese un número de ID.</asp:RequiredFieldValidator>
