@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Vistas.MiCuenta
 {
-    public partial class GestionCuenta : System.Web.UI.Page
+    public partial class GestionCuenta : Index
     {
         protected void Page_Load(object sender, EventArgs e)
         {

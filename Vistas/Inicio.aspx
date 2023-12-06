@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Inicio.aspx.cs" Inherits="Vistas.Inicio" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Inicio.aspx.cs" Inherits="Vistas.Inicio" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     <style type="text/css">
         .auto-style1 {
@@ -14,9 +14,8 @@
         .auto-style3 {
             height: 26px;
         }
-
-        .auto-style4 {
-            width: 179px;
+        .auto-style12 {
+            width: 80px;
         }
 
         .auto-style9 {
@@ -51,8 +50,6 @@
                     <td class="auto-style9">
                         <asp:Label ID="lblSeccionarticulos"  CssClass="subItem" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Artículos▬"></asp:Label>
                     </td>
-                    <td class="auto-style9"></td>
-                    <td class="auto-style9"></td>
                 </tr>
                 <tr>
                     <td class="auto-style9">
@@ -61,14 +58,14 @@
                     <td class="auto-style9">
                         <asp:Label ID="lbBienvenido" runat="server" Text="¡Bienvenido/a a la seccion administrativa!"></asp:Label>
                     </td>
-                    <td class="auto-style9"></td>
-                </tr>
-                <tr>
-                    <td class="auto-style9">
-                        <asp:HyperLink ID="hlAgregararticulos" runat="server" NavigateUrl="~/Admin/Articulos/AgregarArticulo.aspx">Agregar Articulo</asp:HyperLink>
+                    <td class="auto-style14">&nbsp;</td>
+                    <td class="auto-style12">
+                        <asp:HyperLink ID="lnkCarrito" runat="server" NavigateUrl="~/Articulos/Carrito.aspx">Mi carrito</asp:HyperLink>
                     </td>
-                    <td class="auto-style9">&nbsp;</td>
-                    <td class="auto-style9"></td>
+                    <td class="auto-style13">&nbsp;</td>
+                    <td class="auto-style15">&nbsp;</td>
+                    <td class="auto-style16">&nbsp;</td>
+                    <td class="auto-style17">&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style9">
@@ -78,18 +75,24 @@
                     <td class="auto-style9"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style9">
-                        <asp:HyperLink ID="hlCategorias" runat="server" NavigateUrl="~/Admin/Categorias/ListarCategoria.aspx">Listar Categoría</asp:HyperLink>
-                        &nbsp;</td>
-                    <td class="auto-style9">&nbsp;</td>
-                    <td class="auto-style9"></td>
+                    <td class="auto-style11">&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td class="auto-style14">&nbsp;</td>
+                    <td class="auto-style12">&nbsp;</td>
+                    <td class="auto-style13">&nbsp;</td>
+                    <td class="auto-style15">&nbsp;</td>
+                    <td class="auto-style16">&nbsp;</td>
+                    <td class="auto-style17">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style9">
-                        <asp:HyperLink ID="hlAgregarcategoria" runat="server" NavigateUrl="~/Admin/Categorias/AgregarCategoria.aspx">Agregar Categoría</asp:HyperLink>
-                    </td>
-                    <td class="auto-style9">&nbsp;</td>
-                    <td class="auto-style9"></td>
+                    <td class="auto-style11">&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td class="auto-style14">&nbsp;</td>
+                    <td class="auto-style12">&nbsp;</td>
+                    <td class="auto-style13">&nbsp;</td>
+                    <td class="auto-style15">&nbsp;</td>
+                    <td class="auto-style16">&nbsp;</td>
+                    <td class="auto-style17">&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style9">

@@ -68,7 +68,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Admin\Admin.aspx" />
     <Content Include="Admin\Articulos\AgregarArticulo.aspx" />
     <Content Include="Admin\Articulos\ListarArticulos.aspx" />
     <Content Include="Admin\Categorias\AgregarCategoria.aspx" />
@@ -80,23 +79,19 @@
     <Content Include="Admin\Pedidos\AgregarPedido.aspx" />
     <Content Include="Admin\Proveedores\AgregarProveedor.aspx" />
     <Content Include="Admin\Proveedores\ListarProveedores.aspx" />
+    <Content Include="Articulos\Carrito.aspx" />
     <Content Include="Articulos\CompraArticulo.aspx" />
+    <Content Include="Inicio.aspx" />
     <Content Include="MiCuenta\GestionCuenta.aspx" />
     <Content Include="MiCuenta\HistorialCompra.aspx" />
-    <Content Include="Inicio.aspx" />
-    <Content Include="InicioClientes.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Registro.aspx" />
     <Content Include="StyleSheetG6.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\Admin.aspx.cs">
-      <DependentUpon>Admin.aspx</DependentUpon>
+    <Compile Include="Admin\Admin.cs">
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Admin.aspx.designer.cs">
-      <DependentUpon>Admin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Articulos\AgregarArticulo.aspx.cs">
       <DependentUpon>AgregarArticulo.aspx</DependentUpon>
@@ -175,12 +170,29 @@
     <Compile Include="Admin\Proveedores\ListarProveedores.aspx.designer.cs">
       <DependentUpon>ListarProveedores.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Articulos\Carrito.aspx.cs">
+      <DependentUpon>Carrito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Articulos\Carrito.aspx.designer.cs">
+      <DependentUpon>Carrito.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Articulos\CompraArticulo.aspx.cs">
       <DependentUpon>CompraArticulo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Articulos\CompraArticulo.aspx.designer.cs">
       <DependentUpon>CompraArticulo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Index.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inicio.aspx.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inicio.aspx.designer.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="MiCuenta\GestionCuenta.aspx.cs">
       <DependentUpon>GestionCuenta.aspx</DependentUpon>
@@ -195,20 +207,6 @@
     </Compile>
     <Compile Include="MiCuenta\HistorialCompra.aspx.designer.cs">
       <DependentUpon>HistorialCompra.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Inicio.aspx.cs">
-      <DependentUpon>Inicio.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Inicio.aspx.designer.cs">
-      <DependentUpon>Inicio.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="InicioClientes.aspx.cs">
-      <DependentUpon>InicioClientes.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="InicioClientes.aspx.designer.cs">
-      <DependentUpon>InicioClientes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

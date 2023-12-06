@@ -10,7 +10,7 @@ using System.Data;
 
 namespace Vistas
 {
-    public partial class Registro : System.Web.UI.Page
+    public partial class Registro : Index
     {
         NegocioClientes n_Clientes = new NegocioClientes();
         NegocioCiudades _negocioCiud = new NegocioCiudades();

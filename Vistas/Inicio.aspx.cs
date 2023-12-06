@@ -7,14 +7,9 @@ using System.Web.UI.WebControls;
 
 namespace Vistas
 {
-    public partial class Inicio : System.Web.UI.Page
+    public partial class Inicio : Index
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void btnCerrarsesion_Click(object sender, EventArgs e)
         {
 
         }

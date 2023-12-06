@@ -9,11 +9,11 @@ using Entidades;
 
 namespace Vistas
 {
-    public partial class Login : System.Web.UI.Page
+    public partial class Login : Index
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void btnIngresar_Click(object sender, EventArgs e)

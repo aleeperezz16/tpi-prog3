@@ -9,7 +9,7 @@ using Negocio;
 
 namespace Vistas.Articulos
 {
-    public partial class CompraArticulo : System.Web.UI.Page
+    public partial class CompraArticulo : Index
     {
         NegocioCategorias _negocioCat = new NegocioCategorias();
         NegocioArticulos negocio = new NegocioArticulos();

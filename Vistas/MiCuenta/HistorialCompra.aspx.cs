@@ -9,7 +9,7 @@ using Negocio;
 
 namespace Vistas.MiCuenta
 {
-    public partial class HistorialCompra : System.Web.UI.Page
+    public partial class HistorialCompra : Index
     {
         private NegocioHistorial _negocio = new NegocioHistorial();
         protected void Page_Load(object sender, EventArgs e)
