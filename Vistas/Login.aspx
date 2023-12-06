@@ -27,17 +27,16 @@
             width: 42px;
             height: 29px;
         }
-        .auto-style8 {
-            text-align: right;
-            height: 29px;
-            width: 297px;
-        }
         .auto-style9 {
             height: 29px;
         }
         .auto-style10 {
             height: 26px;
             text-align: center;
+            font-family: Consolas, sans-serif;
+            font-weight: bold;
+            font-size: x-large;
+            color: #228B22;
         }
         .auto-style11 {
             height: 26px;
@@ -57,6 +56,19 @@
         .auto-style15 {
             height: 24px;
             width: 297px;
+        }
+        .auto-style16 {
+            font-family: Consolas, sans-serif;
+            font-weight: bold;
+            font-size: x-large;
+            color: #008B8B;
+        }
+        .auto-style17 {
+            text-align: right;
+            height: 29px;
+            width: 297px;
+            font-family: Consolas, sans-serif;
+            color: #DC143C;
         }
     </style>
      <link rel="stylesheet" href="StyleSheetG6.css"/>
@@ -78,16 +90,14 @@
                 <tr>
                     <td class="auto-style5">&nbsp;</td>
                     <td class="auto-style4" colspan="2">
-                        <asp:Label ID="lblGrupo6" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Electronica G6"></asp:Label>
-                        <br />
+                        <span class="auto-style16">Electrónica G6</span><br />
                     </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style6"></td>
                     <td class="auto-style10" colspan="2">
-                        <asp:Label ID="lblBienvenidoA" runat="server" Font-Bold="True" Font-Size="X-Large" Text="¡Bienvenido/a a nuestra tienda online!"></asp:Label>
-                    </td>
+                        ¡Bienvenido/a a nuestra tienda online!</td>
                     <td class="auto-style3"></td>
                 </tr>
                 <tr>
@@ -98,9 +108,8 @@
                 </tr>
                 <tr>
                     <td class="auto-style7">&nbsp;</td>
-                    <td class="auto-style8">
-                        <asp:Label ID="lbUsuario" class="subItem" runat="server" Text="Usuario:"></asp:Label>
-                    </td>
+                    <td class="auto-style17">
+                        Usuario:</td>
                     <td class="auto-style9">
                         <asp:TextBox ID="txtUsuario" runat="server" ValidationGroup="1"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvUsuario" runat="server" ControlToValidate="txtUsuario" ValidationGroup="1">Ingrese usuario</asp:RequiredFieldValidator>
@@ -109,9 +118,8 @@
                 </tr>
                 <tr>
                     <td class="auto-style7"></td>
-                    <td class="auto-style8">
-                        <asp:Label ID="lbContraseña" class="subItem" runat="server" Text="Contraseña:"></asp:Label>
-                    </td>
+                    <td class="auto-style17">
+                        Contraseña</td>
                     <td class="auto-style9">
                         <asp:TextBox ID="txtContrasenia" runat="server" TextMode="Password" ValidationGroup="1"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvUserPssw" runat="server" ControlToValidate="txtContrasenia" ValidationGroup="1">Ingrese contraseña</asp:RequiredFieldValidator>
@@ -139,7 +147,7 @@
                     <td class="auto-style12"></td>
                     <td class="auto-style15"></td>
                     <td class="auto-style13">
-                        <asp:LinkButton ID="lkbRegistrarse" runat="server" PostBackUrl="~/Registro.aspx">No tenes cuenta? Registrate!</asp:LinkButton>
+                        <asp:LinkButton runat="server" PostBackUrl="~/Registro.aspx">No tenes cuenta? Registrate!</asp:LinkButton>
                     </td>
                     <td class="auto-style13"></td>
                 </tr>

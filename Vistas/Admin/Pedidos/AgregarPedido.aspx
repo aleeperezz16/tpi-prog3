@@ -13,6 +13,10 @@
         .auto-style2 {
             text-align: center;
             height: 48px;
+            font-weight: bold;
+            font-size: x-large;
+            color: #FFFAF0;
+            background-color: #DC143C;
         }
         .auto-style5 {
             height: 26px;
@@ -66,6 +70,9 @@
             height: 26px;
             text-align: right;
         }
+        .auto-style23 {
+            color: #DC143C;
+        }
     </style>
      <link rel="stylesheet" href="../../StyleSheetG6.css"/>
 </head>
@@ -83,8 +90,7 @@
                 <td class="auto-style18">
                     &nbsp;</td>
                 <td class="auto-style2" colspan="2">
-                    <asp:Label ID="lbl_TituloPagina" CssClass="mainItem" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Agregar Pedido"></asp:Label>
-                </td>
+                    Agregar Pedido</td>
                 <td class="auto-style7"></td>
             </tr>
             <tr>
@@ -95,8 +101,7 @@
             <tr>
                 <td class="auto-style20" rowspan="2"></td>
                 <td class="auto-style12" rowspan="2">
-                    <asp:Label ID="lblBuscarArticuloxID" CssClass="subItem" runat="server" Text="Buscar Articulo Por ID:"></asp:Label>
-                    <asp:TextBox ID="tbBuscarArticuloxID" runat="server" ValidationGroup="1"></asp:TextBox>
+                    <span class="auto-style23">Buscar artículo por id:</span><asp:TextBox ID="txtBuscarArt" runat="server" ValidationGroup="1"></asp:TextBox>
                     <br />
                     <asp:Button ID="btnBuscar" CssClass="myButton" runat="server" OnClick="btnBuscar_Click" Text="Buscar" ValidationGroup="1" />
                     &nbsp;&nbsp;&nbsp;
@@ -120,25 +125,25 @@
             <tr>
                 <td class="auto-style17">&nbsp;</td>
                 <td class="auto-style8" colspan="2">
-                    <asp:GridView ID="gdvAgregarpedido" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowCommand="gdvAgregarpedido_RowCommand" PageSize="5" OnPageIndexChanging="gdvAgregarpedido_PageIndexChanging">
+                    <asp:GridView ID="gvAgregarPedido" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowCommand="gvAgregarPedido_RowCommand" PageSize="5" OnPageIndexChanging="gvAgregarPedido_PageIndexChanging">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
-                            <asp:TemplateField HeaderText="ID Articulo">
+                            <asp:TemplateField HeaderText="Id">
                                 <ItemTemplate>
                                     <asp:Label ID="lbl_it_IDArticulo" runat="server" Text='<%# Bind ("IDArticulo") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Nombre de Articulo">
+                            <asp:TemplateField HeaderText="Articulo">
                                 <ItemTemplate>
                                     <asp:Label ID="lbl_it_NombreArticulo" runat="server" Text='<%# Bind ("NombreArticulo") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="ID Categoria">
+                            <asp:TemplateField HeaderText="Categoria">
                                 <ItemTemplate>
                                     <asp:Label ID="lbl_it_IDCategoria" runat="server" Text='<%# Bind ("IDCategoria") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="ID Proveedor">
+                            <asp:TemplateField HeaderText="Proveedor">
                                 <ItemTemplate>
                                     <asp:Label ID="lbl_it_IDProveedor" runat="server" Text='<%# Bind ("IDProveedor") %>'></asp:Label>
                                 </ItemTemplate>
@@ -151,11 +156,6 @@
                             <asp:TemplateField HeaderText="Precio de Compra">
                                 <ItemTemplate>
                                     <asp:Label ID="lbl_it_PrecioCompra" runat="server" Text='<%# Bind ("PrecioDeCompra") %>'></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Estado">
-                                <ItemTemplate>
-                                    <asp:Label ID="lbl_it_Estado" runat="server" Text='<%# Bind ("Estado") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Stock Disponible">

@@ -49,7 +49,6 @@
     <Compile Include="NegocioProveedores.cs" />
     <Compile Include="NegocioArticulos.cs" />
     <Compile Include="NegocioProvincia.cs" />
-    <Compile Include="NegocioHistorial.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="NegocioVentas.cs" />
   </ItemGroup>

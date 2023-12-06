@@ -22,6 +22,13 @@
         .auto-style5 {
             height: 29px;
         }
+        .auto-style6 {
+            text-align: center;
+            font-weight: bold;
+            font-size: xx-large;
+            color: #FFFAF0;
+            background-color: #DC143C;
+        }
     </style>
      <link rel="stylesheet" href="../StyleSheetG6.css"/>
 </head>
@@ -38,17 +45,8 @@
                 <td class="auto-style2">
                     <asp:HyperLink ID="hlInicio" runat="server" NavigateUrl="~/InicioClientes.aspx">Volver al Menú Principal</asp:HyperLink>
                 </td>
-                <td class="auto-style3" colspan="2">
-                    <asp:Label ID="Label1" CssClass="mainItem" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Artículos"></asp:Label>
-                </td>
-                <td class="auto-style3">&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style2">&nbsp;</td>
-                <td class="auto-style3" colspan="2">
-                    <asp:Label ID="lblVer" CssClass="subItem" runat="server" Text="Ver/Buscar/Comprar/Filtrar"></asp:Label>
-                </td>
+                <td class="auto-style6" colspan="2">
+                    Artículos</td>
                 <td class="auto-style3">&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>

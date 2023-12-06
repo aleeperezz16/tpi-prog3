@@ -11,67 +11,27 @@ namespace Negocio
 {
     public class NegocioCategorias
     {
-        
+        DaoCategorias _dao = new DaoCategorias();
 
         public NegocioCategorias() { }
 
         public DataTable ObtenerCategorias(int id = 0)
         {
-            DaoCategorias dao = new DaoCategorias();
-            return dao.ObtenerCategorias(id);
+            return _dao.ObtenerCategorias(id);
         }
 
-        public Categoria ObtenerCategoriaObjeto(int id)
+        public bool AgregarCategoria(Categoria cat)
         {
-            DaoCategorias dao = new DaoCategorias();
-            DataTable dtCat = dao.ObtenerCategorias(id);
-            DataRow drCat= dtCat.Rows[0];
-            Categoria cat = new Categoria(); 
-            cat.Id = id;
-            cat.Nombre = drCat[1].ToString();
-            cat.Descripcion = drCat[2].ToString();
-            return cat;
+            return _dao.AgregarCategoria(cat) == 1;
         }
-
-        public bool agregarCategoria(Categoria cat)
+        public bool EliminarCategoria(int id)
         {
-            DaoCategorias dao = new DaoCategorias();
-            int cantFilas = 0;
-
-          
-            cantFilas = dao.AgregarCategoria(cat);
-
-            if (cantFilas == 1)
-                return true;
-            else
-                return false;
-        }
-        public bool eliminarCategoria(int id)
-        {
-            DaoCategorias dao = new DaoCategorias();
-            int cantidadFilas = 0;
-        
-            cantidadFilas = dao.BorrarCategoria(id);
-            if (cantidadFilas == 1)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-
-
+            return _dao.BorrarCategoria(id) == 1;
         }
 
         public bool ModificarCategorias(Categoria cat)
         {
-            DaoCategorias dao = new DaoCategorias();
-            int cantfilas = dao.ModificarCategoria(cat);
-            return cantfilas > 1 ? true : false;
+            return _dao.ModificarCategoria(cat) == 1;
         }
-
-
-
     }
 }

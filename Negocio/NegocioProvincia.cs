@@ -12,10 +12,10 @@ namespace Negocio
     {
 
         public NegocioProvincia() { }
-        public DataTable ObtenerProvincias() {
-            DaoProvincia daoProvincia = new DaoProvincia();
-
-            return daoProvincia.ObtenerProvincias(-1);    
-         }
+        public DataTable ObtenerProvincias(int id = 0) 
+        {
+            DaoProvincia dao = new DaoProvincia();
+            return dao.ObtenerProvincias(id);    
+        }
     }
 }

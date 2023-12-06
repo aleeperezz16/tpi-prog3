@@ -18,26 +18,26 @@ namespace Vistas.Admin.Categorias
             lblResultado.Text = "";
         }
 
-        protected void btnAgregarcat_Click(object sender, EventArgs e)
+        protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            Categoria nuevacategoria = new Categoria();
-            NegocioCategorias manejoCat = new NegocioCategorias();
-            nuevacategoria.Nombre = tbNombre.Text.Trim();
-            nuevacategoria.Descripcion = tbDescripcion.Text.Trim();
-            tbNombre.Text = "";
-            tbDescripcion.Text = "";
-            bool agrego = manejoCat.agregarCategoria(nuevacategoria);
-            if (!agrego) 
+            NegocioCategorias negocio = new NegocioCategorias();
+            Categoria nuevaCategoria = new Categoria
             {
-                MessageBox.Show("Se agregó la Categoría correctamente","Mensaje");
+                Nombre = txtNombre.Text.Trim(),
+                Descripcion = txtDescripcion.Text.Trim()
+            };
+
+            txtNombre.Text = "";
+            txtDescripcion.Text = "";
+            
+            if (negocio.AgregarCategoria(nuevaCategoria)) 
+            {
+                MessageBox.Show("Se agregó la categoría correctamente", "Mensaje");
             }
             else
             {
                 MessageBox.Show("No se pudo agregar la categoria", "Mensaje");
             }
-            
         }
-       
     }
-    
 }

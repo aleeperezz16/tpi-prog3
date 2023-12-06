@@ -25,6 +25,10 @@
         .auto-style10 {
             width: 214px;
             height: 50px;
+            font-weight: bold;
+            font-size: x-large;
+            color: #FFFAF0;
+            background-color: #DC143C;
         }
         .auto-style15 {
             width: 220px;
@@ -41,16 +45,21 @@
             width: 29px;
             height: 29px;
         }
-        .auto-style23 {
-            width: 214px;
-            height: 29px;
-        }
         .auto-style24 {
             width: 220px;
             height: 29px;
         }
         .auto-style25 {
             height: 29px;
+        }
+        .auto-style26 {
+            width: 214px;
+            height: 29px;
+            color: #DC143C;
+        }
+        .auto-style27 {
+            width: 214px;
+            color: #DC143C;
         }
         </style>
     <link rel="stylesheet" href="../../StyleSheetG6.css"/>
@@ -65,8 +74,7 @@
                             <tr>
                                 <td class="auto-style9"></td>
                                 <td class="auto-style10">
-                                    <asp:Label ID="lblAgregarArticulo" CssClass="mainItem" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Agregar Articulo"></asp:Label>
-                                </td>
+                                    Agregar Articulo</td>
                                 <td class="auto-style15"></td>
                                 <td class="auto-style12">
                                     <asp:HyperLink ID="hlAgregarArt" runat="server" NavigateUrl="~/Inicio.aspx">Volver al menú Principal</asp:HyperLink>
@@ -74,9 +82,8 @@
                             </tr>
                             <tr>
                                 <td class="auto-style22"></td>
-                                <td class="auto-style23">
-                                    <asp:Label ID="lbNombreArticulo" CssClass="subItem" runat="server" Text="Nombre:"></asp:Label>
-                                </td>
+                                <td class="auto-style26">
+                                    Nombre:</td>
                                 <td class="auto-style24">
                                     <asp:TextBox ID="txtNombreArticulo" runat="server" Width="210px"></asp:TextBox>
                                 </td>
@@ -86,66 +93,61 @@
                             </tr>
                             <tr>
                                 <td class="auto-style22"></td>
-                                <td class="auto-style23">
-                                    <asp:Label ID="lbCategoria" CssClass="subItem" runat="server" Text="Categoria:"></asp:Label>
-                                </td>
+                                <td class="auto-style26">
+                                    Categoria:</td>
                                 <td class="auto-style24">
                                     <asp:DropDownList ID="ddlCategoria" runat="server" CssClass="auto-style21">
                                         <asp:ListItem>--Seleccionar--</asp:ListItem>
                                     </asp:DropDownList>
                                 </td>
                                 <td class="auto-style25">
-                                    <asp:RequiredFieldValidator ID="rfvCategoria" runat="server" ControlToValidate="ddlCategoria" ErrorMessage="Seleccione una Categoria" InitialValue="--Seleccionar--"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="rfvCategoria" runat="server" ControlToValidate="ddlCategoria" ErrorMessage="Seleccione una categoria" InitialValue="--Seleccionar--"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                                                         <tr>
                                 <td class="auto-style22"></td>
-                                <td class="auto-style23">
-                                    <asp:Label ID="lbProveedor" CssClass="subItem" runat="server" Text="Proveedor:"></asp:Label>
-                                </td>
+                                <td class="auto-style26">
+                                    Proveedor:</td>
                                 <td class="auto-style24">
                                     <asp:DropDownList ID="ddlProveedor" runat="server" CssClass="auto-style21">
                                         <asp:ListItem>--Seleccionar--</asp:ListItem>
                                     </asp:DropDownList>
                                 </td>
                                 <td class="auto-style25">
-                                    <asp:RequiredFieldValidator ID="rfvProveedor" runat="server" ControlToValidate="ddlProveedor" ErrorMessage="Seleccione un Proveedor" InitialValue="--Seleccionar--"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="rfvProveedor" runat="server" ControlToValidate="ddlProveedor" ErrorMessage="Seleccione un proveedor" InitialValue="--Seleccionar--"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="auto-style2">&nbsp;</td>
-                                <td class="auto-style3">
-                                    <asp:Label ID="lbPrecioDeVenta" CssClass="subItem" runat="server" Text="Precio de Venta:"></asp:Label>
-                                </td>
+                                <td class="auto-style27">
+                                    Precio de Venta:</td>
                                 <td class="auto-style13">
-                                    <asp:TextBox ID="txtPrecioDeVenta" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtPrecioVenta" runat="server" TextMode="Number"></asp:TextBox>
                                 </td>
                                 <td>
-                                    <asp:RequiredFieldValidator ID="rfvPrecioDeVenta" runat="server" ControlToValidate="txtPrecioDeVenta" ErrorMessage="Ingrese una Precio De Venta"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="rfvPrecioDeVenta" runat="server" ControlToValidate="txtPrecioDeVenta" ErrorMessage="Ingrese precio de venta"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                                                         <tr>
                                 <td class="auto-style2">&nbsp;</td>
-                                <td class="auto-style3">
-                                    <asp:Label ID="lbPrecioDeCompra" CssClass="subItem" runat="server" Text="Precio De Compra:"></asp:Label>
-                                </td>
+                                <td class="auto-style27">
+                                    Precio de Compra:</td>
                                 <td class="auto-style13">
-                                    <asp:TextBox ID="txtPrecioDeCompra" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtPrecioCompra" runat="server" TextMode="Number"></asp:TextBox>
                                 </td>
                                 <td>
-                                    <asp:RequiredFieldValidator ID="rfvPrecioDeCompra" runat="server" ControlToValidate="txtPrecioDeCompra" ErrorMessage="Ingrese una Precio De Compra"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="rfvPrecioDeCompra" runat="server" ControlToValidate="txtPrecioDeCompra" ErrorMessage="Ingrese precio de compra"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                                                         <tr>
                                 <td class="auto-style2">&nbsp;</td>
-                                <td class="auto-style3">
-                                    <asp:Label ID="lbStock" CssClass="subItem" runat="server" Text="Stock:"></asp:Label>
-                                </td>
+                                <td class="auto-style27">
+                                    Stock:</td>
                                 <td class="auto-style13">
-                                    <asp:TextBox ID="txtStock" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtStock" runat="server" TextMode="Number"></asp:TextBox>
                                 </td>
                                 <td>
-                                    <asp:RequiredFieldValidator ID="rfvStock" runat="server" ControlToValidate="txtStock" ErrorMessage="Ingrese una Dirección"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="rfvStock" runat="server" ControlToValidate="txtStock" ErrorMessage="Ingrese stock"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>

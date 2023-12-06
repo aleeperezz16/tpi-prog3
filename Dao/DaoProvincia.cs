@@ -15,10 +15,10 @@ namespace Dao
 
         public DataTable ObtenerProvincias(int id)
         {
-            string consulta = "SELECT * FROM PROVINCIA";
+            string consulta = "SELECT * FROM Provincia";
 
             if (id > 0)
-                consulta += $" WHERE IDProvincia= {id}";
+                consulta += $" WHERE IDProvincia = {id}";
 
             return _datos.ObtenerTabla("Provincias", consulta);
 

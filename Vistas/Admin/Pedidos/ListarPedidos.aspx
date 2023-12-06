@@ -24,6 +24,10 @@
             width: 692px;
             text-align: center;
             height: 74px;
+            font-weight: bold;
+            font-size: x-large;
+            color: #FFFAF0;
+            background-color: #DC143C;
         }
         .auto-style11 {
             height: 74px;
@@ -43,6 +47,9 @@
             height: 26px;
             width: 1083px;
         }
+        .auto-style16 {
+            color: #DC143C;
+        }
     </style>
      <link rel="stylesheet" href="../../StyleSheetG6.css"/>
 </head>
@@ -61,18 +68,16 @@
                     <td class="auto-style13">
                     </td>
                     <td class="auto-style7" colspan="2">
-                        <asp:Label ID="lbListarpedidos" CssClass="mainItem" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Listar Pedidos"></asp:Label>
-                    </td>
+                        Listar pedidos</td>
                     <td class="auto-style11"></td>
                 </tr>
                 <tr>
                     <td class="auto-style12" rowspan="2"></td>
                     <td class="auto-style15" rowspan="2">
-                        <asp:Label ID="lbBuscarpedidosID" class="subItem" runat="server" Text="Buscar Pedido por ID:"></asp:Label>
-                        <asp:TextBox ID="tbBuscarPedidoPorId" runat="server" ValidationGroup="1"></asp:TextBox>
+                        <span class="auto-style16">Buscar pedido por id:</span><asp:TextBox ID="txtBuscar" runat="server" ValidationGroup="1"></asp:TextBox>
                         <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="btnBuscarPedidoPorId" CssClass="myButton" runat="server" Text="Buscar" OnClick="btnBuscarPedidoPorId_Click" ValidationGroup="1" />
+                        <asp:Button ID="btnBuscar" CssClass="myButton" runat="server" Text="Buscar" OnClick="btnBuscar_Click" ValidationGroup="1" />
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Button ID="btnVistaInicial" CssClass="myButton" runat="server" OnClick="btnVistaInicial_Click" Text="Vista Inicial" />
                     </td>
@@ -94,20 +99,20 @@
                 <tr>
                     <td class="auto-style14">&nbsp;</td>
                     <td class="auto-style6" colspan="2">
-                        <asp:GridView ID="gdvListarPedidos" runat="server" AutoGenerateColumns="False" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" OnPageIndexChanging="gdvListarPedidos_PageIndexChanging">
+                        <asp:GridView ID="gvListarPedidos" runat="server" AutoGenerateColumns="False" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" OnPageIndexChanging="gdvListarPedidos_PageIndexChanging">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
-                                <asp:TemplateField HeaderText="ID Pedido">
+                                <asp:TemplateField HeaderText="Id">
                                     <ItemTemplate>
                                         <asp:Label ID="lbl_it_IDPedido" runat="server" Text='<%# Bind ("IDPedido") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="ID Articulo">
+                                <asp:TemplateField HeaderText="Articulo">
                                     <ItemTemplate>
                                         <asp:Label ID="lbl_it_IDArticulo" runat="server" Text='<%# Bind ("IDArticulo") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="ID Proveedor">
+                                <asp:TemplateField HeaderText="Proveedor">
                                     <ItemTemplate>
                                         <asp:Label ID="lbl_it_IDProveedor" runat="server" Text='<%# Bind("IDProveedor") %>'></asp:Label>
                                     </ItemTemplate>
@@ -117,12 +122,12 @@
                                         <asp:Label ID="lbl_it_Cantidad" runat="server" Text='<%# Bind ("Cantidad") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Fecha del Pedido">
+                                <asp:TemplateField HeaderText="Fecha Pedido">
                                     <ItemTemplate>
                                         <asp:Label ID="lbl_it_FechaPedido" runat="server" Text='<%# Bind("FechaPedido") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Costo Total">
+                                <asp:TemplateField HeaderText="Total">
                                     <ItemTemplate>
                                         <asp:Label ID="lbl_it_CostoTotal" runat="server" Text='<%# Bind ("CostoTotal") %>'></asp:Label>
                                     </ItemTemplate>

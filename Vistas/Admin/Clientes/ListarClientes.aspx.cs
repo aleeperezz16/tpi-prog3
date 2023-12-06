@@ -18,19 +18,19 @@ namespace Vistas.Admin.Clientes
         {
             if (!IsPostBack)
             {
-                CargarClientesEnGrilla();
+                CargarTablaInicial();
             }
         }
 
-        private void CargarClientesEnGrilla(int id = 0)
+        private void CargarTablaInicial()
         {
-            gdvClientes.DataSource = _negocio.ObtenerClientes(id);
+            gdvClientes.DataSource = _negocio.ObtenerClientes();
             gdvClientes.DataBind();
         }
 
-        protected void btnBuscarClientePorId_Click(object sender, EventArgs e)
+        protected void btnBuscar_Click(object sender, EventArgs e)
         {
-                CargarClientesEnGrilla(int.Parse(lblBuscarClientePorId.Text.Trim()));
+                CargarClientesEnGrilla(int.Parse(txtBuscar.Text.Trim()));
 
         }
         protected void gdvClientes_RowDeleting(object sender, GridViewDeleteEventArgs e)

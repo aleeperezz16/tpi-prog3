@@ -14,6 +14,10 @@
         .auto-style2 {
             text-align: center;
             height: 49px;
+            font-weight: bold;
+            font-size: xx-large;
+            color: #FFFAF0;
+            background-color: #DC143C;
         }
 
         .auto-style3 {
@@ -37,6 +41,9 @@
         .auto-style7 {
             height: 27px;
         }
+        .auto-style8 {
+            color: #DC143C;
+        }
     </style>
      <link rel="stylesheet" href="../../StyleSheetG6.css"/>
 </head>
@@ -52,8 +59,7 @@
                 <tr>
                     <td class="auto-style5"></td>
                     <td class="auto-style2">
-                        <asp:Label ID="lblClientes" CssClass="mainItem" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Clientes"></asp:Label>
-                    </td>
+                        Clientes</td>
                     <td class="auto-style3"></td>
                 </tr>
                 <tr>
@@ -66,9 +72,8 @@
                 <tr>
                     <td class="auto-style4">&nbsp;</td>
                     <td>
-                        <asp:Label ID="Label2" CssClass="subItem" runat="server" Text="Buscar  cliente por DNI:"></asp:Label>
-                        <asp:TextBox ID="lblBuscarClientePorId" runat="server"></asp:TextBox>
-                        <asp:Button ID="btnBuscarClientePorId" CssClass="myButton" runat="server" Text="Buscar" OnClick="btnBuscarClientePorId_Click" />
+                        <span class="auto-style8">Buscar cliente por DNI:</span><asp:TextBox ID="txtBuscar" runat="server"></asp:TextBox>
+                        <asp:Button ID="btnBuscar" CssClass="myButton" runat="server" Text="Buscar" OnClick="btnBuscar_Click" />
                     </td>
                     <td>&nbsp;</td>
                 </tr>

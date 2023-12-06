@@ -25,7 +25,7 @@ namespace Vistas
             };
 
             LogearUsuario negocioLogIn = new LogearUsuario();
-            var usuarioLogueado = negocioLogIn.IniciarSesion(usuario); ///Devuelve un su
+            var usuarioLogueado = negocioLogIn.IniciarSesion(usuario);
 
             if (usuarioLogueado == null)
             {
@@ -34,9 +34,7 @@ namespace Vistas
             }
           
             Session["Datos"] = usuarioLogueado;
-
-            if (usuario.Tipo == 'C') { Response.Redirect("InicioClientes.aspx"); } else { Response.Redirect("Inicio.aspx"); }
-
+            Response.Redirect("Inicio.aspx");
         }
     }
 }

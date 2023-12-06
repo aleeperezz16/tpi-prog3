@@ -41,15 +41,17 @@ namespace Vistas.Admin.Proveedores
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            Proveedor proveedor = new Proveedor();
-            Ciudad ciudad = new Ciudad();
-            ciudad.Codigo = int.Parse(ddlCiudad.SelectedValue);
-
-            proveedor.Nombre = txtNombreProveedor.Text.Trim();
-            proveedor.Telefono = txtTelefono.Text.Trim();
-            proveedor.Email = txtEmail.Text.Trim();
-            proveedor.Direccion = txtDireccion.Text.Trim();
-            proveedor.Ciudad = ciudad;
+            Proveedor proveedor = new Proveedor()
+            {
+                Nombre = txtNombreProveedor.Text.Trim(),
+                Telefono = txtTelefono.Text.Trim(),
+                Email = txtEmail.Text.Trim(),
+                Direccion = txtDireccion.Text.Trim(),
+                Ciudad = new Ciudad()
+                {
+                    Codigo = int.Parse(ddlCiudad.SelectedValue)
+                }
+            };
 
             if (_negocio.AgregarProveedor(proveedor))
             {
@@ -61,9 +63,8 @@ namespace Vistas.Admin.Proveedores
             }
             else
             {
-                lblNotificacion.Text = "No se pudo agregar el proveedor exitosamente";
+                lblNotificacion.Text = "No se pudo agregar el proveedor";
             }
-                
         }
 
         private void CargarCiudades(int id = 0, int idProvincia = 0)

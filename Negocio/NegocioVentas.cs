@@ -13,6 +13,7 @@ namespace Negocio
     {
         private DaoVentas _daoVentas = new DaoVentas();
         private DaoArticulos _daoArticulos = new DaoArticulos();
+
         public NegocioVentas() { }
 
         public DataTable ObtenerVentas(int id = 0, string articulo = "", string fecha = "", long dni = 0)
@@ -20,25 +21,14 @@ namespace Negocio
             return _daoVentas.ObtenerVentas(id, articulo, fecha, dni);
         }
 
-        public DataTable ObtenerArticulos()
+        public DataTable ObtenerArticulos(int id = 0)
         {
-            return _daoArticulos.ObtenerArticulosCompletos();
+            return _daoArticulos.ObtenerArticulos(id);
         }
 
-
-        public bool agregarVenta(Venta venta)
+        public bool AgregarVenta(Venta venta)
         {
-            DaoVentas dao = new DaoVentas();
-            int cantFilas = 0;
-
-            cantFilas = dao.AgregarVenta(venta);
-
-            if (cantFilas == 2)
-                return true;
-            else
-                return false;
+            return _daoVentas.AgregarVenta(venta) == 2;
         }
-
-
     }
 }

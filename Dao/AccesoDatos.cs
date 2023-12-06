@@ -100,5 +100,23 @@ namespace Dao
                 return 0;
             }
         }
+
+        public bool ExisteRegistro(string consulta)
+        {
+            SqlConnection cn = ObtenerConexion();
+            SqlCommand cmd = new SqlCommand(consulta, cn);
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            try
+            {
+                bool existe = dr.Read();
+                cn.Close();
+                return existe;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

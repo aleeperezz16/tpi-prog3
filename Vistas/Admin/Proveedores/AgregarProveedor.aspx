@@ -12,6 +12,12 @@
         }
         .auto-style2 {
             width: 161px;
+            text-align: center;
+            height: 48px;
+            font-weight: bold;
+            font-size: x-large;
+            color: #FFFAF0;
+            background-color: #DC143C;
         }
         .auto-style3 {
             width: 281px;
@@ -34,6 +40,11 @@
             text-align: right;
             height: 26px;
         }
+        .auto-style9 {
+            width: 161px;
+            height: 26px;
+            color: #FF0000;
+        }
     </style>
     <link rel="stylesheet" href="../../StyleSheetG6.css"/>
 </head>
@@ -41,7 +52,7 @@
     <form id="form1" class="fontStyle" runat="server">
         <table class="auto-style1">
             <tr>
-                <td class="auto-style2 mainItem ">Agregar Proveedor</td>
+                <td class="auto-style2">Agregar Proveedor</td>
                 <td class="auto-style3">&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
@@ -53,7 +64,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style2 subItem">Nombre:</td>
+                <td class="auto-style9">Nombre:</td>
                 <td class="auto-style3">
                     <asp:TextBox ID="txtNombreProveedor" runat="server" Width="259px"></asp:TextBox>
                 </td>
@@ -62,7 +73,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style2 subItem">Telefono:</td>
+                <td class="auto-style9">Telefono:</td>
                 <td class="auto-style3">
                     <asp:TextBox ID="txtTelefono" runat="server" Width="258px"></asp:TextBox>
                 </td>
@@ -71,7 +82,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style5 subItem">EMail:</td>
+                <td class="auto-style9">EMail:</td>
                 <td class="auto-style6">
                     <asp:TextBox ID="txtEmail" runat="server" Width="256px"></asp:TextBox>
                 </td>
@@ -80,7 +91,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style2 subItem">Direccion:</td>
+                <td class="auto-style9">Direccion:</td>
                 <td class="auto-style3">
                     <asp:TextBox ID="txtDireccion" runat="server" CssClass="auto-style4" Width="256px"></asp:TextBox>
                 </td>
@@ -89,7 +100,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style2 subItem">Provincia:</td>
+                <td class="auto-style9">Provincia:</td>
                 <td class="auto-style3">
                     <asp:DropDownList ID="ddlProvincia" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged" Width="180px" AppendDataBoundItems="True">
                         <asp:ListItem>--Seleccionar--</asp:ListItem>
@@ -100,7 +111,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style2 subItem">Ciudad:</td>
+                <td class="auto-style9">Ciudad:</td>
                 <td class="auto-style3">
                     <asp:DropDownList ID="ddlCiudad" runat="server" Width="180px">
                         <asp:ListItem>--Seleccione una provincia--</asp:ListItem>
@@ -111,12 +122,12 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style2">&nbsp;</td>
+                <td class="auto-style5">&nbsp;</td>
                 <td class="auto-style3">&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style2">&nbsp;</td>
+                <td class="auto-style5">&nbsp;</td>
                 <td class="auto-style3">
                     <asp:Button ID="btnAgregar" CssClass="myButton" runat="server" OnClick="btnAgregar_Click" Text="Aceptar" />
                 </td>

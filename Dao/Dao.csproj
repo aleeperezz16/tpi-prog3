@@ -50,7 +50,6 @@
     <Compile Include="DaoProveedores.cs" />
     <Compile Include="DaoProvincia.cs" />
     <Compile Include="DaoUsuarios.cs" />
-    <Compile Include="DaoHistorial.cs" />
     <Compile Include="DaoVentas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

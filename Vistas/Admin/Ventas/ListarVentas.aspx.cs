@@ -12,6 +12,8 @@ namespace Vistas.Admin.Ventas
     public partial class ListarVentas : Admin
     {
         private NegocioVentas _negocio = new NegocioVentas();
+        static private DataTable _tablaVentas;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -21,7 +23,7 @@ namespace Vistas.Admin.Ventas
                 ddlArticulos.DataValueField = "IDArticulo";
                 ddlArticulos.DataBind();
 
-                CargarVentasEnGrilla();
+                CargarTablaInicial();
             }
         }
 
@@ -37,18 +39,25 @@ namespace Vistas.Admin.Ventas
             if (articulo == "--Seleccionar--")
                 articulo = "";
 
-            CargarVentasEnGrilla(idVenta != "" ? int.Parse(idVenta) : 0, articulo, $"{anio}{(mes.Length == 1 ? "0" : "")}{mes}{(dia.Length == 1 ? "0" : "")}{dia}", dni != "" ? long.Parse(dni) : 0);
+            DataView dv = new DataView(_tablaVentas)
+            {
+                RowFilter = $"IDVenta LIKE '%{idVenta}%' AND IDArticulo LIKE '%{articulo}%' AND FechaVenta LIKE '%{anio}{(mes.Length == 1 ? "0" : "")}{mes}{(dia.Length == 1 ? "0" : "")}{dia}%' AND DNICliente LIKE '%{dni}%'"
+            };
+
+            gvVentas.DataSource = dv.ToTable();
+            gvVentas.DataBind();
         }
 
         protected void gvVentas_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvVentas.PageIndex = e.NewPageIndex;
-            CargarVentasEnGrilla();
+            gvVentas.DataBind();
         }
 
-        private void CargarVentasEnGrilla(int id = 0, string articulo = "", string fecha = "", long dni = 0)
+        private void CargarTablaInicial()
         {
-            gvVentas.DataSource = _negocio.ObtenerVentas(id, articulo, fecha, dni);
+            _tablaVentas = _negocio.ObtenerVentas();
+            gvVentas.DataSource = _tablaVentas;
             gvVentas.DataBind();
         }
     }

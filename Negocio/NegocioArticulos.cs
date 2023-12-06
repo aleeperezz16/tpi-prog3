@@ -11,79 +11,26 @@ namespace Negocio
 {
     public class NegocioArticulos
     {
-        
+        DaoArticulos _dao = new DaoArticulos();
 
         public NegocioArticulos() { }
 
-        public DataTable ObtenerTodosLosArticulos()
+        public DataTable ObtenerArticulos(int id = 0)
         {
-            DaoArticulos dao = new DaoArticulos();
-            return dao.ObtenerArticulosCompletos(-1);
+            return _dao.ObtenerArticulos(id);
         }
 
-        public DataTable ObtenerArticulo(int id)
+        public bool AgregarArticulo(Articulo art)
         {
-            DaoArticulos dao = new DaoArticulos();
-            return dao.ObtenerArticulosCompletos(id);
-        }
-        public DataTable ObtenerArticulosActivos(int id)
-        {
-            DaoArticulos dao = new DaoArticulos();
-            return dao.ObtenerArticulosActivos(id);
-        }
-
-        public DataTable ObtenerArticulosInactivos(int id)
-        {
-            DaoArticulos dao = new DaoArticulos();
-            return dao.ObtenerArticulosInactivos(id);
-        }
-
-        public DataTable ObtenerArticulosxCategoriaActivos(int id)
-        {
-            DaoArticulos dao = new DaoArticulos();
-            return dao.ObtenerArticulosxCategoriaActivos(id);
-        }
-
-        public bool agregarArticulo(Articulo Articulo)
-        {
-            DaoArticulos dao = new DaoArticulos();
-            int cantFilas = 0;
-
-           
-            /*if (dao.existeCategoría(cat) == false)
-            {
-                
-            }*/
-            cantFilas = dao.AgregarArticulo(Articulo);
-
-            if (cantFilas == 1)
-                return true;
-            else
-                return false;
+            return _dao.AgregarArticulo(art) == 1;
         }
         public bool ModificarArticulo(Articulo art)
         {
-            DaoArticulos dao = new DaoArticulos();
-            int cantfilas = dao.ModificarArticulo(art);
-            return cantfilas > 1 ? true : false;
+            return _dao.ModificarArticulo(art) == 1;
         }
-        public bool eliminarArticulo(int  id)
+        public bool EliminarArticulo(int id)
         {
-            DaoArticulos dao = new DaoArticulos();
-            int cantidadFilas = 0;
-            /*if (!Conexion.existe(consulta))
-            {
-                
-            }*/
-            cantidadFilas = dao.BorrarArticulo(id);
-            if (cantidadFilas == 1)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return _dao.BorrarArticulo(id) == 1;
         }
     }
 }

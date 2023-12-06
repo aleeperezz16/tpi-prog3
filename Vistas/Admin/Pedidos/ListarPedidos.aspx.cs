@@ -12,52 +12,55 @@ namespace Vistas.Admin.Pedidos
 {
     public partial class ListarPedidos : Admin
     {
-        NegocioArticulos negocioArt = new NegocioArticulos();
+        private NegocioPedidos _negocioPed = new NegocioPedidos();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                cargarPedidosEnGrilla();
+                CargarTablaInicial();
             }
         }
 
-        private void cargarPedidosEnGrilla()
+        private void CargarTablaInicial()
         {
-            NegocioPedidos negocio = new NegocioPedidos();
-            gdvListarPedidos.DataSource = negocio.ObtenerTablaPedidos(0);
-            gdvListarPedidos.DataBind();
+            gvListarPedidos.DataSource = _negocioPed.ObtenerPedidos();
+            gvListarPedidos.DataBind();
         }
 
-        protected void btnBuscarPedidoPorId_Click(object sender, EventArgs e)
+        protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            int num = Convert.ToInt32(tbBuscarPedidoPorId.Text.Trim());
-            tbBuscarPedidoPorId.Text = "";
-            NegocioPedidos negocio = new NegocioPedidos();
-            gdvListarPedidos.DataSource = negocio.ObtenerTablaPedidos(num);
-            gdvListarPedidos.DataBind();
+            DataView dv = new DataView((DataTable)gvListarPedidos.DataSource)
+            {
+                RowFilter = $"Id = {txtBuscar.Text.Trim()}"
+            };
+
+            gvListarPedidos.DataSource = dv.ToTable();
+            gvListarPedidos.DataBind();
+
+            txtBuscar.Text = "";
          
-            try
+            /*try
             {
                 ///USO LA EXCEPCION DE FUERA DE RANGO del Row Con un Try Catch PARA CUANDO SÉ QUE NO ENCONTRÓ NADA
-                String IDArticulo = ((Label)gdvListarPedidos.Rows[0].FindControl("lbl_it_IDArticulo")).Text;//agarre cualquier dato
+                String IDArticulo = ((Label)gvListarPedidos.Rows[0].FindControl("lbl_it_IDArticulo")).Text;//agarre cualquier dato
             }
             catch
             {
                 System.Windows.Forms.MessageBox.Show("No hubo coincidencias, por favor intente con otro ID", "Informe");
-            }
+            }*/
         }
 
         protected void btnVistaInicial_Click(object sender, EventArgs e)
         {
-            tbBuscarPedidoPorId.Text = "";
-            gdvListarPedidos.PageIndex = 0;
-            cargarPedidosEnGrilla();
+            txtBuscar.Text = "";
+            CargarTablaInicial();
         }
 
         protected void gdvListarPedidos_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            gdvListarPedidos.PageIndex = e.NewPageIndex;
-            cargarPedidosEnGrilla();
+            gvListarPedidos.PageIndex = e.NewPageIndex;
+            gvListarPedidos.DataBind();
         }
 
     }

@@ -37,14 +37,14 @@ namespace Dao
             string filtro = "";
 
             if (id > 0)
-                filtro += $"V.IDVenta={id}";
+                filtro += $"V.IDVenta = {id}";
 
             if (articulo != "")
             {
                 if (filtro != "")
                     filtro += " AND ";
                 
-                filtro += $"A.IDArticulo={articulo}";
+                filtro += $"A.IDArticulo = {articulo}";
             }
 
             if (fecha != "")
@@ -52,7 +52,7 @@ namespace Dao
                 if (filtro != "")
                     filtro += " AND ";
                 
-                filtro += $"V.FechaVenta='{fecha}'";
+                filtro += $"V.FechaVenta = '{fecha}'";
             }
 
             if (dni > 0)
@@ -60,7 +60,7 @@ namespace Dao
                 if (filtro != "")
                     filtro += " AND ";
 
-                filtro += $"C.DNI={dni}";
+                filtro += $"C.DNI = {dni}";
             }
 
             if (filtro != "")
@@ -77,12 +77,5 @@ namespace Dao
             cmd.Parameters.AddWithValue("@Cantidad", venta.Cantidad);
 
         }
-
-
-
-
-
-
-
     }
 }

@@ -14,8 +14,8 @@ namespace Negocio
 
         public DataTable ObtenerCiudades(int id = 0, int idProvincia = 0)
         {
-            DaoCiudad ciudad = new DaoCiudad();
-            return ciudad.ObtenerCiudades(id,idProvincia);
+            DaoCiudad dao = new DaoCiudad();
+            return dao.ObtenerCiudades(id, idProvincia);
         }
     }
 }

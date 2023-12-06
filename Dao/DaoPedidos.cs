@@ -24,8 +24,6 @@ namespace Dao
             return _datos.ObtenerTabla("Pedidos", consulta);
         }
 
-
-        
         public int AgregarPedido(Pedido pedido)
         {
             SqlCommand cmd = new SqlCommand();
@@ -33,13 +31,10 @@ namespace Dao
             return _datos.EjecutarProcedimientoAlmacenado(ref cmd, "sp_AgregarPedidoMercaderia");
         }
         
-        
         private void ArmarParametrosAgregar(ref SqlCommand cmd, Pedido pedido)
         {
             cmd.Parameters.AddWithValue("@IDArticulo", pedido.Articulo.Id);
             cmd.Parameters.AddWithValue("@Cantidad", pedido.Cantidad);
         }
-        
-
     }
 }

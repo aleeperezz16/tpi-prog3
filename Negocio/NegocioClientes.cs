@@ -19,35 +19,29 @@ namespace Negocio
             return _dao.ObtenerCliente(id);
         }
 
+        public DataTable ObtenerHistorial(Cliente cliente)
+        {
+            return _dao.ObtenerHistorial(cliente);
+        }
+
         public bool EliminarCliente(int dni)
         {
             return _dao.BorrarCliente(dni) == 1;
         }
         public bool ModificarCliente(Cliente cliente)
         {
-            int cantFilas = _dao.ModificarCliente(cliente);
-            return cantFilas > 1 ? true : false;
+            return _dao.ModificarCliente(cliente) == 1;
         }
 
         public bool AgregarCliente(Cliente cliente)
         {
-            int cantFilas = _dao.agregarCliente(cliente);
-            return cantFilas > 1 ? true : false;
+            return _dao.AgregarCliente(cliente) == 1;
         }
 
-        public DataTable ObtenerDNIClientes(Cliente cliente)
+        public bool ExisteCliente(Cliente cliente)
         {
-        
-            return _dao.ObtenerDNICliente(cliente);
+            return _dao.ExisteCliente(cliente);
         }
-
-        public DataTable ObtenerALIASClientes(Cliente cliente)
-        {
-
-            return _dao.ObtenerALIASCliente(cliente);
-        }
-
-
     }
 }
 

@@ -6,34 +6,41 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Negocio;
 using Entidades;
+using System.Data;
 
 namespace Vistas.Admin.Proveedores
 {
     public partial class ListarProveedores : Admin
     {
         private NegocioProveedores _negocio = new NegocioProveedores();
+        static private DataTable _tablaProveedores;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                CargarProveedoresEnGrilla();
+                CargarTablaInicial();
             }
         }
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
-            string idProv = txtIdProveedor.Text.Trim();
             string nombre = txtNombreProveedor.Text.Trim();
 
-            CargarProveedoresEnGrilla(idProv != "" ? int.Parse(idProv) : 0, nombre);
+            DataView dv = new DataView(_tablaProveedores)
+            {
+                RowFilter = $"NombreProveedor LIKE '%{nombre}%'"
+            };
+
+            gvProveedores.DataSource = dv.ToTable();
+            gvProveedores.DataBind();
         }
 
         protected void gvProveedores_RowEditing(object sender, GridViewEditEventArgs e)
         {
             gvProveedores.EditIndex = e.NewEditIndex;
-            CargarProveedoresEnGrilla();
+            gvProveedores.DataBind();
 
-            DropDownList ciudades = (DropDownList)gvProveedores.Rows[e.NewEditIndex].FindControl("ddlEditCiudad");
+            DropDownList ciudades =(DropDownList)gvProveedores.Rows[e.NewEditIndex].FindControl("ddl_eit_Ciudad");
 
             ciudades.DataSource = _negocio.ObtenerCiudades();
             ciudades.DataTextField = "NombreCiudad";
@@ -44,47 +51,50 @@ namespace Vistas.Admin.Proveedores
         protected void gvProveedores_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvProveedores.PageIndex = e.NewPageIndex;
-            CargarProveedoresEnGrilla();
+            gvProveedores.DataBind();
         }
 
         protected void gvProveedores_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             gvProveedores.EditIndex = -1;
-            CargarProveedoresEnGrilla();
+            gvProveedores.DataBind();
         }
 
-        private void CargarProveedoresEnGrilla(int id = 0, string nombre = "")
+        private void CargarTablaInicial(int id = 0, string nombre = "")
         {
-            gvProveedores.DataSource = _negocio.ObtenerProveedores(id, nombre);
+            _tablaProveedores = _negocio.ObtenerProveedores();
+            gvProveedores.DataSource = _tablaProveedores;
             gvProveedores.DataBind();
         }
 
         protected void gvProveedores_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            int idProv = int.Parse(((Label)gvProveedores.Rows[e.RowIndex].FindControl("lblEditId")).Text);
-            string nombre = ((TextBox)gvProveedores.Rows[e.RowIndex].FindControl("txtEditNombre")).Text.Trim();
-            string telefono = ((TextBox)gvProveedores.Rows[e.RowIndex].FindControl("txtEditTelefono")).Text.Trim();
-            string email = ((TextBox)gvProveedores.Rows[e.RowIndex].FindControl("txtEditEmail")).Text.Trim();
-            string direccion = ((TextBox)gvProveedores.Rows[e.RowIndex].FindControl("txtEditDireccion")).Text.Trim();
-            int codigoCiudad = int.Parse(((DropDownList)gvProveedores.Rows[e.RowIndex].FindControl("ddlEditCiudad")).SelectedValue);
-            bool estado = ((CheckBox)gvProveedores.Rows[e.RowIndex].FindControl("chkBoxEditEstado")).Checked;
+            var fila = gvProveedores.Rows[e.RowIndex];
+            Proveedor proveedor = new Proveedor
+            {
+                Id = int.Parse(((Label)fila.FindControl("lbl_eit_Id")).Text),
+                Nombre = ((TextBox)fila.FindControl("txt_eit_Nombre")).Text.Trim(),
+                Telefono = ((TextBox)fila.FindControl("txt_eit_Telefono")).Text.Trim(),
+                Email = ((TextBox)fila.FindControl("txt_eit_Email")).Text.Trim(),
+                Direccion = ((TextBox)fila.FindControl("txt_eit_Direccion")).Text.Trim(),
+                Ciudad = new Ciudad
+                {
+                    Codigo = int.Parse(((DropDownList)fila.FindControl("ddl_eit_Ciudad")).SelectedValue)
+                }
+            };
 
-            Ciudad ciudad = new Ciudad();
-            ciudad.Codigo = codigoCiudad;
-
-            Proveedor proveedor = new Proveedor(idProv, nombre, telefono, email, direccion, ciudad, estado);
             _negocio.ModificarProveedor(proveedor);
 
             gvProveedores.EditIndex = -1;
-            CargarProveedoresEnGrilla();
+            CargarTablaInicial();
         }
 
         protected void gvProveedores_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            int idProv = int.Parse(((Label)gvProveedores.Rows[e.RowIndex].FindControl("lblItemId")).Text);
+            int idProv = int.Parse(((Label)gvProveedores.Rows[e.RowIndex].FindControl("lbl_eit_Id")).Text);
             _negocio.EliminarProveedor(idProv);
 
-            CargarProveedoresEnGrilla();
+            CargarTablaInicial();
         }
     }
 }
