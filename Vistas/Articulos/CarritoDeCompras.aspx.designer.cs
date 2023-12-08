@@ -11,7 +11,7 @@ namespace Vistas.Articulos
 {
 
 
-    public partial class CompraArticulo
+    public partial class Carrito
     {
 
         /// <summary>
@@ -24,13 +24,13 @@ namespace Vistas.Articulos
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control hlInicio.
+        /// Control hlVolverAMenu.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlInicio;
+        protected global::System.Web.UI.WebControls.HyperLink hlVolverAMenu;
 
         /// <summary>
         /// Control Label1.
@@ -42,102 +42,84 @@ namespace Vistas.Articulos
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// Control lblVer.
+        /// Control HyperLink1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblVer;
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
 
         /// <summary>
-        /// Control hpCarrito.
+        /// Control lblMensaje.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hpCarrito;
+        protected global::System.Web.UI.WebControls.Label lblMensaje;
 
         /// <summary>
-        /// Control lblBuscarxID.
+        /// Control lblA.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBuscarxID;
+        protected global::System.Web.UI.WebControls.Label lblA;
 
         /// <summary>
-        /// Control tbBuscarxID.
+        /// Control lblCantArticulos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbBuscarxID;
+        protected global::System.Web.UI.WebControls.Label lblCantArticulos;
 
         /// <summary>
-        /// Control btnBuscarxID.
+        /// Control gdvCarritoDeCompras.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscarxID;
+        protected global::System.Web.UI.WebControls.GridView gdvCarritoDeCompras;
 
         /// <summary>
-        /// Control btnVistaPrincipal.
+        /// Control lblT.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVistaPrincipal;
+        protected global::System.Web.UI.WebControls.Label lblT;
 
         /// <summary>
-        /// Control rfvBuscarxID.
+        /// Control lblTotal.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvBuscarxID;
+        protected global::System.Web.UI.WebControls.Label lblTotal;
 
         /// <summary>
-        /// Control revBuscarxID.
+        /// Control btnComprar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revBuscarxID;
+        protected global::System.Web.UI.WebControls.Button btnComprar;
 
         /// <summary>
-        /// Control lblFiltrarxCategoria.
+        /// Control btnEliminarTodo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFiltrarxCategoria;
-
-        /// <summary>
-        /// Control ddlCategorias.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCategorias;
-
-        /// <summary>
-        /// Control gdvComprarArticulos.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gdvComprarArticulos;
+        protected global::System.Web.UI.WebControls.Button btnEliminarTodo;
     }
 }

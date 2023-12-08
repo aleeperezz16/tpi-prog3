@@ -79,7 +79,7 @@
     <Content Include="Admin\Pedidos\AgregarPedido.aspx" />
     <Content Include="Admin\Proveedores\AgregarProveedor.aspx" />
     <Content Include="Admin\Proveedores\ListarProveedores.aspx" />
-    <Content Include="Articulos\Carrito.aspx" />
+    <Content Include="Articulos\CarritoDeCompras.aspx" />
     <Content Include="Articulos\CompraArticulo.aspx" />
     <Content Include="Inicio.aspx" />
     <Content Include="MiCuenta\GestionCuenta.aspx" />
@@ -170,12 +170,12 @@
     <Compile Include="Admin\Proveedores\ListarProveedores.aspx.designer.cs">
       <DependentUpon>ListarProveedores.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Articulos\Carrito.aspx.cs">
-      <DependentUpon>Carrito.aspx</DependentUpon>
+    <Compile Include="Articulos\CarritoDeCompras.aspx.cs">
+      <DependentUpon>CarritoDeCompras.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Articulos\Carrito.aspx.designer.cs">
-      <DependentUpon>Carrito.aspx</DependentUpon>
+    <Compile Include="Articulos\CarritoDeCompras.aspx.designer.cs">
+      <DependentUpon>CarritoDeCompras.aspx</DependentUpon>
     </Compile>
     <Compile Include="Articulos\CompraArticulo.aspx.cs">
       <DependentUpon>CompraArticulo.aspx</DependentUpon>

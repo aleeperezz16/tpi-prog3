@@ -53,7 +53,9 @@
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style2">&nbsp;</td>
+                <td class="auto-style2">
+                    <asp:HyperLink ID="hpCarrito" runat="server" NavigateUrl="~/Articulos/CarritoDeCompras.aspx">Carrito de Compras</asp:HyperLink>
+                </td>
                 <td colspan="2">&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
@@ -94,7 +96,7 @@
             <tr>
                 <td class="auto-style2">&nbsp;</td>
                 <td colspan="2">
-                    <asp:GridView ID="gdvComprarArticulos" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnPageIndexChanging="gdvComprarArticulos_PageIndexChanging" OnRowCommand="gdvComprarArticulos_RowCommand">
+                    <asp:GridView ID="gdvComprarArticulos" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnPageIndexChanging="gdvComprarArticulos_PageIndexChanging" OnRowCommand="gdvComprarArticulos_RowCommand" Width="871px">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
                             <asp:TemplateField HeaderText="ID Articulo">
@@ -127,7 +129,8 @@
                                     <asp:TextBox ID="tbCantidad" runat="server" Height="20px" Width="86px"></asp:TextBox>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:ButtonField ButtonType="Button" Text="Comprar" CommandName="EventoComprar" />
+                            <asp:ButtonField ButtonType="Button" CommandName="EventoComprar" Text="Comprar" />
+                            <asp:ButtonField ButtonType="Button" CommandName="EventoAgregar" Text="Agregar Al Carrito" />
                         </Columns>
                         <EditRowStyle BackColor="#2461BF" />
                         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

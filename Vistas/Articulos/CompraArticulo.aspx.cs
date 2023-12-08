@@ -84,66 +84,112 @@ namespace Vistas.Articulos
 
         protected void gdvComprarArticulos_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            int fila = Convert.ToInt32(e.CommandArgument);
+            ///Como no pude hacer funcionar requiredfieldvni regularexpresionv dentro del gridview lo hardcodié
+            String Cantidad = ((TextBox)gdvComprarArticulos.Rows[fila].FindControl("tbCantidad")).Text.Trim();///
+
+            if (Cantidad == "")
+            {
+                System.Windows.Forms.MessageBox.Show("Debe ingresar una cantidad a comprar", "Mensaje de Alerta");
+                return;
+            }
+
+            bool valornumerico = int.TryParse(Cantidad, out int CantidadAComprar);
+            int Stock = Convert.ToInt32(((Label)gdvComprarArticulos.Rows[fila].FindControl("lbl_it_Stock")).Text);
+
+            if (!valornumerico || CantidadAComprar < 0)
+            {
+                System.Windows.Forms.MessageBox.Show("Ha ingresado caracteres inválidos, ingrese una cantidad válida", "Mensaje");
+                return;
+            }
+            if (CantidadAComprar > Stock)
+            {
+                System.Windows.Forms.MessageBox.Show("No se pueden agregar más unidades, límite de stock", "Mensaje");
+                return;
+            }
             if (e.CommandName == "EventoComprar")
             {
-                int fila = Convert.ToInt32(e.CommandArgument);
-                ///Como no pude hacer funcionar requiredfieldvni regularexpresionv dentro del gridview lo hardcodié
-                String Cantidad = ((TextBox)gdvComprarArticulos.Rows[fila].FindControl("tbCantidad")).Text.Trim();///
-                if (Cantidad == "")
+                int resultado = ArmarDialogo(CantidadAComprar, fila);
+                if (resultado == 6)
                 {
-                    System.Windows.Forms.MessageBox.Show("Debe ingresar una cantidad a comprar", "Mensaje de Alerta");
+                    Venta ventaarmada = ArmarVenta(CantidadAComprar, fila);
+                    /// System.Windows.Forms.MessageBox.Show("art id: " + ventaarmada.Articulo.Id + " DNI:" + ventaarmada.Cliente.Dni + " Cant: " + ventaarmada.Cantidad, "mensaje");
+                    bool agrego = ventas.agregarVenta(ventaarmada);
+
+                    System.Windows.Forms.MessageBox.Show(agrego ? "Se agregó el pedido correctamente." : "No se pudo agregar el pedido.", agrego ? "Mensaje" : "Alerta");
+                    cargarArticulosEnGrilla();
+
                 }
                 else
                 {
-                    int CantidadAComprar = 0;
-                    bool valornumerico = int.TryParse(Cantidad, out CantidadAComprar);
-                    if (valornumerico)
-                    {
-
-                        int resultado = ArmarDialogo(CantidadAComprar, fila);
-                        if (resultado == 6)
-                        {
-                            Venta ventaarmada = ArmarVenta(CantidadAComprar,fila);
-                          /// System.Windows.Forms.MessageBox.Show("art id: " + ventaarmada.Articulo.Id + " DNI:" + ventaarmada.Cliente.Dni + " Cant: " + ventaarmada.Cantidad, "mensaje");
-                            bool agrego = ventas.agregarVenta(ventaarmada);
-
-                                if (agrego)
-                                {
-                                    System.Windows.Forms.MessageBox.Show("Se agregó el pedido correctamente.", "Mensaje");
-                                    cargarArticulosEnGrilla();
-                                }
-                                else
-                                {
-                                    System.Windows.Forms.MessageBox.Show("No se pudo agregar el pedido.", "Alerta");
-                                }
-
-
-                        }
-                        else
-                        {
-                            System.Windows.Forms.MessageBox.Show("El pedido de compra, se ha cancelado.", "Mensaje de Cancelación");
-                        }
-
-                    }
-                    else
-                    { System.Windows.Forms.MessageBox.Show("Ha ingresado un caracteres inválidos, ingrese una cantidad válida", "Mensaje"); }
-
+                    System.Windows.Forms.MessageBox.Show("El pedido de compra, se ha cancelado.", "Mensaje de Cancelación");
                 }
+            }
+            if (e.CommandName == "EventoAgregar")
+            {
+                if (Session["Venta"] == null)
+                {
+                    List<Venta> listaArticulo = new List<Venta>();
+                    Session["Venta"] = listaArticulo;
+                }
+
+                Venta venta = ArmarVenta(CantidadAComprar, fila);
+                cargarSession(venta, fila);
             }
         }
 
+        private void cargarSession(Venta venta, int fila)
+        {
+            bool articuloExistente = false;
+            var lista = (List<Venta>)Session["Venta"];
+            foreach (Venta dato in lista)
+            {
+                if (venta.Articulo.Id == dato.Articulo.Id)
+                {
+                    int cantLimite = dato.Cantidad + venta.Cantidad;
+                    if (cantLimite > venta.Articulo.Stock)
+                    {
+                        System.Windows.Forms.MessageBox.Show("No se pueden agregar más unidades al carrito, límite de stock", "Mensaje");
+                        return;
+                    }
+                    else
+                    {
+                        dato.PrecioTotal += venta.PrecioTotal;//actualiza precio y cantidad en la lista
+                        dato.Cantidad += venta.Cantidad;
+                        Session["Venta"] = lista;
+                        articuloExistente = true;
+                        break;
+                    }
+                }
+            }
+            if (!articuloExistente)
+            {
+                lista.Add(venta);
+                Session["Venta"] = lista;
+            }
+          ((TextBox)gdvComprarArticulos.Rows[fila].FindControl("tbCantidad")).Text = "";
+        }
+
+
         private Venta ArmarVenta(int CantidadAComprar, int fila)
         {
-            String IDArticulo = ((Label)gdvComprarArticulos.Rows[fila].FindControl("lbl_it_IDArticulo")).Text;///
-            int Idart = Convert.ToInt32(IDArticulo);
-            int cant = Convert.ToInt32(CantidadAComprar);
+            Categoria cat = new Categoria();
+            cat.Id = Convert.ToInt32(((Label)gdvComprarArticulos.Rows[fila].FindControl("lbl_it_IDCategoria")).Text);
+
+            Articulo articulo = new Articulo();
+            articulo.Id = Convert.ToInt32(((Label)gdvComprarArticulos.Rows[fila].FindControl("lbl_it_IDArticulo")).Text);
+            articulo.Categoria = cat;
+            articulo.Nombre = ((Label)gdvComprarArticulos.Rows[fila].FindControl("lbl_it_NombreArticulo")).Text.Trim();
+            articulo.Stock = Convert.ToInt32(((Label)gdvComprarArticulos.Rows[fila].FindControl("lbl_it_Stock")).Text); ;
+
             var usuario = HttpContext.Current.Session["Datos"];
             Cliente cliente = (Cliente)usuario;
-            Articulo articulo = new Articulo();
-            articulo.Id = Idart;
+
+            decimal precioVenta = Convert.ToDecimal(((Label)gdvComprarArticulos.Rows[fila].FindControl("lbl_it_PrecioVenta")).Text);
+            decimal precioTotal = precioVenta * Convert.ToDecimal(CantidadAComprar);
+
             NegocioVentas ventas = new NegocioVentas();
-            Venta ventaarmada = new Venta(articulo, cliente, cant);
-           
+            Venta ventaarmada = new Venta(articulo, cliente, CantidadAComprar, precioTotal);
 
             return ventaarmada;
         }
@@ -151,14 +197,11 @@ namespace Vistas.Articulos
 
         private int ArmarDialogo(int CantidadAComprar, int fila)
         {
-            String NombreArt = ((Label)gdvComprarArticulos.Rows[fila].FindControl("lbl_it_NombreArticulo")).Text.Trim();///
-            String PrecioCompra = ((Label)gdvComprarArticulos.Rows[fila].FindControl("lbl_it_PrecioVenta")).Text;
+            Venta venta = ArmarVenta(CantidadAComprar, fila);
             ((TextBox)gdvComprarArticulos.Rows[fila].FindControl("tbCantidad")).Text = "";
             tbBuscarxID.Text = "";
-            decimal precio = Convert.ToDecimal(PrecioCompra);
-            decimal CostoTotal = Convert.ToDecimal(PrecioCompra) * Convert.ToDecimal(CantidadAComprar);
 
-            string mensaje = "Usted está a punto de hacer una compra de:\n" + "Producto: " + NombreArt + " \n Cantidad: " + CantidadAComprar + "\n TOTAL:  $" + CostoTotal.ToString() + "\n" +
+            string mensaje = "Usted está a punto de hacer una compra de:\n" + "Producto: " + venta.Articulo.Nombre + " \n Cantidad: " + CantidadAComprar + "\n TOTAL:  $" + venta.PrecioTotal.ToString() + "\n" +
             "¿Está seguro que quiere adquirir el producto y la cantidad especificada?" + "\n \n " +
             "  ALERTA!: ÉSTA ACCIÓN NO SE PUEDE DESHACER. ";
             string titulo = "Mensaje de Confirmacion";
