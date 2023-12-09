@@ -84,6 +84,25 @@ namespace Dao
             }
         }
 
+        public int EjecutarProcAlmacenadoObtenerId(ref SqlCommand cmd, string nombreSp)
+        {
+            SqlConnection cn = ObtenerConexion();
+            cmd.Connection = cn;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = nombreSp;
+
+            try
+            {
+                int id = Convert.ToInt32(cmd.ExecuteScalar());
+                cn.Close();
+                return id;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
         public int EjecutarConsulta(string consulta)
         {
             SqlConnection cn = ObtenerConexion();

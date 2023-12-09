@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,19 +16,37 @@ namespace Negocio
 
         public NegocioVentas() { }
 
-        public DataTable ObtenerVentas(int id = 0, string articulo = "", string fecha = "", long dni = 0)
+        public DataTable ObtenerVentas()
         {
-            return _daoVentas.ObtenerVentas(id, articulo, fecha, dni);
+            return _daoVentas.ObtenerVentas();
         }
 
-        public DataTable ObtenerArticulos(int id = 0)
+        public DataTable ObtenerDetalleVentas(Venta venta)
+        {
+            return _daoVentas.ObtenerDetalleVenta(venta.Id);
+        }
+
+        public DataTable ObtenerArticulos()
         {
             return _daoArticulos.ObtenerArticulos(id);
         }
 
-        public bool AgregarVenta(Venta venta)
+        public bool AgregarDetalleVenta(int idVenta, List<DetalleVenta> ventas)
         {
-            return _daoVentas.AgregarVenta(venta) == 2;
+            foreach (DetalleVenta detalleVenta in ventas)
+            {
+                detalleVenta.Venta.Id = idVenta;
+                if (_daoVentas.AgregarDetalleVenta(detalleVenta) == 0)
+                    return false;
+            }
+
+            return true;
+        }
+
+        public int agregarVenta(Venta venta)
+        public int AgregarVenta(Venta venta)
+        {
+            return _daoVentas.AgregarVenta(venta);
         }
     }
 }

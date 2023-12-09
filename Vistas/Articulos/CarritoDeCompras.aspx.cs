@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,6 +17,8 @@ namespace Vistas.Articulos
         {
             if (Session["Venta"] != null)
             {
+                var Articulos = (List<DetalleVenta>)Session["Venta"];
+                gdvCarritoDeCompras.DataSource = Articulos;
                 var articulos = (List<Venta>)Session["Venta"];
 
                 gdvCarritoDeCompras.DataSource = articulos;
@@ -35,8 +37,7 @@ namespace Vistas.Articulos
             bool error = false;
             if (ConfirmarCompra() == DialogResult.Yes)
             {
-                var lista = (List<Venta>)Session["Venta"];
-                foreach (Venta articulo in lista)
+                Venta venta = new Venta
                 {
                     bool agrego = _negocioVentas.AgregarVenta(articulo);
 
@@ -72,18 +73,18 @@ namespace Vistas.Articulos
 
         protected void gdvCarritoDeCompras_RowDeleting(object sender, GridViewDeleteEventArgs e)
         { 
-        int rowIndex = e.RowIndex;
-        int id= Convert.ToInt32(((Label)gdvCarritoDeCompras.Rows[rowIndex].FindControl("lbl_it_IDArticulo")).Text);
-            var lista = (List<Venta>)Session["Venta"];
-            foreach (Venta dato in lista)
+            int rowIndex = e.RowIndex;
+            int id = Convert.ToInt32(((Label)gdvCarritoDeCompras.Rows[rowIndex].FindControl("lbl_it_IDArticulo")).Text);
+            var lista = (List<DetalleVenta>)Session["Venta"];
+            foreach (DetalleVenta venta in lista)
             {
-                if (id == dato.Articulo.Id)
+                if (id == venta.Articulo.Id)
                 {
                     if (decimal.TryParse(lblTotal.Text, out decimal total) && int.TryParse( lblCantArticulos.Text, out int cantArt))
-                        {
-                        total -= dato.PrecioTotal;
+                    {
+                        total -= venta.PrecioUnitario * venta.Cantidad;
                         lblTotal.Text = total.ToString();
-                        cantArt -= dato.Cantidad;
+                        cantArt -= venta.Cantidad;
                         lblCantArticulos.Text = cantArt.ToString();
                     }
                     break;
@@ -98,24 +99,24 @@ namespace Vistas.Articulos
         protected void gdvCarritoDeCompras_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gdvCarritoDeCompras.PageIndex = e.NewPageIndex;
-            var Articulos = (List<Venta>)Session["Venta"];
+            var Articulos = (List<DetalleVenta>)Session["Venta"];
             gdvCarritoDeCompras.DataSource = Articulos;
             gdvCarritoDeCompras.DataBind();
         }
 
         protected void btnEliminarTodo_Click(object sender, EventArgs e)
         {
-            Session["Venta"] = new List<Venta>();
+            Session["Venta"] = null;
         }
 
         private void ActualizarInfo(List<Venta> articulos)
         {
             int cantArt = 0;
             decimal Total = 0;
-            foreach (Venta articulo in articulos)
+            foreach (DetalleVenta articulo in articulos)
             {
                 cantArt += articulo.Cantidad;
-                Total += articulo.PrecioTotal;
+                Total += articulo.PrecioUnitario;
             }
              lblCantArticulos.Text = cantArt.ToString();
              lblTotal.Text = Total.ToString();
