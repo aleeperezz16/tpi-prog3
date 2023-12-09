@@ -34,33 +34,12 @@ namespace Dao
             return _datos.EjecutarConsulta($"DELETE FROM Proveedores WHERE IDProveedor = {id}");
         }
 
-        public DataTable ObtenerProveedores(int id, string nombre)
+        public DataTable ObtenerProveedores()
         {
-            string consulta = "SELECT P.IDProveedor," +
-                "P.NombreProveedor," +
-                "P.Telefono," +
-                "P.EMail," +
-                "P.Direccion," +
-                "C.NombreCiudad," +
-                "P.Estado " +
-                "FROM PROVEEDORES P INNER JOIN CIUDAD C " +
-                "ON P.CodigoCiudad = C.CodigoCiudad";
-
-            string filtro = "";
-
-            if (id > 0)
-                filtro += $"P.IDProveedor = {id}";
-
-            if (nombre != "")
-            {
-                if (filtro != "")
-                    filtro += " AND ";
-                
-                filtro += $"P.NombreProveedor LIKE '%{nombre}%'";
-            }
-
-            if (filtro != "")
-                consulta += $" WHERE {filtro}";
+            string consulta = "SELECT IDProveedor AS Id, NombreProveedor AS Proveedor," +
+                "Telefono, EMail, Direccion," +
+                "NombreCiudad AS Ciudad, Estado " +
+                "FROM PROVEEDORES P INNER JOIN CIUDAD C ON P.CodigoCiudad = C.CodigoCiudad";       
 
             return _datos.ObtenerTabla("Proveedores", consulta);
         }

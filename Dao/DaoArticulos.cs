@@ -33,12 +33,17 @@ namespace Dao
             return _datos.EjecutarConsulta($"DELETE FROM Articulos WHERE IDArticulo = {id}");
         }
 
-        public DataTable ObtenerArticulos(int id)
+        public DataTable ObtenerArticulos()
         {
-            string consulta = "SELECT * FROM Articulos";
-
-            if (id > 0)
-                consulta += $" WHERE IDArticulo = {id}";
+            string consulta = "SELECT A.NombreArticulo AS Articulo," +
+                "A.PrecioDeCompra AS [Precio Compra]," +
+                "A.PrecioDeVenta AS [Precio Venta]," +
+                "A.Stock," +
+                "A.Estado," +
+                "P.NombreProveedor AS Proveedor," +
+                "C.NombreCategoria AS Categoria " +
+                "FROM ARTICULOS A INNER JOIN PROVEEDORES P " +
+                "ON A.IDProveedor = P.IDProveedor INNER JOIN CATEGORIAS C ON C.IDCategoria = A.IDCategoria";
 
             return _datos.ObtenerTabla("Articulos", consulta);
         }

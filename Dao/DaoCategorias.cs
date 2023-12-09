@@ -12,16 +12,12 @@ namespace Dao
     public class DaoCategorias
     {
         private AccesoDatos _datos = new AccesoDatos("TPIntegradorGrupo6");
+
         public DaoCategorias() { }
 
-        public DataTable ObtenerCategorias(int id)
+        public DataTable ObtenerCategorias()
         {
-            string consulta = "SELECT * FROM Categorias";
-
-            if (id > 0)
-                consulta += $" WHERE IDCategoria = {id}";
-
-            return _datos.ObtenerTabla("Categorias", consulta);
+            return _datos.ObtenerTabla("Categorias", "SELECT IDCategoria AS Id, NombreCategoria AS Nombre, Descripcion FROM CATEGORIAS");
         }
 
         public int AgregarCategoria(Categoria cat)
@@ -50,7 +46,6 @@ namespace Dao
         }
         private void ArmarParametrosModificar(ref SqlCommand cmd, Categoria cat)
         {
-
             cmd.Parameters.AddWithValue("@IDCAT", cat.Id);
             cmd.Parameters.AddWithValue("@NOMBRECAT", cat.Nombre);
             cmd.Parameters.AddWithValue("@DESCRIP", cat.Descripcion);

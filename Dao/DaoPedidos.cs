@@ -14,12 +14,12 @@ namespace Dao
         private AccesoDatos _datos = new AccesoDatos("TPIntegradorGrupo6");
         public DaoPedidos() { }
 
-        public DataTable ObtenerPedidos(int id)
+        public DataTable ObtenerPedidos()
         {
-            string consulta = "SELECT * FROM Pedidos";
-
-            if (id > 0)
-                consulta += $" WHERE IDPedido = {id}";
+            string consulta = "SELECT IDPedido AS Id, NombreArticulo AS Articulo," +
+                "NombreProveedor AS Proveedor, Cantidad, FechaPedido AS Fecha," +
+                "CostoTotal AS Total FROM PEDIDOS P INNER JOIN ARTICULOS A " +
+                "ON P.IDArticulo = A.IDArticulo INNER JOIN PROVEEDORES PR ON P.IDProveedor = PR.IDProveedor";
 
             return _datos.ObtenerTabla("Pedidos", consulta);
         }

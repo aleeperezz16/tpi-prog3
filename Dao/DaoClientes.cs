@@ -12,6 +12,7 @@ namespace Dao
     public class DaoClientes
     {
         private AccesoDatos _datos = new AccesoDatos("TPIntegradorGrupo6");
+
         public DaoClientes() { }
 
         public int ModificarCliente(Cliente cli)
@@ -21,29 +22,17 @@ namespace Dao
             return _datos.EjecutarProcedimientoAlmacenado(ref cmd, "sp_ModificarCliente");
         }
 
-        public DataTable ObtenerCliente(int id)
+        public DataTable ObtenerClientes()
         {
-            string consulta = "SELECT CNT.DNI," +
-              "CNT.Apellido," +
-              "CNT.Nombre," +
-              "CNT.Alias," +
-              "CNT.Telefono," +
-              "CNT.EMail," +
-              "CNT.Direccion," +
-              "C.CodigoCiudad AS Ciudad," +
-              "CNT.Estado," +
-              "LOGIN.Contrasenia " +
-              "FROM CLIENTES CNT " +
-              "INNER JOIN CIUDAD C ON CNT.CodigoCiudad = C.CodigoCiudad " +
-              "INNER JOIN LOGINUSUARIOS LOGIN ON LOGIN.Alias = CNT.Alias";
-
-            if (id > 0)
-                consulta += $" WHERE CNT.DNI = {id}";
+            string consulta = "SELECT DNI, CONCAT_WS(' ', Nombre, Apellido) AS Nombre," +
+                "Alias, Telefono, EMail, Direccion," +
+                "NombreCiudad AS Ciudad, Estado " +
+                "FROM CLIENTES C INNER JOIN CIUDAD CI ON C.CodigoCiudad = CI.CodigoCiudad";
 
             return _datos.ObtenerTabla("Clientes", consulta);
         }
 
-        public Cliente ObtenerCliente(Usuario usuario)
+        /*public Cliente ObtenerCliente(Usuario usuario)
         {
             string consulta = "SELECT " +
                 "C.Apellido," +
@@ -79,20 +68,12 @@ namespace Dao
             };
 
             return cliente;
-        }
+        }*/
 
-        public DataTable ObtenerHistorial(Cliente cliente)
+        public DataTable ObtenerHistoriales()
         {
-            string consulta = "SELECT DISTINCT " +
-                "A.NombreArticulo AS Articulo," +
-                "V.Cantidad AS Cantidad," +
-                "V.PrecioTotal AS Total," +
-                "V.FechaVenta AS [Fecha Venta]" +
-                "FROM Ventas AS V INNER JOIN Articulos AS A " +
-                "ON V.IDArticulo = A.IDArticulo INNER JOIN Clientes C " +
-                $"ON V.DNICliente = {cliente.Dni}";
-
-            return _datos.ObtenerTabla("Historial", consulta);
+            string consulta = "SELECT IDVenta AS NroVenta, DNICliente AS Cliente, PrecioTotal, FechaVenta FROM VENTAS";
+            return _datos.ObtenerTabla("Historiales", consulta);
         }
 
         public int BorrarCliente(int id)
@@ -141,20 +122,5 @@ namespace Dao
             cmd.Parameters.AddWithValue("@DIRECCION", cli.Direccion);
             cmd.Parameters.AddWithValue("@CODIGOCIUDAD", cli.Ciudad.Codigo);
         }
-
-        public DataTable ObtenerDNICliente(Cliente cli)
-        {
-            string consulta = "SELECT * FROM CLIENTES WHERE DNI = "+cli.Dni;
-            return _datos.ObtenerTabla("Clientes", consulta);
-        }
-        public DataTable ObtenerALIASCliente(Cliente cli)
-        {
-            string consulta = "SELECT * FROM CLIENTES WHERE ALIAS = '" + cli.Usuario.Alias+"'";
-            return _datos.ObtenerTabla("Clientes", consulta);
-        }
-
-
     }
-
-    
 }

@@ -30,25 +30,17 @@ namespace Dao
 
         public DataTable ObtenerVentas()
         {
-            string consulta = "SELECT V.IDVenta AS Id," +
-                "V.PrecioTotal AS Total," +
-                "V.FechaVenta AS [Fecha Venta]," +
-                "CONCAT_WS(' ', C.Nombre, C.Apellido) AS Comprador," +
-                "C.DNI AS DNI " +
-                "ON V.IDArticulo = A.IDArticulo INNER JOIN Clientes C " +
-                "ON V.DNICliente = C.DNI";
+            string consulta = "SELECT IDVenta AS Id, CONCAT_WS(' ', Nombre, Apellido) AS Comprador," +
+                "PrecioTotal AS Total, FechaVenta AS [Fecha Venta] " +
+                "FROM VENTAS V INNER JOIN CLIENTES C ON V.DNICliente = C.DNI";
 
             return _datos.ObtenerTabla("Ventas", consulta);
         }
 
         public DataTable ObtenerDetalleVenta(int idVenta)
         {
-            string consulta = "SELECT A.NombreArticulo AS Articulo," +
-                "DV.Cantidad," +
-                "DV.PrecioUnitario AS [Precio Unitario]," +
-                "FROM DetalleVentas DV INNER JOIN Articulos A " +
-                "ON DV.IDArticulo = A.IDArticulo " +
-                $"WHERE DV.IDVenta = {idVenta}";
+            string consulta = "SELECT NombreArticulo AS Articulo, PrecioUnitario, Cantidad " +
+                $"FROM DETALLEVENTAS DV INNER JOIN ARTICULOS A ON DV.IDArticulo = A.IDArticulo WHERE IDVenta = {idVenta}";
 
             return _datos.ObtenerTabla("DetalleVenta", consulta);
         }

@@ -14,15 +14,9 @@ namespace Dao
 
         public DaoUsuarios() { }
 
-        public DataTable ObtenerUsuario(Usuario usuario)
+        public DataTable ObtenerUsuarios()
         {
-            DataTable data =_datos.ObtenerTabla("Usuario", $"SELECT Alias, Contrasenia, Tipo FROM LOGINUSUARIOS WHERE Estado = 1 AND Alias = '{usuario.Alias}' AND Contrasenia = '{usuario.Contrasenia}'");
-            if (data?.Rows.Count == 1)
-            {
-                return data;
-            }
-
-            return null;
+            return _datos.ObtenerTabla("Usuario", "SELECT * FROM LOGINUSUARIOS");
         }
     }
 }
