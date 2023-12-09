@@ -11,7 +11,7 @@ namespace Vistas.Articulos
 {
 
 
-    public partial class Carrito
+    public partial class CarritoDeCompras
     {
 
         /// <summary>

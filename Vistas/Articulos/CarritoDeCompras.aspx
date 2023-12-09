@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CarritoDeCompras.aspx.cs" Inherits="Vistas.Articulos.Carrito" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CarritoDeCompras.aspx.cs" Inherits="Vistas.Articulos.CarritoDeCompras" %>
 
 <!DOCTYPE html>
 

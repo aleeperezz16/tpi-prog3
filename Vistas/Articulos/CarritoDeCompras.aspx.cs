@@ -4,69 +4,70 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 using Entidades;
 using Negocio;
 namespace Vistas.Articulos
 {
-    public partial class Carrito : System.Web.UI.Page
-    
+    public partial class CarritoDeCompras : Index
     {
-        NegocioVentas daoVenta = new NegocioVentas();
+        private NegocioVentas _negocioVentas = new NegocioVentas();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Venta"] != null)
             {
-                var Articulos = (List<Venta>)Session["Venta"];
-                gdvCarritoDeCompras.DataSource = Articulos;
+                var articulos = (List<Venta>)Session["Venta"];
+
+                gdvCarritoDeCompras.DataSource = articulos;
                 gdvCarritoDeCompras.DataBind();
-                ActualizarInfo(Articulos);
+
+                ActualizarInfo(articulos);
             }
             else
             {
-                ocultarCarrito();
+                OcultarCarrito();
             }
         }
-         protected void btnComprar_Click(object sender, EventArgs e)
+
+        protected void btnComprar_Click(object sender, EventArgs e)
         {
-            int resultado = ArmarDialogo();
             bool error = false;
-            if (resultado == 6)
+            if (ConfirmarCompra() == DialogResult.Yes)
             {
                 var lista = (List<Venta>)Session["Venta"];
                 foreach (Venta articulo in lista)
                 {
-                    bool agrego = daoVenta.agregarVenta(articulo);
+                    bool agrego = _negocioVentas.AgregarVenta(articulo);
 
                     if (!agrego)
                     {
                         error = true;
-                        System.Windows.Forms.MessageBox.Show("No se pudo agregar el pedido del artículo: " + articulo.Articulo.Nombre, "Alerta");
+                        MessageBox.Show("No se pudo agregar el pedido del artículo: " + articulo.Articulo.Nombre, "Alerta");
                     }
                 }
+
                 if (!error)
                 {
-                    System.Windows.Forms.MessageBox.Show("Se agregó el pedido correctamente.", "Mensaje");
+                    MessageBox.Show("Se agregó el pedido correctamente.", "Mensaje");
                     gdvCarritoDeCompras.Visible = false;
                     lblMensaje.Visible = true;
                 }
-
             }
             else
             {
-                System.Windows.Forms.MessageBox.Show("El pedido de compra, se ha cancelado.", "Mensaje de Cancelación");
+                MessageBox.Show("El pedido de compra, se ha cancelado.", "Mensaje de Cancelación");
             }
         }
-        public int ArmarDialogo()
-        {
-            string mensaje = "Usted está a punto de hacer una compra de:\n" + "Productos: " + lblCantArticulos.Text + " \n TOTAL: " + lblTotal.Text + "\n" +
-            "¿Está seguro que quiere adquirir los productos y la cantidad especificada?" + "\n \n " +
-            "  ALERTA!: ÉSTA ACCIÓN NO SE PUEDE DESHACER. ";
-            string titulo = "Mensaje de Confirmacion";
-            System.Windows.Forms.MessageBoxButtons botones = System.Windows.Forms.MessageBoxButtons.YesNo;
-            System.Windows.Forms.DialogResult resultado;
-            resultado = System.Windows.Forms.MessageBox.Show(mensaje, titulo, botones);
 
-            return (int)resultado;
+        private DialogResult ConfirmarCompra()
+        {
+            string mensaje = "Usted está a punto de hacer una compra de:\n" +
+                $"Productos: {lblCantArticulos.Text}\n" +
+                $"Total: {lblTotal.Text}\n" +
+                "¿Está seguro que quiere adquirir los productos y la cantidad especificada?\n\n";
+
+            return MessageBox.Show(mensaje, "Confirmación", MessageBoxButtons.YesNo);
         }
 
         protected void gdvCarritoDeCompras_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -106,6 +107,7 @@ namespace Vistas.Articulos
         {
             Session["Venta"] = new List<Venta>();
         }
+
         private void ActualizarInfo(List<Venta> articulos)
         {
             int cantArt = 0;
@@ -118,7 +120,7 @@ namespace Vistas.Articulos
              lblCantArticulos.Text = cantArt.ToString();
              lblTotal.Text = Total.ToString();
         }
-        private void ocultarCarrito()
+        private void OcultarCarrito()
         {
             lblMensaje.Visible = true;
             gdvCarritoDeCompras.Visible = false;
