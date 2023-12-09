@@ -36,11 +36,11 @@ namespace Vistas.MiCuenta
                 ddlProvincias.DataValueField = "CodigoProvincia";
                 ddlProvincias.DataBind();
 
-                //
+                /*
                 usuarioPrueba.Alias = "DianaMiller";
                 usuarioPrueba.Contrasenia = "DianaM123";
                 Session["Datos"] = usuarioPrueba;
-                //
+                */
                 usuarioActual = (Session["Datos"]) as Usuario;
 
                 
@@ -52,7 +52,7 @@ namespace Vistas.MiCuenta
                 txtNombres.Text = datosCliente.Nombre;
                 txtApellidos.Text = datosCliente.Apellido;
 
-                ddlProvincias.Items.FindByValue("Chaco").Selected = true;
+                //ddlProvincias.Items.FindByValue("Chaco").Selected = true;
                 //ddlCiudades.Items.FindByValue((datosCliente.Ciudad).ToString()).Selected = true;
                 //ddlProvincias.SelectedValue = "Chaco";
                 
