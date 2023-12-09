@@ -227,7 +227,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style45">
-                        <asp:HyperLink ID="lnkCarrito" runat="server" NavigateUrl="~/Articulos/Carrito.aspx" Visible="False">Mi carrito </asp:HyperLink>
+                        <asp:HyperLink ID="hlnkCarrito" runat="server" NavigateUrl="~/Articulos/Carrito.aspx" Visible="False">Mi carrito </asp:HyperLink>
                     </td>
                     <td class="auto-style61">
                     </td>
@@ -238,10 +238,10 @@
                     <td class="auto-style33">
                         </td>
                     <td class="auto-style62">
-                        <asp:Label ID="lbSecciones"  CssClass="subItem" runat="server" Text="▬ Secciones ▬" Font-Bold="True" Font-Italic="True" Font-Size="Large"></asp:Label>
+                        <asp:Label ID="lblSecciones"  CssClass="subItem" runat="server" Text="▬ Secciones ▬" Font-Bold="True" Font-Italic="True" Font-Size="Large"></asp:Label>
                     </td>
                     <td class="auto-style34">
-                        <asp:Label ID="lbBienvenido" runat="server" Text="¡Bienvenido/a a la seccion administrativa!"></asp:Label>
+                        <asp:Label ID="lblBienvenido" runat="server" Text="¡Bienvenido/a a la seccion administrativa!"></asp:Label>
                     </td>
                     <td class="auto-style39">
                     </td>
@@ -251,7 +251,7 @@
                     <td class="auto-style23">
                         &nbsp;</td>
                     <td class="auto-style63">
-                        <asp:Label ID="lblSeccionarticulos"  CssClass="subItem" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Artículos▬"></asp:Label>
+                        <asp:Label ID="lblSeccionArticulos"  CssClass="subItem" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Artículos▬"></asp:Label>
                     </td>
                     <td class="auto-style26">
                         &nbsp;</td>
@@ -261,7 +261,7 @@
                 <tr>
                     <td class="auto-style56"></td>
                     <td class="auto-style64">
-                        <asp:HyperLink ID="hlListarArticulos" runat="server" NavigateUrl="~/Admin/Articulos/ListarArticulos.aspx" Visible="False">Listar Articulos</asp:HyperLink>
+                        <asp:HyperLink ID="hlnkListarArticulos" runat="server" NavigateUrl="~/Admin/Articulos/ListarArticulos.aspx" Visible="False">Listar Articulos</asp:HyperLink>
                         </td>
                     <td class="auto-style57"></td>
                     <td class="auto-style58"></td>
@@ -270,7 +270,7 @@
                 <tr>
                     <td class="auto-style23">&nbsp;</td>
                     <td class="auto-style63">
-                        <asp:HyperLink ID="hlComprarArticulos" runat="server" NavigateUrl="~/Articulos/CompraArticulo.aspx" Visible="False">Buscar/Comprar Articulos</asp:HyperLink>
+                        <asp:HyperLink ID="hlnkComprarArticulos" runat="server" NavigateUrl="~/Articulos/CompraArticulo.aspx" Visible="False">Buscar/Comprar Articulos</asp:HyperLink>
                     </td>
                     <td class="auto-style26">&nbsp;</td>
                     <td class="auto-style15">&nbsp;</td>
@@ -279,7 +279,7 @@
                 <tr>
                     <td class="auto-style23">&nbsp;</td>
                     <td class="auto-style63">
-                        <asp:HyperLink ID="hlHistorialCompras" runat="server" NavigateUrl="~/MiCuenta/HistorialCompra.aspx" Visible="False">Mi Historial de Compras</asp:HyperLink>
+                        <asp:HyperLink ID="hlnkHistorialCompras" runat="server" NavigateUrl="~/MiCuenta/HistorialCompra.aspx" Visible="False">Mi Historial de Compras</asp:HyperLink>
                     </td>
                     <td class="auto-style26">&nbsp;</td>
                     <td class="auto-style15">&nbsp;</td>
@@ -288,7 +288,7 @@
                 <tr>
                     <td class="auto-style21"></td>
                     <td class="auto-style65">
-                        <asp:Label ID="lblSeccioncategoria" CssClass="subItem" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Categoría▬" Visible="False"></asp:Label>
+                        <asp:Label ID="lblSeccionCategoria" CssClass="subItem" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Categoría▬" Visible="False"></asp:Label>
                     </td>
                     <td class="auto-style47"></td>
                     <td class="auto-style48"></td>
@@ -298,7 +298,7 @@
                     <td class="auto-style54">
                     </td>
                     <td class="auto-style66">
-                        <asp:HyperLink ID="hlListarCategorias" runat="server" NavigateUrl="~/Admin/Categorias/ListarCategoria.aspx" Visible="False">Listar Categorias</asp:HyperLink>
+                        <asp:HyperLink ID="hlnkListarCategorias" runat="server" NavigateUrl="~/Admin/Categorias/ListarCategoria.aspx" Visible="False">Listar Categorias</asp:HyperLink>
                     </td>
                     <td class="auto-style55">
                     </td>
@@ -309,7 +309,7 @@
                     <td class="auto-style54">
                         </td>
                     <td class="auto-style66">
-                        <asp:HyperLink ID="hlAgregarCategorias" runat="server" NavigateUrl="~/Admin/Categorias/AgregarCategoria.aspx" Visible="False">Agregar Categorias</asp:HyperLink>
+                        <asp:HyperLink ID="hlnkAgregarCategorias" runat="server" NavigateUrl="~/Admin/Categorias/AgregarCategoria.aspx" Visible="False">Agregar Categorias</asp:HyperLink>
                     </td>
                     <td class="auto-style55">
                         </td>
@@ -320,7 +320,7 @@
                     <td class="auto-style22">
                         &nbsp;</td>
                     <td class="auto-style67">
-                        <asp:Label ID="lblSeccionproveedores"  CssClass="subItem" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Proveedores▬" Visible="False"></asp:Label>
+                        <asp:Label ID="lblSeccionProveedores"  CssClass="subItem" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Proveedores▬" Visible="False"></asp:Label>
                     </td>
                     <td class="auto-style25">
                         &nbsp;</td>
@@ -331,7 +331,7 @@
                     <td class="auto-style23">
                         &nbsp;</td>
                     <td class="auto-style63">
-                        <asp:HyperLink ID="hlListarproveedores" runat="server" NavigateUrl="~/Admin/Proveedores/ListarProveedores.aspx" Visible="False">Listar Proveedores</asp:HyperLink>
+                        <asp:HyperLink ID="hlnkListarProveedores" runat="server" NavigateUrl="~/Admin/Proveedores/ListarProveedores.aspx" Visible="False">Listar Proveedores</asp:HyperLink>
                     </td>
                     <td class="auto-style26">
                         &nbsp;</td>
@@ -342,7 +342,7 @@
                     <td class="auto-style22">
                         &nbsp;</td>
                     <td class="auto-style67">
-                        <asp:HyperLink ID="hlAgregarproveedores" runat="server" NavigateUrl="~/Admin/Proveedores/AgregarProveedor.aspx" Visible="False">Agregar Proveedor</asp:HyperLink>
+                        <asp:HyperLink ID="hlnkAgregarProveedores" runat="server" NavigateUrl="~/Admin/Proveedores/AgregarProveedor.aspx" Visible="False">Agregar Proveedor</asp:HyperLink>
                     </td>
                     <td class="auto-style25">
                         &nbsp;</td>
@@ -354,7 +354,7 @@
                     <td class="auto-style23">
                     </td>
                     <td class="auto-style63">
-                        <asp:Label ID="lblSeccionpedidos"  CssClass="subItem" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Pedidos▬" Visible="False"></asp:Label>
+                        <asp:Label ID="lblSeccionPedidos"  CssClass="subItem" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" Text="▬Pedidos▬" Visible="False"></asp:Label>
                     </td>
                     <td class="auto-style26">
                     </td>
@@ -366,7 +366,7 @@
                     <td class="auto-style23">
                         &nbsp;</td>
                     <td class="auto-style63">
-                        <asp:HyperLink ID="hlListarpedidos" runat="server" NavigateUrl="~/Admin/Pedidos/ListarPedidos.aspx" Visible="False">Listar Pedidos</asp:HyperLink>
+                        <asp:HyperLink ID="hlnkListarPedidos" runat="server" NavigateUrl="~/Admin/Pedidos/ListarPedidos.aspx" Visible="False">Listar Pedidos</asp:HyperLink>
                     </td>
                     <td class="auto-style26">
                         &nbsp;</td>
@@ -378,7 +378,7 @@
                     <td class="auto-style22">
                         &nbsp;</td>
                     <td class="auto-style67">
-                        <asp:HyperLink ID="hlAgregarPedido" runat="server" NavigateUrl="~/Admin/Pedidos/AgregarPedido.aspx" Visible="False">Agregar Pedido</asp:HyperLink>
+                        <asp:HyperLink ID="hlnkAgregarPedido" runat="server" NavigateUrl="~/Admin/Pedidos/AgregarPedido.aspx" Visible="False">Agregar Pedido</asp:HyperLink>
                     </td>
                     <td class="auto-style25">
                         &nbsp;</td>
@@ -402,7 +402,7 @@
                     <td class="auto-style22">
                         &nbsp;</td>
                     <td class="auto-style67">
-                        <asp:HyperLink ID="hlListarventas" runat="server" NavigateUrl="~/Admin/Ventas/ListarVentas.aspx" Visible="False">Listar Ventas</asp:HyperLink>
+                        <asp:HyperLink ID="hlnkListarVentas" runat="server" NavigateUrl="~/Admin/Ventas/ListarVentas.aspx" Visible="False">Listar Ventas</asp:HyperLink>
                     </td>
                     <td class="auto-style25">
                         &nbsp;</td>
@@ -414,7 +414,7 @@
                     <td class="auto-style56">
                     </td>
                     <td class="auto-style64">
-                        <asp:HyperLink ID="hlListarclientes" runat="server" NavigateUrl="~/Admin/Clientes/ListarClientes.aspx" Visible="False">Listar Clientes</asp:HyperLink>
+                        <asp:HyperLink ID="hlnkListarClientes" runat="server" NavigateUrl="~/Admin/Clientes/ListarClientes.aspx" Visible="False">Listar Clientes</asp:HyperLink>
                     </td>
                     <td class="auto-style57">
                     </td>
@@ -438,7 +438,7 @@
                     <td class="auto-style22">
                         &nbsp;</td>
                     <td class="auto-style67">
-                        <asp:HyperLink ID="hlGestionarMiCuenta" runat="server" NavigateUrl="~/MiCuenta/GestionCuenta.aspx" Visible="False">Gestionar mi Cuenta</asp:HyperLink>
+                        <asp:HyperLink ID="hlnkGestionarMiCuenta" runat="server" NavigateUrl="~/MiCuenta/GestionCuenta.aspx" Visible="False">Gestionar mi Cuenta</asp:HyperLink>
                     </td>
                     <td class="auto-style25">
                         &nbsp;</td>
@@ -452,7 +452,7 @@
                     <td class="auto-style67">
                         &nbsp;</td>
                     <td class="auto-style25">
-                        <asp:Button ID="btnCerrarsesion" CssClass="myButton" runat="server" Text="Cerrar sesión" OnClick="btnCerrarsesion_Click" />
+                        <asp:Button ID="btnCerrarSesion" CssClass="myButton" runat="server" Text="Cerrar sesión" OnClick="btnCerrarSesion_Click" />
                     </td>
                     <td class="auto-style12">
                         &nbsp;</td>

@@ -22,10 +22,6 @@ namespace Negocio
         {
             return _clientes;
         }
-        public Cliente ObtenerCliente(Usuario usuario)
-        {
-            return _dao.ObtenerCliente(usuario);
-        }
 
         public Cliente ObtenerCliente(Usuario usuario)
         {

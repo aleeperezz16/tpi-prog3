@@ -24,13 +24,13 @@ namespace Vistas
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control hlLogin.
+        /// Control hlnkLogin.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlLogin;
+        protected global::System.Web.UI.WebControls.HyperLink hlnkLogin;
 
         /// <summary>
         /// Control txtNombres.

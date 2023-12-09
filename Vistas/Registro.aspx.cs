@@ -13,22 +13,22 @@ namespace Vistas
 {
     public partial class Registro : Index
     {
-        NegocioClientes _negocioClientes = new NegocioClientes();
-        NegocioCiudades _negocioCiudades = new NegocioCiudades();
-        NegocioProvincia _negocioProvincia = new NegocioProvincia();
+        private NegocioClientes _negocioClientes = new NegocioClientes();
+        private NegocioCiudades _negocioCiudades = new NegocioCiudades();
+        private NegocioProvincia _negocioProvincia = new NegocioProvincia();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 ddlProvincias.DataSource = _negocioProvincia.ObtenerProvincias();
-                ddlProvincias.DataTextField = "NombreProvincia";
-                ddlProvincias.DataValueField = "CodigoProvincia";
+                ddlProvincias.DataTextField = "Provincia";
+                ddlProvincias.DataValueField = "Codigo";
                 ddlProvincias.DataBind();
 
                 ddlCiudades.DataSource = _negocioCiudades.ObtenerCiudades();
-                ddlCiudades.DataTextField = "NombreCiudad";
-                ddlCiudades.DataValueField = "CodigoCiudad";
+                ddlCiudades.DataTextField = "Ciudad";
+                ddlCiudades.DataValueField = "Codigo";
                 ddlCiudades.DataBind();
             }
         }
@@ -38,7 +38,7 @@ namespace Vistas
             Cliente nuevoCliente = PrepararCliente();
             if (_negocioClientes.ExisteCliente(nuevoCliente))
             {
-                MessageBox.Show("El nombre de usuario o DNI ingresado(s) ya existe(n)", "Error al registrarse");
+                MessageBox.Show("El nombre de usuario y/o DNI ingresado(s) ya existe(n)", "Error al registrarse");
                 txtContrasenia.Text = txtRepetirContrasenia.Text = "";
                 return;
             }
@@ -51,6 +51,7 @@ namespace Vistas
             else
             {
                 MessageBox.Show("Hubo un error al crear tu cuenta. Intente nuevamente", "Error al registrarse");
+                txtContrasenia.Text = txtRepetirContrasenia.Text = "";
             }
         }
 
@@ -79,6 +80,5 @@ namespace Vistas
 
             return cliente;
         }
-
     }
 }

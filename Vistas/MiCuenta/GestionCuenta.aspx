@@ -34,7 +34,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style2">
-                        <asp:HyperLink ID="hlInicio" runat="server" NavigateUrl="~/InicioClientes.aspx">Volver al menú Principal</asp:HyperLink>
+                        <asp:HyperLink ID="hlnkInicio" runat="server" NavigateUrl="~/Inicio.aspx">Volver al menú Principal</asp:HyperLink>
                     </td>
                     <td class="auto-style3">&nbsp;</td>
                     <td>&nbsp;</td>

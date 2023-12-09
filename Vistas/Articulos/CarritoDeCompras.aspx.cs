@@ -7,24 +7,25 @@ using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using Entidades;
 using Negocio;
+using Label = System.Web.UI.WebControls.Label;
+
 namespace Vistas.Articulos
 {
     public partial class CarritoDeCompras : Index
     {
-        private NegocioVentas _negocioVentas = new NegocioVentas();
+        private NegocioVentas _negocio = new NegocioVentas();
+        private List<DetalleVenta> _articulos;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Venta"] != null)
             {
-                var Articulos = (List<DetalleVenta>)Session["Venta"];
-                gdvCarritoDeCompras.DataSource = Articulos;
-                var articulos = (List<Venta>)Session["Venta"];
+                _articulos = (List<DetalleVenta>)Session["Venta"];
 
-                gdvCarritoDeCompras.DataSource = articulos;
-                gdvCarritoDeCompras.DataBind();
+                gvCarritoDeCompras.DataSource = _articulos;
+                gvCarritoDeCompras.DataBind();
 
-                ActualizarInfo(articulos);
+                ActualizarInfo(_articulos);
             }
             else
             {
@@ -34,97 +35,115 @@ namespace Vistas.Articulos
 
         protected void btnComprar_Click(object sender, EventArgs e)
         {
-            bool error = false;
-            if (ConfirmarCompra() == DialogResult.Yes)
+            if (ConfirmarAccion("comprar") == DialogResult.Yes)
             {
                 Venta venta = new Venta
                 {
-                    bool agrego = _negocioVentas.AgregarVenta(articulo);
+                    Cliente = (Cliente)Session["Datos"],
+                    PrecioTotal = decimal.Parse(lblTotal.Text)
+                };
 
-                    if (!agrego)
+                int idVenta = _negocio.AgregarVenta(venta);
+
+                if (idVenta > 0)
+                {
+                    if (_negocio.AgregarDetalleVenta(idVenta, _articulos))
                     {
-                        error = true;
-                        MessageBox.Show("No se pudo agregar el pedido del artículo: " + articulo.Articulo.Nombre, "Alerta");
+                        MessageBox.Show("¡Compra realizada con éxito!");
+                        Session["Venta"] = null;
+                        OcultarCarrito();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Tuvimos un problema al completar tu compra", "Error");
                     }
                 }
-
-                if (!error)
+                else
                 {
-                    MessageBox.Show("Se agregó el pedido correctamente.", "Mensaje");
-                    gdvCarritoDeCompras.Visible = false;
-                    lblMensaje.Visible = true;
+                    MessageBox.Show("Tuvimos un problema al completar tu compra", "Error");
                 }
-            }
-            else
-            {
-                MessageBox.Show("El pedido de compra, se ha cancelado.", "Mensaje de Cancelación");
             }
         }
 
-        private DialogResult ConfirmarCompra()
+        private DialogResult ConfirmarAccion(string accion)
         {
-            string mensaje = "Usted está a punto de hacer una compra de:\n" +
-                $"Productos: {lblCantArticulos.Text}\n" +
-                $"Total: {lblTotal.Text}\n" +
-                "¿Está seguro que quiere adquirir los productos y la cantidad especificada?\n\n";
+            string mensaje = "";
+
+            switch (accion)
+            {
+                case "eliminar":
+                    mensaje = "¿Está seguro que quiere eliminar todos los productos del carrito de compras?";
+                    break;
+                case "comprar":
+                    mensaje = "Usted está a punto de hacer una compra de:\n" +
+                        $"Productos: {lblCantArticulos.Text}\n" +
+                        $"Total: {lblTotal.Text}\n" +
+                        "¿Está seguro que quiere adquirir los productos y la cantidad especificada?\n\n";
+                    break;
+            }
 
             return MessageBox.Show(mensaje, "Confirmación", MessageBoxButtons.YesNo);
         }
 
-        protected void gdvCarritoDeCompras_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        { 
-            int rowIndex = e.RowIndex;
-            int id = Convert.ToInt32(((Label)gdvCarritoDeCompras.Rows[rowIndex].FindControl("lbl_it_IDArticulo")).Text);
-            var lista = (List<DetalleVenta>)Session["Venta"];
-            foreach (DetalleVenta venta in lista)
+        protected void gvCarritoDeCompras_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            var fila = gvCarritoDeCompras.Rows[e.RowIndex];
+            int idArticulo = int.Parse(((Label)fila.FindControl("lbl_it_IdArticulo")).Text);
+
+            foreach (DetalleVenta venta in _articulos)
             {
-                if (id == venta.Articulo.Id)
+                if (idArticulo == venta.Articulo.Id)
                 {
-                    if (decimal.TryParse(lblTotal.Text, out decimal total) && int.TryParse( lblCantArticulos.Text, out int cantArt))
-                    {
-                        total -= venta.PrecioUnitario * venta.Cantidad;
-                        lblTotal.Text = total.ToString();
-                        cantArt -= venta.Cantidad;
-                        lblCantArticulos.Text = cantArt.ToString();
-                    }
+                    decimal total = decimal.Parse(lblTotal.Text);
+                    int cantArt = int.Parse(lblCantArticulos.Text);
+
+                    total -= venta.PrecioUnitario * venta.Cantidad;
+                    lblTotal.Text = total.ToString();
+
+                    cantArt -= venta.Cantidad;
+                    lblCantArticulos.Text = cantArt.ToString();
+                    
+                    _articulos.Remove(venta);
                     break;
                 }
             }
-            lista.RemoveAt(rowIndex);
-            Session["Venta"] = lista;
-            gdvCarritoDeCompras.DataSource = lista;
-            gdvCarritoDeCompras.DataBind();
+
+            gvCarritoDeCompras.DataBind();
         }
 
-        protected void gdvCarritoDeCompras_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        protected void gvCarritoDeCompras_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            gdvCarritoDeCompras.PageIndex = e.NewPageIndex;
-            var Articulos = (List<DetalleVenta>)Session["Venta"];
-            gdvCarritoDeCompras.DataSource = Articulos;
-            gdvCarritoDeCompras.DataBind();
+            gvCarritoDeCompras.PageIndex = e.NewPageIndex;
+            gvCarritoDeCompras.DataBind();
         }
 
         protected void btnEliminarTodo_Click(object sender, EventArgs e)
         {
-            Session["Venta"] = null;
+            if (ConfirmarAccion("eliminar") == DialogResult.Yes)
+            { 
+                Session["Venta"] = null;
+                OcultarCarrito();
+            }
         }
 
-        private void ActualizarInfo(List<Venta> articulos)
+        private void ActualizarInfo(List<DetalleVenta> articulos)
         {
             int cantArt = 0;
-            decimal Total = 0;
+            decimal total = 0;
+
             foreach (DetalleVenta articulo in articulos)
             {
                 cantArt += articulo.Cantidad;
-                Total += articulo.PrecioUnitario;
+                total += articulo.PrecioUnitario * articulo.Cantidad;
             }
-             lblCantArticulos.Text = cantArt.ToString();
-             lblTotal.Text = Total.ToString();
+            
+            lblCantArticulos.Text = cantArt.ToString();
+            lblTotal.Text = total.ToString();
         }
         private void OcultarCarrito()
         {
             lblMensaje.Visible = true;
-            gdvCarritoDeCompras.Visible = false;
+            gvCarritoDeCompras.Visible = false;
             btnComprar.Enabled = false;
             btnEliminarTodo.Enabled = false;
         }

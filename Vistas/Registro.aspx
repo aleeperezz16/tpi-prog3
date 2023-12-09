@@ -111,7 +111,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style4">
-                        <asp:HyperLink ID="hlLogin" runat="server" NavigateUrl="~/Login.aspx">Volver al Menú de Ingreso</asp:HyperLink>
+                        <asp:HyperLink ID="hlnkLogin" runat="server" NavigateUrl="~/Login.aspx">Volver al Menú de Ingreso</asp:HyperLink>
                     </td>
                     <td class="auto-style9"></td>
                     <td class="auto-style2"></td>

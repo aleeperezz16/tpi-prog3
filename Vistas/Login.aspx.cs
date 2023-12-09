@@ -18,18 +18,12 @@ namespace Vistas
 
         protected void btnIngresar_Click(object sender, EventArgs e)
         {
-            Usuario usuario = new Usuario
-            {
-                Alias = txtUsuario.Text.Trim(),
-                Contrasenia = txtContrasenia.Text.Trim()
-            };
-
             LogearUsuario negocioLogIn = new LogearUsuario();
-            var usuarioLogueado = negocioLogIn.IniciarSesion(usuario);
+            var usuarioLogueado = negocioLogIn.IniciarSesion(txtUsuario.Text.Trim(), txtContrasenia.Text.Trim());
 
             if (usuarioLogueado == null)
             {
-                lblErrorLogeo.Text = "Error al ingresar, intente nuevamente";
+                lblErrorLogeo.Text = "Usuario y/o contraseña incorrectos.";
                 return;
             }
           

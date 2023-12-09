@@ -24,31 +24,31 @@ namespace Vistas.Articulos
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control hlVolverAMenu.
+        /// Control hlnkInicio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlVolverAMenu;
+        protected global::System.Web.UI.WebControls.HyperLink hlnkInicio;
 
         /// <summary>
-        /// Control Label1.
+        /// Control lblTitulo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lblTitulo;
 
         /// <summary>
-        /// Control HyperLink1.
+        /// Control hlnkComprarArticulos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        protected global::System.Web.UI.WebControls.HyperLink hlnkComprarArticulos;
 
         /// <summary>
         /// Control lblMensaje.
@@ -78,13 +78,13 @@ namespace Vistas.Articulos
         protected global::System.Web.UI.WebControls.Label lblCantArticulos;
 
         /// <summary>
-        /// Control gdvCarritoDeCompras.
+        /// Control gvCarritoDeCompras.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gdvCarritoDeCompras;
+        protected global::System.Web.UI.WebControls.GridView gvCarritoDeCompras;
 
         /// <summary>
         /// Control lblT.

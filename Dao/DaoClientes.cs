@@ -35,7 +35,7 @@ namespace Dao
 
         public DataTable ObtenerHistorial(int dni)
         {
-            string consulta = $"SELECT IDVenta AS NroVenta, PrecioTotal, FechaVenta FROM VENTAS WHERE DNICliente = {dni}";
+            string consulta = $"SELECT IDVenta AS NroVenta, PrecioTotal AS Total, FechaVenta AS Fecha FROM VENTAS WHERE DNICliente = {dni}";
             return _datos.ObtenerTabla("Historial", consulta);
         }
 
