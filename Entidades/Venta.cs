@@ -33,12 +33,12 @@ namespace Entidades
 
 
 
-        public Venta(Articulo articulo, Cliente cliente, int cantidad)
+        public Venta(Articulo articulo, Cliente cliente, int cantidad, decimal precioTotal)
         {
             Articulo = articulo;
             Cliente = cliente;
             Cantidad = cantidad;
-
+            PrecioTotal = precioTotal;
         }
 
     }
