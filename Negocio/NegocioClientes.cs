@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +21,10 @@ namespace Negocio
         public DataTable ObtenerClientes()
         {
             return _clientes;
+        }
+        public Cliente ObtenerCliente(Usuario usuario)
+        {
+            return _dao.ObtenerCliente(usuario);
         }
 
         public Cliente ObtenerCliente(Usuario usuario)

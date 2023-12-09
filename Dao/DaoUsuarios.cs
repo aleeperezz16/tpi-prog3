@@ -28,5 +28,12 @@ namespace Dao
                 Estado = true
             } : null;
         }
+
+        public int CambiarContrasenia(string user,string password)
+        {
+            string consulta = $"UPDATE LOGINUSUARIOS SET Contrasenia = '{password}' WHERE Alias = '{user}'";
+
+             return _datos.EjecutarConsulta(consulta);
+        }
     }
 }
