@@ -34,6 +34,7 @@ namespace Vistas
             }
           
             Session["Datos"] = usuarioLogueado;
+            
 
             Response.Redirect("Inicio.aspx");
 
