@@ -11,12 +11,13 @@ namespace Vistas.Articulos
     public partial class Carrito : System.Web.UI.Page
     
     {
-        NegocioVentas daoVenta = new NegocioVentas();
+        private NegocioVentas _daoVenta = new NegocioVentas();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Venta"] != null)
             {
-                var Articulos = (List<Venta>)Session["Venta"];
+                var Articulos = (List<DetalleVenta>)Session["Venta"];
                 gdvCarritoDeCompras.DataSource = Articulos;
                 gdvCarritoDeCompras.DataBind();
                 ActualizarInfo(Articulos);
@@ -29,22 +30,30 @@ namespace Vistas.Articulos
          protected void btnComprar_Click(object sender, EventArgs e)
         {
             int resultado = ArmarDialogo();
-            bool error = false;
             if (resultado == 6)
             {
-                var lista = (List<Venta>)Session["Venta"];
-                foreach (Venta articulo in lista)
+                Venta venta = new Venta
                 {
-                    bool agrego = daoVenta.agregarVenta(articulo);
+                    Cliente = (Cliente)Session["Datos"],
+                    PrecioTotal = decimal.Parse(lblTotal.Text),
+                };
 
-                    if (!agrego)
-                    {
-                        error = true;
-                        System.Windows.Forms.MessageBox.Show("No se pudo agregar el pedido del artículo: " + articulo.Articulo.Nombre, "Alerta");
-                    }
-                }
-                if (!error)
+                int idVenta = _daoVenta.agregarVenta(venta);
+
+                if (idVenta == 0)
                 {
+                    System.Windows.Forms.MessageBox.Show("No se pudo agregar la venta.", "Alerta");
+                    return;
+                }
+
+                var lista = (List<DetalleVenta>)Session["Venta"];
+                if (!_daoVenta.AgregarDetalleVenta(idVenta, lista))
+                {
+                    System.Windows.Forms.MessageBox.Show("No se pudo realizar correctamente la compra de los productos", "Alerta");
+                }
+                else
+                {
+
                     System.Windows.Forms.MessageBox.Show("Se agregó el pedido correctamente.", "Mensaje");
                     gdvCarritoDeCompras.Visible = false;
                     lblMensaje.Visible = true;
@@ -71,18 +80,18 @@ namespace Vistas.Articulos
 
         protected void gdvCarritoDeCompras_RowDeleting(object sender, GridViewDeleteEventArgs e)
         { 
-        int rowIndex = e.RowIndex;
-        int id= Convert.ToInt32(((Label)gdvCarritoDeCompras.Rows[rowIndex].FindControl("lbl_it_IDArticulo")).Text);
-            var lista = (List<Venta>)Session["Venta"];
-            foreach (Venta dato in lista)
+            int rowIndex = e.RowIndex;
+            int id = Convert.ToInt32(((Label)gdvCarritoDeCompras.Rows[rowIndex].FindControl("lbl_it_IDArticulo")).Text);
+            var lista = (List<DetalleVenta>)Session["Venta"];
+            foreach (DetalleVenta venta in lista)
             {
-                if (id == dato.Articulo.Id)
+                if (id == venta.Articulo.Id)
                 {
                     if (decimal.TryParse(lblTotal.Text, out decimal total) && int.TryParse( lblCantArticulos.Text, out int cantArt))
-                        {
-                        total -= dato.PrecioTotal;
+                    {
+                        total -= venta.PrecioUnitario * venta.Cantidad;
                         lblTotal.Text = total.ToString();
-                        cantArt -= dato.Cantidad;
+                        cantArt -= venta.Cantidad;
                         lblCantArticulos.Text = cantArt.ToString();
                     }
                     break;
@@ -97,23 +106,23 @@ namespace Vistas.Articulos
         protected void gdvCarritoDeCompras_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gdvCarritoDeCompras.PageIndex = e.NewPageIndex;
-            var Articulos = (List<Venta>)Session["Venta"];
+            var Articulos = (List<DetalleVenta>)Session["Venta"];
             gdvCarritoDeCompras.DataSource = Articulos;
             gdvCarritoDeCompras.DataBind();
         }
 
         protected void btnEliminarTodo_Click(object sender, EventArgs e)
         {
-            Session["Venta"] = new List<Venta>();
+            Session["Venta"] = null;
         }
-        private void ActualizarInfo(List<Venta> articulos)
+        private void ActualizarInfo(List<DetalleVenta> articulos)
         {
             int cantArt = 0;
             decimal Total = 0;
-            foreach (Venta articulo in articulos)
+            foreach (DetalleVenta articulo in articulos)
             {
                 cantArt += articulo.Cantidad;
-                Total += articulo.PrecioTotal;
+                Total += articulo.PrecioUnitario;
             }
              lblCantArticulos.Text = cantArt.ToString();
              lblTotal.Text = Total.ToString();

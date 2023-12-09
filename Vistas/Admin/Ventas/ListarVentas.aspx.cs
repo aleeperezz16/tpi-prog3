@@ -48,7 +48,7 @@ namespace Vistas.Admin.Ventas
 
         private void CargarVentasEnGrilla(int id = 0, string articulo = "", string fecha = "", long dni = 0)
         {
-            gvVentas.DataSource = _negocio.ObtenerVentas(id, articulo, fecha, dni);
+            gvVentas.DataSource = _negocio.ObtenerVentas();
             gvVentas.DataBind();
         }
     }

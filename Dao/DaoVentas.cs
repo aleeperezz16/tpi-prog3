@@ -18,71 +18,53 @@ namespace Dao
         {
             SqlCommand cmd = new SqlCommand();
             ArmarParametrosAgregar(ref cmd, venta);
-            return _datos.EjecutarProcedimientoAlmacenado(ref cmd, "sp_AgregarVenta");
+            return _datos.EjecutarProcAlmacenadoObtenerId(ref cmd, "sp_AgregarVenta");
         }
 
-        public DataTable ObtenerVentas(int id, string articulo, string fecha, long dni)
+        public int AgregarDetalleVenta(DetalleVenta detalleVenta)
         {
-            string consulta = "SELECT V.IDVenta AS [ID Venta]," +
-                "A.NombreArticulo AS Articulo," +
-                "V.Cantidad AS Cantidad," +
+            SqlCommand cmd = new SqlCommand();
+            ArmarParametrosAgregarDetalle(ref cmd, detalleVenta);
+            return _datos.EjecutarProcedimientoAlmacenado(ref cmd, "sp_AgregarDetalleVenta");
+        }
+
+        public DataTable ObtenerVentas()
+        {
+            string consulta = "SELECT V.IDVenta AS Id," +
                 "V.PrecioTotal AS Total," +
                 "V.FechaVenta AS [Fecha Venta]," +
                 "CONCAT_WS(' ', C.Nombre, C.Apellido) AS Comprador," +
                 "C.DNI AS DNI " +
-                "FROM Ventas AS V INNER JOIN Articulos AS A " +
                 "ON V.IDArticulo = A.IDArticulo INNER JOIN Clientes C " +
                 "ON V.DNICliente = C.DNI";
-
-            string filtro = "";
-
-            if (id > 0)
-                filtro += $"V.IDVenta={id}";
-
-            if (articulo != "")
-            {
-                if (filtro != "")
-                    filtro += " AND ";
-                
-                filtro += $"A.IDArticulo={articulo}";
-            }
-
-            if (fecha != "")
-            {
-                if (filtro != "")
-                    filtro += " AND ";
-                
-                filtro += $"V.FechaVenta='{fecha}'";
-            }
-
-            if (dni > 0)
-            {
-                if (filtro != "")
-                    filtro += " AND ";
-
-                filtro += $"C.DNI={dni}";
-            }
-
-            if (filtro != "")
-                consulta += $" WHERE {filtro}";
 
             return _datos.ObtenerTabla("Ventas", consulta);
         }
 
-        private void ArmarParametrosAgregar(ref SqlCommand cmd, Venta venta)
+        public DataTable ObtenerDetalleVenta(int idVenta)
         {
-           
-            cmd.Parameters.AddWithValue("@IDArticulo", venta.Articulo.Id);
-            cmd.Parameters.AddWithValue("@DNICliente", venta.Cliente.Dni);
-            cmd.Parameters.AddWithValue("@Cantidad", venta.Cantidad);
+            string consulta = "SELECT A.NombreArticulo AS Articulo," +
+                "DV.Cantidad," +
+                "DV.PrecioUnitario AS [Precio Unitario]," +
+                "FROM DetalleVentas DV INNER JOIN Articulos A " +
+                "ON DV.IDArticulo = A.IDArticulo " +
+                $"WHERE DV.IDVenta = {idVenta}";
 
+            return _datos.ObtenerTabla("DetalleVenta", consulta);
         }
 
+        private void ArmarParametrosAgregar(ref SqlCommand cmd, Venta venta)
+        {
+            cmd.Parameters.AddWithValue("@DNICliente", venta.Cliente.Dni);
+            cmd.Parameters.AddWithValue("@TOTAL", venta.PrecioTotal);
+        }
 
-
-
-
-
-
+        private void ArmarParametrosAgregarDetalle(ref SqlCommand cmd, DetalleVenta detalleVenta)
+        {
+            cmd.Parameters.AddWithValue("@IDVenta", detalleVenta.Venta.Id);
+            cmd.Parameters.AddWithValue("@IDArticulo", detalleVenta.Articulo.Id);
+            cmd.Parameters.AddWithValue("@PrecioUnitario", detalleVenta.PrecioUnitario);
+            cmd.Parameters.AddWithValue("@Cantidad", detalleVenta.Cantidad);
+        }
     }
 }
