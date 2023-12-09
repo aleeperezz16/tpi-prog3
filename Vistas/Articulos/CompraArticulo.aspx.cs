@@ -114,9 +114,9 @@ namespace Vistas.Articulos
                 {
                     Venta ventaarmada = ArmarVenta(CantidadAComprar, fila);
                     /// System.Windows.Forms.MessageBox.Show("art id: " + ventaarmada.Articulo.Id + " DNI:" + ventaarmada.Cliente.Dni + " Cant: " + ventaarmada.Cantidad, "mensaje");
-                    bool agrego = ventas.agregarVenta(ventaarmada);
+                    // bool agrego = ventas.agregarVenta(ventaarmada);
 
-                    System.Windows.Forms.MessageBox.Show(agrego ? "Se agregó el pedido correctamente." : "No se pudo agregar el pedido.", agrego ? "Mensaje" : "Alerta");
+                    // System.Windows.Forms.MessageBox.Show(agrego ? "Se agregó el pedido correctamente." : "No se pudo agregar el pedido.", agrego ? "Mensaje" : "Alerta");
                     cargarArticulosEnGrilla();
 
                 }
@@ -142,7 +142,7 @@ namespace Vistas.Articulos
         {
             bool articuloExistente = false;
             var lista = (List<Venta>)Session["Venta"];
-            foreach (Venta dato in lista)
+            /*foreach (Venta dato in lista)
             {
                 if (venta.Articulo.Id == dato.Articulo.Id)
                 {
@@ -161,7 +161,7 @@ namespace Vistas.Articulos
                         break;
                     }
                 }
-            }
+            }*/
             if (!articuloExistente)
             {
                 lista.Add(venta);
@@ -173,7 +173,7 @@ namespace Vistas.Articulos
 
         private Venta ArmarVenta(int CantidadAComprar, int fila)
         {
-            Categoria cat = new Categoria();
+            /*Categoria cat = new Categoria();
             cat.Id = Convert.ToInt32(((Label)gdvComprarArticulos.Rows[fila].FindControl("lbl_it_IDCategoria")).Text);
 
             Articulo articulo = new Articulo();
@@ -191,7 +191,8 @@ namespace Vistas.Articulos
             NegocioVentas ventas = new NegocioVentas();
             Venta ventaarmada = new Venta(articulo, cliente, CantidadAComprar, precioTotal);
 
-            return ventaarmada;
+            return ventaarmada;*/
+            return null;
         }
 
 
@@ -201,9 +202,9 @@ namespace Vistas.Articulos
             ((TextBox)gdvComprarArticulos.Rows[fila].FindControl("tbCantidad")).Text = "";
             tbBuscarxID.Text = "";
 
-            string mensaje = "Usted está a punto de hacer una compra de:\n" + "Producto: " + venta.Articulo.Nombre + " \n Cantidad: " + CantidadAComprar + "\n TOTAL:  $" + venta.PrecioTotal.ToString() + "\n" +
+            string mensaje = ""/*"Usted está a punto de hacer una compra de:\n" + "Producto: " + venta.Articulo.Nombre + " \n Cantidad: " + CantidadAComprar + "\n TOTAL:  $" + venta.PrecioTotal.ToString() + "\n" +
             "¿Está seguro que quiere adquirir el producto y la cantidad especificada?" + "\n \n " +
-            "  ALERTA!: ÉSTA ACCIÓN NO SE PUEDE DESHACER. ";
+            "  ALERTA!: ÉSTA ACCIÓN NO SE PUEDE DESHACER. "*/;
             string titulo = "Mensaje de Confirmacion";
             System.Windows.Forms.MessageBoxButtons botones = System.Windows.Forms.MessageBoxButtons.YesNo;
             System.Windows.Forms.DialogResult resultado;
