@@ -25,55 +25,18 @@ namespace Dao
         public DataTable ObtenerClientes()
         {
             string consulta = "SELECT DNI, CONCAT_WS(' ', Nombre, Apellido) AS Nombre," +
-                "Alias, Telefono, EMail, Direccion," +
+                "C.Alias, Telefono, EMail, Direccion," +
                 "NombreCiudad AS Ciudad, Estado " +
-                "FROM CLIENTES C INNER JOIN CIUDAD CI ON C.CodigoCiudad = CI.CodigoCiudad";
+                "FROM CLIENTES C INNER JOIN CIUDAD CI ON C.CodigoCiudad = CI.CodigoCiudad " +
+                "INNER JOIN LOGINUSUARIOS L ON L.Alias = C.Alias";
 
             return _datos.ObtenerTabla("Clientes", consulta);
         }
 
-        /*public Cliente ObtenerCliente(Usuario usuario)
+        public DataTable ObtenerHistorial(int dni)
         {
-            string consulta = "SELECT " +
-                "C.Apellido," +
-                "C.Direccion," +
-                "C.DNI," +
-                "C.EMail," +
-                "C.Estado," +
-                "C.Nombre," +
-                "C.Telefono," +
-                "CI.CodigoCiudad," +
-                "CI.NombreCiudad AS Ciudad," +
-                "P.CodigoProvincia," +
-                "P.NombreProvincia AS Provincia " +
-                "FROM CLIENTES C INNER JOIN CIUDAD CI " +
-                "ON C.CodigoCiudad = CI.CodigoCiudad INNER JOIN PROVINCIA P " +
-                $"ON P.CodigoProvincia = CI.CodigoProvincia WHERE C.Alias = '{usuario.Alias}'";
-
-            DataTable dt = _datos.ObtenerTabla("Clientes", consulta);
-            DataRow dr = dt.Rows[0];
-            Provincia provincia = new Provincia(dr.Field<int>("CodigoProvincia"), dr.Field<string>("Provincia"));
-            Ciudad ciudad = new Ciudad(dr.Field<int>("CodigoCiudad"), dr.Field<string>("Ciudad"), provincia);
-            Cliente cliente = new Cliente
-            {
-                Dni = dr.Field<int>("DNI"),
-                Apellido = dr.Field<string>("Apellido"),
-                Nombre = dr.Field<string>("Nombre"),
-                Usuario = usuario,
-                Telefono = dr.Field<string>("Telefono"),
-                Email = dr.Field<string>("EMail"),
-                Direccion = dr.Field<string>("Direccion"),
-                Ciudad = ciudad,
-                Estado = dr.Field<bool>("Estado")
-            };
-
-            return cliente;
-        }*/
-
-        public DataTable ObtenerHistoriales()
-        {
-            string consulta = "SELECT IDVenta AS NroVenta, DNICliente AS Cliente, PrecioTotal, FechaVenta FROM VENTAS";
-            return _datos.ObtenerTabla("Historiales", consulta);
+            string consulta = $"SELECT IDVenta AS NroVenta, PrecioTotal, FechaVenta FROM VENTAS WHERE DNICliente = {dni}";
+            return _datos.ObtenerTabla("Historial", consulta);
         }
 
         public int BorrarCliente(int id)

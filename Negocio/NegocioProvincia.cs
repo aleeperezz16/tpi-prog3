@@ -5,17 +5,41 @@ using System.Text;
 using System.Threading.Tasks;
 using Dao;
 using System.Data;
+using Entidades;
 
 namespace Negocio
 {
     public class NegocioProvincia
     {
+        private DaoProvincia _dao = new DaoProvincia();
+        private DataTable _provincias;
 
-        public NegocioProvincia() { }
-        public DataTable ObtenerProvincias(int id = 0) 
+        public NegocioProvincia() 
         {
-            DaoProvincia dao = new DaoProvincia();
-            return dao.ObtenerProvincias(id);    
+            _provincias = _dao.ObtenerProvincias();
+        }
+        public DataTable ObtenerProvincias() 
+        {
+            return _provincias;
+        }
+
+        public Provincia ObtenerProvincia(int idProvincia)
+        {
+            try
+            {
+                DataRow fila = _provincias.Rows[idProvincia - 1];
+                Provincia provincia = new Provincia
+                {
+                    Codigo = idProvincia,
+                    Nombre = fila.Field<string>("Provincia")
+                };
+
+                return provincia;
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 }

@@ -12,16 +12,48 @@ namespace Negocio
     public class NegocioClientes
     {
         private DaoClientes _dao = new DaoClientes();
-        public NegocioClientes() { }
-
-        public DataTable ObtenerClientes(int id = 0)
+        private DataTable _clientes;
+        public NegocioClientes() 
         {
-            return _dao.ObtenerCliente(id);
+            _clientes = _dao.ObtenerClientes();
+        }
+
+        public DataTable ObtenerClientes()
+        {
+            return _clientes;
+        }
+
+        public Cliente ObtenerCliente(Usuario usuario)
+        {
+            try
+            {
+                DataRow fila = _clientes.Rows.Find(usuario.Alias);
+                Cliente cliente = new Cliente
+                {
+                    Apellido = fila.Field<string>("Apellido"),
+                    Nombre = fila.Field<string>("Nombre"),
+                    Dni = fila.Field<int>("DNI"),
+                    Direccion = fila.Field<string>("Direccion"),
+                    Telefono = fila.Field<string>("Telefono"),
+                    Email = fila.Field<string>("EMail"),
+                    Ciudad = new Ciudad
+                    {
+                        Nombre = fila.Field<string>("Ciudad")
+                    },
+                    Usuario = usuario
+                };
+
+                return cliente;
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public DataTable ObtenerHistorial(Cliente cliente)
         {
-            return _dao.ObtenerHistorial(cliente);
+            return _dao.ObtenerHistorial(cliente.Dni);
         }
 
         public bool EliminarCliente(int dni)

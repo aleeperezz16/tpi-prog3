@@ -11,13 +11,48 @@ namespace Negocio
 {
     public class NegocioArticulos
     {
-        DaoArticulos _dao = new DaoArticulos();
+        private DaoArticulos _dao = new DaoArticulos();
+        private DataTable _articulos;
 
-        public NegocioArticulos() { }
-
-        public DataTable ObtenerArticulos(int id = 0)
+        public NegocioArticulos() 
         {
-            return _dao.ObtenerArticulos(id);
+            _articulos = _dao.ObtenerArticulos();
+        }
+
+        public DataTable ObtenerArticulos()
+        {
+            return _articulos;
+        }
+
+        public Articulo ObtenerArticulo(int idArticulo)
+        {
+            try
+            {
+                DataRow fila = _articulos.Rows[idArticulo - 1];
+                Articulo articulo = new Articulo
+                {
+                    Id = idArticulo,
+                    Nombre = fila.Field<string>("Articulo"),
+                    PrecioCompra = fila.Field<decimal>("Precio Compra"),
+                    PrecioVenta = fila.Field<decimal>("Precio Venta"),
+                    Stock = fila.Field<int>("Stock"),
+                    Categoria = new Categoria
+                    {
+                        Nombre = fila.Field<string>("Categoria")
+                    },
+                    Proveedor = new Proveedor
+                    {
+                        Nombre = fila.Field<string>("Proveedor")
+                    },
+                    Estado = fila.Field<bool>("Estado"),
+                };
+
+                return articulo;
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public bool AgregarArticulo(Articulo art)

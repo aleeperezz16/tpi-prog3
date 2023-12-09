@@ -11,24 +11,49 @@ namespace Negocio
 {
     public class NegocioVentas
     {
-        private DaoVentas _daoVentas = new DaoVentas();
-        private DaoArticulos _daoArticulos = new DaoArticulos();
+        private DaoVentas _dao = new DaoVentas();
+        private DataTable _ventas;
 
-        public NegocioVentas() { }
+        public NegocioVentas() 
+        {
+            _ventas = _dao.ObtenerVentas();
+        }
 
         public DataTable ObtenerVentas()
         {
-            return _daoVentas.ObtenerVentas();
+            return _ventas;
+        }
+
+        public Venta ObtenerVenta(int idVenta)
+        {
+            try
+            {
+                DataRow fila = _ventas.Rows[idVenta - 1];
+                string[] nombreCompleto = fila.Field<string>("Comprador").Split(' ');
+
+                Venta venta = new Venta
+                {
+                    Id = idVenta,
+                    Fecha = fila.Field<DateTime>("Fecha Venta"),
+                    Cliente = new Cliente
+                    {
+                        Nombre = nombreCompleto[0],
+                        Apellido = nombreCompleto[1]
+                    },
+                    PrecioTotal = fila.Field<decimal>("Total")
+                };
+
+                return venta;
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public DataTable ObtenerDetalleVentas(Venta venta)
         {
-            return _daoVentas.ObtenerDetalleVenta(venta.Id);
-        }
-
-        public DataTable ObtenerArticulos()
-        {
-            return _daoArticulos.ObtenerArticulos(id);
+            return _dao.ObtenerDetalleVenta(venta.Id);
         }
 
         public bool AgregarDetalleVenta(int idVenta, List<DetalleVenta> ventas)
@@ -36,17 +61,16 @@ namespace Negocio
             foreach (DetalleVenta detalleVenta in ventas)
             {
                 detalleVenta.Venta.Id = idVenta;
-                if (_daoVentas.AgregarDetalleVenta(detalleVenta) == 0)
+                if (_dao.AgregarDetalleVenta(detalleVenta) == 0)
                     return false;
             }
 
             return true;
         }
 
-        public int agregarVenta(Venta venta)
         public int AgregarVenta(Venta venta)
         {
-            return _daoVentas.AgregarVenta(venta);
+            return _dao.AgregarVenta(venta);
         }
     }
 }

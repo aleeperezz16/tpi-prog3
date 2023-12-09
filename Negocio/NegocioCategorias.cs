@@ -11,13 +11,37 @@ namespace Negocio
 {
     public class NegocioCategorias
     {
-        DaoCategorias _dao = new DaoCategorias();
+        private DaoCategorias _dao = new DaoCategorias();
+        private DataTable _categorias;
 
-        public NegocioCategorias() { }
-
-        public DataTable ObtenerCategorias(int id = 0)
+        public NegocioCategorias() 
         {
-            return _dao.ObtenerCategorias(id);
+            _categorias = _dao.ObtenerCategorias();
+        }
+
+        public DataTable ObtenerCategorias()
+        {
+            return _categorias;
+        }
+
+        public Categoria ObtenerCategoria(int idCategoria)
+        {
+            try
+            {
+                DataRow fila = _categorias.Rows[idCategoria - 1];
+                Categoria categoria = new Categoria
+                {
+                    Id = idCategoria,
+                    Nombre = fila.Field<string>("Categoria"),
+                    Descripcion = fila.Field<string>("Descripcion"),
+                };
+
+                return categoria;
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public bool AgregarCategoria(Categoria cat)
