@@ -1,4 +1,4 @@
-﻿//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 // <generado automáticamente>
 //     Este código fue generado por una herramienta.
 //
@@ -49,15 +49,6 @@ namespace Vistas.Articulos
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
-
-        /// <summary>
-        /// Control lblVer.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblVer;
 
         /// <summary>
         /// Control hpCarrito.
@@ -141,12 +132,12 @@ namespace Vistas.Articulos
         protected global::System.Web.UI.WebControls.DropDownList ddlCategorias;
 
         /// <summary>
-        /// Control gdvComprarArticulos.
+        /// Control gvComprarArticulos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gdvComprarArticulos;
+        protected global::System.Web.UI.WebControls.GridView gvComprarArticulos;
     }
 }

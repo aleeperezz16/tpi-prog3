@@ -14,18 +14,15 @@ namespace Dao
         private AccesoDatos _datos = new AccesoDatos("TPIntegradorGrupo6");
         public DaoPedidos() { }
 
-        public DataTable ObtenerPedidos(int id)
+        public DataTable ObtenerPedidos()
         {
-            string consulta = "SELECT * FROM Pedidos";
-
-            if (id > 0)
-                consulta += $" WHERE IDPedido = {id}";
+            string consulta = "SELECT P.*, NombreProveedor, NombreArticulo " +
+                "FROM PEDIDOS P INNER JOIN ARTICULOS A ON P.IDArticulo = A.IDArticulo " +
+                "INNER JOIN PROVEEDORES PR ON PR.IDProveedor = P.IDProveedor";
 
             return _datos.ObtenerTabla("Pedidos", consulta);
         }
 
-
-        
         public int AgregarPedido(Pedido pedido)
         {
             SqlCommand cmd = new SqlCommand();
@@ -33,13 +30,10 @@ namespace Dao
             return _datos.EjecutarProcedimientoAlmacenado(ref cmd, "sp_AgregarPedidoMercaderia");
         }
         
-        
         private void ArmarParametrosAgregar(ref SqlCommand cmd, Pedido pedido)
         {
             cmd.Parameters.AddWithValue("@IDArticulo", pedido.Articulo.Id);
             cmd.Parameters.AddWithValue("@Cantidad", pedido.Cantidad);
         }
-        
-
     }
 }

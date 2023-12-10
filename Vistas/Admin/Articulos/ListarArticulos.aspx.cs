@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,136 +12,145 @@ namespace Vistas.Admin.Articulos
 {
     public partial class ListarArticulos : Admin
     {
+        private NegocioArticulos _negocioArt = new NegocioArticulos();
+        private NegocioCategorias _negocioCat = new NegocioCategorias();
+        private NegocioProveedores _negocioProv = new NegocioProveedores();
+        static private DataTable _tablaInicial;
+        static private DataTable _tabla;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                cargarProductosEnGrilla();
-
-                VerUsuarioConectado();
+                CargarTablaInicial();
             }
         }
 
-        protected void btnBuscararticulosid_Click(object sender, EventArgs e)
+        protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            NegocioArticulos negocioArt = new NegocioArticulos();
-            int id = 0;
-            if (txtIdBuscarArticulo.Text.Trim().Length > 0) {id = Convert.ToInt32(txtIdBuscarArticulo.Text.Trim());}
+            string filtro = "";
             switch (ddlEstado.SelectedValue)
             {
-                case "0":
-                    gvArticulos.DataSource = negocioArt.ObtenerTodosLosArticulos();
-                    break;
                 case "1":
-                    gvArticulos.DataSource = negocioArt.ObtenerArticulosActivos(id);
+                    filtro = "Estado = 1";
                     break;
                 case "2":
-                    gvArticulos.DataSource = negocioArt.ObtenerArticulosInactivos(id);
+                    filtro = "Estado = 0";
                     break;
             }
-            
+
+            string id = txtIdArticulo.Text.Trim();
+
+            if (id.Length > 0)
+            {
+                if (filtro.Length > 0)
+                {
+                    filtro += " AND ";
+                }
+
+                filtro += "IDArticulo = " + id;
+            }
+
+            DataView dv = new DataView(_tablaInicial)
+            {
+                RowFilter = filtro
+            };
+
+            _tabla = filtro.Length > 0 ? dv.ToTable() : _tablaInicial.Copy();
+
+            gvArticulos.DataSource = _tabla;
             gvArticulos.DataBind();
         }
 
         protected void gvArticulos_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvArticulos.PageIndex = e.NewPageIndex;
-            cargarProductosEnGrilla();
+
+            gvArticulos.DataSource = _tabla;
+            gvArticulos.DataBind();
         }
 
         protected void gvArticulos_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             gvArticulos.EditIndex = -1;
-            cargarProductosEnGrilla();
+
+            gvArticulos.DataSource = _tabla;
+            gvArticulos.DataBind();
         }
 
         protected void gvArticulos_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            int s_IdArticulo = Convert.ToInt32(((Label)gvArticulos.Rows[e.RowIndex].FindControl("lbl_it_idArticulo")).Text);
-            NegocioArticulos negocio = new NegocioArticulos();
-            bool Borro = negocio.eliminarArticulo(s_IdArticulo);
+            Label idArticulo = (Label)gvArticulos.Rows[e.RowIndex].FindControl("lbl_it_Id");
+            _negocioArt.EliminarArticulo(int.Parse(idArticulo.Text));
 
-            if (Borro)
-            {
-                ///SE ELIMINO CORRECTAMENTE
-
-            }
-            {
-                ///NO SE ELIMINO
-            }
-
-            cargarProductosEnGrilla();
+            CargarTablaInicial();
         }
 
         protected void gvArticulos_RowEditing(object sender, GridViewEditEventArgs e)
         {
-             gvArticulos.EditIndex = e.NewEditIndex;
-            cargarProductosEnGrilla();
+            gvArticulos.EditIndex = e.NewEditIndex;
+
+            gvArticulos.DataSource = _tabla;
+            gvArticulos.DataBind();
         }
 
         protected void gvArticulos_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            NegocioArticulos _negocioArt = new NegocioArticulos();
-            NegocioCategorias _negocioCat = new NegocioCategorias();
-            NegocioProveedores _negocioProv = new NegocioProveedores();
-            Articulo articuloEditado = new Articulo();
-            Proveedor prov = new Proveedor();
-            prov.Id = Convert.ToInt32(((DropDownList)gvArticulos.Rows[e.RowIndex].FindControl("ddl_eit_IdProveedor")).SelectedValue);
+            var fila = gvArticulos.Rows[e.RowIndex];
 
-            articuloEditado.Id = Convert.ToInt32(((Label)gvArticulos.Rows[e.RowIndex].FindControl("lbl_eit_idArticulo")).Text);
-            articuloEditado.Nombre = ((TextBox)gvArticulos.Rows[e.RowIndex].FindControl("txt_eit_NombreArticulo")).Text;
-            articuloEditado.Categoria = _negocioCat.ObtenerCategoriaObjeto(Convert.ToInt32(((DropDownList)gvArticulos.Rows[e.RowIndex].FindControl("ddl_eit_IdCategoria")).SelectedValue));
-            articuloEditado.Proveedor = prov;
-            articuloEditado.PrecioVenta = Convert.ToDecimal(((TextBox)gvArticulos.Rows[e.RowIndex].FindControl("txt_eit_PrecioDeVenta")).Text);
-            articuloEditado.PrecioCompra = Convert.ToDecimal(((TextBox)gvArticulos.Rows[e.RowIndex].FindControl("txt_eit_PrecioDeCompra")).Text);
-            articuloEditado.Stock = Convert.ToInt32(((TextBox)gvArticulos.Rows[e.RowIndex].FindControl("txt_eit_Stock")).Text);
-            articuloEditado.Estado = ((CheckBox)gvArticulos.Rows[e.RowIndex].FindControl("chkBoxEditEstado")).Checked;
-
-            bool filasAfectadas = _negocioArt.ModificarArticulo(articuloEditado);
-            if (filasAfectadas)
+            Articulo articuloEditado = new Articulo
             {
-                //se actualizó
-            }
+                Id = int.Parse(((Label)fila.FindControl("lbl_eit_Id")).Text),
+                Nombre = ((TextBox)fila.FindControl("txt_eit_Nombre")).Text.Trim(),
+                Categoria = new Categoria
+                {
+                    Id = int.Parse(((DropDownList)fila.FindControl("ddl_eit_Categoria")).SelectedValue)
+                },
+                Proveedor = new Proveedor
+                {
+                    Id = int.Parse(((DropDownList)fila.FindControl("ddl_eit_Proveedor")).SelectedValue)
+                },
+                PrecioVenta = decimal.Parse(((TextBox)fila.FindControl("txt_eit_Precio")).Text.Trim()),
+                Stock = int.Parse(((Label)fila.FindControl("lbl_eit_Stock")).Text.Trim()),
+                Estado = ((CheckBox)fila.FindControl("chk_eit_Estado")).Checked
+            };
+
+            _negocioArt.ModificarArticulo(articuloEditado);
 
             gvArticulos.EditIndex = -1;
-            cargarProductosEnGrilla();
-        }
-
-        //FUNCIONES
-        private void cargarProductosEnGrilla()
-        {
-            NegocioArticulos negocio = new NegocioArticulos();
-            gvArticulos.DataSource = negocio.ObtenerTodosLosArticulos();
-            gvArticulos.DataBind();
-
+            CargarTablaInicial(true);
         }
 
         protected void gvArticulos_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            //ddl_eit_IdCategoria
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 if ((e.Row.RowState & DataControlRowState.Edit) > 0)
                 {
-                    NegocioCategorias _negocioCat = new NegocioCategorias();
-                    NegocioProveedores _negocioProv = new NegocioProveedores(); 
-                    DropDownList ddlCat = (DropDownList)e.Row.FindControl("ddl_eit_IdCategoria");
-                    DropDownList ddlProv = (DropDownList)e.Row.FindControl("ddl_eit_IdProveedor");
-                    //bind dropdown-list
-                    DataTable dt = _negocioCat.ObtenerCategorias(-1);
-                    ddlCat.DataSource = dt;
+                    DropDownList ddlCat = (DropDownList)e.Row.FindControl("ddl_eit_Categoria");
+                    DropDownList ddlProv = (DropDownList)e.Row.FindControl("ddl_eit_Proveedor");
+
+                    ddlCat.DataSource = _negocioCat.ObtenerCategorias();
                     ddlCat.DataTextField = "NombreCategoria";
                     ddlCat.DataValueField = "IDCategoria";
                     ddlCat.DataBind();
 
 
-                    ddlProv.DataSource = _negocioProv.ObtenerProveedores(-1);
+                    ddlProv.DataSource = _negocioProv.ObtenerProveedores();
                     ddlProv.DataTextField = "NombreProveedor";
                     ddlProv.DataValueField = "IDProveedor";
                     ddlProv.DataBind();
-
                 }
             }
+        }
+
+        private void CargarTablaInicial(bool actualizar = false)
+        {
+            _tablaInicial = _negocioArt.ObtenerArticulos(actualizar);
+            _tabla = _tablaInicial.Copy();
+
+            gvArticulos.DataSource = _tablaInicial;
+            gvArticulos.DataBind();
         }
 
         public void VerUsuarioConectado()

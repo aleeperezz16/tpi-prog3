@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,15 +12,53 @@ namespace Negocio
     public class NegocioClientes
     {
         private DaoClientes _dao = new DaoClientes();
-        public NegocioClientes() { }
-
-        public DataTable ObtenerClientes(int id = 0)
+        private DataTable _clientes;
+        public NegocioClientes() 
         {
-            return _dao.ObtenerCliente(id);
+            _clientes = _dao.ObtenerClientes();
         }
+
+        public DataTable ObtenerClientes(bool actualizar = false)
+        {
+            if (actualizar)
+            {
+                _clientes = _dao.ObtenerClientes();
+            }
+
+            return _clientes;
+        }
+
         public Cliente ObtenerCliente(Usuario usuario)
         {
-            return _dao.ObtenerCliente(usuario);
+            try
+            {
+                DataRow fila = _clientes.Rows.Find(usuario.Alias);
+                Cliente cliente = new Cliente
+                {
+                    Apellido = fila.Field<string>("Apellido"),
+                    Nombre = fila.Field<string>("Nombre"),
+                    Dni = fila.Field<int>("DNI"),
+                    Direccion = fila.Field<string>("Direccion"),
+                    Telefono = fila.Field<string>("Telefono"),
+                    Email = fila.Field<string>("EMail"),
+                    Ciudad = new Ciudad
+                    {
+                        Nombre = fila.Field<string>("Ciudad")
+                    },
+                    Usuario = usuario
+                };
+
+                return cliente;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public DataTable ObtenerHistorial(Cliente cliente)
+        {
+            return _dao.ObtenerHistorial(cliente.Dni);
         }
 
         public bool EliminarCliente(int dni)
@@ -29,34 +67,18 @@ namespace Negocio
         }
         public bool ModificarCliente(Cliente cliente)
         {
-            int cantFilas = _dao.ModificarCliente(cliente);
-            return cantFilas == 1 ? true : false;
+            return _dao.ModificarCliente(cliente) == 1;
         }
 
         public bool AgregarCliente(Cliente cliente)
         {
-            int cantFilas = _dao.agregarCliente(cliente);
-            return cantFilas > 1 ? true : false;
+            return _dao.AgregarCliente(cliente) == 1;
         }
 
-        public DataTable ObtenerDNIClientes(Cliente cliente)
+        public bool ExisteCliente(Cliente cliente)
         {
-        
-            return _dao.ObtenerDNICliente(cliente);
+            return _dao.ExisteCliente(cliente);
         }
-
-        public DataTable ObtenerALIASClientes(Cliente cliente)
-        {
-
-            return _dao.ObtenerALIASCliente(cliente);
-        }
-
-        public DataTable ObtenerPROVINCIAClientes(Cliente cliente)
-        {
-
-            return _dao.ObtenerProvinciaCliente(cliente);
-        }
-
     }
 }
 

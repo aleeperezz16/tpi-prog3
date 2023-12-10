@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,12 +14,22 @@ namespace Vistas
         {
             if (!IsPostBack)
             {
-                VerUsuarioConectado();
-            }
+                var datos = Session["Datos"];
 
+                if (datos.GetType() == typeof(Usuario))
+                {
+                    HabilitarAdmin();
+                    lblCuentaIngresada.Text = ((Usuario)datos).Alias;
+                }
+                else
+                {
+                    HabilitarCliente();
+                    lblCuentaIngresada.Text = ((Cliente)datos).Usuario.Alias;
+                }
+            }
         }
 
-        protected void btnCerrarsesion_Click(object sender, EventArgs e)
+        protected void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             Session["Datos"] = null;
             Response.Redirect("Login.aspx");
@@ -27,49 +37,29 @@ namespace Vistas
 
         public void HabilitarAdmin()
         {
-            hlListarArticulos.Visible = true;
-            hlListarproveedores.Visible = true;
-            hlListarpedidos.Visible = true;
-            hlListarventas.Visible = true;
-            hlListarclientes.Visible = true;
-            hlListarCategorias.Visible = true;
-            hlAgregarproveedores.Visible = true;
-            hlAgregarPedido.Visible = true;
-            hlAgregarCategorias.Visible = true;
+            hlnkListarArticulos.Visible = true;
+            hlnkListarProveedores.Visible = true;
+            hlnkListarPedidos.Visible = true;
+            hlnkListarVentas.Visible = true;
+            hlnkListarClientes.Visible = true;
+            hlnkListarCategorias.Visible = true;
+            hlnkAgregarProveedores.Visible = true;
+            hlnkAgregarPedido.Visible = true;
+            hlnkAgregarCategorias.Visible = true;
 
-            lblSeccioncategoria.Visible = true;
-            lblSeccionpedidos.Visible = true;
-            lblSeccionproveedores.Visible = true;
+            lblSeccionCategoria.Visible = true;
+            lblSeccionPedidos.Visible = true;
+            lblSeccionProveedores.Visible = true;
             lblSeccionVentas.Visible = true;
-
         }
+
         public void HabilitarCliente()
         {
-            hlComprarArticulos.Visible = true;
-            hlGestionarMiCuenta.Visible = true;
-            hlHistorialCompras.Visible = true;
-            lnkCarrito.Visible = true;
+            hlnkComprarArticulos.Visible = true;
+            hlnkGestionarMiCuenta.Visible = true;
+            hlnkHistorialCompras.Visible = true;
+            hlnkCarrito.Visible = true;
             lblCuenta.Visible = true;
-
         }
-
-        public void VerUsuarioConectado()
-        {
-            var datos = Session["Datos"];
-
-            if (datos.GetType() == typeof(Usuario))
-            {
-                HabilitarAdmin();
-                Usuario usuarito = (Usuario)Session["Datos"];
-                lblCuentaIngresada.Text = usuarito.Alias;
-            }
-            else
-            {
-                HabilitarCliente();
-                Cliente Clientesito = (Cliente)Session["Datos"];
-                lblCuentaIngresada.Text = Clientesito.Nombre + " " + Clientesito.Apellido;
-            }
-        }
-
     }
 }

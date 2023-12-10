@@ -14,22 +14,25 @@ namespace Dao
 
         public DaoUsuarios() { }
 
-        public DataTable ObtenerUsuario(Usuario usuario)
+        public Usuario ObtenerUsuario(string alias, string contrasenia)
         {
-            DataTable data =_datos.ObtenerTabla("Usuario", $"SELECT Alias, Contrasenia, Tipo FROM LOGINUSUARIOS WHERE Estado = 1 AND Alias = '{usuario.Alias}' AND Contrasenia = '{usuario.Contrasenia}'");
-            if (data?.Rows.Count == 1)
-            {
-                return data;
-            }
+            string consulta = "SELECT Alias, Contrasenia, Tipo " +
+                $"FROM LOGINUSUARIOS WHERE Estado = 1 AND Alias = '{alias}' AND Contrasenia = '{contrasenia}'";
 
-            return null;
+            DataRow dato = _datos.ObtenerTabla("Usuario", consulta).Rows?[0];
+            return dato != null ? new Usuario
+            {
+                Alias = dato.Field<string>("Alias"),
+                Contrasenia = dato.Field<string>("Contrasenia"),
+                Tipo = dato.Field<string>("Tipo")[0],
+                Estado = true
+            } : null;
         }
 
-        public int CambiarContrasenia(string user,string password)
+        public int CambiarContrasenia(string user, string password)
         {
             string consulta = $"UPDATE LOGINUSUARIOS SET Contrasenia = '{password}' WHERE Alias = '{user}'";
-
-             return _datos.EjecutarConsulta(consulta);
+            return _datos.EjecutarConsulta(consulta);
         }
     }
 }

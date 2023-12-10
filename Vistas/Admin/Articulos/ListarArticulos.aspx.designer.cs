@@ -1,4 +1,4 @@
-﻿//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 // <generado automáticamente>
 //     Este código fue generado por una herramienta.
 //
@@ -42,13 +42,13 @@ namespace Vistas.Admin.Articulos
         protected global::System.Web.UI.WebControls.Label lblCuentaIngresada;
 
         /// <summary>
-        /// Control lbArticulos.
+        /// Control lblArticulos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbArticulos;
+        protected global::System.Web.UI.WebControls.Label lblArticulos;
 
         /// <summary>
         /// Control lbBuscararticulosid.
@@ -60,13 +60,13 @@ namespace Vistas.Admin.Articulos
         protected global::System.Web.UI.WebControls.Label lbBuscararticulosid;
 
         /// <summary>
-        /// Control txtIdBuscarArticulo.
+        /// Control txtIdArticulo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdBuscarArticulo;
+        protected global::System.Web.UI.WebControls.TextBox txtIdArticulo;
 
         /// <summary>
         /// Control ddlEstado.
@@ -78,13 +78,13 @@ namespace Vistas.Admin.Articulos
         protected global::System.Web.UI.WebControls.DropDownList ddlEstado;
 
         /// <summary>
-        /// Control btnBuscararticulosid.
+        /// Control btnBuscar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscararticulosid;
+        protected global::System.Web.UI.WebControls.Button btnBuscar;
 
         /// <summary>
         /// Control gvArticulos.
@@ -94,14 +94,5 @@ namespace Vistas.Admin.Articulos
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvArticulos;
-
-        /// <summary>
-        /// Control lbObservaciones.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbObservaciones;
     }
 }

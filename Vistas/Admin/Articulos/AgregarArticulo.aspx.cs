@@ -6,23 +6,26 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Negocio;
 using Entidades;
+using System.Data;
 
 namespace Vistas.Admin.Articulos
 {
     public partial class AgregarArticulo : Admin
     {
-        static private NegocioCategorias _negocioCat = new NegocioCategorias();
-        static private NegocioProveedores _negocioProv = new NegocioProveedores();
+        private NegocioCategorias _negocioCat = new NegocioCategorias();
+        private NegocioProveedores _negocioProv = new NegocioProveedores();
+        private NegocioArticulos _negocioArt = new NegocioArticulos();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                ddlCategoria.DataSource = _negocioCat.ObtenerCategorias(-1);
+                ddlCategoria.DataSource = _negocioCat.ObtenerCategorias();
                 ddlCategoria.DataTextField = "NombreCategoria";
                 ddlCategoria.DataValueField = "IDCategoria";
                 ddlCategoria.DataBind();
 
-                ddlProveedor.DataSource = _negocioProv.ObtenerProveedores(-1);
+                ddlProveedor.DataSource = _negocioProv.ObtenerProveedores();
                 ddlProveedor.DataTextField = "NombreProveedor";
                 ddlProveedor.DataValueField = "IDProveedor";
                 ddlProveedor.DataBind();
@@ -33,20 +36,21 @@ namespace Vistas.Admin.Articulos
 
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
+            Articulo nuevoArticulo = new Articulo
+            {
+                Nombre = txtNombreArticulo.Text.Trim(),
+                Categoria = _negocioCat.ObtenerCategoria(int.Parse(ddlCategoria.SelectedValue)),
+                Proveedor = new Proveedor
+                {
+                    Id = int.Parse(ddlProveedor.SelectedValue)
+                },
+                PrecioVenta = decimal.Parse(txtPrecioVenta.Text.Trim()),
+                PrecioCompra = decimal.Parse(txtPrecioCompra.Text.Trim()),
+                Stock = int.Parse(txtStock.Text.Trim()),
+                Estado = true
+            };
 
-            Articulo nuevaArticulo = new Articulo();
-            NegocioArticulos manejoArt = new NegocioArticulos();
-            Proveedor prov = new Proveedor();
-            prov.Id = Convert.ToInt32(ddlProveedor.SelectedValue);
-
-            nuevaArticulo.Nombre = txtNombreArticulo.Text.Trim();
-            nuevaArticulo.Categoria = _negocioCat.ObtenerCategoriaObjeto(Convert.ToInt32(ddlCategoria.SelectedValue));
-            nuevaArticulo.Proveedor = prov;
-            nuevaArticulo.PrecioVenta = Convert.ToDecimal(txtPrecioDeVenta.Text.Trim());
-            nuevaArticulo.PrecioCompra = Convert.ToDecimal(txtPrecioDeCompra.Text.Trim());
-            nuevaArticulo.Stock = Convert.ToInt32(txtStock.Text.Trim());
-
-            lblResultado.Text = manejoArt.agregarArticulo(nuevaArticulo) ? "El articulo se ha agregado con exito" : "No se pudo agregar el articulo";
+            lblResultado.Text = _negocioArt.AgregarArticulo(nuevoArticulo) ? "El articulo se ha agregado con exito" : "No se pudo agregar el articulo";
         }
 
         public void VerUsuarioConectado()

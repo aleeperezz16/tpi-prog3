@@ -13,25 +13,10 @@ namespace Dao
 
         public DaoCiudad() { }
 
-        public DataTable ObtenerCiudades(int id, int idProvincia)
+        public DataTable ObtenerCiudades()
         {
-            string consulta = "SELECT * FROM CIUDAD";
-
-            string filtro = "";
-
-            if (id > 0)
-                filtro += $"CodigoCiudad = {id}";
-
-            if (idProvincia > 0)
-            {
-                if (filtro != "")
-                    filtro += " AND ";
-
-                filtro += $"CodigoProvincia = {idProvincia}";
-            }
-
-            if (filtro != "")
-                consulta += $" WHERE {filtro}";
+            string consulta = "SELECT C.*, NombreProvincia " +
+                "FROM CIUDAD C INNER JOIN PROVINCIA P ON C.CodigoProvincia = P.CodigoProvincia";
 
             return _datos.ObtenerTabla("Ciudades", consulta);
         }

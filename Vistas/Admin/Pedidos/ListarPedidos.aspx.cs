@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,54 +12,44 @@ namespace Vistas.Admin.Pedidos
 {
     public partial class ListarPedidos : Admin
     {
-        NegocioArticulos negocioArt = new NegocioArticulos();
+        private NegocioPedidos _negocioPed = new NegocioPedidos();
+        static private DataTable _tablaInicial;
+        static private DataTable _tabla;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                cargarPedidosEnGrilla();
+                _tablaInicial = _negocioPed.ObtenerPedidos();
+                _tabla = _tablaInicial.Copy();
 
-                VerUsuarioConectado();
+                gvListarPedidos.DataSource = _tablaInicial;
+                gvListarPedidos.DataBind();
             }
         }
 
-        private void cargarPedidosEnGrilla()
+        protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            NegocioPedidos negocio = new NegocioPedidos();
-            gdvListarPedidos.DataSource = negocio.ObtenerTablaPedidos(0);
-            gdvListarPedidos.DataBind();
-        }
-
-        protected void btnBuscarPedidoPorId_Click(object sender, EventArgs e)
-        {
-            int num = Convert.ToInt32(tbBuscarPedidoPorId.Text.Trim());
-            tbBuscarPedidoPorId.Text = "";
-            NegocioPedidos negocio = new NegocioPedidos();
-            gdvListarPedidos.DataSource = negocio.ObtenerTablaPedidos(num);
-            gdvListarPedidos.DataBind();
-         
-            try
+            string id = txtBuscar.Text.Trim();
+            DataView dv = new DataView(_tablaInicial)
             {
-                ///USO LA EXCEPCION DE FUERA DE RANGO del Row Con un Try Catch PARA CUANDO SÉ QUE NO ENCONTRÓ NADA
-                String IDArticulo = ((Label)gdvListarPedidos.Rows[0].FindControl("lbl_it_IDArticulo")).Text;//agarre cualquier dato
-            }
-            catch
-            {
-                System.Windows.Forms.MessageBox.Show("No hubo coincidencias, por favor intente con otro ID", "Informe");
-            }
-        }
+                RowFilter = $"IDPedido = {id}"
+            };
 
-        protected void btnVistaInicial_Click(object sender, EventArgs e)
-        {
-            tbBuscarPedidoPorId.Text = "";
-            gdvListarPedidos.PageIndex = 0;
-            cargarPedidosEnGrilla();
+            _tabla = id.Length > 0 ? dv.ToTable() : _tablaInicial.Copy();
+
+            gvListarPedidos.DataSource = _tabla;
+            gvListarPedidos.DataBind();
+
+            txtBuscar.Text = "";
         }
 
         protected void gdvListarPedidos_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            gdvListarPedidos.PageIndex = e.NewPageIndex;
-            cargarPedidosEnGrilla();
+            gvListarPedidos.PageIndex = e.NewPageIndex;
+
+            gvListarPedidos.DataSource = _tabla;
+            gvListarPedidos.DataBind();
         }
 
         public void VerUsuarioConectado()
@@ -77,9 +67,7 @@ namespace Vistas.Admin.Pedidos
                 lblCuentaIngresada.Text = Clientesito.Nombre + " " + Clientesito.Apellido;
             }
         }
-
     }
-
 }
 
    

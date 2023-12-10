@@ -11,34 +11,55 @@ namespace Negocio
 {
     public class NegocioPedidos
     {
-
         private DaoPedidos _dao = new DaoPedidos();
-        public NegocioPedidos() {}
-
-        public DataTable ObtenerTablaPedidos(int id = 0)
+        private DataTable _pedidos;
+        public NegocioPedidos() 
         {
-            
-            return _dao.ObtenerPedidos(id);
+            _pedidos = _dao.ObtenerPedidos();
         }
-        
 
-        public bool agregarPedido(Pedido pedido)
+        public DataTable ObtenerPedidos(bool actualizar = false)
+        {   
+            if (actualizar)
+            {
+                _pedidos = _dao.ObtenerPedidos();
+            }
+
+            return _pedidos;
+        }
+
+        public Pedido ObtenerPedido(int idPedido)
         {
-            DaoPedidos dao = new DaoPedidos();
-            int cantFilas = 0;
+            try
+            {
+                DataRow fila = _pedidos.Rows[idPedido - 1];
+                Pedido pedido = new Pedido
+                {
+                    Id = idPedido,
+                    Articulo = new Articulo
+                    {
+                        Nombre = fila.Field<string>("Articulo")
+                    },
+                    Proveedor = new Proveedor
+                    {
+                        Nombre = fila.Field<string>("Proveedor")
+                    },
+                    Cantidad = fila.Field<int>("Cantidad"),
+                    Fecha = fila.Field<DateTime>("Fecha"),
+                    CostoTotal = fila.Field<decimal>("Total")
+                };
 
-
-            cantFilas = dao.AgregarPedido(pedido);
-
-            if (cantFilas == 1)
-                return true;
-            else
-                return false;
+                return pedido;
+            }
+            catch
+            {
+                return null;
+            }
         }
-        
 
-
-
-
+        public bool AgregarPedido(Pedido pedido)
+        {
+            return _dao.AgregarPedido(pedido) == 1;
+        }
     }
 }

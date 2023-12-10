@@ -14,6 +14,10 @@
         .auto-style2 {
             text-align: center;
             height: 49px;
+            font-weight: bold;
+            font-size: xx-large;
+            color: #FFFAF0;
+            background-color: #DC143C;
         }
 
         .auto-style3 {
@@ -59,8 +63,7 @@
                 <tr>
                     <td class="auto-style5"></td>
                     <td class="auto-style2">
-                        <asp:Label ID="lblClientes" CssClass="mainItem" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Clientes"></asp:Label>
-                    </td>
+                        Clientes</td>
                     <td class="auto-style3"></td>
                 </tr>
                 <tr>
@@ -72,9 +75,8 @@
                 <tr>
                     <td class="auto-style4">&nbsp;</td>
                     <td>
-                        <asp:Label ID="Label2" CssClass="subItem" runat="server" Text="Buscar  cliente por DNI:"></asp:Label>
-                        <asp:TextBox ID="lblBuscarClientePorId" runat="server"></asp:TextBox>
-                        <asp:Button ID="btnBuscarClientePorId" CssClass="myButton" runat="server" Text="Buscar" OnClick="btnBuscarClientePorId_Click" />
+                        <span class="auto-style8">Buscar cliente por DNI:</span><asp:TextBox ID="txtBuscar" runat="server"></asp:TextBox>
+                        <asp:Button ID="btnBuscar" CssClass="myButton" runat="server" Text="Buscar" OnClick="btnBuscar_Click" />
                     </td>
                     <td>&nbsp;</td>
                 </tr>
@@ -87,90 +89,25 @@
                 <tr>
                     <td class="auto-style4">&nbsp;</td>
                     <td class="auto-style8">
-                        <asp:GridView ID="gdvClientes" runat="server" AllowPaging="True" AutoGenerateColumns="False" OnPageIndexChanging="gdvClientes_PageIndexChanging" OnRowCancelingEdit="gdvClientes_RowCancelingEdit" OnRowDataBound="gdvClientes_RowDataBound" OnRowDeleting="gdvClientes_RowDeleting" OnRowEditing="gdvClientes_RowEditing" OnRowUpdating="gdvClientes_RowUpdating">
+                        <asp:GridView ID="gvClientes" runat="server" AllowPaging="True" AutoGenerateColumns="False" OnPageIndexChanging="gdvClientes_PageIndexChanging" OnRowDataBound="gdvClientes_RowDataBound" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
                             <Columns>
-                                <asp:TemplateField HeaderText="DNI">
-                                    <EditItemTemplate>
-                                        <asp:TextBox ID="txt_eit_DNI" runat="server" Text='<%# Bind("DNI") %>'></asp:TextBox>
-                                    </EditItemTemplate>
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbl_it_DNI" runat="server" Text='<%# Bind("DNI") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Apellido">
-                                    <EditItemTemplate>
-                                        <asp:TextBox ID="txt_eit_Apellido" runat="server" Text='<%# Bind("Apellido") %>'></asp:TextBox>
-                                    </EditItemTemplate>
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbl_it_Apellido" runat="server" Text='<%# Bind("Apellido") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Nombre">
-                                    <EditItemTemplate>
-                                        <asp:TextBox ID="txt_eit_Nombre" runat="server" Text='<%# Bind("Nombre") %>'></asp:TextBox>
-                                    </EditItemTemplate>
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbl_it_Nombre" runat="server" Text='<%# Bind("Nombre") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Alias">
-                                    <EditItemTemplate>
-                                        <asp:TextBox ID="txt_eit_Alias" runat="server" Text='<%# Bind("Alias") %>'></asp:TextBox>
-                                    </EditItemTemplate>
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbl_it_Alias" runat="server" Text='<%# Bind("Alias") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Contraseña">
-                                    <EditItemTemplate>
-                                        <asp:TextBox ID="txt_eit_Contrasenia" runat="server" Text='<%# Bind("Contrasenia") %>'></asp:TextBox>
-                                    </EditItemTemplate>
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbl_it_Contrasenia" runat="server" Text='<%# Bind("Contrasenia") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Teléfono">
-                                    <EditItemTemplate>
-                                        <asp:TextBox ID="txt_eit_Telefono" runat="server" Text='<%# Bind("Telefono") %>'></asp:TextBox>
-                                    </EditItemTemplate>
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbl_it_telefono" runat="server" Text='<%# Bind("Telefono") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="EMail">
-                                    <EditItemTemplate>
-                                        <asp:TextBox ID="txt_eit_EMail" runat="server" Text='<%# Bind("EMail") %>'></asp:TextBox>
-                                    </EditItemTemplate>
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbl_it_email" runat="server" Text='<%# Bind("EMail") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Dirección">
-                                    <EditItemTemplate>
-                                        <asp:TextBox ID="txt_eit_Direccion" runat="server" Text='<%# Bind("Direccion") %>'></asp:TextBox>
-                                    </EditItemTemplate>
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbl_it_direccion" runat="server" Text='<%# Bind("Direccion") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Código de Ciudad">
-                                    <EditItemTemplate>
-                                        <asp:DropDownList ID="ddl_eit_Ciudad" runat="server">
-                                        </asp:DropDownList>
-                                    </EditItemTemplate>
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbl_it_codigoCiudad" runat="server" Text='<%# Bind("Ciudad") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Estado">
-                                    <EditItemTemplate>
-                                        <asp:CheckBox ID="chkBoxEditEstado" runat="server" Checked='<%# Bind("Estado") %>' Enabled="false" />
-                                    </EditItemTemplate>
-                                    <ItemTemplate>
-                                        <asp:CheckBox ID="CheckBox1" runat="server" Checked='<%# Bind("Estado") %>' Enabled="false" />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
+                                <asp:BoundField DataField="DNI" HeaderText="DNI" />
+                                <asp:BoundField DataField="Nombre" HeaderText="Nombre y Apellido" />
+                                <asp:BoundField DataField="Alias" HeaderText="Alias" />
+                                <asp:BoundField DataField="Telefono" HeaderText="Teléfono" />
+                                <asp:BoundField DataField="EMail" HeaderText="Email" />
+                                <asp:BoundField DataField="Direccion" HeaderText="Dirección" />
+                                <asp:BoundField DataField="NombreCiudad" HeaderText="Ciudad" />
+                                <asp:CheckBoxField DataField="Estado" HeaderText="Estado" ReadOnly="True" />
                             </Columns>
+                            <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                            <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                            <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                            <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                            <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                            <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                            <SortedDescendingHeaderStyle BackColor="#242121" />
                         </asp:GridView>
                     </td>
                     <td>&nbsp;</td>
@@ -184,8 +121,7 @@
                 <tr>
                     <td class="auto-style6"></td>
                     <td class="auto-style7">
-                        <asp:Label ID="lbObservaciones1" runat="server" Font-Bold="True" Text="Observación: Solo se buscará por ID."></asp:Label>
-                    </td>
+                        &nbsp;</td>
                     <td class="auto-style7"></td>
                 </tr>
             </table>

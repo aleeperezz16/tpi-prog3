@@ -13,15 +13,9 @@ namespace Dao
 
         public DaoProvincia() { }
 
-        public DataTable ObtenerProvincias(int id)
+        public DataTable ObtenerProvincias()
         {
-            string consulta = "SELECT * FROM PROVINCIA";
-
-            if (id > 0)
-                consulta += $" WHERE IDProvincia= {id}";
-
-            return _datos.ObtenerTabla("Provincias", consulta);
-
+            return _datos.ObtenerTabla("Provincias", "SELECT * FROM PROVINCIA");
         }
     }
 }

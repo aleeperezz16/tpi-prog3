@@ -11,40 +11,64 @@ namespace Negocio
 {
     public class NegocioProveedores
     {
-        private DaoProveedores _daoProveedores = new DaoProveedores();
-        private DaoCiudad _daoCiudad = new DaoCiudad();
-        private DaoProvincia _daoProvincia = new DaoProvincia();
+        private DaoProveedores _dao = new DaoProveedores();
+        private DataTable _proveedores;
 
-        public NegocioProveedores() { }
-
-        public DataTable ObtenerProvincias(int id = 0)
+        public NegocioProveedores() 
         {
-            return _daoProvincia.ObtenerProvincias(id);
+            _proveedores = _dao.ObtenerProveedores();
         }
 
-        public DataTable ObtenerProveedores(int id = 0, string nombre = "")
+        public DataTable ObtenerProveedores(bool actualizar = false)
         {
-            return _daoProveedores.ObtenerProveedores(id, nombre);
+            if (actualizar)
+            {
+                _proveedores = _dao.ObtenerProveedores();
+            }
+
+            return _proveedores;
+        }
+
+        public Proveedor ObtenerProveedor(int idProveedor)
+        {
+            try
+            {
+                DataRow fila = _proveedores.Rows[idProveedor - 1];
+                Proveedor proveedor = new Proveedor
+                {
+                    Id = idProveedor,
+                    Nombre = fila.Field<string>("Proveedor"),
+                    Direccion = fila.Field<string>("Direccion"),
+                    Telefono = fila.Field<string>("Telefono"),
+                    Email = fila.Field<string>("EMail"),
+                    Ciudad = new Ciudad
+                    {
+                        Nombre = fila.Field<string>("Ciudad")
+                    },
+                    Estado = fila.Field<bool>("Estado")
+                };
+
+                return proveedor;
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public bool ModificarProveedor(Proveedor proveedor)
         {
-            return _daoProveedores.ModificarProveedor(proveedor) == 1;
+            return _dao.ModificarProveedor(proveedor) == 1;
         }
 
         public bool AgregarProveedor(Proveedor proveedor)
         {
-            return _daoProveedores.AgregarProveedor(proveedor) == 1;
+            return _dao.AgregarProveedor(proveedor) == 1;
         }
 
         public bool EliminarProveedor(int id)
         {
-            return _daoProveedores.BorrarProveedor(id) == 1;
-        }
-
-        public DataTable ObtenerCiudades(int id = 0, int idProvincia = 0)
-        {
-            return _daoCiudad.ObtenerCiudades(id, idProvincia);
+            return _dao.BorrarProveedor(id) == 1;
         }
     }
 }

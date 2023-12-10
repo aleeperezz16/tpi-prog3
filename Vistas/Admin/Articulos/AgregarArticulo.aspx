@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" UnobtrusiveValidationMode="None" CodeBehind="AgregarArticulo.aspx.cs" Inherits="Vistas.Admin.Articulos.AgregarArticulo" %>
+<%@ Page Language="C#" AutoEventWireup="true" UnobtrusiveValidationMode="None" CodeBehind="AgregarArticulo.aspx.cs" Inherits="Vistas.Admin.Articulos.AgregarArticulo" %>
 
 <!DOCTYPE html>
 
@@ -67,7 +67,7 @@
                         <table class="auto-style1">
                             <tr>
                                 <td class="auto-style26" colspan="2">
-                                    <asp:HyperLink ID="hlAgregarArt" runat="server" NavigateUrl="~/Inicio.aspx">Volver al menú Principal</asp:HyperLink>
+                                    <asp:HyperLink ID="hlnkAgregarArt" runat="server" NavigateUrl="~/Inicio.aspx">Volver al menú Principal</asp:HyperLink>
                                 </td>
                                 <td class="auto-style15">&nbsp;</td>
                                 <td class="auto-style12">
@@ -86,7 +86,7 @@
                             <tr>
                                 <td class="auto-style22"></td>
                                 <td class="auto-style28">
-                                    <asp:Label ID="lbNombreArticulo" CssClass="subItem" runat="server" Text="Nombre:"></asp:Label>
+                                    <asp:Label ID="lblNombreArticulo" CssClass="subItem" runat="server" Text="Nombre:"></asp:Label>
                                 </td>
                                 <td class="auto-style24">
                                     <asp:TextBox ID="txtNombreArticulo" runat="server" Width="210px"></asp:TextBox>
@@ -98,7 +98,7 @@
                             <tr>
                                 <td class="auto-style22"></td>
                                 <td class="auto-style28">
-                                    <asp:Label ID="lbCategoria" CssClass="subItem" runat="server" Text="Categoria:"></asp:Label>
+                                    <asp:Label ID="lblCategoria" CssClass="subItem" runat="server" Text="Categoria:"></asp:Label>
                                 </td>
                                 <td class="auto-style24">
                                     <asp:DropDownList ID="ddlCategoria" runat="server" CssClass="auto-style21">
@@ -106,13 +106,13 @@
                                     </asp:DropDownList>
                                 </td>
                                 <td class="auto-style25">
-                                    <asp:RequiredFieldValidator ID="rfvCategoria" runat="server" ControlToValidate="ddlCategoria" ErrorMessage="Seleccione una Categoria" InitialValue="--Seleccionar--"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="rfvCategoria" runat="server" ControlToValidate="ddlCategoria" ErrorMessage="Seleccione una categoria" InitialValue="--Seleccionar--"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                                                         <tr>
                                 <td class="auto-style22"></td>
                                 <td class="auto-style28">
-                                    <asp:Label ID="lbProveedor" CssClass="subItem" runat="server" Text="Proveedor:"></asp:Label>
+                                    <asp:Label ID="lblProveedor" CssClass="subItem" runat="server" Text="Proveedor:"></asp:Label>
                                 </td>
                                 <td class="auto-style24">
                                     <asp:DropDownList ID="ddlProveedor" runat="server" CssClass="auto-style21">
@@ -120,43 +120,43 @@
                                     </asp:DropDownList>
                                 </td>
                                 <td class="auto-style25">
-                                    <asp:RequiredFieldValidator ID="rfvProveedor" runat="server" ControlToValidate="ddlProveedor" ErrorMessage="Seleccione un Proveedor" InitialValue="--Seleccionar--"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="rfvProveedor" runat="server" ControlToValidate="ddlProveedor" ErrorMessage="Seleccione un proveedor" InitialValue="--Seleccionar--"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="auto-style2">&nbsp;</td>
                                 <td class="auto-style29">
-                                    <asp:Label ID="lbPrecioDeVenta" CssClass="subItem" runat="server" Text="Precio de Venta:"></asp:Label>
+                                    <asp:Label ID="lblPrecioVenta" CssClass="subItem" runat="server" Text="Precio de Venta:"></asp:Label>
                                 </td>
                                 <td class="auto-style13">
-                                    <asp:TextBox ID="txtPrecioDeVenta" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtPrecioVenta" runat="server" TextMode="Number"></asp:TextBox>
                                 </td>
                                 <td>
-                                    <asp:RequiredFieldValidator ID="rfvPrecioDeVenta" runat="server" ControlToValidate="txtPrecioDeVenta" ErrorMessage="Ingrese una Precio De Venta"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="rfvPrecioDeVenta" runat="server" ControlToValidate="txtPrecioDeVenta" ErrorMessage="Ingrese precio de venta"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                                                         <tr>
                                 <td class="auto-style2">&nbsp;</td>
                                 <td class="auto-style29">
-                                    <asp:Label ID="lbPrecioDeCompra" CssClass="subItem" runat="server" Text="Precio De Compra:"></asp:Label>
+                                    <asp:Label ID="lblPrecioCompra" CssClass="subItem" runat="server" Text="Precio De Compra:"></asp:Label>
                                 </td>
                                 <td class="auto-style13">
-                                    <asp:TextBox ID="txtPrecioDeCompra" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtPrecioCompra" runat="server" TextMode="Number"></asp:TextBox>
                                 </td>
                                 <td>
-                                    <asp:RequiredFieldValidator ID="rfvPrecioDeCompra" runat="server" ControlToValidate="txtPrecioDeCompra" ErrorMessage="Ingrese una Precio De Compra"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="rfvPrecioDeCompra" runat="server" ControlToValidate="txtPrecioDeCompra" ErrorMessage="Ingrese precio de compra"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                                                         <tr>
                                 <td class="auto-style2">&nbsp;</td>
                                 <td class="auto-style29">
-                                    <asp:Label ID="lbStock" CssClass="subItem" runat="server" Text="Stock:"></asp:Label>
+                                    <asp:Label ID="lblStock" CssClass="subItem" runat="server" Text="Stock:"></asp:Label>
                                 </td>
                                 <td class="auto-style13">
-                                    <asp:TextBox ID="txtStock" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtStock" runat="server" TextMode="Number"></asp:TextBox>
                                 </td>
                                 <td>
-                                    <asp:RequiredFieldValidator ID="rfvStock" runat="server" ControlToValidate="txtStock" ErrorMessage="Ingrese una Dirección"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="rfvStock" runat="server" ControlToValidate="txtStock" ErrorMessage="Ingrese stock"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>

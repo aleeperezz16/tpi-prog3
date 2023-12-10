@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,62 +13,98 @@ namespace Vistas.Admin.Ventas
     public partial class ListarVentas : Admin
     {
         private NegocioVentas _negocio = new NegocioVentas();
+        static private DataTable _tablaInicial;
+        static private DataTable _tabla;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                ddlArticulos.DataSource = _negocio.ObtenerArticulos();
-                ddlArticulos.DataTextField = "NombreArticulo";
-                ddlArticulos.DataValueField = "IDArticulo";
-                ddlArticulos.DataBind();
+                _tablaInicial = _negocio.ObtenerVentas();
+                _tabla = _tablaInicial.Copy();
 
-                CargarVentasEnGrilla();
-
-                VerUsuarioConectado();
+                gvVentas.DataSource = _tablaInicial;
+                gvVentas.DataBind();
             }
         }
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
             string idVenta = txtIdVenta.Text.Trim();
-            string dia = txtFechaDia.Text.Trim();
-            string mes = txtFechaMes.Text.Trim();
-            string anio = txtFechaAnio.Text.Trim();
+            string fecha = txtFechaVenta.Text.Trim();
             string dni = txtDniCliente.Text.Trim();
-            string articulo = ddlArticulos.SelectedValue;
+            string articulo = txtArticulo.Text.Trim();
 
-            if (articulo == "--Seleccionar--")
-                articulo = "";
+            string filtro = "";
 
-            CargarVentasEnGrilla(idVenta != "" ? int.Parse(idVenta) : 0, articulo, $"{anio}{(mes.Length == 1 ? "0" : "")}{mes}{(dia.Length == 1 ? "0" : "")}{dia}", dni != "" ? long.Parse(dni) : 0);
-        }
+            if (idVenta.Length > 0)
+            {
+                filtro += $"IDVenta = {idVenta}";
+            }
 
-        protected void gvVentas_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            gvVentas.PageIndex = e.NewPageIndex;
-            CargarVentasEnGrilla();
-        }
+            if (fecha.Length > 0)
+            {
+                if (filtro.Length > 0)
+                {
+                    filtro += $" AND ";
+                }
 
-        private void CargarVentasEnGrilla(int id = 0, string articulo = "", string fecha = "", long dni = 0)
-        {
-            gvVentas.DataSource = _negocio.ObtenerVentas();
+                filtro += $"FechaVenta = '{fecha}'";
+            }
+
+            if (dni.Length > 0)
+            {
+                if (filtro.Length > 0)
+                {
+                    filtro += $" AND ";
+                }
+
+                filtro += $"DNI = {dni}";
+            }
+
+            if (articulo.Length > 0)
+            {
+                if (filtro.Length > 0)
+                {
+                    filtro += $" AND ";
+                }
+
+                filtro += $"NombreArticulo LIKE '%{articulo}%'";
+            }
+
+            DataView dv = new DataView(_tablaInicial)
+            {
+                RowFilter = filtro
+            };
+
+            _tabla = filtro.Length > 0 ? dv.ToTable() : _tablaInicial.Copy();
+
+            gvVentas.DataSource = _tabla;
             gvVentas.DataBind();
         }
 
-        public void VerUsuarioConectado()
-        {
-            var datos = Session["Datos"];
+    protected void gvVentas_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        gvVentas.PageIndex = e.NewPageIndex;
 
-            if (datos.GetType() == typeof(Usuario))
-            {
-                Usuario usuarito = (Usuario)Session["Datos"];
-                lblCuentaIngresada.Text = usuarito.Alias;
-            }
-            else
-            {
-                Cliente Clientesito = (Cliente)Session["Datos"];
-                lblCuentaIngresada.Text = Clientesito.Nombre + " " + Clientesito.Apellido;
-            }
+        gvVentas.DataSource = _tabla;
+        gvVentas.DataBind();
+    }
+
+    public void VerUsuarioConectado()
+    {
+        var datos = Session["Datos"];
+
+        if (datos.GetType() == typeof(Usuario))
+        {
+            Usuario usuarito = (Usuario)Session["Datos"];
+            lblCuentaIngresada.Text = usuarito.Alias;
+        }
+        else
+        {
+            Cliente Clientesito = (Cliente)Session["Datos"];
+            lblCuentaIngresada.Text = Clientesito.Nombre + " " + Clientesito.Apellido;
         }
     }
+}
 }

@@ -17,16 +17,6 @@
         .auto-style3 {
             font-size: large;
         }
-        .auto-style4 {
-            font-size: medium;
-        }
-        .auto-style5 {
-            font-size: medium;
-            width: 58px;
-        }
-        .auto-style6 {
-            width: 58px;
-        }
         .auto-style7 {
             height: 23px;
         }
@@ -64,11 +54,11 @@
                         <asp:GridView ID="gvVentas" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnPageIndexChanging="gvVentas_PageIndexChanging">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
-                                <asp:BoundField DataField="ID Venta" HeaderText="ID Venta" InsertVisible="False" ReadOnly="True" SortExpression="ID Venta" />
-                                <asp:BoundField DataField="Articulo" HeaderText="Articulo" SortExpression="Articulo" />
+                                <asp:BoundField DataField="IDVenta" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="ID Venta" />
+                                <asp:BoundField DataField="NombreArticulo" HeaderText="Articulo" SortExpression="Articulo" />
                                 <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" SortExpression="Cantidad" />
                                 <asp:BoundField DataField="Total" HeaderText="Total" SortExpression="Total" />
-                                <asp:BoundField DataField="Fecha Venta" HeaderText="Fecha Venta" SortExpression="Fecha Venta" />
+                                <asp:BoundField DataField="FechaVenta" HeaderText="Fecha Venta" SortExpression="Fecha Venta" />
                                 <asp:BoundField DataField="Comprador" HeaderText="Comprador" ReadOnly="True" SortExpression="Comprador" />
                                 <asp:BoundField DataField="DNI" HeaderText="DNI" SortExpression="DNI" />
                             </Columns>
@@ -91,9 +81,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:DropDownList ID="ddlArticulos" runat="server" AppendDataBoundItems="True">
-                            <asp:ListItem>--Seleccionar--</asp:ListItem>
-                        </asp:DropDownList>
+                        <asp:TextBox ID="txtArticulo" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -105,7 +93,6 @@
                 <tr>
                     <td class="auto-style3">
                         <asp:TextBox ID="txtIdVenta" runat="server"></asp:TextBox>
-                        <asp:CompareValidator runat="server" ControlToValidate="txtIdVenta" Operator="GreaterThan" Type="Integer" ValueToCompare="0"></asp:CompareValidator>
                     </td>
                 </tr>
                 <tr>
@@ -116,27 +103,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style3">
-                        <table class="auto-style1">
-                            <tr>
-                                <td class="auto-style5">Día:</td>
-                                <td class="auto-style5">Mes:</td>
-                                <td class="auto-style4">Año:</td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style6">
-                                    <asp:TextBox ID="txtFechaDia" runat="server" Width="50px"></asp:TextBox>
-                                    <asp:RangeValidator runat="server" ControlToValidate="txtFechaDia" MaximumValue="31" MinimumValue="1" Type="Integer"></asp:RangeValidator>
-                                </td>
-                                <td class="auto-style6">
-                                    <asp:TextBox ID="txtFechaMes" runat="server" Width="50px"></asp:TextBox>
-                                    <asp:RangeValidator runat="server" ControlToValidate="txtFechaMes" MaximumValue="12" MinimumValue="1" Type="Integer"></asp:RangeValidator>
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="txtFechaAnio" runat="server" Width="50px"></asp:TextBox>
-                                    <asp:CompareValidator runat="server" ControlToValidate="txtFechaAnio" Operator="GreaterThan" Type="Integer" ValueToCompare="0"></asp:CompareValidator>
-                                </td>
-                            </tr>
-                        </table>
+                        <asp:TextBox ID="txtFechaVenta" runat="server" TextMode="Date"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -148,7 +115,6 @@
                 <tr>
                     <td class="auto-style3">
                         <asp:TextBox ID="txtDniCliente" runat="server"></asp:TextBox>
-                        <asp:CompareValidator runat="server" ControlToValidate="txtDniCliente" Operator="GreaterThan" Type="Integer" ValueToCompare="0"></asp:CompareValidator>
                     </td>
                 </tr>
                 <tr>

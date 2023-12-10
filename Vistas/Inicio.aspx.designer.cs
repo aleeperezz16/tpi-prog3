@@ -42,148 +42,148 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label lblCuentaIngresada;
 
         /// <summary>
-        /// Control lnkCarrito.
+        /// Control hlnkCarrito.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkCarrito;
+        protected global::System.Web.UI.WebControls.HyperLink hlnkCarrito;
 
         /// <summary>
-        /// Control lbSecciones.
+        /// Control lblSecciones.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbSecciones;
+        protected global::System.Web.UI.WebControls.Label lblSecciones;
 
         /// <summary>
-        /// Control lbBienvenido.
+        /// Control lblBienvenido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbBienvenido;
+        protected global::System.Web.UI.WebControls.Label lblBienvenido;
 
         /// <summary>
-        /// Control lblSeccionarticulos.
+        /// Control lblSeccionArticulos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSeccionarticulos;
+        protected global::System.Web.UI.WebControls.Label lblSeccionArticulos;
 
         /// <summary>
-        /// Control hlListarArticulos.
+        /// Control hlnkListarArticulos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlListarArticulos;
+        protected global::System.Web.UI.WebControls.HyperLink hlnkListarArticulos;
 
         /// <summary>
-        /// Control hlComprarArticulos.
+        /// Control hlnkComprarArticulos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlComprarArticulos;
+        protected global::System.Web.UI.WebControls.HyperLink hlnkComprarArticulos;
 
         /// <summary>
-        /// Control hlHistorialCompras.
+        /// Control hlnkHistorialCompras.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlHistorialCompras;
+        protected global::System.Web.UI.WebControls.HyperLink hlnkHistorialCompras;
 
         /// <summary>
-        /// Control lblSeccioncategoria.
+        /// Control lblSeccionCategoria.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSeccioncategoria;
+        protected global::System.Web.UI.WebControls.Label lblSeccionCategoria;
 
         /// <summary>
-        /// Control hlListarCategorias.
+        /// Control hlnkListarCategorias.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlListarCategorias;
+        protected global::System.Web.UI.WebControls.HyperLink hlnkListarCategorias;
 
         /// <summary>
-        /// Control hlAgregarCategorias.
+        /// Control hlnkAgregarCategorias.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlAgregarCategorias;
+        protected global::System.Web.UI.WebControls.HyperLink hlnkAgregarCategorias;
 
         /// <summary>
-        /// Control lblSeccionproveedores.
+        /// Control lblSeccionProveedores.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSeccionproveedores;
+        protected global::System.Web.UI.WebControls.Label lblSeccionProveedores;
 
         /// <summary>
-        /// Control hlListarproveedores.
+        /// Control hlnkListarProveedores.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlListarproveedores;
+        protected global::System.Web.UI.WebControls.HyperLink hlnkListarProveedores;
 
         /// <summary>
-        /// Control hlAgregarproveedores.
+        /// Control hlnkAgregarProveedores.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlAgregarproveedores;
+        protected global::System.Web.UI.WebControls.HyperLink hlnkAgregarProveedores;
 
         /// <summary>
-        /// Control lblSeccionpedidos.
+        /// Control lblSeccionPedidos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSeccionpedidos;
+        protected global::System.Web.UI.WebControls.Label lblSeccionPedidos;
 
         /// <summary>
-        /// Control hlListarpedidos.
+        /// Control hlnkListarPedidos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlListarpedidos;
+        protected global::System.Web.UI.WebControls.HyperLink hlnkListarPedidos;
 
         /// <summary>
-        /// Control hlAgregarPedido.
+        /// Control hlnkAgregarPedido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlAgregarPedido;
+        protected global::System.Web.UI.WebControls.HyperLink hlnkAgregarPedido;
 
         /// <summary>
         /// Control lblSeccionVentas.
@@ -195,22 +195,22 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label lblSeccionVentas;
 
         /// <summary>
-        /// Control hlListarventas.
+        /// Control hlnkListarVentas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlListarventas;
+        protected global::System.Web.UI.WebControls.HyperLink hlnkListarVentas;
 
         /// <summary>
-        /// Control hlListarclientes.
+        /// Control hlnkListarClientes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlListarclientes;
+        protected global::System.Web.UI.WebControls.HyperLink hlnkListarClientes;
 
         /// <summary>
         /// Control lblCuenta.
@@ -222,21 +222,21 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label lblCuenta;
 
         /// <summary>
-        /// Control hlGestionarMiCuenta.
+        /// Control hlnkGestionarMiCuenta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlGestionarMiCuenta;
+        protected global::System.Web.UI.WebControls.HyperLink hlnkGestionarMiCuenta;
 
         /// <summary>
-        /// Control btnCerrarsesion.
+        /// Control btnCerrarSesion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCerrarsesion;
+        protected global::System.Web.UI.WebControls.Button btnCerrarSesion;
     }
 }

@@ -13,15 +13,17 @@ namespace Vistas.Admin.Proveedores
 {
     public partial class AgregarProveedor : Admin
     {
-        private NegocioProveedores _negocio = new NegocioProveedores();
+        private NegocioProveedores _negocioProve = new NegocioProveedores();
+        private NegocioProvincia _negocioProvi = new NegocioProvincia();
+        private NegocioCiudades _negocioCiu = new NegocioCiudades();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                ddlProvincia.DataSource = _negocio.ObtenerProvincias();
-                ddlProvincia.DataValueField = "CodigoProvincia";
+                ddlProvincia.DataSource = _negocioProvi.ObtenerProvincias();
                 ddlProvincia.DataTextField = "NombreProvincia";
+                ddlProvincia.DataValueField = "CodigoProvincia";
                 ddlProvincia.DataBind();
 
                 VerUsuarioConectado();
@@ -32,7 +34,7 @@ namespace Vistas.Admin.Proveedores
         {
             if (ddlProvincia.SelectedValue != "--Seleccionar--")
             {
-                CargarCiudades(idProvincia: int.Parse(ddlProvincia.SelectedValue));
+                CargarCiudades(int.Parse(ddlProvincia.SelectedValue));
             }
             else
             {
@@ -43,34 +45,37 @@ namespace Vistas.Admin.Proveedores
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            Proveedor proveedor = new Proveedor();
-            Ciudad ciudad = new Ciudad();
-            ciudad.Codigo = int.Parse(ddlCiudad.SelectedValue);
+            Proveedor proveedor = new Proveedor()
+            {
+                Nombre = txtNombreProveedor.Text.Trim(),
+                Telefono = txtTelefono.Text.Trim(),
+                Email = txtEmail.Text.Trim(),
+                Direccion = txtDireccion.Text.Trim(),
+                Ciudad = new Ciudad()
+                {
+                    Codigo = int.Parse(ddlCiudad.SelectedValue)
+                }
+            };
 
-            proveedor.Nombre = txtNombreProveedor.Text.Trim();
-            proveedor.Telefono = txtTelefono.Text.Trim();
-            proveedor.Email = txtEmail.Text.Trim();
-            proveedor.Direccion = txtDireccion.Text.Trim();
-            proveedor.Ciudad = ciudad;
-
-            if (_negocio.AgregarProveedor(proveedor))
+            if (_negocioProve.AgregarProveedor(proveedor))
             {
                 lblNotificacion.Text = "Se pudo agregar el proveedor exitosamente";
-                txtNombreProveedor.Text = "";
-                txtTelefono.Text = "";
-                txtEmail.Text = "";
-                txtDireccion.Text = "";
+                txtNombreProveedor.Text = txtTelefono.Text = txtEmail.Text = txtDireccion.Text = "";
             }
             else
             {
-                lblNotificacion.Text = "No se pudo agregar el proveedor exitosamente";
+                lblNotificacion.Text = "No se pudo agregar el proveedor";
             }
-                
         }
 
-        private void CargarCiudades(int id = 0, int idProvincia = 0)
+        private void CargarCiudades(int idProvincia)
         {
-            ddlCiudad.DataSource = _negocio.ObtenerCiudades(id, idProvincia);
+            DataView dv = new DataView(_negocioCiu.ObtenerCiudades())
+            {
+                RowFilter = "CodigoProvincia = " + idProvincia
+            };
+
+            ddlCiudad.DataSource = dv.ToTable();
             ddlCiudad.DataValueField = "CodigoCiudad";
             ddlCiudad.DataTextField = "NombreCiudad";
             ddlCiudad.DataBind();

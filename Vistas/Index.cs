@@ -7,7 +7,7 @@ namespace Vistas
 {
     public class Index : System.Web.UI.Page
     {
-        /*protected override void OnPreInit(EventArgs e)
+        protected override void OnPreInit(EventArgs e)
         {
             base.OnPreInit(e);
             
@@ -24,6 +24,6 @@ namespace Vistas
             {
                 Response.Redirect("Login.aspx");
             }
-        }*/
+        }
     }
 }

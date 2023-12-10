@@ -11,29 +11,23 @@ namespace Negocio
 {
     public class LogearUsuario
     {
-        public LogearUsuario() { }
+        public LogearUsuario() 
+        {
 
-        public object IniciarSesion(Usuario usuario)
+        }
+
+        public object IniciarSesion(string alias, string contrasenia)
         {
             DaoUsuarios daoUsuarios = new DaoUsuarios();
-            DataTable data = daoUsuarios.ObtenerUsuario(usuario);
+            Usuario usuario = daoUsuarios.ObtenerUsuario(alias, contrasenia);
 
-            if (data != null)
+            if (usuario?.Tipo != 'V')
             {
-                usuario.Estado = true;
-                usuario.Tipo = data.Rows[0].Field<string>("Tipo")[0];
-
-                if (usuario.Tipo != 'V')
-                {
-                    DaoClientes daoClientes = new DaoClientes();
-                    Cliente cliente = daoClientes.ObtenerCliente(usuario);
-                    return cliente;
-                }
-
-                return usuario;
+                NegocioClientes negocioClientes = new NegocioClientes();
+                return negocioClientes.ObtenerCliente(usuario);
             }
 
-            return null;
+            return usuario;
         }
     }
 }

@@ -5,17 +5,50 @@ using System.Text;
 using System.Threading.Tasks;
 using Dao;
 using System.Data;
+using Entidades;
 
 namespace Negocio
 {
     public class NegocioCiudades
     {
-        public NegocioCiudades() { }
-
-        public DataTable ObtenerCiudades(int id = 0, int idProvincia = 0)
+        private DaoCiudad _dao = new DaoCiudad();
+        private DataTable _ciudades;
+        public NegocioCiudades() 
         {
-            DaoCiudad ciudad = new DaoCiudad();
-            return ciudad.ObtenerCiudades(id,idProvincia);
+            _ciudades = _dao.ObtenerCiudades();
+        }
+
+        public DataTable ObtenerCiudades(bool actualizar = false)
+        {
+            if (actualizar)
+            {
+                _ciudades = _dao.ObtenerCiudades();
+            }
+
+            return _ciudades;
+        }
+
+        public Ciudad ObtenerCiudad(int idCiudad)
+        {
+            try
+            {
+                DataRow fila = _ciudades.Rows[idCiudad - 1];
+                Ciudad ciudad = new Ciudad
+                {
+                    Codigo = idCiudad,
+                    Nombre = fila.Field<string>("Ciudad"),
+                    Provincia = new Provincia
+                    {
+                        Nombre = fila.Field<string>("Provincia")
+                    }
+                };
+
+                return ciudad;
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 }

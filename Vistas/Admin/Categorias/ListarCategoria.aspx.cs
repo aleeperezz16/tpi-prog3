@@ -1,175 +1,132 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Entidades;
 using Negocio;
-
-
+using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace Vistas.Admin.Categorias
 {
     public partial class ListarCategoria : Admin
     {
+        private NegocioCategorias _negocio = new NegocioCategorias();
+        static private DataTable _tablaInicial;
+        static private DataTable _tabla;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
-                cargarCategoriasEnGrilla();
-
-                VerUsuarioConectado();
+                CargarTablaInicial();
             }
-        }
-
-        //PARA ELIMINAR UNA CATEGORIA A TRAVES DEL ID SELECCIONADO
-        protected void gdvCategorias_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        {
-            int s_IdCategoria = Convert.ToInt32(((Label)gdvCategorias.Rows[e.RowIndex].FindControl("lbl_it_IDCategoria")).Text);
-            NegocioCategorias negocio = new NegocioCategorias();
-
-
-            string mensaje = "Está seguro que quiere eliminar la Categoria? " +
-            "  ALERTA!: ÉSTA ACCIÓN NO SE PUEDE DESHACER. ";
-            string titulo = "Mensaje de Confirmacion";
-            System.Windows.Forms.MessageBoxButtons botones = System.Windows.Forms.MessageBoxButtons.YesNo;
-            System.Windows.Forms.DialogResult resultado;
-            resultado = System.Windows.Forms.MessageBox.Show(mensaje, titulo, botones);
-
-            if ( resultado == System.Windows.Forms.DialogResult.Yes)
-            {
-                bool Borro = negocio.eliminarCategoria(s_IdCategoria);
-
-                if (Borro)
-                {
-                    System.Windows.Forms.MessageBox.Show("Se Elimino correctamente la categoria", "Mensaje");
-                }
-                else
-                {
-                    System.Windows.Forms.MessageBox.Show("No se pudo eliminar la categoria, verifique que no posea articulos adheridos a la misma categoria que desea eliminar", "Mensaje");
-                }
-                cargarCategoriasEnGrilla();
-            }
-            else { System.Windows.Forms.MessageBox.Show("La eliminación fue cancelada ", "Mensaje"); }
-        }
-
-        protected void gdvCategorias_RowEditing(object sender, GridViewEditEventArgs e)
-        {
-            gdvCategorias.PageIndex = e.NewEditIndex;
-            cargarCategoriasEnGrilla();
-        }
-
-        protected void gdvCategorias_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
-        {
-            System.Windows.Forms.MessageBox.Show("La edición fué cancelada ", "Mensaje");
-            gdvCategorias.EditIndex = -1;
-            cargarCategoriasEnGrilla();
-        }
-
-        protected void gdvCategorias_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        {
-            NegocioCategorias _negocioCat = new NegocioCategorias();
-            Categoria cat = new Categoria();
-            int s_IdCategoria = Convert.ToInt32(((Label)gdvCategorias.Rows[e.RowIndex].FindControl("lbl_eit_IDCategoria")).Text);
-            string s_Nombrecat = ((TextBox)gdvCategorias.Rows[e.RowIndex].FindControl("tbt_eit_NombreCategoria")).Text;
-            string s_Descripcion = ((TextBox)gdvCategorias.Rows[e.RowIndex].FindControl("tbt_eit_DescripcionCategoria")).Text;
-
-            cat.Id = s_IdCategoria;
-            cat.Nombre = s_Nombrecat;
-            cat.Descripcion = s_Descripcion;
-
-            bool filasAfectadas = _negocioCat.ModificarCategorias(cat);
-            if (!filasAfectadas)
-            {
-                System.Windows.Forms.MessageBox.Show("El registro se ha modificado correctamente!","Mensaje de edición");
-            }
-            else
-            {
-                System.Windows.Forms.MessageBox.Show("La Modificación se canceló ", "Mensaje");
-            }
-            gdvCategorias.EditIndex = -1;
-            cargarCategoriasEnGrilla();
-        }
-
-        // CUANDO CAMBIAS LA PAGINA, Se actualiza el paginador en la pagina elegida y vuelvo a cargar la grilla
-        protected void gdvCategorias_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            gdvCategorias.PageIndex = e.NewPageIndex;
-            cargarCategoriasEnGrilla();
-        }
-
-        //PARA BUSCAR POR EL ID INGRESADO
-        protected void btnBuscarCat_Click(object sender, EventArgs e)
-        {
-            NegocioCategorias negocio = new NegocioCategorias();
-            ///el aux2 lo uso para que no salga - Que no hubo coincidencias si ya tuve algun otro mensaje de error antes
-            int aux2 = 0;
-            ///Primero me fijo que haya escrito algo en algun tb
-            if (tbCategoriaporID.Text.Trim() == "" && tbCategoriaporNombre.Text.Trim() == "")
-            {
-                System.Windows.Forms.MessageBox.Show("Por favor Ingrese algun valor para buscar", "Informe");
-                aux2++;
-            }
-            else
-            {
-                //Me fijo en cual escribio
-                if (tbCategoriaporID.Text.Trim() != "")
-                {
-                    //si escribio en ID me fijo que haya sido un numero nuevamente, (sino se rompe en el datasource x caracter invalido)
-                    int numerodevuelto;
-                    bool ValorNumerico = int.TryParse(tbCategoriaporID.Text.Trim(), out numerodevuelto);
-                    if (ValorNumerico)
-                    {
-                        gdvCategorias.DataSource = negocio.ObtenerCategorias(Convert.ToInt32(tbCategoriaporID.Text));
-                    }
-                    else
-                    {
-                        aux2++;
-                    }
-                }
-                else
-                {
-                    gdvCategorias.DataSource = negocio.ObtenerCategoriasXnombre(tbCategoriaporNombre.Text);
-                }
-                gdvCategorias.DataBind();
-
-            }
-
-            if (aux2 == 0)
-            {
-                try
-                {
-                    ///USO LA EXCEPCION DE FUERA DE RANGO del Row Con un Try Catch PARA CUANDO SÉ QUE NO ENCONTRÓ NADA
-                    String IDCategoria = ((Label)gdvCategorias.Rows[0].FindControl("lbl_it_IDCategoria")).Text;//agarre cualquier dato
-                }
-                catch
-                {
-                    System.Windows.Forms.MessageBox.Show("No hubo coincidencias, por favor intente con otro Nombre o ID", "Informe");
-                }
-            }
-            tbCategoriaporNombre.Text = "";
-            tbCategoriaporID.Text = "";
-
-        }
-
-
-        //CARGA TODAS LAS CATEGORIAS
-        private void cargarCategoriasEnGrilla()
-        {
-            NegocioCategorias negocio = new NegocioCategorias();
-            gdvCategorias.DataSource = negocio.ObtenerCategorias();
-            gdvCategorias.DataBind();
-        }
-
-        protected void btnVistaInicial_Click(object sender, EventArgs e)
-        {
-            tbCategoriaporNombre.Text = "";
-            gdvCategorias.PageIndex = 0;
-            cargarCategoriasEnGrilla();
         }
         
-        //Habilita la busqueda x nombre (Cliente)  o x ID  (Admin)
+        protected void gvCategorias_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            Label idCategoria = (Label)gvCategorias.Rows[e.RowIndex].FindControl("lbl_it_Id");
+
+            if (_negocio.EliminarCategoria(int.Parse(idCategoria.Text)))
+            {
+                MessageBox.Show("Se elimino correctamente la categoria", "Mensaje");
+            }
+            else
+            {
+                MessageBox.Show("No se pudo eliminar la categoria, Checkee que no posea articulos adheridos a la misma", "Mensaje");
+            }
+
+            CargarTablaInicial();
+        }
+
+        protected void gvCategorias_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            gvCategorias.PageIndex = e.NewEditIndex;
+
+            gvCategorias.DataSource = _tabla;
+            gvCategorias.DataBind();
+        }
+
+        protected void gvCategorias_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            gvCategorias.EditIndex = -1;
+
+            gvCategorias.DataSource = _tabla;
+            gvCategorias.DataBind();
+        }
+
+        protected void gvCategorias_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            var fila = gvCategorias.Rows[e.RowIndex];
+            Categoria cat = new Categoria
+            {
+                Id = int.Parse(((Label)fila.FindControl("lbl_eit_Id")).Text),
+                Nombre = ((TextBox)fila.FindControl("txt_eit_Categoria")).Text.Trim(),
+                Descripcion = ((TextBox)fila.FindControl("txt_eit_Descripcion")).Text.Trim()
+            };
+
+            if (_negocio.ModificarCategorias(cat))
+            {
+                MessageBox.Show("¡El registro se ha modificado correctamente!", "Mensaje de edición");
+            }
+
+            gvCategorias.EditIndex = -1;
+            CargarTablaInicial(true);
+        }
+
+        protected void gvCategorias_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvCategorias.PageIndex = e.NewPageIndex;
+
+            gvCategorias.DataSource = _tabla;
+            gvCategorias.DataBind();
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            string filtro = "";
+            string idCategoria = txtIdCategoria.Text.Trim();
+            string nombreCategoria = txtNombre.Text.Trim();
+
+            if (idCategoria.Length > 0)
+            {
+                filtro += $"IDCategoria = {idCategoria}";
+            }
+
+            if (nombreCategoria.Length > 0)
+            {
+                if (filtro.Length > 0)
+                {
+                    filtro += " AND ";
+                }
+
+                filtro += $"NombreCategoria LIKE '%{nombreCategoria}%'";
+            }
+
+            DataView dv = new DataView(_tablaInicial)
+            {
+                RowFilter = filtro
+            };  
+
+            _tabla = filtro.Length > 0 ? dv.ToTable() : _tablaInicial.Copy();
+
+            gvCategorias.DataSource = _tabla;
+            gvCategorias.DataBind();
+
+            txtIdCategoria.Text = txtNombre.Text = "";
+        }
+
+        private void CargarTablaInicial(bool actualizar = false)
+        {
+            _tablaInicial = _negocio.ObtenerCategorias(actualizar);
+            _tabla = _tablaInicial.Copy();
+
+            gvCategorias.DataSource = _tablaInicial;
+            gvCategorias.DataBind();
+        }
+        
         public void VerUsuarioConectado()
         {
             var datos = Session["Datos"];
@@ -183,33 +140,6 @@ namespace Vistas.Admin.Categorias
             {
                 Cliente Clientesito = (Cliente)Session["Datos"];
                 lblCuentaIngresada.Text = Clientesito.Nombre + " " + Clientesito.Apellido;
-            }
-        }
-
-        ///Y los CustomValidatos Los hardcodié para que NOTIFIQUEN con un messageBox En cada caso.
-        protected void cvPorID_ServerValidate(object source, ServerValidateEventArgs args)
-        {
-            if(args.Value.Length == 0)
-            {
-               System.Windows.Forms.MessageBox.Show("Ingrese algun valor ", "Informe");
-            }
-        }
-
-        protected void cvSoloNumeros_ServerValidate(object source, ServerValidateEventArgs args)
-        {
-            int numerodevuelto;
-            bool ValorNumerico = int.TryParse(args.Value.ToString(), out numerodevuelto);
-            if (!ValorNumerico)
-            {
-             System.Windows.Forms.MessageBox.Show("Solo se aceptan caracteres numericos ", "Informe");
-            }
-        }
-
-        protected void cvPorNombre_ServerValidate(object source, ServerValidateEventArgs args)
-        {
-            if (args.Value.Length == 0)
-            {
-                 System.Windows.Forms.MessageBox.Show("Ingrese algun valor ", "Informe");
             }
         }
     }

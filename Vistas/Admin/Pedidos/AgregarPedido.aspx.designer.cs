@@ -1,4 +1,4 @@
-﻿//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 // <generado automáticamente>
 //     Este código fue generado por una herramienta.
 //
@@ -42,31 +42,13 @@ namespace Vistas.Admin.Pedidos
         protected global::System.Web.UI.WebControls.Label lblCuentaIngresada;
 
         /// <summary>
-        /// Control lbl_TituloPagina.
+        /// Control txtIdArticulo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_TituloPagina;
-
-        /// <summary>
-        /// Control lblBuscarArticuloxID.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBuscarArticuloxID;
-
-        /// <summary>
-        /// Control tbBuscarArticuloxID.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbBuscarArticuloxID;
+        protected global::System.Web.UI.WebControls.TextBox txtIdArticulo;
 
         /// <summary>
         /// Control btnBuscar.
@@ -78,24 +60,6 @@ namespace Vistas.Admin.Pedidos
         protected global::System.Web.UI.WebControls.Button btnBuscar;
 
         /// <summary>
-        /// Control btnVistaInicial.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVistaInicial;
-
-        /// <summary>
-        /// Control rfvBuscarxID.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvBuscarxID;
-
-        /// <summary>
         /// Control RegularExpressionValidator1.
         /// </summary>
         /// <remarks>
@@ -105,12 +69,12 @@ namespace Vistas.Admin.Pedidos
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
 
         /// <summary>
-        /// Control gdvAgregarpedido.
+        /// Control gvAgregarPedido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gdvAgregarpedido;
+        protected global::System.Web.UI.WebControls.GridView gvAgregarPedido;
     }
 }

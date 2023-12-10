@@ -11,72 +11,56 @@ namespace Negocio
 {
     public class NegocioCategorias
     {
-        
+        private DaoCategorias _dao = new DaoCategorias();
+        private DataTable _categorias;
 
-        public NegocioCategorias() { }
-
-        public DataTable ObtenerCategorias(int id = 0)
+        public NegocioCategorias() 
         {
-            DaoCategorias dao = new DaoCategorias();
-            return dao.ObtenerCategorias(id);
-        }
-        public DataTable ObtenerCategoriasXnombre(string nombre)
-        {
-            DaoCategorias dao = new DaoCategorias();
-            return dao.ObtenerCategoriasXnombre(nombre);
+            _categorias = _dao.ObtenerCategorias();
         }
 
-        public Categoria ObtenerCategoriaObjeto(int id)
+        public DataTable ObtenerCategorias(bool actualizar = false)
         {
-            DaoCategorias dao = new DaoCategorias();
-            DataTable dtCat = dao.ObtenerCategorias(id);
-            DataRow drCat= dtCat.Rows[0];
-            Categoria cat = new Categoria(); 
-            cat.Id = id;
-            cat.Nombre = drCat[1].ToString();
-            cat.Descripcion = drCat[2].ToString();
-            return cat;
-        }
-
-        public bool agregarCategoria(Categoria cat)
-        {
-            DaoCategorias dao = new DaoCategorias();
-            int cantFilas = 0;
-
-          
-            cantFilas = dao.AgregarCategoria(cat);
-
-            if (cantFilas == 1)
-                return true;
-            else
-                return false;
-        }
-        public bool eliminarCategoria(int id)
-        {
-            DaoCategorias dao = new DaoCategorias();
-            int cantidadFilas = 0;
-        
-            cantidadFilas = dao.BorrarCategoria(id);
-            if (cantidadFilas == 1)
+            if (actualizar)
             {
-                return true;
-            }
-            else
-            {
-                return false;
+                _categorias = _dao.ObtenerCategorias();
             }
 
+            return _categorias;
+        }
 
+        public Categoria ObtenerCategoria(int idCategoria)
+        {
+            try
+            {
+                DataRow fila = _categorias.Rows[idCategoria - 1];
+                Categoria categoria = new Categoria
+                {
+                    Id = idCategoria,
+                    Nombre = fila.Field<string>("Categoria"),
+                    Descripcion = fila.Field<string>("Descripcion"),
+                };
+
+                return categoria;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public bool AgregarCategoria(Categoria cat)
+        {
+            return _dao.AgregarCategoria(cat) == 1;
+        }
+        public bool EliminarCategoria(int id)
+        {
+            return _dao.BorrarCategoria(id) == 1;
         }
 
         public bool ModificarCategorias(Categoria cat)
         {
-            DaoCategorias dao = new DaoCategorias();
-            int cantfilas = dao.ModificarCategoria(cat);
-            return cantfilas > 1 ? true : false;
+            return _dao.ModificarCategoria(cat) == 1;
         }
-
-
-
     }
 }

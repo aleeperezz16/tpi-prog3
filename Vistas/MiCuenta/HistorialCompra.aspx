@@ -41,7 +41,7 @@
         </tr>
         <tr>
             <td class="auto-style2">
-                <asp:HyperLink ID="hlInicio" runat="server" NavigateUrl="~/InicioClientes.aspx">Volver al menú Principal</asp:HyperLink>
+                <asp:HyperLink ID="hlnkInicio" runat="server" NavigateUrl="~/Inicio.aspx">Volver al menú Principal</asp:HyperLink>
             </td>
             <td class="auto-style3">&nbsp;</td>
             <td>&nbsp;</td>
@@ -56,36 +56,29 @@
         <tr>
             <td class="auto-style2">&nbsp;</td>
             <td class="auto-style3">
-                        <asp:GridView ID="gvHistorial" runat="server" AllowPaging="True" AutoGenerateColumns="False" >
+                        <asp:GridView ID="gvHistorial" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal" >
                             <Columns>
-                                <asp:TemplateField HeaderText="Articulo">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbl_it_NombreArticulo" runat="server" Text='<%# Bind("Articulo") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Cantidad">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbl_it_Cantidad" runat="server" Text='<%# Bind("Cantidad") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Total">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbl_it_PrecioTotal" runat="server" Text='<%# Bind("Total") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Fecha">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbl_it_FechaVenta" runat="server" Text='<%# Bind("FechaVenta") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
+                                <asp:BoundField DataField="IDVenta" HeaderText="Nro Venta" />
+                                <asp:BoundField DataField="CostoTotal" HeaderText="Total" />
+                                <asp:BoundField DataField="FechaVenta" HeaderText="Fecha" />
+                                <asp:HyperLinkField DataNavigateUrlFields="NroVenta" DataNavigateUrlFormatString="~/DetalleVenta.aspx?id={0}" Text="Ver detalle" />
                             </Columns>
+                            <FooterStyle BackColor="White" ForeColor="#333333" />
+                            <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
+                            <RowStyle BackColor="White" ForeColor="#333333" />
+                            <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
+                            <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                            <SortedAscendingHeaderStyle BackColor="#487575" />
+                            <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                            <SortedDescendingHeaderStyle BackColor="#275353" />
                         </asp:GridView>
                     </td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td class="auto-style2">&nbsp;</td>
-            <td class="auto-style3">listar ventas del propio cliente logeado.</td>
+            <td class="auto-style3"></td>
             <td>&nbsp;</td>
         </tr>
         <tr>

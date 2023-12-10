@@ -16,11 +16,10 @@ namespace Entidades
         public string Email { get; set; }
         public string Direccion { get; set; }
         public Ciudad Ciudad { get; set; }
-        public bool Estado { get; set; }
 
         public Cliente() { }
 
-        public Cliente(int dni, string apellido, string nombre, Usuario usuario, string telefono, string email, string direccion, Ciudad ciudad, bool estado)
+        public Cliente(int dni, string apellido, string nombre, Usuario usuario, string telefono, string email, string direccion, Ciudad ciudad)
         {
             Dni = dni;
             Apellido = apellido;
@@ -30,7 +29,6 @@ namespace Entidades
             Email = email;
             Direccion = direccion;
             Ciudad = ciudad;
-            Estado = estado;
         }
     }
 }

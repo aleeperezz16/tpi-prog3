@@ -1,4 +1,4 @@
-﻿//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 // <generado automáticamente>
 //     Este código fue generado por una herramienta.
 //
@@ -24,13 +24,13 @@ namespace Vistas.Admin.Articulos
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control hlAgregarArt.
+        /// Control hlnkAgregarArt.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlAgregarArt;
+        protected global::System.Web.UI.WebControls.HyperLink hlnkAgregarArt;
 
         /// <summary>
         /// Control lblCuentaIngresada.
@@ -51,13 +51,13 @@ namespace Vistas.Admin.Articulos
         protected global::System.Web.UI.WebControls.Label lblAgregarArticulo;
 
         /// <summary>
-        /// Control lbNombreArticulo.
+        /// Control lblNombreArticulo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbNombreArticulo;
+        protected global::System.Web.UI.WebControls.Label lblNombreArticulo;
 
         /// <summary>
         /// Control txtNombreArticulo.
@@ -78,13 +78,13 @@ namespace Vistas.Admin.Articulos
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNombreArticulo;
 
         /// <summary>
-        /// Control lbCategoria.
+        /// Control lblCategoria.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbCategoria;
+        protected global::System.Web.UI.WebControls.Label lblCategoria;
 
         /// <summary>
         /// Control ddlCategoria.
@@ -105,13 +105,13 @@ namespace Vistas.Admin.Articulos
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCategoria;
 
         /// <summary>
-        /// Control lbProveedor.
+        /// Control lblProveedor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbProveedor;
+        protected global::System.Web.UI.WebControls.Label lblProveedor;
 
         /// <summary>
         /// Control ddlProveedor.
@@ -132,22 +132,22 @@ namespace Vistas.Admin.Articulos
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvProveedor;
 
         /// <summary>
-        /// Control lbPrecioDeVenta.
+        /// Control lblPrecioVenta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbPrecioDeVenta;
+        protected global::System.Web.UI.WebControls.Label lblPrecioVenta;
 
         /// <summary>
-        /// Control txtPrecioDeVenta.
+        /// Control txtPrecioVenta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPrecioDeVenta;
+        protected global::System.Web.UI.WebControls.TextBox txtPrecioVenta;
 
         /// <summary>
         /// Control rfvPrecioDeVenta.
@@ -159,22 +159,22 @@ namespace Vistas.Admin.Articulos
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPrecioDeVenta;
 
         /// <summary>
-        /// Control lbPrecioDeCompra.
+        /// Control lblPrecioCompra.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbPrecioDeCompra;
+        protected global::System.Web.UI.WebControls.Label lblPrecioCompra;
 
         /// <summary>
-        /// Control txtPrecioDeCompra.
+        /// Control txtPrecioCompra.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPrecioDeCompra;
+        protected global::System.Web.UI.WebControls.TextBox txtPrecioCompra;
 
         /// <summary>
         /// Control rfvPrecioDeCompra.
@@ -186,13 +186,13 @@ namespace Vistas.Admin.Articulos
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPrecioDeCompra;
 
         /// <summary>
-        /// Control lbStock.
+        /// Control lblStock.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbStock;
+        protected global::System.Web.UI.WebControls.Label lblStock;
 
         /// <summary>
         /// Control txtStock.
