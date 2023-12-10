@@ -58,9 +58,9 @@
             <td class="auto-style3">
                         <asp:GridView ID="gvHistorial" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal" >
                             <Columns>
-                                <asp:BoundField DataField="NroVenta" HeaderText="Nro Venta" />
-                                <asp:BoundField DataField="Total" HeaderText="Total" />
-                                <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
+                                <asp:BoundField DataField="IDVenta" HeaderText="Nro Venta" />
+                                <asp:BoundField DataField="CostoTotal" HeaderText="Total" />
+                                <asp:BoundField DataField="FechaVenta" HeaderText="Fecha" />
                                 <asp:HyperLinkField DataNavigateUrlFields="NroVenta" DataNavigateUrlFormatString="~/DetalleVenta.aspx?id={0}" Text="Ver detalle" />
                             </Columns>
                             <FooterStyle BackColor="White" ForeColor="#333333" />

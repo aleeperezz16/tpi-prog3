@@ -14,6 +14,8 @@ namespace Vistas.Admin.Categorias
     public partial class ListarCategoria : Admin
     {
         private NegocioCategorias _negocio = new NegocioCategorias();
+        static private DataTable _tablaInicial;
+        static private DataTable _tabla;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,7 +27,7 @@ namespace Vistas.Admin.Categorias
         
         protected void gvCategorias_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            Label idCategoria = (Label)gvCategorias.Rows[e.RowIndex].FindControl("lbl_it_IDCategoria");
+            Label idCategoria = (Label)gvCategorias.Rows[e.RowIndex].FindControl("lbl_it_Id");
 
             if (_negocio.EliminarCategoria(int.Parse(idCategoria.Text)))
             {
@@ -42,12 +44,16 @@ namespace Vistas.Admin.Categorias
         protected void gvCategorias_RowEditing(object sender, GridViewEditEventArgs e)
         {
             gvCategorias.PageIndex = e.NewEditIndex;
+
+            gvCategorias.DataSource = _tabla;
             gvCategorias.DataBind();
         }
 
         protected void gvCategorias_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             gvCategorias.EditIndex = -1;
+
+            gvCategorias.DataSource = _tabla;
             gvCategorias.DataBind();
         }
 
@@ -56,63 +62,71 @@ namespace Vistas.Admin.Categorias
             var fila = gvCategorias.Rows[e.RowIndex];
             Categoria cat = new Categoria
             {
-                Id = int.Parse(((Label)fila.FindControl("lbl_eit_IDCategoria")).Text),
-                Nombre = ((TextBox)fila.FindControl("txt_eit_NombreCategoria")).Text.Trim(),
-                Descripcion = ((TextBox)fila.FindControl("txt_eit_DescripcionCategoria")).Text.Trim()
+                Id = int.Parse(((Label)fila.FindControl("lbl_eit_Id")).Text),
+                Nombre = ((TextBox)fila.FindControl("txt_eit_Categoria")).Text.Trim(),
+                Descripcion = ((TextBox)fila.FindControl("txt_eit_Descripcion")).Text.Trim()
             };
 
             if (_negocio.ModificarCategorias(cat))
             {
-                MessageBox.Show("El registro se ha modificado correctamente!", "Mensaje de edición");
+                MessageBox.Show("¡El registro se ha modificado correctamente!", "Mensaje de edición");
             }
 
             gvCategorias.EditIndex = -1;
-            CargarTablaInicial();
+            CargarTablaInicial(true);
         }
 
         protected void gvCategorias_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvCategorias.PageIndex = e.NewPageIndex;
+
+            gvCategorias.DataSource = _tabla;
             gvCategorias.DataBind();
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            DataView dv = new DataView((DataTable)gvCategorias.DataSource)
+            string filtro = "";
+            string idCategoria = txtIdCategoria.Text.Trim();
+            string nombreCategoria = txtNombre.Text.Trim();
+
+            if (idCategoria.Length > 0)
             {
-                RowFilter = $"IdCategoria = {txtIdCategoria.Text.Trim()}"
+                filtro += $"IDCategoria = {idCategoria}";
+            }
+
+            if (nombreCategoria.Length > 0)
+            {
+                if (filtro.Length > 0)
+                {
+                    filtro += " AND ";
+                }
+
+                filtro += $"NombreCategoria LIKE '%{nombreCategoria}%'";
+            }
+
+            DataView dv = new DataView(_tablaInicial)
+            {
+                RowFilter = filtro
             };  
 
-            gvCategorias.DataSource = dv.ToTable();
+            _tabla = filtro.Length > 0 ? dv.ToTable() : _tablaInicial.Copy();
+
+            gvCategorias.DataSource = _tabla;
             gvCategorias.DataBind();
 
-            txtIdCategoria.Text = "";
-
-            /*try
-            {
-                ///USO LA EXCEPCION DE FUERA DE RANGO del Row Con un Try Catch PARA CUANDO SÉ QUE NO ENCONTRÓ NADA
-                String IDCategoria = ((Label)gvCategorias.Rows[0].FindControl("lbl_it_IDCategoria")).Text;//agarre cualquier dato
-            }
-            else
-            {
-                System.Windows.Forms.MessageBox.Show("No hubo coincidencias, por favor intente con otro ID", "Informe");
-            }*/
+            txtIdCategoria.Text = txtNombre.Text = "";
         }
 
-        protected void btnVistaInicial_Click(object sender, EventArgs e)
+        private void CargarTablaInicial(bool actualizar = false)
         {
-            txtIdCategoria.Text = "";
-            gvCategorias.PageIndex = 0;
-            CargarTablaInicial();
-        }
+            _tablaInicial = _negocio.ObtenerCategorias(actualizar);
+            _tabla = _tablaInicial.Copy();
 
-        private void CargarTablaInicial()
-        {
-            gvCategorias.DataSource = _negocio.ObtenerCategorias();
+            gvCategorias.DataSource = _tablaInicial;
             gvCategorias.DataBind();
         }
         
-        //Habilita la busqueda x nombre (Cliente)  o x ID  (Admin)
         public void VerUsuarioConectado()
         {
             var datos = Session["Datos"];
@@ -126,33 +140,6 @@ namespace Vistas.Admin.Categorias
             {
                 Cliente Clientesito = (Cliente)Session["Datos"];
                 lblCuentaIngresada.Text = Clientesito.Nombre + " " + Clientesito.Apellido;
-            }
-        }
-
-        ///Y los CustomValidatos Los hardcodié para que NOTIFIQUEN con un messageBox En cada caso.
-        protected void cvPorID_ServerValidate(object source, ServerValidateEventArgs args)
-        {
-            if(args.Value.Length == 0)
-            {
-               System.Windows.Forms.MessageBox.Show("Ingrese algun valor ", "Informe");
-            }
-        }
-
-        protected void cvSoloNumeros_ServerValidate(object source, ServerValidateEventArgs args)
-        {
-            int numerodevuelto;
-            bool ValorNumerico = int.TryParse(args.Value.ToString(), out numerodevuelto);
-            if (!ValorNumerico)
-            {
-             System.Windows.Forms.MessageBox.Show("Solo se aceptan caracteres numericos ", "Informe");
-            }
-        }
-
-        protected void cvPorNombre_ServerValidate(object source, ServerValidateEventArgs args)
-        {
-            if (args.Value.Length == 0)
-            {
-                 System.Windows.Forms.MessageBox.Show("Ingrese algun valor ", "Informe");
             }
         }
     }

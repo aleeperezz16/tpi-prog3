@@ -24,16 +24,15 @@ namespace Dao
             {
                 Alias = dato.Field<string>("Alias"),
                 Contrasenia = dato.Field<string>("Contrasenia"),
-                Tipo = dato.Field<char>("Tipo"),
+                Tipo = dato.Field<string>("Tipo")[0],
                 Estado = true
             } : null;
         }
 
-        public int CambiarContrasenia(string user,string password)
+        public int CambiarContrasenia(string user, string password)
         {
             string consulta = $"UPDATE LOGINUSUARIOS SET Contrasenia = '{password}' WHERE Alias = '{user}'";
-
-             return _datos.EjecutarConsulta(consulta);
+            return _datos.EjecutarConsulta(consulta);
         }
     }
 }

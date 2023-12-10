@@ -24,13 +24,13 @@ namespace Vistas.Articulos
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control hlnkInicio.
+        /// Control hlVolverAMenu.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlnkInicio;
+        protected global::System.Web.UI.WebControls.HyperLink hlVolverAMenu;
 
         /// <summary>
         /// Control lblCuentaIngresada.
@@ -42,7 +42,7 @@ namespace Vistas.Articulos
         protected global::System.Web.UI.WebControls.Label lblCuentaIngresada;
 
         /// <summary>
-        /// Control Label1.
+        /// Control lblTitulo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.

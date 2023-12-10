@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ListarPedidos.aspx.cs" Inherits="Vistas.Admin.Pedidos.ListarPedidos" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ListarPedidos.aspx.cs" Inherits="Vistas.Admin.Pedidos.ListarPedidos" %>
 
 <!DOCTYPE html>
 
@@ -82,11 +82,9 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Button ID="btnBuscar" CssClass="myButton" runat="server" Text="Buscar" OnClick="btnBuscar_Click" ValidationGroup="1" />
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="btnVistaInicial" CssClass="myButton" runat="server" OnClick="btnVistaInicial_Click" Text="Vista Inicial" />
-                    </td>
+                        </td>
                     <td class="auto-style5">
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="tbBuscarPedidoPorId" ForeColor="#FF3300" ValidationGroup="1">*Por favor Ingrese un número de ID.</asp:RequiredFieldValidator>
-                    </td>
+                        &nbsp;</td>
                     <td class="auto-style2" rowspan="2"></td>
                 </tr>
                 <tr>
@@ -102,39 +100,15 @@
                 <tr>
                     <td class="auto-style14">&nbsp;</td>
                     <td class="auto-style16" colspan="2">
-                        <asp:GridView ID="gdvListarPedidos" runat="server" AutoGenerateColumns="False" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" OnPageIndexChanging="gdvListarPedidos_PageIndexChanging">
+                        <asp:GridView ID="gvListarPedidos" runat="server" AutoGenerateColumns="False" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" OnPageIndexChanging="gdvListarPedidos_PageIndexChanging">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
-                                <asp:TemplateField HeaderText="Id">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbl_it_IDPedido" runat="server" Text='<%# Bind ("IDPedido") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Articulo">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbl_it_IDArticulo" runat="server" Text='<%# Bind ("IDArticulo") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Proveedor">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbl_it_IDProveedor" runat="server" Text='<%# Bind("IDProveedor") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Cantidad">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbl_it_Cantidad" runat="server" Text='<%# Bind ("Cantidad") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Fecha Pedido">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbl_it_FechaPedido" runat="server" Text='<%# Bind("FechaPedido") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Total">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbl_it_CostoTotal" runat="server" Text='<%# Bind ("CostoTotal") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
+                                <asp:BoundField DataField="IDPedido" HeaderText="Id" />
+                                <asp:BoundField DataField="NombreArticulo" HeaderText="Articulo" />
+                                <asp:BoundField DataField="NombreProveedor" HeaderText="Proveedor" />
+                                <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" />
+                                <asp:BoundField DataField="FechaVenta" HeaderText="Fecha" />
+                                <asp:BoundField DataField="CostoTotal" HeaderText="Total" />
                             </Columns>
                             <EditRowStyle BackColor="#2461BF" />
                             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

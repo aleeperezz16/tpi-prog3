@@ -61,24 +61,5 @@ namespace Vistas
             hlnkCarrito.Visible = true;
             lblCuenta.Visible = true;
         }
-
-        public void VerUsuarioConectado()
-        {
-            var datos = Session["Datos"];
-
-            if (datos.GetType() == typeof(Usuario))
-            {
-                HabilitarAdmin();
-                Usuario usuarito = (Usuario)Session["Datos"];
-                lblCuentaIngresada.Text = usuarito.Alias;
-            }
-            else
-            {
-                HabilitarCliente();
-                Cliente Clientesito = (Cliente)Session["Datos"];
-                lblCuentaIngresada.Text = Clientesito.Nombre + " " + Clientesito.Apellido;
-            }
-        }
-
     }
 }

@@ -11,9 +11,9 @@ namespace Negocio
 {
     public class NegocioUsuario
     {
-        DaoUsuarios _daoUsuarios = new DaoUsuarios();
         public int CambiarContrasenia(string user, string pass)
         {
+            DaoUsuarios _daoUsuarios = new DaoUsuarios();
             return _daoUsuarios.CambiarContrasenia(user, pass);
         }
     }

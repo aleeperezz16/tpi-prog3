@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AgregarCategoria.aspx.cs" Inherits="Vistas.Admin.Categorias.AgregarCategoria" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AgregarCategoria.aspx.cs" Inherits="Vistas.Admin.Categorias.AgregarCategoria" %>
 
 <!DOCTYPE html>
 
@@ -70,7 +70,7 @@
                 <td class="auto-style12">
                     &nbsp;</td>
                 <td class="auto-style13" colspan="2">
-                    <asp:HyperLink ID="hlAgregarcat" runat="server" NavigateUrl="~/Inicio.aspx">Volver al menú Principal</asp:HyperLink>
+                    <asp:HyperLink ID="hlnkInicio" runat="server" NavigateUrl="~/Inicio.aspx">Volver al menú Principal</asp:HyperLink>
                 </td>
                 <td class="auto-style15">
                     <asp:Label ID="lblCuentaIngresada" runat="server"></asp:Label>
@@ -78,7 +78,7 @@
             </tr>
             <tr>
                 <td class="auto-style12">
-                    <asp:Label ID="Label1" class="mainItem" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Agregar Categoria"></asp:Label>
+                    <asp:Label ID="lblCategoria" class="mainItem" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Agregar Categoria"></asp:Label>
                 </td>
                 <td class="auto-style13" colspan="2"></td>
                 <td class="auto-style14">
@@ -95,7 +95,7 @@
                 <td class="auto-style6" colspan="2">
                     <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:RequiredFieldValidator ID="rfvNombreCategoria" runat="server" ControlToValidate="tbNombre" ForeColor="#FF3300">Ingrese un nombre de Categoria</asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvNombreCategoria" runat="server" ControlToValidate="tbNombre" ForeColor="#FF3300">Ingrese un nombre de categoria</asp:RequiredFieldValidator>
                 </td>
                 <td>&nbsp;</td>
             </tr>

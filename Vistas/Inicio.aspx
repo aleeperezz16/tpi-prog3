@@ -217,7 +217,7 @@
                     <td class="auto-style60">
                     </td>
                     <td class="auto-style43">
-                        <asp:Label ID="lblTitulo"  CssClass="mainItem" runat="server" Font-Bold="True" Font-Overline="False" Font-Size="XX-Large" Text="Home" ForeColor="White"></asp:Label>
+                        <asp:Label ID="lblTitulo"  CssClass="mainItem" runat="server" Font-Bold="True" Font-Overline="False" Font-Size="XX-Large" Text="Inicio" ForeColor="White"></asp:Label>
                     </td>
                     <td class="auto-style38">
                     </td>

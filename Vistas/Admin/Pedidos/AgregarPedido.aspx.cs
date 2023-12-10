@@ -17,12 +17,15 @@ namespace Vistas.Admin.Pedidos
     {
         private NegocioPedidos _negocioPed = new NegocioPedidos();
         private NegocioArticulos _negocioArt = new NegocioArticulos();
+        static private DataTable _tablaInicial;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                CargarTablaInicial();
+                _tablaInicial = _negocioArt.ObtenerArticulos();
+                gvAgregarPedido.DataSource = _tablaInicial;
+                gvAgregarPedido.DataBind();
             }
         }
 
@@ -32,24 +35,25 @@ namespace Vistas.Admin.Pedidos
             {
                 var fila = gvAgregarPedido.Rows[Convert.ToInt32(e.CommandArgument)];
                 int cantidad = int.Parse(((TextBox)fila.FindControl("txt_it_Cantidad")).Text.Trim());
+                decimal precio = decimal.Parse(fila.Cells[4].Text);
                 Pedido nuevoPedido = new Pedido
                 {
                     Articulo = new Articulo
                     {
-                        Id = int.Parse(((Label)fila.FindControl("lbl_it_IdArticulo")).Text.Trim()),
-                        Nombre = ((Label)fila.FindControl("lbl_it_NombreArticulo")).Text.Trim(),
-                        PrecioCompra = decimal.Parse(((Label)fila.FindControl("lbl_it_PrecioCompra")).Text.Trim()),
+                        Id = int.Parse(fila.Cells[0].Text),
+                        Nombre = fila.Cells[1].Text,
+                        PrecioCompra = precio,
                         Categoria = new Categoria
                         {
-                            Id = int.Parse(((Label)fila.FindControl("lbl_it_IdCategoria")).Text.Trim()),
+                            Id = int.Parse(fila.Cells[2].Text),
                         },
                         Estado = true
                     },
-                    CostoTotal = decimal.Parse(((Label)fila.FindControl("lbl_it_PrecioCompra")).Text.Trim()) * cantidad,
+                    CostoTotal = precio * cantidad,
                     Cantidad = cantidad,
                     Proveedor = new Proveedor
                     {
-                        Id = int.Parse(((Label)fila.FindControl("lbl_it_IDProveedor")).Text.Trim()),
+                        Id = int.Parse(fila.Cells[3].Text),
                     }
                 };
 
@@ -59,9 +63,6 @@ namespace Vistas.Admin.Pedidos
                     {
                         MessageBox.Show("Pedido confirmado y realizado con éxito");
                     }
-                }
-                else
-                {
                 }
             }
         }
@@ -78,38 +79,18 @@ namespace Vistas.Admin.Pedidos
             return MessageBox.Show(mensaje, "Resumen del pedido", MessageBoxButtons.YesNo);
         }
 
-        private void CargarTablaInicial()
-        {
-            gvAgregarPedido.DataSource = _negocioArt.ObtenerArticulos();
-            gvAgregarPedido.DataBind();
-        }
-
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            DataView dv = new DataView(_negocioArt.ObtenerArticulos())
+            string idArticulo = txtIdArticulo.Text.Trim();
+
+            DataView dv = new DataView(_tablaInicial)
             {
-                RowFilter = $"Id = {txtBuscarArt.Text.Trim()}"
+                RowFilter = $"IDArticulo = {idArticulo}"
             };
 
-            gvAgregarPedido.DataSource = dv.ToTable();
-            gvAgregarPedido.DataBind();
-            
-            /*try
-            {
-                ///USO LA EXCEPCION DE FUERA DE RANGO del Row Con un Try Catch PARA CUANDO SÉ QUE NO ENCONTRÓ NADA
-                String PrecioCompra = ((Label)gvAgregarPedido.Rows[0].FindControl("lbl_it_PrecioCompra")).Text;
-            }
-            catch
-            {
-                    System.Windows.Forms.MessageBox.Show("No hubo coincidencias, por favor intente con otro ID", "Informe");
-            }*/
+            gvAgregarPedido.DataSource = idArticulo.Length > 0 ? dv.ToTable() : _tablaInicial;
+            gvAgregarPedido.DataBind();            
         }
-
-        protected void btnVistaInicial_Click(object sender, EventArgs e)
-        {
-            CargarTablaInicial();
-        }
-
         protected void gvAgregarPedido_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvAgregarPedido.PageIndex = e.NewPageIndex;

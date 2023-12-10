@@ -15,9 +15,7 @@ namespace Dao
 
         public DataTable ObtenerCiudades()
         {
-            string consulta = "SELECT CodigoCiudad AS Codigo," +
-                "NombreCiudad AS Nombre," +
-                "NombreProvincia AS Provincia " +
+            string consulta = "SELECT C.*, NombreProvincia " +
                 "FROM CIUDAD C INNER JOIN PROVINCIA P ON C.CodigoProvincia = P.CodigoProvincia";
 
             return _datos.ObtenerTabla("Ciudades", consulta);

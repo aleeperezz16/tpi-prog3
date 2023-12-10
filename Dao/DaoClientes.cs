@@ -25,17 +25,18 @@ namespace Dao
         public DataTable ObtenerClientes()
         {
             string consulta = "SELECT DNI, CONCAT_WS(' ', Nombre, Apellido) AS Nombre," +
-                "C.Alias, Telefono, EMail, Direccion," +
-                "NombreCiudad AS Ciudad, Estado " +
-                "FROM CLIENTES C INNER JOIN CIUDAD CI ON C.CodigoCiudad = CI.CodigoCiudad " +
-                "INNER JOIN LOGINUSUARIOS L ON L.Alias = C.Alias";
+                "C.Alias, Telefono, Email, Direccion," +
+                "C.CodigoCiudad, NombreCiudad," +
+                "Contrasenia, Tipo, LU.Estado " +
+                "FROM CLIENTES C INNER JOIN LOGINUSUARIOS LU ON C.Alias = LU.Alias " +
+                "INNER JOIN CIUDAD CI ON C.CodigoCiudad = CI.CodigoCiudad";
 
             return _datos.ObtenerTabla("Clientes", consulta);
         }
 
         public DataTable ObtenerHistorial(int dni)
         {
-            string consulta = $"SELECT IDVenta AS NroVenta, PrecioTotal AS Total, FechaVenta AS Fecha FROM VENTAS WHERE DNICliente = {dni}";
+            string consulta = $"SELECT IDVenta, PrecioTotal, FechaVenta FROM VENTAS WHERE DNICliente = {dni}";
             return _datos.ObtenerTabla("Historial", consulta);
         }
 
@@ -53,8 +54,8 @@ namespace Dao
 
         public bool ExisteCliente(Cliente cliente)
         {
-            string consulta = "SELECT C.Dni, C.Alias FROM Clientes C INNER JOIN LoginUsuarios L " +
-                $"ON L.Alias = C.Alias WHERE C.Dni = {cliente.Dni} OR C.Alias = '{cliente.Usuario.Alias}'";
+            string consulta = "SELECT DNI, Alias FROM CLIENTES C INNER JOIN LOGINUSUARIOS LU " +
+                $"ON LU.Alias = C.Alias WHERE C.DNI = {cliente.Dni} OR C.Alias = '{cliente.Usuario.Alias}'";
 
             return _datos.ExisteRegistro(consulta);
         }

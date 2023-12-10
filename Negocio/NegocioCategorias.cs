@@ -18,14 +18,14 @@ namespace Negocio
         {
             _categorias = _dao.ObtenerCategorias();
         }
-        public DataTable ObtenerCategoriasXnombre(string nombre)
-        {
-            DaoCategorias dao = new DaoCategorias();
-            return dao.ObtenerCategoriasXnombre(nombre);
-        }
 
-        public DataTable ObtenerCategorias()
+        public DataTable ObtenerCategorias(bool actualizar = false)
         {
+            if (actualizar)
+            {
+                _categorias = _dao.ObtenerCategorias();
+            }
+
             return _categorias;
         }
 

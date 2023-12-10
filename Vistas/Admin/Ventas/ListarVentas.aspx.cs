@@ -13,69 +13,98 @@ namespace Vistas.Admin.Ventas
     public partial class ListarVentas : Admin
     {
         private NegocioVentas _negocio = new NegocioVentas();
-        static private DataTable _tablaVentas;
+        static private DataTable _tablaInicial;
+        static private DataTable _tabla;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                ddlArticulos.DataSource = _negocio.ObtenerArticulos();
-                ddlArticulos.DataTextField = "NombreArticulo";
-                ddlArticulos.DataValueField = "IDArticulo";
-                ddlArticulos.DataBind();
+                _tablaInicial = _negocio.ObtenerVentas();
+                _tabla = _tablaInicial.Copy();
 
-                CargarTablaInicial();
+                gvVentas.DataSource = _tablaInicial;
+                gvVentas.DataBind();
             }
         }
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
             string idVenta = txtIdVenta.Text.Trim();
-            string dia = txtFechaDia.Text.Trim();
-            string mes = txtFechaMes.Text.Trim();
-            string anio = txtFechaAnio.Text.Trim();
+            string fecha = txtFechaVenta.Text.Trim();
             string dni = txtDniCliente.Text.Trim();
-            string articulo = ddlArticulos.SelectedValue;
+            string articulo = txtArticulo.Text.Trim();
 
-            if (articulo == "--Seleccionar--")
-                articulo = "";
+            string filtro = "";
 
-            DataView dv = new DataView(_tablaVentas)
+            if (idVenta.Length > 0)
             {
-                RowFilter = $"IDVenta LIKE '%{idVenta}%' AND IDArticulo LIKE '%{articulo}%' AND FechaVenta LIKE '%{anio}{(mes.Length == 1 ? "0" : "")}{mes}{(dia.Length == 1 ? "0" : "")}{dia}%' AND DNICliente LIKE '%{dni}%'"
+                filtro += $"IDVenta = {idVenta}";
+            }
+
+            if (fecha.Length > 0)
+            {
+                if (filtro.Length > 0)
+                {
+                    filtro += $" AND ";
+                }
+
+                filtro += $"FechaVenta = '{fecha}'";
+            }
+
+            if (dni.Length > 0)
+            {
+                if (filtro.Length > 0)
+                {
+                    filtro += $" AND ";
+                }
+
+                filtro += $"DNI = {dni}";
+            }
+
+            if (articulo.Length > 0)
+            {
+                if (filtro.Length > 0)
+                {
+                    filtro += $" AND ";
+                }
+
+                filtro += $"NombreArticulo LIKE '%{articulo}%'";
+            }
+
+            DataView dv = new DataView(_tablaInicial)
+            {
+                RowFilter = filtro
             };
 
-            gvVentas.DataSource = dv.ToTable();
+            _tabla = filtro.Length > 0 ? dv.ToTable() : _tablaInicial.Copy();
+
+            gvVentas.DataSource = _tabla;
             gvVentas.DataBind();
         }
 
-        protected void gvVentas_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    protected void gvVentas_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        gvVentas.PageIndex = e.NewPageIndex;
+
+        gvVentas.DataSource = _tabla;
+        gvVentas.DataBind();
+    }
+
+    public void VerUsuarioConectado()
+    {
+        var datos = Session["Datos"];
+
+        if (datos.GetType() == typeof(Usuario))
         {
-            gvVentas.PageIndex = e.NewPageIndex;
-            gvVentas.DataBind();
+            Usuario usuarito = (Usuario)Session["Datos"];
+            lblCuentaIngresada.Text = usuarito.Alias;
         }
-
-        private void CargarTablaInicial()
+        else
         {
-            _tablaVentas = _negocio.ObtenerVentas();
-            gvVentas.DataSource = _tablaVentas;
-            gvVentas.DataBind();
-        }
-
-        public void VerUsuarioConectado()
-        {
-            var datos = Session["Datos"];
-
-            if (datos.GetType() == typeof(Usuario))
-            {
-                Usuario usuarito = (Usuario)Session["Datos"];
-                lblCuentaIngresada.Text = usuarito.Alias;
-            }
-            else
-            {
-                Cliente Clientesito = (Cliente)Session["Datos"];
-                lblCuentaIngresada.Text = Clientesito.Nombre + " " + Clientesito.Apellido;
-            }
+            Cliente Clientesito = (Cliente)Session["Datos"];
+            lblCuentaIngresada.Text = Clientesito.Nombre + " " + Clientesito.Apellido;
         }
     }
+}
 }

@@ -19,8 +19,13 @@ namespace Negocio
             _proveedores = _dao.ObtenerProveedores();
         }
 
-        public DataTable ObtenerProvincias()
+        public DataTable ObtenerProveedores(bool actualizar = false)
         {
+            if (actualizar)
+            {
+                _proveedores = _dao.ObtenerProveedores();
+            }
+
             return _proveedores;
         }
 

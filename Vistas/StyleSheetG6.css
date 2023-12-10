@@ -70,7 +70,6 @@ body {
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
-    backdrop-filter: blur(100px);
 }
 
 #tablalogin {

@@ -39,7 +39,7 @@ namespace Vistas.Admin.Articulos
             Articulo nuevoArticulo = new Articulo
             {
                 Nombre = txtNombreArticulo.Text.Trim(),
-                Categoria = ObtenerCategoria(int.Parse(ddlCategoria.SelectedValue)),
+                Categoria = _negocioCat.ObtenerCategoria(int.Parse(ddlCategoria.SelectedValue)),
                 Proveedor = new Proveedor
                 {
                     Id = int.Parse(ddlProveedor.SelectedValue)
@@ -51,17 +51,6 @@ namespace Vistas.Admin.Articulos
             };
 
             lblResultado.Text = _negocioArt.AgregarArticulo(nuevoArticulo) ? "El articulo se ha agregado con exito" : "No se pudo agregar el articulo";
-        }
-
-        private Categoria ObtenerCategoria(int id)
-        {
-            DataRow dr = _negocioCat.ObtenerCategorias(id).Rows[0];
-            return new Categoria
-            {
-                Id = int.Parse(dr.Field<string>("IDCategoria")),
-                Nombre = dr.Field<string>("NombreCategoria"),
-                Descripcion = dr.Field<string>("Descripcion")
-            };
         }
 
         public void VerUsuarioConectado()

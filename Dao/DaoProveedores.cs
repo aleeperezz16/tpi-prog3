@@ -36,9 +36,7 @@ namespace Dao
 
         public DataTable ObtenerProveedores()
         {
-            string consulta = "SELECT IDProveedor AS Id, NombreProveedor AS Proveedor," +
-                "Telefono, EMail, Direccion," +
-                "NombreCiudad AS Ciudad, Estado " +
+            string consulta = "SELECT P.*, NombreCiudad " +
                 "FROM PROVEEDORES P INNER JOIN CIUDAD C ON P.CodigoCiudad = C.CodigoCiudad";       
 
             return _datos.ObtenerTabla("Proveedores", consulta);

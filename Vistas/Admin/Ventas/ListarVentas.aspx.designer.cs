@@ -51,13 +51,13 @@ namespace Vistas.Admin.Ventas
         protected global::System.Web.UI.WebControls.GridView gvVentas;
 
         /// <summary>
-        /// Control ddlArticulos.
+        /// Control txtArticulo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlArticulos;
+        protected global::System.Web.UI.WebControls.TextBox txtArticulo;
 
         /// <summary>
         /// Control txtIdVenta.
@@ -69,31 +69,13 @@ namespace Vistas.Admin.Ventas
         protected global::System.Web.UI.WebControls.TextBox txtIdVenta;
 
         /// <summary>
-        /// Control txtFechaDia.
+        /// Control txtFechaVenta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaDia;
-
-        /// <summary>
-        /// Control txtFechaMes.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaMes;
-
-        /// <summary>
-        /// Control txtFechaAnio.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaAnio;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaVenta;
 
         /// <summary>
         /// Control txtDniCliente.

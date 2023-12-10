@@ -136,7 +136,7 @@
                         <asp:Label ID="lblProvincia" runat="server"  CssClass="subItem" Text="Provincia"></asp:Label>
                     </td>
                     <td class="auto-style3">
-                        <asp:DropDownList ID="ddlProvincias" runat="server" AppendDataBoundItems="True" AutoPostBack="True" OnSelectedIndexChanged="ddlProvincias_SelectedIndexChanged1" ValidationGroup="2" Width="125px">
+                        <asp:DropDownList ID="ddlProvincias" runat="server" AppendDataBoundItems="True" AutoPostBack="True" OnSelectedIndexChanged="ddlProvincias_SelectedIndexChanged" ValidationGroup="2" Width="125px">
                             <asp:ListItem Value="-- Seleccionar --">-- Seleccionar --</asp:ListItem>
                         </asp:DropDownList>
                         <asp:RequiredFieldValidator ID="rfvProvincia" runat="server" ControlToValidate="ddlProvincias" ErrorMessage="Campo Obligatorio" ValidationGroup="2"></asp:RequiredFieldValidator>

@@ -16,10 +16,9 @@ namespace Dao
 
         public DataTable ObtenerPedidos()
         {
-            string consulta = "SELECT IDPedido AS Id, NombreArticulo AS Articulo," +
-                "NombreProveedor AS Proveedor, Cantidad, FechaPedido AS Fecha," +
-                "CostoTotal AS Total FROM PEDIDOS P INNER JOIN ARTICULOS A " +
-                "ON P.IDArticulo = A.IDArticulo INNER JOIN PROVEEDORES PR ON P.IDProveedor = PR.IDProveedor";
+            string consulta = "SELECT P.*, NombreProveedor, NombreArticulo " +
+                "FROM PEDIDOS P INNER JOIN ARTICULOS A ON P.IDArticulo = A.IDArticulo " +
+                "INNER JOIN PROVEEDORES PR ON PR.IDProveedor = P.IDProveedor";
 
             return _datos.ObtenerTabla("Pedidos", consulta);
         }

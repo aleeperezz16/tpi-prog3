@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AgregarProveedor.aspx.cs" Inherits="Vistas.Admin.Proveedores.AgregarProveedor" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AgregarProveedor.aspx.cs" Inherits="Vistas.Admin.Proveedores.AgregarProveedor" %>
 
 <!DOCTYPE html>
 
@@ -83,7 +83,7 @@
                     <asp:TextBox ID="txtNombreProveedor" runat="server" Width="259px"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="rfvNombreProveedor" runat="server" ControlToValidate="txtNombreProveedor" ErrorMessage="Ingrese Nombre"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvNombreProveedor" runat="server" ControlToValidate="txtNombreProveedor" ErrorMessage="Ingrese nombre"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -92,7 +92,7 @@
                     <asp:TextBox ID="txtTelefono" runat="server" Width="258px"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="rfvTelefono" runat="server" ControlToValidate="txtTelefono" ErrorMessage="Ingrese Telefono"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvTelefono" runat="server" ControlToValidate="txtTelefono" ErrorMessage="Ingrese telefono"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -101,7 +101,7 @@
                     <asp:TextBox ID="txtEmail" runat="server" Width="256px"></asp:TextBox>
                 </td>
                 <td class="auto-style7">
-                    <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail" ErrorMessage="Ingrese Email"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail" ErrorMessage="Ingrese email"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -110,7 +110,7 @@
                     <asp:TextBox ID="txtDireccion" runat="server" CssClass="auto-style4" Width="256px"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="rfvDireccion" runat="server" ControlToValidate="txtDireccion" ErrorMessage="Ingrese Direccion"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvDireccion" runat="server" ControlToValidate="txtDireccion" ErrorMessage="Ingrese direccion"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -143,7 +143,7 @@
             <tr>
                 <td class="auto-style5">&nbsp;</td>
                 <td class="auto-style3">
-                    <asp:Button ID="btnAgregar" CssClass="myButton" runat="server" OnClick="btnAgregar_Click" Text="Aceptar" />
+                    <asp:Button ID="btnAgregar" CssClass="myButton" runat="server" OnClick="btnAgregar_Click" Text="Agregar" />
                 </td>
                 <td>
                     <asp:Label ID="lblNotificacion" runat="server"></asp:Label>

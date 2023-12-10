@@ -17,7 +17,7 @@ namespace Vistas.Admin.Categorias
         {
             lblResultado.Text = "";
 
-            VerUsuarioConectado();
+            //VerUsuarioConectado();
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)

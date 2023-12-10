@@ -13,22 +13,22 @@ namespace Vistas
 {
     public partial class Registro : Index
     {
-        private NegocioClientes _negocioClientes = new NegocioClientes();
-        private NegocioCiudades _negocioCiudades = new NegocioCiudades();
-        private NegocioProvincia _negocioProvincia = new NegocioProvincia();
+        private NegocioClientes _negocioCli = new NegocioClientes();
+        private NegocioCiudades _negocioCiu = new NegocioCiudades();
+        private NegocioProvincia _negocioProv = new NegocioProvincia();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                ddlProvincias.DataSource = _negocioProvincia.ObtenerProvincias();
-                ddlProvincias.DataTextField = "Provincia";
-                ddlProvincias.DataValueField = "Codigo";
+                ddlProvincias.DataSource = _negocioProv.ObtenerProvincias();
+                ddlProvincias.DataTextField = "NombreProvincia";
+                ddlProvincias.DataValueField = "CodigoProvincia";
                 ddlProvincias.DataBind();
 
-                ddlCiudades.DataSource = _negocioCiudades.ObtenerCiudades();
-                ddlCiudades.DataTextField = "Ciudad";
-                ddlCiudades.DataValueField = "Codigo";
+                ddlCiudades.DataSource = _negocioCiu.ObtenerCiudades();
+                ddlCiudades.DataTextField = "NombreCiudad";
+                ddlCiudades.DataValueField = "CodigoCiudad";
                 ddlCiudades.DataBind();
             }
         }
@@ -36,14 +36,14 @@ namespace Vistas
         protected void btnCrear_Click(object sender, EventArgs e)
         {
             Cliente nuevoCliente = PrepararCliente();
-            if (_negocioClientes.ExisteCliente(nuevoCliente))
+            if (_negocioCli.ExisteCliente(nuevoCliente))
             {
                 MessageBox.Show("El nombre de usuario y/o DNI ingresado(s) ya existe(n)", "Error al registrarse");
                 txtContrasenia.Text = txtRepetirContrasenia.Text = "";
                 return;
             }
 
-            if (_negocioClientes.AgregarCliente(nuevoCliente))
+            if (_negocioCli.AgregarCliente(nuevoCliente))
             {
                 MessageBox.Show("Tu cuenta fue creada exitosamente. Proceda a iniciar sesión.", "Bienvenido/a");
                 Response.Redirect("Login.aspx");

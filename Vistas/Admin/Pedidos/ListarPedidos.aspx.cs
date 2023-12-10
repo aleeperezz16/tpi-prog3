@@ -13,53 +13,42 @@ namespace Vistas.Admin.Pedidos
     public partial class ListarPedidos : Admin
     {
         private NegocioPedidos _negocioPed = new NegocioPedidos();
+        static private DataTable _tablaInicial;
+        static private DataTable _tabla;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                CargarTablaInicial();
-            }
-        }
+                _tablaInicial = _negocioPed.ObtenerPedidos();
+                _tabla = _tablaInicial.Copy();
 
-        private void CargarTablaInicial()
-        {
-            gvListarPedidos.DataSource = _negocioPed.ObtenerPedidos();
-            gvListarPedidos.DataBind();
+                gvListarPedidos.DataSource = _tablaInicial;
+                gvListarPedidos.DataBind();
+            }
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            DataView dv = new DataView((DataTable)gvListarPedidos.DataSource)
+            string id = txtBuscar.Text.Trim();
+            DataView dv = new DataView(_tablaInicial)
             {
-                RowFilter = $"Id = {txtBuscar.Text.Trim()}"
+                RowFilter = $"IDPedido = {id}"
             };
 
-            gvListarPedidos.DataSource = dv.ToTable();
+            _tabla = id.Length > 0 ? dv.ToTable() : _tablaInicial.Copy();
+
+            gvListarPedidos.DataSource = _tabla;
             gvListarPedidos.DataBind();
 
             txtBuscar.Text = "";
-         
-            /*try
-            {
-                ///USO LA EXCEPCION DE FUERA DE RANGO del Row Con un Try Catch PARA CUANDO SÉ QUE NO ENCONTRÓ NADA
-                String IDArticulo = ((Label)gvListarPedidos.Rows[0].FindControl("lbl_it_IDArticulo")).Text;//agarre cualquier dato
-            }
-            catch
-            {
-                System.Windows.Forms.MessageBox.Show("No hubo coincidencias, por favor intente con otro ID", "Informe");
-            }*/
-        }
-
-        protected void btnVistaInicial_Click(object sender, EventArgs e)
-        {
-            txtBuscar.Text = "";
-            CargarTablaInicial();
         }
 
         protected void gdvListarPedidos_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvListarPedidos.PageIndex = e.NewPageIndex;
+
+            gvListarPedidos.DataSource = _tabla;
             gvListarPedidos.DataBind();
         }
 
@@ -78,9 +67,7 @@ namespace Vistas.Admin.Pedidos
                 lblCuentaIngresada.Text = Clientesito.Nombre + " " + Clientesito.Apellido;
             }
         }
-
     }
-
 }
 
    

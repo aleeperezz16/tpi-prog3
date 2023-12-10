@@ -35,15 +35,9 @@ namespace Dao
 
         public DataTable ObtenerArticulos()
         {
-            string consulta = "SELECT A.NombreArticulo AS Articulo," +
-                "A.PrecioDeCompra AS [Precio Compra]," +
-                "A.PrecioDeVenta AS [Precio Venta]," +
-                "A.Stock," +
-                "A.Estado," +
-                "P.NombreProveedor AS Proveedor," +
-                "C.NombreCategoria AS Categoria " +
-                "FROM ARTICULOS A INNER JOIN PROVEEDORES P " +
-                "ON A.IDProveedor = P.IDProveedor INNER JOIN CATEGORIAS C ON C.IDCategoria = A.IDCategoria";
+            string consulta = "SELECT A.*, NombreCategoria, NombreProveedor " +
+                "FROM ARTICULOS A INNER JOIN CATEGORIAS C ON A.IDCategoria = C.IDCategoria " +
+                "INNER JOIN PROVEEDORES P ON A.IDProveedor = P.IDProveedor";
 
             return _datos.ObtenerTabla("Articulos", consulta);
         }

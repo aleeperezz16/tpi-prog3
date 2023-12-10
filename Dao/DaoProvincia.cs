@@ -15,7 +15,7 @@ namespace Dao
 
         public DataTable ObtenerProvincias()
         {
-            return _datos.ObtenerTabla("Provincias", "SELECT CodigoProvincia AS Codigo, NombreProvincia AS Nombre FROM PROVINCIA");
+            return _datos.ObtenerTabla("Provincias", "SELECT * FROM PROVINCIA");
         }
     }
 }

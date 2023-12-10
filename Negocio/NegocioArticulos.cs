@@ -19,8 +19,13 @@ namespace Negocio
             _articulos = _dao.ObtenerArticulos();
         }
 
-        public DataTable ObtenerArticulos()
+        public DataTable ObtenerArticulos(bool actualizar = false)
         {
+            if (actualizar)
+            {
+                _articulos = _dao.ObtenerArticulos();
+            }
+
             return _articulos;
         }
 

@@ -18,8 +18,13 @@ namespace Negocio
         {
             _provincias = _dao.ObtenerProvincias();
         }
-        public DataTable ObtenerProvincias() 
+        public DataTable ObtenerProvincias(bool actualizar = false) 
         {
+            if (actualizar)
+            {
+                _provincias = _dao.ObtenerProvincias();
+            }
+
             return _provincias;
         }
 

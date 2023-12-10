@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AgregarPedido.aspx.cs" Inherits="Vistas.Admin.Pedidos.AgregarPedido" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AgregarPedido.aspx.cs" Inherits="Vistas.Admin.Pedidos.AgregarPedido" %>
 
 <!DOCTYPE html>
 
@@ -104,15 +104,13 @@
             <tr>
                 <td class="auto-style20" rowspan="2"></td>
                 <td class="auto-style12" rowspan="2">
-                    <span class="auto-style23">Buscar artículo por id:</span><asp:TextBox ID="txtBuscarArt" runat="server" ValidationGroup="1"></asp:TextBox>
+                    <span class="auto-style23">Buscar artículo por id:</span><asp:TextBox ID="txtIdArticulo" runat="server" ValidationGroup="1" TextMode="Number"></asp:TextBox>
                     <br />
                     <asp:Button ID="btnBuscar" CssClass="myButton" runat="server" OnClick="btnBuscar_Click" Text="Buscar" ValidationGroup="1" />
                     &nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btnVistaInicial" CssClass="myButton" runat="server" OnClick="btnVistaInicial_Click" Text="Vista Inicial" />
-                </td>
+                    </td>
                 <td class="auto-style16">
-                    <asp:RequiredFieldValidator ID="rfvBuscarxID" runat="server" ControlToValidate="tbBuscarArticuloxID" ForeColor="#CC3300" ValidationGroup="1">*Ingrese un número de ID para buscarlo.</asp:RequiredFieldValidator>
-                </td>
+                    &nbsp;</td>
                 <td class="auto-style11" rowspan="2"></td>
             </tr>
             <tr>
@@ -122,7 +120,7 @@
             </tr>
             <tr>
                 <td class="auto-style17">&nbsp;</td>
-                <td class="auto-style9" colspan="2">Especificar la cantidad de unidades que se desea ordenar al proveedor, del articulo deseado y presionar Agregar, para ordenarlo.</td>
+                <td class="auto-style9" colspan="2">&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
@@ -131,47 +129,18 @@
                     <asp:GridView ID="gvAgregarPedido" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowCommand="gvAgregarPedido_RowCommand" PageSize="5" OnPageIndexChanging="gvAgregarPedido_PageIndexChanging">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
-                            <asp:TemplateField HeaderText="Id">
+                            <asp:BoundField DataField="IDArticulo" HeaderText="Id" />
+                            <asp:BoundField DataField="NombreArticulo" HeaderText="Articulo" />
+                            <asp:BoundField DataField="NombreCategoria" HeaderText="Categoria" />
+                            <asp:BoundField DataField="NombreProveedor" HeaderText="Proveedor" />
+                            <asp:BoundField DataField="PrecioDeCompra" DataFormatString="{0:c}" HeaderText="Precio" />
+                            <asp:TemplateField HeaderText="Cantidad">
                                 <ItemTemplate>
-                                    <asp:Label ID="lbl_it_IDArticulo" runat="server" Text='<%# Bind ("IDArticulo") %>'></asp:Label>
+                                    <asp:TextBox ID="txt_it_Cantidad" runat="server" TextMode="Number"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="rfv_it_Cantidad" runat="server" ControlToValidate="txt_it_Cantidad" ForeColor="Red">*</asp:RequiredFieldValidator>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Articulo">
-                                <ItemTemplate>
-                                    <asp:Label ID="lbl_it_NombreArticulo" runat="server" Text='<%# Bind ("NombreArticulo") %>'></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Categoria">
-                                <ItemTemplate>
-                                    <asp:Label ID="lbl_it_IDCategoria" runat="server" Text='<%# Bind ("IDCategoria") %>'></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Proveedor">
-                                <ItemTemplate>
-                                    <asp:Label ID="lbl_it_IDProveedor" runat="server" Text='<%# Bind ("IDProveedor") %>'></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Precio de Venta">
-                                <ItemTemplate>
-                                    <asp:Label ID="lbl_it_PrecioVenta" runat="server" Text='<%# Bind ("PrecioDeVenta") %>'></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Precio de Compra">
-                                <ItemTemplate>
-                                    <asp:Label ID="lbl_it_PrecioCompra" runat="server" Text='<%# Bind ("PrecioDeCompra") %>'></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Stock Disponible">
-                                <ItemTemplate>
-                                    <asp:Label ID="lbl_it_Stock" runat="server" Text='<%# Bind ("Stock") %>'></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Cantidad a Comprar">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="tbCantidadaComprar" runat="server" Height="24px" Width="55px" ValidationGroup="2"></asp:TextBox>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:ButtonField ButtonType="Button" CommandName="EventoAgregar" Text="Comprar" />
+                            <asp:ButtonField ButtonType="Button" CommandName="EventoAgregar" Text="Comprar" CausesValidation="True" />
                         </Columns>
                         <EditRowStyle BackColor="#2461BF" />
                         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

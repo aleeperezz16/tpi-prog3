@@ -17,7 +17,7 @@ namespace Dao
 
         public DataTable ObtenerCategorias()
         {
-            return _datos.ObtenerTabla("Categorias", "SELECT IDCategoria AS Id, NombreCategoria AS Nombre, Descripcion FROM CATEGORIAS");
+            return _datos.ObtenerTabla("Categorias", "SELECT * FROM CATEGORIAS");
         }
 
         public int AgregarCategoria(Categoria cat)
@@ -38,18 +38,13 @@ namespace Dao
         {
             return _datos.EjecutarConsulta($"DELETE FROM Categorias WHERE IDCategoria = {id}");
         }
-        public DataTable ObtenerCategoriasXnombre(string nombre)
-        {
-            string consulta = "SELECT * FROM Categorias"+ $" WHERE NombreCategoria LIKE '%{nombre}%'";
-
-            return _datos.ObtenerTabla("Categorias", consulta);
-        }
 
         private void ArmarParametrosAgregar(ref SqlCommand cmd, Categoria cat)
         {
             cmd.Parameters.AddWithValue("@NOMBRECAT", cat.Nombre);
             cmd.Parameters.AddWithValue("@DESCRIP", cat.Descripcion);
         }
+
         private void ArmarParametrosModificar(ref SqlCommand cmd, Categoria cat)
         {
             cmd.Parameters.AddWithValue("@IDCAT", cat.Id);

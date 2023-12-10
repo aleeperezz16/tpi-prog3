@@ -18,8 +18,13 @@ namespace Negocio
             _clientes = _dao.ObtenerClientes();
         }
 
-        public DataTable ObtenerClientes()
+        public DataTable ObtenerClientes(bool actualizar = false)
         {
+            if (actualizar)
+            {
+                _clientes = _dao.ObtenerClientes();
+            }
+
             return _clientes;
         }
 

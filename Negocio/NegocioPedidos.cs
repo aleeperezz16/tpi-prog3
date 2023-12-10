@@ -18,8 +18,13 @@ namespace Negocio
             _pedidos = _dao.ObtenerPedidos();
         }
 
-        public DataTable ObtenerPedidos()
+        public DataTable ObtenerPedidos(bool actualizar = false)
         {   
+            if (actualizar)
+            {
+                _pedidos = _dao.ObtenerPedidos();
+            }
+
             return _pedidos;
         }
 

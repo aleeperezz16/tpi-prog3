@@ -19,8 +19,13 @@ namespace Negocio
             _ventas = _dao.ObtenerVentas();
         }
 
-        public DataTable ObtenerVentas()
+        public DataTable ObtenerVentas(bool actualizar = false)
         {
+            if (actualizar)
+            {
+                _ventas = _dao.ObtenerVentas();
+            }
+
             return _ventas;
         }
 

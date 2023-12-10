@@ -16,17 +16,20 @@ namespace Vistas.Articulos
         private NegocioCategorias _negocioCat = new NegocioCategorias();
         private NegocioArticulos _negocioArt = new NegocioArticulos();
         static private DataTable _tablaInicial;
+        static private DataTable _tabla;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 ddlCategorias.DataSource = _negocioCat.ObtenerCategorias();
-                ddlCategorias.DataTextField = "Categoria";
-                ddlCategorias.DataValueField = "Id";
+                ddlCategorias.DataTextField = "NombreCategoria";
+                ddlCategorias.DataValueField = "IDCategoria";
                 ddlCategorias.DataBind();
 
                 _tablaInicial = _negocioArt.ObtenerArticulos();
+                _tabla = _tablaInicial.Copy();
+
                 gvComprarArticulos.DataSource = _tablaInicial;
                 gvComprarArticulos.DataBind();
             }
@@ -35,18 +38,22 @@ namespace Vistas.Articulos
         protected void gvComprarArticulos_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvComprarArticulos.PageIndex = e.NewPageIndex;
+
+            gvComprarArticulos.DataSource = _tabla;
             gvComprarArticulos.DataBind();
         }
 
         protected void ddlCategorias_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string categoria = ddlCategorias.SelectedItem.Text;
+            string categoria = ddlCategorias.SelectedValue;
             DataView dv = new DataView(_tablaInicial)
             {
-                RowFilter = $"Categoria = '{categoria}'"
+                RowFilter = $"IDCategoria = {categoria}"
             };
 
-            gvComprarArticulos.DataSource = categoria != "-- Seleccione --" ? dv.ToTable() : _tablaInicial;            
+            _tabla = categoria != "-- Seleccione --" ? dv.ToTable() : _tablaInicial.Copy();
+
+            gvComprarArticulos.DataSource = _tabla;
             gvComprarArticulos.DataBind();
         }
 

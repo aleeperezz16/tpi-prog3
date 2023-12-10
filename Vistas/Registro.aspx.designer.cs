@@ -78,22 +78,22 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.TextBox txtDni;
 
         /// <summary>
-        /// Control rfvDNI.
+        /// Control rfvDni.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDNI;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDni;
 
         /// <summary>
-        /// Control revDNI.
+        /// Control revDni.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revDNI;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revDni;
 
         /// <summary>
         /// Control ddlProvincias.
@@ -105,13 +105,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.DropDownList ddlProvincias;
 
         /// <summary>
-        /// Control rfvddlProvincias.
+        /// Control rfvProvincias.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvddlProvincias;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvProvincias;
 
         /// <summary>
         /// Control ddlCiudades.
@@ -123,13 +123,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.DropDownList ddlCiudades;
 
         /// <summary>
-        /// Control rfvddlCiudades.
+        /// Control rfvCiudades.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvddlCiudades;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCiudades;
 
         /// <summary>
         /// Control txtDireccion.
@@ -213,13 +213,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.TextBox txtUsuario;
 
         /// <summary>
-        /// Control rfvNombreUsuario.
+        /// Control rfvUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNombreUsuario;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUsuario;
 
         /// <summary>
         /// Control txtContrasenia.
@@ -231,22 +231,22 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.TextBox txtContrasenia;
 
         /// <summary>
-        /// Control rfvContraseña.
+        /// Control rfvContrasenia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvContraseña;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvContrasenia;
 
         /// <summary>
-        /// Control cvContraseñas.
+        /// Control cvContrasenia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator cvContraseñas;
+        protected global::System.Web.UI.WebControls.CompareValidator cvContrasenia;
 
         /// <summary>
         /// Control txtRepetirContrasenia.
@@ -258,13 +258,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.TextBox txtRepetirContrasenia;
 
         /// <summary>
-        /// Control rfvRepetirContraseña.
+        /// Control rfvRepetirContrasenia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvRepetirContraseña;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvRepetirContrasenia;
 
         /// <summary>
         /// Control btnCrear.

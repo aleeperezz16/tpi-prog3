@@ -12,8 +12,10 @@ namespace Vistas.Admin.Proveedores
 {
     public partial class ListarProveedores : Admin
     {
-        private NegocioProveedores _negocio = new NegocioProveedores();
-        static private DataTable _tablaProveedores;
+        private NegocioProveedores _negocioProv = new NegocioProveedores();
+        private NegocioCiudades _negocioCiu = new NegocioCiudades();
+        static private DataTable _tablaInicial;
+        static private DataTable _tabla;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -26,12 +28,14 @@ namespace Vistas.Admin.Proveedores
         {
             string nombre = txtNombreProveedor.Text.Trim();
 
-            DataView dv = new DataView(_tablaProveedores)
+            DataView dv = new DataView(_tablaInicial)
             {
                 RowFilter = $"NombreProveedor LIKE '%{nombre}%'"
             };
 
-            gvProveedores.DataSource = dv.ToTable();
+            _tabla = nombre.Length > 0 ? dv.ToTable() : _tablaInicial.Copy();
+
+            gvProveedores.DataSource = _tabla;
             gvProveedores.DataBind();
         }
 
@@ -40,9 +44,9 @@ namespace Vistas.Admin.Proveedores
             gvProveedores.EditIndex = e.NewEditIndex;
             gvProveedores.DataBind();
 
-            DropDownList ciudades =(DropDownList)gvProveedores.Rows[e.NewEditIndex].FindControl("ddl_eit_Ciudad");
+            DropDownList ciudades = (DropDownList)gvProveedores.Rows[e.NewEditIndex].FindControl("ddl_eit_Ciudad");
 
-            ciudades.DataSource = _negocio.ObtenerCiudades();
+            ciudades.DataSource = _negocioCiu.ObtenerCiudades();
             ciudades.DataTextField = "NombreCiudad";
             ciudades.DataValueField = "CodigoCiudad";
             ciudades.DataBind();
@@ -51,19 +55,16 @@ namespace Vistas.Admin.Proveedores
         protected void gvProveedores_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvProveedores.PageIndex = e.NewPageIndex;
+
+            gvProveedores.DataSource = _tabla;
             gvProveedores.DataBind();
         }
 
         protected void gvProveedores_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             gvProveedores.EditIndex = -1;
-            gvProveedores.DataBind();
-        }
 
-        private void CargarTablaInicial(int id = 0, string nombre = "")
-        {
-            _tablaProveedores = _negocio.ObtenerProveedores();
-            gvProveedores.DataSource = _tablaProveedores;
+            gvProveedores.DataSource = _tabla;
             gvProveedores.DataBind();
         }
 
@@ -83,19 +84,29 @@ namespace Vistas.Admin.Proveedores
                 }
             };
 
-            _negocio.ModificarProveedor(proveedor);
+            _negocioProv.ModificarProveedor(proveedor);
 
             gvProveedores.EditIndex = -1;
-            CargarTablaInicial();
+            CargarTablaInicial(true);
         }
 
         protected void gvProveedores_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             int idProv = int.Parse(((Label)gvProveedores.Rows[e.RowIndex].FindControl("lbl_eit_Id")).Text);
-            _negocio.EliminarProveedor(idProv);
+            _negocioProv.EliminarProveedor(idProv);
 
-            CargarTablaInicial();
+            CargarTablaInicial(true);
         }
+
+        private void CargarTablaInicial(bool actualizar = false)
+        {
+            _tablaInicial = _negocioProv.ObtenerProveedores(actualizar);
+            _tabla = _tablaInicial.Copy();
+
+            gvProveedores.DataSource = _tablaInicial;
+            gvProveedores.DataBind();
+        }
+
         public void VerUsuarioConectado()
         {
             var datos = Session["Datos"];

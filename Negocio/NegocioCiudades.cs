@@ -11,15 +11,20 @@ namespace Negocio
 {
     public class NegocioCiudades
     {
+        private DaoCiudad _dao = new DaoCiudad();
         private DataTable _ciudades;
         public NegocioCiudades() 
         {
-            DaoCiudad dao = new DaoCiudad();
-            _ciudades =  dao.ObtenerCiudades();
+            _ciudades = _dao.ObtenerCiudades();
         }
 
-        public DataTable ObtenerCiudades()
+        public DataTable ObtenerCiudades(bool actualizar = false)
         {
+            if (actualizar)
+            {
+                _ciudades = _dao.ObtenerCiudades();
+            }
+
             return _ciudades;
         }
 

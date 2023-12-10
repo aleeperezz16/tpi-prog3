@@ -67,7 +67,7 @@
                         <table class="auto-style1">
                             <tr>
                                 <td class="auto-style26" colspan="2">
-                                    <asp:HyperLink ID="hlAgregarArt" runat="server" NavigateUrl="~/Inicio.aspx">Volver al menú Principal</asp:HyperLink>
+                                    <asp:HyperLink ID="hlnkAgregarArt" runat="server" NavigateUrl="~/Inicio.aspx">Volver al menú Principal</asp:HyperLink>
                                 </td>
                                 <td class="auto-style15">&nbsp;</td>
                                 <td class="auto-style12">
@@ -86,7 +86,7 @@
                             <tr>
                                 <td class="auto-style22"></td>
                                 <td class="auto-style28">
-                                    <asp:Label ID="lbNombreArticulo" CssClass="subItem" runat="server" Text="Nombre:"></asp:Label>
+                                    <asp:Label ID="lblNombreArticulo" CssClass="subItem" runat="server" Text="Nombre:"></asp:Label>
                                 </td>
                                 <td class="auto-style24">
                                     <asp:TextBox ID="txtNombreArticulo" runat="server" Width="210px"></asp:TextBox>
@@ -98,7 +98,7 @@
                             <tr>
                                 <td class="auto-style22"></td>
                                 <td class="auto-style28">
-                                    <asp:Label ID="lbCategoria" CssClass="subItem" runat="server" Text="Categoria:"></asp:Label>
+                                    <asp:Label ID="lblCategoria" CssClass="subItem" runat="server" Text="Categoria:"></asp:Label>
                                 </td>
                                 <td class="auto-style24">
                                     <asp:DropDownList ID="ddlCategoria" runat="server" CssClass="auto-style21">
@@ -112,7 +112,7 @@
                                                         <tr>
                                 <td class="auto-style22"></td>
                                 <td class="auto-style28">
-                                    <asp:Label ID="lbProveedor" CssClass="subItem" runat="server" Text="Proveedor:"></asp:Label>
+                                    <asp:Label ID="lblProveedor" CssClass="subItem" runat="server" Text="Proveedor:"></asp:Label>
                                 </td>
                                 <td class="auto-style24">
                                     <asp:DropDownList ID="ddlProveedor" runat="server" CssClass="auto-style21">
@@ -126,7 +126,7 @@
                             <tr>
                                 <td class="auto-style2">&nbsp;</td>
                                 <td class="auto-style29">
-                                    <asp:Label ID="lbPrecioDeVenta" CssClass="subItem" runat="server" Text="Precio de Venta:"></asp:Label>
+                                    <asp:Label ID="lblPrecioVenta" CssClass="subItem" runat="server" Text="Precio de Venta:"></asp:Label>
                                 </td>
                                 <td class="auto-style13">
                                     <asp:TextBox ID="txtPrecioVenta" runat="server" TextMode="Number"></asp:TextBox>
@@ -138,7 +138,7 @@
                                                         <tr>
                                 <td class="auto-style2">&nbsp;</td>
                                 <td class="auto-style29">
-                                    <asp:Label ID="lbPrecioDeCompra" CssClass="subItem" runat="server" Text="Precio De Compra:"></asp:Label>
+                                    <asp:Label ID="lblPrecioCompra" CssClass="subItem" runat="server" Text="Precio De Compra:"></asp:Label>
                                 </td>
                                 <td class="auto-style13">
                                     <asp:TextBox ID="txtPrecioCompra" runat="server" TextMode="Number"></asp:TextBox>
@@ -150,7 +150,7 @@
                                                         <tr>
                                 <td class="auto-style2">&nbsp;</td>
                                 <td class="auto-style29">
-                                    <asp:Label ID="lbStock" CssClass="subItem" runat="server" Text="Stock:"></asp:Label>
+                                    <asp:Label ID="lblStock" CssClass="subItem" runat="server" Text="Stock:"></asp:Label>
                                 </td>
                                 <td class="auto-style13">
                                     <asp:TextBox ID="txtStock" runat="server" TextMode="Number"></asp:TextBox>
