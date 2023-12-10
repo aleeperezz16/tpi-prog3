@@ -1,4 +1,4 @@
-﻿//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 // <generado automáticamente>
 //     Este código fue generado por una herramienta.
 //
@@ -24,7 +24,7 @@ namespace Vistas.Admin.Articulos
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control hlkInicio.
+        /// Control hlHome.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -33,13 +33,40 @@ namespace Vistas.Admin.Articulos
         protected global::System.Web.UI.WebControls.HyperLink hlkInicio;
 
         /// <summary>
-        /// Control txtIdArticulo.
+        /// Control lblCuentaIngresada.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdArticulo;
+        protected global::System.Web.UI.WebControls.Label lblCuentaIngresada;
+
+        /// <summary>
+        /// Control lbArticulos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbArticulos;
+
+        /// <summary>
+        /// Control lbBuscararticulosid.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbBuscararticulosid;
+
+        /// <summary>
+        /// Control txtIdBuscarArticulo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtIdBuscarArticulo;
 
         /// <summary>
         /// Control ddlEstado.
@@ -51,7 +78,7 @@ namespace Vistas.Admin.Articulos
         protected global::System.Web.UI.WebControls.DropDownList ddlEstado;
 
         /// <summary>
-        /// Control btnBuscar.
+        /// Control btnBuscararticulosid.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -67,5 +94,14 @@ namespace Vistas.Admin.Articulos
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvArticulos;
+
+        /// <summary>
+        /// Control lbObservaciones.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbObservaciones;
     }
 }

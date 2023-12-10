@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AgregarCategoria.aspx.cs" Inherits="Vistas.Admin.Categorias.AgregarCategoria" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AgregarCategoria.aspx.cs" Inherits="Vistas.Admin.Categorias.AgregarCategoria" %>
 
 <!DOCTYPE html>
 
@@ -14,11 +14,15 @@
             height: 26px;
         }
         .auto-style3 {
-            width: 237px;
+            width: 167px;
         }
         .auto-style4 {
             height: 26px;
-            width: 237px;
+            width: 167px;
+        }
+        .auto-style5 {
+            width: 167px;
+            text-align: right;
         }
         .auto-style6 {
             width: 642px;
@@ -38,7 +42,7 @@
             width: 454px;
         }
         .auto-style12 {
-            width: 237px;
+            width: 167px;
             height: 39px;
             font-weight: bold;
             font-size: x-large;
@@ -53,9 +57,8 @@
             height: 39px;
         }
         .auto-style15 {
-            width: 237px;
+            height: 39px;
             text-align: right;
-            color: #DC143C;
         }
     </style>
      <link rel="stylesheet" href="../../StyleSheetG6.css"/>
@@ -65,11 +68,21 @@
         <table class="auto-style1">
             <tr>
                 <td class="auto-style12">
-                    Agregar Catergoría</td>
-                <td class="auto-style13" colspan="2"></td>
-                <td class="auto-style14">
+                    &nbsp;</td>
+                <td class="auto-style13" colspan="2">
                     <asp:HyperLink ID="hlAgregarcat" runat="server" NavigateUrl="~/Inicio.aspx">Volver al menú Principal</asp:HyperLink>
                 </td>
+                <td class="auto-style15">
+                    <asp:Label ID="lblCuentaIngresada" runat="server"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style12">
+                    <asp:Label ID="Label1" class="mainItem" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Agregar Categoria"></asp:Label>
+                </td>
+                <td class="auto-style13" colspan="2"></td>
+                <td class="auto-style14">
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style4"></td>

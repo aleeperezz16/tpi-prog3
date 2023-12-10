@@ -29,6 +29,8 @@ namespace Vistas.Admin.Articulos
                 ddlProveedor.DataTextField = "NombreProveedor";
                 ddlProveedor.DataValueField = "IDProveedor";
                 ddlProveedor.DataBind();
+
+                VerUsuarioConectado();
             }
         }
 
@@ -60,6 +62,22 @@ namespace Vistas.Admin.Articulos
                 Nombre = dr.Field<string>("NombreCategoria"),
                 Descripcion = dr.Field<string>("Descripcion")
             };
+        }
+
+        public void VerUsuarioConectado()
+        {
+            var datos = Session["Datos"];
+
+            if (datos.GetType() == typeof(Usuario))
+            {
+                Usuario usuarito = (Usuario)Session["Datos"];
+                lblCuentaIngresada.Text = usuarito.Alias;
+            }
+            else
+            {
+                Cliente Clientesito = (Cliente)Session["Datos"];
+                lblCuentaIngresada.Text = Clientesito.Nombre + " " + Clientesito.Apellido;
+            }
         }
     }
 }

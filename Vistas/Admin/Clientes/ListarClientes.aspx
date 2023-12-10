@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ListarClientes.aspx.cs" Inherits="Vistas.Admin.Clientes.ListarClientes" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ListarClientes.aspx.cs" Inherits="Vistas.Admin.Clientes.ListarClientes" %>
 
 <!DOCTYPE html>
 
@@ -42,7 +42,7 @@
             height: 27px;
         }
         .auto-style8 {
-            color: #DC143C;
+            text-align: center;
         }
     </style>
      <link rel="stylesheet" href="../../StyleSheetG6.css"/>
@@ -53,8 +53,12 @@
             <table class="auto-style1">
                 <tr>
                     <td class="auto-style4">&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td>
+                        <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="~/Inicio.aspx" Width="105%">Volver al menú Principal</asp:HyperLink>
+                    </td>
+                    <td>
+                        <asp:Label ID="lblCuentaIngresada" runat="server"></asp:Label>
+                    </td>
                 </tr>
                 <tr>
                     <td class="auto-style5"></td>
@@ -64,8 +68,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style4">
-                        <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="~/Inicio.aspx" Width="105%">Volver al menú Principal</asp:HyperLink>
-                    </td>
+                        &nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
@@ -85,7 +88,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style4">&nbsp;</td>
-                    <td>
+                    <td class="auto-style8">
                         <asp:GridView ID="gdvClientes" runat="server" AllowPaging="True" AutoGenerateColumns="False" OnPageIndexChanging="gdvClientes_PageIndexChanging" OnRowCancelingEdit="gdvClientes_RowCancelingEdit" OnRowDataBound="gdvClientes_RowDataBound" OnRowDeleting="gdvClientes_RowDeleting" OnRowEditing="gdvClientes_RowEditing" OnRowUpdating="gdvClientes_RowUpdating">
                             <Columns>
                                 <asp:TemplateField HeaderText="DNI">

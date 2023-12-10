@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AgregarProveedor.aspx.cs" Inherits="Vistas.Admin.Proveedores.AgregarProveedor" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AgregarProveedor.aspx.cs" Inherits="Vistas.Admin.Proveedores.AgregarProveedor" %>
 
 <!DOCTYPE html>
 
@@ -41,9 +41,15 @@
             height: 26px;
         }
         .auto-style9 {
-            width: 161px;
-            height: 26px;
-            color: #FF0000;
+            height: 27px;
+        }
+        .auto-style10 {
+            width: 281px;
+            height: 27px;
+        }
+        .auto-style11 {
+            height: 27px;
+            text-align: right;
         }
     </style>
     <link rel="stylesheet" href="../../StyleSheetG6.css"/>
@@ -52,7 +58,16 @@
     <form id="form1" class="fontStyle" runat="server">
         <table class="auto-style1">
             <tr>
-                <td class="auto-style2">Agregar Proveedor</td>
+                <td class="auto-style9"></td>
+                <td class="auto-style10">
+                    <asp:HyperLink ID="hlVolverInicio" runat="server" NavigateUrl="~/Inicio.aspx">Volver al Menú Principal</asp:HyperLink>
+                </td>
+                <td class="auto-style11">
+                    <asp:Label ID="lblCuentaIngresada" runat="server"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style2 mainItem ">Agregar Proveedor</td>
                 <td class="auto-style3">&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
@@ -60,8 +75,7 @@
                 <td class="auto-style5"></td>
                 <td class="auto-style6"></td>
                 <td class="auto-style8">
-                    <asp:HyperLink ID="hlVolverInicio" runat="server" NavigateUrl="~/Inicio.aspx">Volver al Menú Principal</asp:HyperLink>
-                </td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style9">Nombre:</td>

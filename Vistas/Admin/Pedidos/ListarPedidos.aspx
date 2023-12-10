@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ListarPedidos.aspx.cs" Inherits="Vistas.Admin.Pedidos.ListarPedidos" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ListarPedidos.aspx.cs" Inherits="Vistas.Admin.Pedidos.ListarPedidos" %>
 
 <!DOCTYPE html>
 
@@ -48,7 +48,8 @@
             width: 1083px;
         }
         .auto-style16 {
-            color: #DC143C;
+            width: 692px;
+            text-align: center;
         }
     </style>
      <link rel="stylesheet" href="../../StyleSheetG6.css"/>
@@ -62,7 +63,9 @@
                     <td class="auto-style5" colspan="2">
                         <asp:HyperLink ID="hlVolverinicio" runat="server" BorderStyle="None" NavigateUrl="~/Inicio.aspx">Volver al Menú Principal</asp:HyperLink>
                     </td>
-                    <td class="auto-style2"></td>
+                    <td class="auto-style2">
+                        <asp:Label ID="lblCuentaIngresada" runat="server"></asp:Label>
+                    </td>
                 </tr>
                 <tr>
                     <td class="auto-style13">
@@ -98,8 +101,8 @@
                 </tr>
                 <tr>
                     <td class="auto-style14">&nbsp;</td>
-                    <td class="auto-style6" colspan="2">
-                        <asp:GridView ID="gvListarPedidos" runat="server" AutoGenerateColumns="False" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" OnPageIndexChanging="gdvListarPedidos_PageIndexChanging">
+                    <td class="auto-style16" colspan="2">
+                        <asp:GridView ID="gdvListarPedidos" runat="server" AutoGenerateColumns="False" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" OnPageIndexChanging="gdvListarPedidos_PageIndexChanging">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
                                 <asp:TemplateField HeaderText="Id">

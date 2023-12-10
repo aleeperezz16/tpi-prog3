@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AgregarPedido.aspx.cs" Inherits="Vistas.Admin.Pedidos.AgregarPedido" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AgregarPedido.aspx.cs" Inherits="Vistas.Admin.Pedidos.AgregarPedido" %>
 
 <!DOCTYPE html>
 
@@ -48,30 +48,30 @@
             height: 42px;
         }
         .auto-style17 {
-            width: 39px;
+            width: 48px;
         }
         .auto-style18 {
             height: 48px;
-            width: 39px;
+            width: 48px;
         }
         .auto-style19 {
             height: 24px;
-            width: 39px;
+            width: 48px;
         }
         .auto-style20 {
             height: 64px;
-            width: 39px;
+            width: 48px;
         }
         .auto-style21 {
             height: 26px;
-            width: 39px;
+            width: 48px;
         }
         .auto-style22 {
             height: 26px;
             text-align: right;
         }
         .auto-style23 {
-            color: #DC143C;
+            text-align: right;
         }
     </style>
      <link rel="stylesheet" href="../../StyleSheetG6.css"/>
@@ -81,8 +81,11 @@
         <table class="auto-style1">
             <tr>
                 <td class="auto-style17">&nbsp;</td>
-                <td colspan="2">
+                <td class="auto-style9">
                     <asp:HyperLink ID="hlVolverInicio" runat="server" NavigateUrl="~/Inicio.aspx">Volver al Menú Principal</asp:HyperLink>
+                </td>
+                <td class="auto-style23">
+                    <asp:Label ID="lblCuentaIngresada" runat="server"></asp:Label>
                 </td>
                 <td>&nbsp;</td>
             </tr>

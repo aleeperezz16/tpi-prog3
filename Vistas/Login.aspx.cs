@@ -23,7 +23,7 @@ namespace Vistas
 
             if (usuarioLogueado == null)
             {
-                lblErrorLogeo.Text = "Usuario y/o contraseña incorrectos.";
+                lblErrorLogeo.Text = "Usuario y/o contraseï¿½a incorrectos.";
                 return;
             }
           

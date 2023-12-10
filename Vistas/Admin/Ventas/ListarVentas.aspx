@@ -30,6 +30,12 @@
         .auto-style7 {
             height: 23px;
         }
+        .auto-style8 {
+            text-align: right;
+        }
+        .auto-style9 {
+            text-align: center;
+        }
     </style>
      <link rel="stylesheet" href="../../StyleSheetG6.css"/>
 </head>
@@ -38,11 +44,11 @@
         <div>
             <table class="auto-style1">
                 <tr>
-                    <td colspan="2">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td colspan="2">
+                    <td>
                         <asp:HyperLink ID="hlVolverInicio" runat="server" NavigateUrl="~/Inicio.aspx">Volver al Menú Principal</asp:HyperLink>
+                    </td>
+                    <td class="auto-style8">
+                        <asp:Label ID="lblCuentaIngresada" runat="server"></asp:Label>
                     </td>
                 </tr>
                 <tr>
@@ -54,7 +60,7 @@
                     <td class="auto-style7"></td>
                 </tr>
                 <tr>
-                    <td rowspan="14">
+                    <td rowspan="14" class="auto-style9">
                         <asp:GridView ID="gvVentas" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnPageIndexChanging="gvVentas_PageIndexChanging">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>

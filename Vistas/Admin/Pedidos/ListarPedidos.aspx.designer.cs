@@ -1,4 +1,4 @@
-﻿//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 // <generado automáticamente>
 //     Este código fue generado por una herramienta.
 //
@@ -33,7 +33,25 @@ namespace Vistas.Admin.Pedidos
         protected global::System.Web.UI.WebControls.HyperLink hlVolverinicio;
 
         /// <summary>
-        /// Control txtBuscar.
+        /// Control lblCuentaIngresada.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCuentaIngresada;
+
+        /// <summary>
+        /// Control lbListarpedidos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbListarpedidos;
+
+        /// <summary>
+        /// Control lbBuscarpedidosID.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -42,13 +60,22 @@ namespace Vistas.Admin.Pedidos
         protected global::System.Web.UI.WebControls.TextBox txtBuscar;
 
         /// <summary>
-        /// Control btnBuscar.
+        /// Control tbBuscarPedidoPorId.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnBuscar;
+
+        /// <summary>
+        /// Control btnBuscarPedidoPorId.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBuscarPedidoPorId;
 
         /// <summary>
         /// Control btnVistaInicial.
@@ -78,7 +105,7 @@ namespace Vistas.Admin.Pedidos
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
 
         /// <summary>
-        /// Control gvListarPedidos.
+        /// Control gdvListarPedidos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.

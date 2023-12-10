@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -93,7 +93,7 @@ namespace Vistas.Admin.Categorias
                 ///USO LA EXCEPCION DE FUERA DE RANGO del Row Con un Try Catch PARA CUANDO SÉ QUE NO ENCONTRÓ NADA
                 String IDCategoria = ((Label)gvCategorias.Rows[0].FindControl("lbl_it_IDCategoria")).Text;//agarre cualquier dato
             }
-            catch
+            else
             {
                 System.Windows.Forms.MessageBox.Show("No hubo coincidencias, por favor intente con otro ID", "Informe");
             }*/
@@ -110,6 +110,50 @@ namespace Vistas.Admin.Categorias
         {
             gvCategorias.DataSource = _negocio.ObtenerCategorias();
             gvCategorias.DataBind();
+        }
+        
+        //Habilita la busqueda x nombre (Cliente)  o x ID  (Admin)
+        public void VerUsuarioConectado()
+        {
+            var datos = Session["Datos"];
+
+            if (datos.GetType() == typeof(Usuario))
+            {
+                Usuario usuarito = (Usuario)Session["Datos"];
+                lblCuentaIngresada.Text = usuarito.Alias;
+            }
+            else
+            {
+                Cliente Clientesito = (Cliente)Session["Datos"];
+                lblCuentaIngresada.Text = Clientesito.Nombre + " " + Clientesito.Apellido;
+            }
+        }
+
+        ///Y los CustomValidatos Los hardcodié para que NOTIFIQUEN con un messageBox En cada caso.
+        protected void cvPorID_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if(args.Value.Length == 0)
+            {
+               System.Windows.Forms.MessageBox.Show("Ingrese algun valor ", "Informe");
+            }
+        }
+
+        protected void cvSoloNumeros_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            int numerodevuelto;
+            bool ValorNumerico = int.TryParse(args.Value.ToString(), out numerodevuelto);
+            if (!ValorNumerico)
+            {
+             System.Windows.Forms.MessageBox.Show("Solo se aceptan caracteres numericos ", "Informe");
+            }
+        }
+
+        protected void cvPorNombre_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (args.Value.Length == 0)
+            {
+                 System.Windows.Forms.MessageBox.Show("Ingrese algun valor ", "Informe");
+            }
         }
     }
 }

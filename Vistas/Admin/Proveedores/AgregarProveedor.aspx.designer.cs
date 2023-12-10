@@ -1,10 +1,10 @@
 //------------------------------------------------------------------------------
-// <generado automáticamente>
-//     Este código fue generado por una herramienta.
+// <generado automï¿½ticamente>
+//     Este cï¿½digo fue generado por una herramienta.
 //
-//     Los cambios en este archivo podrían causar un comportamiento incorrecto y se perderán si
-//     se vuelve a generar el código. 
-// </generado automáticamente>
+//     Los cambios en este archivo podrï¿½an causar un comportamiento incorrecto y se perderï¿½n si
+//     se vuelve a generar el cï¿½digo. 
+// </generado automï¿½ticamente>
 //------------------------------------------------------------------------------
 
 namespace Vistas.Admin.Proveedores
@@ -18,8 +18,8 @@ namespace Vistas.Admin.Proveedores
         /// Control form1.
         /// </summary>
         /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// Campo generado automï¿½ticamente.
+        /// Para modificarlo, mueva la declaraciï¿½n del campo del archivo del diseï¿½ador al archivo de cï¿½digo subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
@@ -27,17 +27,26 @@ namespace Vistas.Admin.Proveedores
         /// Control hlVolverInicio.
         /// </summary>
         /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// Campo generado automï¿½ticamente.
+        /// Para modificarlo, mueva la declaraciï¿½n del campo del archivo del diseï¿½ador al archivo de cï¿½digo subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hlVolverInicio;
+
+        /// <summary>
+        /// Control lblCuentaIngresada.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automï¿½ticamente.
+        /// Para modificarlo, mueva la declaraciï¿½n del campo del archivo del diseï¿½ador al archivo de cï¿½digo subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCuentaIngresada;
 
         /// <summary>
         /// Control txtNombreProveedor.
         /// </summary>
         /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// Campo generado automï¿½ticamente.
+        /// Para modificarlo, mueva la declaraciï¿½n del campo del archivo del diseï¿½ador al archivo de cï¿½digo subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNombreProveedor;
 
@@ -45,8 +54,8 @@ namespace Vistas.Admin.Proveedores
         /// Control rfvNombreProveedor.
         /// </summary>
         /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// Campo generado automï¿½ticamente.
+        /// Para modificarlo, mueva la declaraciï¿½n del campo del archivo del diseï¿½ador al archivo de cï¿½digo subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNombreProveedor;
 
@@ -54,8 +63,8 @@ namespace Vistas.Admin.Proveedores
         /// Control txtTelefono.
         /// </summary>
         /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// Campo generado automï¿½ticamente.
+        /// Para modificarlo, mueva la declaraciï¿½n del campo del archivo del diseï¿½ador al archivo de cï¿½digo subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTelefono;
 
@@ -63,8 +72,8 @@ namespace Vistas.Admin.Proveedores
         /// Control rfvTelefono.
         /// </summary>
         /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// Campo generado automï¿½ticamente.
+        /// Para modificarlo, mueva la declaraciï¿½n del campo del archivo del diseï¿½ador al archivo de cï¿½digo subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTelefono;
 
@@ -72,8 +81,8 @@ namespace Vistas.Admin.Proveedores
         /// Control txtEmail.
         /// </summary>
         /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// Campo generado automï¿½ticamente.
+        /// Para modificarlo, mueva la declaraciï¿½n del campo del archivo del diseï¿½ador al archivo de cï¿½digo subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
@@ -81,8 +90,8 @@ namespace Vistas.Admin.Proveedores
         /// Control rfvEmail.
         /// </summary>
         /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// Campo generado automï¿½ticamente.
+        /// Para modificarlo, mueva la declaraciï¿½n del campo del archivo del diseï¿½ador al archivo de cï¿½digo subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEmail;
 
@@ -90,8 +99,8 @@ namespace Vistas.Admin.Proveedores
         /// Control txtDireccion.
         /// </summary>
         /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// Campo generado automï¿½ticamente.
+        /// Para modificarlo, mueva la declaraciï¿½n del campo del archivo del diseï¿½ador al archivo de cï¿½digo subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDireccion;
 
@@ -99,8 +108,8 @@ namespace Vistas.Admin.Proveedores
         /// Control rfvDireccion.
         /// </summary>
         /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// Campo generado automï¿½ticamente.
+        /// Para modificarlo, mueva la declaraciï¿½n del campo del archivo del diseï¿½ador al archivo de cï¿½digo subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDireccion;
 
@@ -108,8 +117,8 @@ namespace Vistas.Admin.Proveedores
         /// Control ddlProvincia.
         /// </summary>
         /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// Campo generado automï¿½ticamente.
+        /// Para modificarlo, mueva la declaraciï¿½n del campo del archivo del diseï¿½ador al archivo de cï¿½digo subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlProvincia;
 
@@ -117,8 +126,8 @@ namespace Vistas.Admin.Proveedores
         /// Control ddlCiudad.
         /// </summary>
         /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// Campo generado automï¿½ticamente.
+        /// Para modificarlo, mueva la declaraciï¿½n del campo del archivo del diseï¿½ador al archivo de cï¿½digo subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlCiudad;
 
@@ -126,8 +135,8 @@ namespace Vistas.Admin.Proveedores
         /// Control btnAgregar.
         /// </summary>
         /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// Campo generado automï¿½ticamente.
+        /// Para modificarlo, mueva la declaraciï¿½n del campo del archivo del diseï¿½ador al archivo de cï¿½digo subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAgregar;
 
@@ -135,8 +144,8 @@ namespace Vistas.Admin.Proveedores
         /// Control lblNotificacion.
         /// </summary>
         /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// Campo generado automï¿½ticamente.
+        /// Para modificarlo, mueva la declaraciï¿½n del campo del archivo del diseï¿½ador al archivo de cï¿½digo subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNotificacion;
     }

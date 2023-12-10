@@ -1,4 +1,4 @@
-﻿//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 // <generado automáticamente>
 //     Este código fue generado por una herramienta.
 //
@@ -33,13 +33,40 @@ namespace Vistas.Admin.Pedidos
         protected global::System.Web.UI.WebControls.HyperLink hlVolverInicio;
 
         /// <summary>
-        /// Control txtBuscarArt.
+        /// Control lblCuentaIngresada.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCuentaIngresada;
+
+        /// <summary>
+        /// Control lbl_TituloPagina.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_TituloPagina;
+
+        /// <summary>
+        /// Control lblBuscarArticuloxID.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBuscarArt;
+
+        /// <summary>
+        /// Control tbBuscarArticuloxID.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbBuscarArticuloxID;
 
         /// <summary>
         /// Control btnBuscar.
@@ -78,7 +105,7 @@ namespace Vistas.Admin.Pedidos
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
 
         /// <summary>
-        /// Control gvAgregarPedido.
+        /// Control gdvAgregarpedido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.

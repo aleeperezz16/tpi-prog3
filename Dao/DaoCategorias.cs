@@ -38,6 +38,12 @@ namespace Dao
         {
             return _datos.EjecutarConsulta($"DELETE FROM Categorias WHERE IDCategoria = {id}");
         }
+        public DataTable ObtenerCategoriasXnombre(string nombre)
+        {
+            string consulta = "SELECT * FROM Categorias"+ $" WHERE NombreCategoria LIKE '%{nombre}%'";
+
+            return _datos.ObtenerTabla("Categorias", consulta);
+        }
 
         private void ArmarParametrosAgregar(ref SqlCommand cmd, Categoria cat)
         {

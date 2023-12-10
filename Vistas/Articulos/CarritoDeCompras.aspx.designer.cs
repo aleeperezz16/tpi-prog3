@@ -1,4 +1,4 @@
-﻿//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 // <generado automáticamente>
 //     Este código fue generado por una herramienta.
 //
@@ -33,7 +33,16 @@ namespace Vistas.Articulos
         protected global::System.Web.UI.WebControls.HyperLink hlnkInicio;
 
         /// <summary>
-        /// Control lblTitulo.
+        /// Control lblCuentaIngresada.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCuentaIngresada;
+
+        /// <summary>
+        /// Control Label1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
