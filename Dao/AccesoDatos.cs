@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -135,6 +135,29 @@ namespace Dao
             catch
             {
                 return false;
+            }
+        }
+
+        public DataTable ObtenerTablaDesdeProcedimiento(ref SqlCommand cmd, string nombreSp)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection cn = ObtenerConexion();
+            cmd.Connection = cn;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = nombreSp;
+
+            SqlDataAdapter adap = new SqlDataAdapter(cmd);
+
+
+            try
+            {
+                adap.Fill(ds,"tabla");
+                cn.Close();
+                return ds.Tables["tabla"];
+            }
+            catch
+            {
+                return null;
             }
         }
     }
