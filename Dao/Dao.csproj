@@ -46,6 +46,7 @@
     <Compile Include="DaoCategorias.cs" />
     <Compile Include="DaoCiudad.cs" />
     <Compile Include="DaoClientes.cs" />
+    <Compile Include="DaoEstadisticas.cs" />
     <Compile Include="DaoPedidos.cs" />
     <Compile Include="DaoProveedores.cs" />
     <Compile Include="DaoProvincia.cs" />

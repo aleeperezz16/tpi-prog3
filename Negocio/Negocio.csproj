@@ -45,6 +45,7 @@
     <Compile Include="LogearUsuario.cs" />
     <Compile Include="NegocioCategorias.cs" />
     <Compile Include="NegocioClientes.cs" />
+    <Compile Include="NegocioEstadisticas.cs" />
     <Compile Include="NegocioPedidos.cs" />
     <Compile Include="NegocioProveedores.cs" />
     <Compile Include="NegocioArticulos.cs" />

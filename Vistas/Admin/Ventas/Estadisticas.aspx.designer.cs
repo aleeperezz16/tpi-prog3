@@ -11,7 +11,7 @@ namespace Vistas.Admin.Ventas
 {
 
 
-    public partial class ListarVentas
+    public partial class WebForm1
     {
 
         /// <summary>
@@ -24,93 +24,120 @@ namespace Vistas.Admin.Ventas
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// hlVolverInicio control.
+        /// lblTituloEstadisticas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlVolverInicio;
+        protected global::System.Web.UI.WebControls.Label lblTituloEstadisticas;
 
         /// <summary>
-        /// lblCuentaIngresada control.
+        /// ddlCategorias control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCuentaIngresada;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCategorias;
 
         /// <summary>
-        /// gvVentas control.
+        /// rfvTipoRsumen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvVentas;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTipoRsumen;
 
         /// <summary>
-        /// ddlArticulos control.
+        /// txtFechaInicio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlArticulos;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaInicio;
 
         /// <summary>
-        /// txtIdVenta control.
+        /// txtFechaCierre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdVenta;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaCierre;
 
         /// <summary>
-        /// txtFechaDia control.
+        /// calInicio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaDia;
+        protected global::System.Web.UI.WebControls.Calendar calInicio;
 
         /// <summary>
-        /// txtFechaMes control.
+        /// rfvFechaIncio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaMes;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFechaIncio;
 
         /// <summary>
-        /// txtFechaAnio control.
+        /// calCierre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaAnio;
+        protected global::System.Web.UI.WebControls.Calendar calCierre;
 
         /// <summary>
-        /// txtDniCliente control.
+        /// rfvFechaCierre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDniCliente;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFechaCierre;
 
         /// <summary>
-        /// btnFiltrar control.
+        /// btnVisualizar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFiltrar;
+        protected global::System.Web.UI.WebControls.Button btnVisualizar;
+
+        /// <summary>
+        /// grvDatos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grvDatos;
+
+        /// <summary>
+        /// chGrafico1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.DataVisualization.Charting.Chart chGrafico1;
+
+        /// <summary>
+        /// chGrafico2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.DataVisualization.Charting.Chart chGrafico2;
     }
 }

@@ -119,5 +119,28 @@ namespace Dao
                 return 0;
             }
         }
+
+        public DataTable ObtenerTablaDesdeProcedimiento(ref SqlCommand cmd, string nombreSp)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection cn = ObtenerConexion();
+            cmd.Connection = cn;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = nombreSp;
+
+            SqlDataAdapter adap = new SqlDataAdapter(cmd);
+
+
+            try
+            {
+                adap.Fill(ds,"tabla");
+                cn.Close();
+                return ds.Tables["tabla"];
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }
