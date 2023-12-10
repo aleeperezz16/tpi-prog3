@@ -14,14 +14,14 @@
             height: 26px;
         }
         .auto-style3 {
-            width: 237px;
+            width: 167px;
         }
         .auto-style4 {
             height: 26px;
-            width: 237px;
+            width: 167px;
         }
         .auto-style5 {
-            width: 237px;
+            width: 167px;
             text-align: right;
         }
         .auto-style6 {
@@ -42,7 +42,7 @@
             width: 454px;
         }
         .auto-style12 {
-            width: 237px;
+            width: 167px;
             height: 39px;
         }
         .auto-style13 {
@@ -52,6 +52,10 @@
         .auto-style14 {
             height: 39px;
         }
+        .auto-style15 {
+            height: 39px;
+            text-align: right;
+        }
     </style>
      <link rel="stylesheet" href="../../StyleSheetG6.css"/>
 </head>
@@ -60,12 +64,21 @@
         <table class="auto-style1">
             <tr>
                 <td class="auto-style12">
+                    &nbsp;</td>
+                <td class="auto-style13" colspan="2">
+                    <asp:HyperLink ID="hlAgregarcat" runat="server" NavigateUrl="~/Inicio.aspx">Volver al menú Principal</asp:HyperLink>
+                </td>
+                <td class="auto-style15">
+                    <asp:Label ID="lblCuentaIngresada" runat="server"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style12">
                     <asp:Label ID="Label1" class="mainItem" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Agregar Categoria"></asp:Label>
                 </td>
                 <td class="auto-style13" colspan="2"></td>
                 <td class="auto-style14">
-                    <asp:HyperLink ID="hlAgregarcat" runat="server" NavigateUrl="~/Inicio.aspx">Volver al menú Principal</asp:HyperLink>
-                </td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style4"></td>

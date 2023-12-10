@@ -15,6 +15,7 @@ namespace Vistas.Articulos
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            VerUsuarioConectado();
             if (Session["Venta"] != null)
             {
                 var Articulos = (List<DetalleVenta>)Session["Venta"];
@@ -133,6 +134,22 @@ namespace Vistas.Articulos
             gdvCarritoDeCompras.Visible = false;
             btnComprar.Enabled = false;
             btnEliminarTodo.Enabled = false;
+        }
+
+        public void VerUsuarioConectado()
+        {
+            var datos = Session["Datos"];
+
+            if (datos.GetType() == typeof(Usuario))
+            {
+                Usuario usuarito = (Usuario)Session["Datos"];
+                lblCuentaIngresada.Text = usuarito.Alias;
+            }
+            else
+            {
+                Cliente Clientesito = (Cliente)Session["Datos"];
+                lblCuentaIngresada.Text = Clientesito.Nombre + " " + Clientesito.Apellido;
+            }
         }
     }
 }

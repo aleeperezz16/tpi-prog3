@@ -17,25 +17,32 @@
             height: 26px;
             text-align: center;
         }
-        .auto-style4 {
-            width: 104px;
-        }
-        .auto-style5 {
-            height: 26px;
-            width: 104px;
-        }
         .auto-style6 {
             width: 584px;
-        }
-        .auto-style7 {
-            height: 37px;
-            width: 104px;
         }
         .auto-style8 {
             height: 37px;
         }
-        .auto-style9 {
-            height: 54px;
+        .auto-style10 {
+            width: 297px;
+        }
+        .auto-style11 {
+            height: 26px;
+            width: 297px;
+        }
+        .auto-style12 {
+            height: 37px;
+            width: 297px;
+        }
+        .auto-style13 {
+            width: 297px;
+            height: 27px;
+        }
+        .auto-style14 {
+            height: 27px;
+        }
+        .auto-style15 {
+            text-align: center;
         }
     </style>
      <link rel="stylesheet" href="../../StyleSheetG6.css"/>
@@ -45,29 +52,32 @@
         <div>
             <table class="auto-style1">
                 <tr>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td colspan="2">
+                    <td class="auto-style13">
                         <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Inicio.aspx">Volver al menu Principal</asp:HyperLink>
                     </td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style14">
+                    </td>
+                    <td class="auto-style14">
+                        <asp:Label ID="lblCuentaIngresada" runat="server"></asp:Label>
+                    </td>
                 </tr>
                 <tr>
-                    <td class="auto-style5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</td>
-                    <td class="auto-style3" colspan="2">
+                    <td class="auto-style11">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</td>
+                    <td class="auto-style3">
                         <asp:Label ID="lbCategoria" CssClass="mainItem" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Categorías"></asp:Label>
                     </td>
                     <td class="auto-style2"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style7">
+                    <td class="auto-style12">
                     </td>
-                    <td class="auto-style8" colspan="2"></td>
+                    <td class="auto-style8"></td>
                     <td class="auto-style8"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style4" rowspan="2">&nbsp;</td>
-                    <td class="auto-style6" rowspan="2">
-                        <asp:Label ID="Label1" class="subItem" runat="server" Text="Buscar Categoría por ID:"></asp:Label>
+                    <td class="auto-style10">&nbsp;</td>
+                    <td class="auto-style6">
+                        <asp:Label ID="Label1" class="subItem" runat="server" Text="Buscar Categoría por Nombre:"></asp:Label>
                         <asp:TextBox ID="tbCategoriaporid" runat="server" ValidationGroup="1"></asp:TextBox>
                         <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -75,18 +85,12 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Button ID="btnVistaInicial" CssClass="myButton" runat="server" OnClick="btnVistaInicial_Click" Text="Vista Inicial" />
                     </td>
                     <td>
-                        <asp:RequiredFieldValidator ID="rfvBuscarcatxID" runat="server" ControlToValidate="tbCategoriaporid" ForeColor="Red" ValidationGroup="1">*Por favor ingrese un ID a buscar.</asp:RequiredFieldValidator>
-                    </td>
-                    <td rowspan="2">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style9">
-                        <asp:RegularExpressionValidator ID="revBuscarcatxID" runat="server" ControlToValidate="tbCategoriaporid" ErrorMessage="RegularExpressionValidator" ForeColor="#FF3300" ValidationExpression="^\d+$" ValidationGroup="1">*Solo ingrese números.</asp:RegularExpressionValidator>
+                        <asp:RequiredFieldValidator ID="rfvBuscarcatxID" runat="server" ControlToValidate="tbCategoriaporid" ForeColor="Red" ValidationGroup="1">*Por favor ingrese un Nombre  a buscar.</asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td colspan="2">
+                    <td class="auto-style10">&nbsp;</td>
+                    <td class="auto-style15">
                         <asp:GridView ID="gdvCategorias" runat="server" AutoGenerateDeleteButton="True" AllowPaging="True" AutoGenerateEditButton="True" OnPageIndexChanging="gdvCategorias_PageIndexChanging" OnRowCancelingEdit="gdvCategorias_RowCancelingEdit" OnRowDeleting="gdvCategorias_RowDeleting" OnRowEditing="gdvCategorias_RowEditing" OnRowUpdating="gdvCategorias_RowUpdating" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
@@ -130,20 +134,20 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td colspan="2">
+                    <td class="auto-style10">&nbsp;</td>
+                    <td>
                         <asp:Label ID="lbObservaciones" runat="server" Font-Bold="True" Text="Observación: Las acciones dentro del Gridview serán Editar,Eliminar."></asp:Label>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td colspan="2">&nbsp;</td>
+                    <td class="auto-style10">&nbsp;</td>
+                    <td>&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style5"></td>
-                    <td class="auto-style2" colspan="2"></td>
+                    <td class="auto-style11"></td>
+                    <td class="auto-style2"></td>
                     <td class="auto-style2"></td>
                 </tr>
             </table>

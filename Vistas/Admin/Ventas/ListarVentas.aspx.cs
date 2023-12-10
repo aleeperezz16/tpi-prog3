@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using Negocio;
+using Entidades;
 
 namespace Vistas.Admin.Ventas
 {
@@ -22,6 +23,8 @@ namespace Vistas.Admin.Ventas
                 ddlArticulos.DataBind();
 
                 CargarVentasEnGrilla();
+
+                VerUsuarioConectado();
             }
         }
 
@@ -50,6 +53,22 @@ namespace Vistas.Admin.Ventas
         {
             gvVentas.DataSource = _negocio.ObtenerVentas();
             gvVentas.DataBind();
+        }
+
+        public void VerUsuarioConectado()
+        {
+            var datos = Session["Datos"];
+
+            if (datos.GetType() == typeof(Usuario))
+            {
+                Usuario usuarito = (Usuario)Session["Datos"];
+                lblCuentaIngresada.Text = usuarito.Alias;
+            }
+            else
+            {
+                Cliente Clientesito = (Cliente)Session["Datos"];
+                lblCuentaIngresada.Text = Clientesito.Nombre + " " + Clientesito.Apellido;
+            }
         }
     }
 }

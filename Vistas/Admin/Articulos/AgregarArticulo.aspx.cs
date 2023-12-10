@@ -26,6 +26,8 @@ namespace Vistas.Admin.Articulos
                 ddlProveedor.DataTextField = "NombreProveedor";
                 ddlProveedor.DataValueField = "IDProveedor";
                 ddlProveedor.DataBind();
+
+                VerUsuarioConectado();
             }
         }
 
@@ -45,6 +47,22 @@ namespace Vistas.Admin.Articulos
             nuevaArticulo.Stock = Convert.ToInt32(txtStock.Text.Trim());
 
             lblResultado.Text = manejoArt.agregarArticulo(nuevaArticulo) ? "El articulo se ha agregado con exito" : "No se pudo agregar el articulo";
+        }
+
+        public void VerUsuarioConectado()
+        {
+            var datos = Session["Datos"];
+
+            if (datos.GetType() == typeof(Usuario))
+            {
+                Usuario usuarito = (Usuario)Session["Datos"];
+                lblCuentaIngresada.Text = usuarito.Alias;
+            }
+            else
+            {
+                Cliente Clientesito = (Cliente)Session["Datos"];
+                lblCuentaIngresada.Text = Clientesito.Nombre + " " + Clientesito.Apellido;
+            }
         }
     }
 }

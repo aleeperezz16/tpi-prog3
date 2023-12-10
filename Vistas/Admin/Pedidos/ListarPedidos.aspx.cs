@@ -18,6 +18,8 @@ namespace Vistas.Admin.Pedidos
             if (!IsPostBack)
             {
                 cargarPedidosEnGrilla();
+
+                VerUsuarioConectado();
             }
         }
 
@@ -58,6 +60,22 @@ namespace Vistas.Admin.Pedidos
         {
             gdvListarPedidos.PageIndex = e.NewPageIndex;
             cargarPedidosEnGrilla();
+        }
+
+        public void VerUsuarioConectado()
+        {
+            var datos = Session["Datos"];
+
+            if (datos.GetType() == typeof(Usuario))
+            {
+                Usuario usuarito = (Usuario)Session["Datos"];
+                lblCuentaIngresada.Text = usuarito.Alias;
+            }
+            else
+            {
+                Cliente Clientesito = (Cliente)Session["Datos"];
+                lblCuentaIngresada.Text = Clientesito.Nombre + " " + Clientesito.Apellido;
+            }
         }
 
     }

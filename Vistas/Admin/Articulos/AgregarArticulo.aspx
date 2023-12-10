@@ -12,18 +12,11 @@
         .auto-style2 {
             width: 29px;
         }
-        .auto-style3 {
-            width: 214px;
-        }
         .auto-style13 {
             width: 220px;
         }
         .auto-style9 {
             width: 29px;
-            height: 50px;
-        }
-        .auto-style10 {
-            width: 214px;
             height: 50px;
         }
         .auto-style15 {
@@ -41,16 +34,26 @@
             width: 29px;
             height: 29px;
         }
-        .auto-style23 {
-            width: 214px;
-            height: 29px;
-        }
         .auto-style24 {
             width: 220px;
             height: 29px;
         }
         .auto-style25 {
             height: 29px;
+        }
+        .auto-style26 {
+            height: 50px;
+        }
+        .auto-style27 {
+            width: 233px;
+            height: 50px;
+        }
+        .auto-style28 {
+            width: 233px;
+            height: 29px;
+        }
+        .auto-style29 {
+            width: 233px;
         }
         </style>
     <link rel="stylesheet" href="../../StyleSheetG6.css"/>
@@ -63,18 +66,26 @@
                     <td>
                         <table class="auto-style1">
                             <tr>
+                                <td class="auto-style26" colspan="2">
+                                    <asp:HyperLink ID="hlAgregarArt" runat="server" NavigateUrl="~/Inicio.aspx">Volver al menú Principal</asp:HyperLink>
+                                </td>
+                                <td class="auto-style15">&nbsp;</td>
+                                <td class="auto-style12">
+                        <asp:Label ID="lblCuentaIngresada" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td class="auto-style9"></td>
-                                <td class="auto-style10">
+                                <td class="auto-style27">
                                     <asp:Label ID="lblAgregarArticulo" CssClass="mainItem" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Agregar Articulo"></asp:Label>
                                 </td>
                                 <td class="auto-style15"></td>
                                 <td class="auto-style12">
-                                    <asp:HyperLink ID="hlAgregarArt" runat="server" NavigateUrl="~/Inicio.aspx">Volver al menú Principal</asp:HyperLink>
-                                </td>
+                                    &nbsp;</td>
                             </tr>
                             <tr>
                                 <td class="auto-style22"></td>
-                                <td class="auto-style23">
+                                <td class="auto-style28">
                                     <asp:Label ID="lbNombreArticulo" CssClass="subItem" runat="server" Text="Nombre:"></asp:Label>
                                 </td>
                                 <td class="auto-style24">
@@ -86,7 +97,7 @@
                             </tr>
                             <tr>
                                 <td class="auto-style22"></td>
-                                <td class="auto-style23">
+                                <td class="auto-style28">
                                     <asp:Label ID="lbCategoria" CssClass="subItem" runat="server" Text="Categoria:"></asp:Label>
                                 </td>
                                 <td class="auto-style24">
@@ -100,7 +111,7 @@
                             </tr>
                                                         <tr>
                                 <td class="auto-style22"></td>
-                                <td class="auto-style23">
+                                <td class="auto-style28">
                                     <asp:Label ID="lbProveedor" CssClass="subItem" runat="server" Text="Proveedor:"></asp:Label>
                                 </td>
                                 <td class="auto-style24">
@@ -114,7 +125,7 @@
                             </tr>
                             <tr>
                                 <td class="auto-style2">&nbsp;</td>
-                                <td class="auto-style3">
+                                <td class="auto-style29">
                                     <asp:Label ID="lbPrecioDeVenta" CssClass="subItem" runat="server" Text="Precio de Venta:"></asp:Label>
                                 </td>
                                 <td class="auto-style13">
@@ -126,7 +137,7 @@
                             </tr>
                                                         <tr>
                                 <td class="auto-style2">&nbsp;</td>
-                                <td class="auto-style3">
+                                <td class="auto-style29">
                                     <asp:Label ID="lbPrecioDeCompra" CssClass="subItem" runat="server" Text="Precio De Compra:"></asp:Label>
                                 </td>
                                 <td class="auto-style13">
@@ -138,7 +149,7 @@
                             </tr>
                                                         <tr>
                                 <td class="auto-style2">&nbsp;</td>
-                                <td class="auto-style3">
+                                <td class="auto-style29">
                                     <asp:Label ID="lbStock" CssClass="subItem" runat="server" Text="Stock:"></asp:Label>
                                 </td>
                                 <td class="auto-style13">
@@ -150,7 +161,7 @@
                             </tr>
                             <tr>
                                 <td class="auto-style2">&nbsp;</td>
-                                <td class="auto-style3">
+                                <td class="auto-style29">
                                     &nbsp;</td>
                                 <td class="auto-style13">
                                     <asp:Button ID="btnAceptar" class="myButton" runat="server" Text="Aceptar" OnClick="btnAceptar_Click" style="height: 29px" />
@@ -161,7 +172,7 @@
                             </tr>
                             <tr>
                                 <td class="auto-style2">&nbsp;</td>
-                                <td class="auto-style3">
+                                <td class="auto-style29">
                                     &nbsp;</td>
                                 <td class="auto-style13">
                                     &nbsp;</td>
@@ -170,7 +181,7 @@
                             </tr>
                             <tr>
                                 <td class="auto-style2">&nbsp;</td>
-                                <td class="auto-style3">
+                                <td class="auto-style29">
                                     &nbsp;</td>
                                 <td class="auto-style13">
                                     &nbsp;</td>

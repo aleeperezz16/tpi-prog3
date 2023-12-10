@@ -34,12 +34,32 @@
             text-align: right;
             height: 26px;
         }
+        .auto-style9 {
+            height: 27px;
+        }
+        .auto-style10 {
+            width: 281px;
+            height: 27px;
+        }
+        .auto-style11 {
+            height: 27px;
+            text-align: right;
+        }
     </style>
     <link rel="stylesheet" href="../../StyleSheetG6.css"/>
 </head>
 <body>
     <form id="form1" class="fontStyle" runat="server">
         <table class="auto-style1">
+            <tr>
+                <td class="auto-style9"></td>
+                <td class="auto-style10">
+                    <asp:HyperLink ID="hlVolverInicio" runat="server" NavigateUrl="~/Inicio.aspx">Volver al Menú Principal</asp:HyperLink>
+                </td>
+                <td class="auto-style11">
+                    <asp:Label ID="lblCuentaIngresada" runat="server"></asp:Label>
+                </td>
+            </tr>
             <tr>
                 <td class="auto-style2 mainItem ">Agregar Proveedor</td>
                 <td class="auto-style3">&nbsp;</td>
@@ -49,8 +69,7 @@
                 <td class="auto-style5"></td>
                 <td class="auto-style6"></td>
                 <td class="auto-style8">
-                    <asp:HyperLink ID="hlVolverInicio" runat="server" NavigateUrl="~/Inicio.aspx">Volver al Menú Principal</asp:HyperLink>
-                </td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style2 subItem">Nombre:</td>

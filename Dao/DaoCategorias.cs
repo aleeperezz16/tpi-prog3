@@ -42,6 +42,12 @@ namespace Dao
 
             return _datos.ObtenerTabla("Categorias", consulta);
         }
+        public DataTable ObtenerCategoriasXnombre(string nombre)
+        {
+            string consulta = "SELECT * FROM Categorias"+ $" WHERE NombreCategoria LIKE '%{nombre}%'";
+
+            return _datos.ObtenerTabla("Categorias", consulta);
+        }
 
         private void ArmarParametrosAgregar(ref SqlCommand cmd, Categoria cat)
         {

@@ -20,6 +20,11 @@ namespace Negocio
             DaoCategorias dao = new DaoCategorias();
             return dao.ObtenerCategorias(id);
         }
+        public DataTable ObtenerCategoriasXnombre(string nombre)
+        {
+            DaoCategorias dao = new DaoCategorias();
+            return dao.ObtenerCategoriasXnombre(nombre);
+        }
 
         public Categoria ObtenerCategoriaObjeto(int id)
         {

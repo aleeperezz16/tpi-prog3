@@ -11,7 +11,7 @@
             width: 100%;
         }
         .auto-style2 {
-            width: 206px;
+            width: 128px;
         }
         .auto-style3 {
             text-align: center;
@@ -30,14 +30,17 @@
         <table class="auto-style1">
             <tr>
                 <td class="auto-style2">&nbsp;</td>
-                <td colspan="2">&nbsp;</td>
-                <td>&nbsp;</td>
+                <td colspan="2">
+                    <asp:HyperLink ID="hlInicio" runat="server" NavigateUrl="~/InicioClientes.aspx">Volver al Menú Principal</asp:HyperLink>
+                </td>
+                <td>
+                    <asp:Label ID="lblCuentaIngresada" runat="server"></asp:Label>
+                </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style2">
-                    <asp:HyperLink ID="hlInicio" runat="server" NavigateUrl="~/InicioClientes.aspx">Volver al Menú Principal</asp:HyperLink>
-                </td>
+                    &nbsp;</td>
                 <td class="auto-style3" colspan="2">
                     <asp:Label ID="Label1" CssClass="mainItem" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Artículos"></asp:Label>
                 </td>

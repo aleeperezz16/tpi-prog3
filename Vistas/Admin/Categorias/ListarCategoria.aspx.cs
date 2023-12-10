@@ -18,25 +18,40 @@ namespace Vistas.Admin.Categorias
             if(!IsPostBack)
             {
                 cargarCategoriasEnGrilla();
+
+                VerUsuarioConectado();
             }
         }
-        
+
         //PARA ELIMINAR UNA CATEGORIA A TRAVES DEL ID SELECCIONADO
         protected void gdvCategorias_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             int s_IdCategoria = Convert.ToInt32(((Label)gdvCategorias.Rows[e.RowIndex].FindControl("lbl_it_IDCategoria")).Text);
             NegocioCategorias negocio = new NegocioCategorias();
-            bool Borro = negocio.eliminarCategoria(s_IdCategoria);
 
-            if (Borro)
+
+            string mensaje = "Está seguro que quiere eliminar la Categoria? " +
+            "  ALERTA!: ÉSTA ACCIÓN NO SE PUEDE DESHACER. ";
+            string titulo = "Mensaje de Confirmacion";
+            System.Windows.Forms.MessageBoxButtons botones = System.Windows.Forms.MessageBoxButtons.YesNo;
+            System.Windows.Forms.DialogResult resultado;
+            resultado = System.Windows.Forms.MessageBox.Show(mensaje, titulo, botones);
+
+            if ( resultado == System.Windows.Forms.DialogResult.Yes)
             {
-                System.Windows.Forms.MessageBox.Show("Se Elimino correctamente la categoria", "Mensaje");
+                bool Borro = negocio.eliminarCategoria(s_IdCategoria);
+
+                if (Borro)
+                {
+                    System.Windows.Forms.MessageBox.Show("Se Elimino correctamente la categoria", "Mensaje");
+                }
+                else
+                {
+                    System.Windows.Forms.MessageBox.Show("No se pudo eliminar la categoria, verifique que no posea articulos adheridos a la misma categoria que desea eliminar", "Mensaje");
+                }
+                cargarCategoriasEnGrilla();
             }
-            else
-            {
-                System.Windows.Forms.MessageBox.Show("No se pudo eliminar la categoria, Checkee que no posea articulos adheridos a la misma", "Mensaje");
-            }
-            cargarCategoriasEnGrilla();
+            else { System.Windows.Forms.MessageBox.Show("La eliminación fue cancelada ", "Mensaje"); }
         }
 
         protected void gdvCategorias_RowEditing(object sender, GridViewEditEventArgs e)
@@ -47,6 +62,7 @@ namespace Vistas.Admin.Categorias
 
         protected void gdvCategorias_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
+            System.Windows.Forms.MessageBox.Show("La edición fué cancelada ", "Mensaje");
             gdvCategorias.EditIndex = -1;
             cargarCategoriasEnGrilla();
         }
@@ -68,6 +84,10 @@ namespace Vistas.Admin.Categorias
             {
                 System.Windows.Forms.MessageBox.Show("El registro se ha modificado correctamente!","Mensaje de edición");
             }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("La Modificación se canceló ", "Mensaje");
+            }
             gdvCategorias.EditIndex = -1;
             cargarCategoriasEnGrilla();
         }
@@ -83,7 +103,7 @@ namespace Vistas.Admin.Categorias
         protected void btnBuscarCat_Click(object sender, EventArgs e)
         {
             NegocioCategorias negocio = new NegocioCategorias();
-            gdvCategorias.DataSource = negocio.ObtenerCategorias(Convert.ToInt32(tbCategoriaporid.Text));
+            gdvCategorias.DataSource = negocio.ObtenerCategoriasXnombre(tbCategoriaporid.Text);
             gdvCategorias.DataBind();
             tbCategoriaporid.Text = "";
 
@@ -94,7 +114,7 @@ namespace Vistas.Admin.Categorias
             }
             catch
             {
-                System.Windows.Forms.MessageBox.Show("No hubo coincidencias, por favor intente con otro ID", "Informe");
+                System.Windows.Forms.MessageBox.Show("No hubo coincidencias, por favor intente con otro Nombre de Categoria", "Informe");
             }
         }
 
@@ -111,6 +131,21 @@ namespace Vistas.Admin.Categorias
             tbCategoriaporid.Text = "";
             gdvCategorias.PageIndex = 0;
             cargarCategoriasEnGrilla();
+        }
+        public void VerUsuarioConectado()
+        {
+            var datos = Session["Datos"];
+
+            if (datos.GetType() == typeof(Usuario))
+            {
+                Usuario usuarito = (Usuario)Session["Datos"];
+                lblCuentaIngresada.Text = usuarito.Alias;
+            }
+            else
+            {
+                Cliente Clientesito = (Cliente)Session["Datos"];
+                lblCuentaIngresada.Text = Clientesito.Nombre + " " + Clientesito.Apellido;
+            }
         }
     }
 }

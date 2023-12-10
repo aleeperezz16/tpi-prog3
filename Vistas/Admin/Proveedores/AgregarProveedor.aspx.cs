@@ -23,6 +23,8 @@ namespace Vistas.Admin.Proveedores
                 ddlProvincia.DataValueField = "CodigoProvincia";
                 ddlProvincia.DataTextField = "NombreProvincia";
                 ddlProvincia.DataBind();
+
+                VerUsuarioConectado();
             }
         }
 
@@ -72,6 +74,22 @@ namespace Vistas.Admin.Proveedores
             ddlCiudad.DataValueField = "CodigoCiudad";
             ddlCiudad.DataTextField = "NombreCiudad";
             ddlCiudad.DataBind();
+        }
+
+        public void VerUsuarioConectado()
+        {
+            var datos = Session["Datos"];
+
+            if (datos.GetType() == typeof(Usuario))
+            {
+                Usuario usuarito = (Usuario)Session["Datos"];
+                lblCuentaIngresada.Text = usuarito.Alias;
+            }
+            else
+            {
+                Cliente Clientesito = (Cliente)Session["Datos"];
+                lblCuentaIngresada.Text = Clientesito.Nombre + " " + Clientesito.Apellido;
+            }
         }
     }
 }
