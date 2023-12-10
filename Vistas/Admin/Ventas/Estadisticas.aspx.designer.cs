@@ -69,6 +69,24 @@ namespace Vistas.Admin.Ventas
         protected global::System.Web.UI.WebControls.TextBox txtFechaCierre;
 
         /// <summary>
+        /// lblFechaInicio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFechaInicio;
+
+        /// <summary>
+        /// lblFechaCierre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFechaCierre;
+
+        /// <summary>
         /// calInicio control.
         /// </summary>
         /// <remarks>

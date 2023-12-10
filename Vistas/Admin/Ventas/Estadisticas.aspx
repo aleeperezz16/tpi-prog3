@@ -59,6 +59,18 @@
                 <tr>
                     <td class="auto-style3">&nbsp;</td>
                     <td class="auto-style2">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Label ID="lblFechaInicio" runat="server" CssClass="subItem" Text="Fecha Inicio"></asp:Label>
+                    </td>
+                    <td>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Label ID="lblFechaCierre" runat="server" CssClass="subItem" Text="FechaCierre"></asp:Label>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style3">&nbsp;</td>
+                    <td class="auto-style2">
                         <asp:Calendar ID="calInicio" runat="server" CssClass="myCalendar" OnDayRender="calInicio_DayRender" OnSelectionChanged="calInicio_SelectionChanged"></asp:Calendar>
                         <asp:RequiredFieldValidator ID="rfvFechaIncio" runat="server" ControlToValidate="txtFechaInicio" ErrorMessage="Seleccione una fecha de incio"></asp:RequiredFieldValidator>
                     </td>

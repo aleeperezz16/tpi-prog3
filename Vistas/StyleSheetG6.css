@@ -118,13 +118,8 @@ body {
     display:none;
 }
 
-/* To specify background color, color, and border-color  */
-.e-calendar{
-    background-color: red;
-    border-color: black;
-    color: black;
-}
 
+/*Calendario*/
 .myCalendar {
     background-color: #f2f2f2;
     width: 156px;
