@@ -51,22 +51,40 @@ namespace Vistas.Admin.Categorias
         protected global::System.Web.UI.WebControls.Label lbCategoria;
 
         /// <summary>
-        /// Control Label1.
+        /// Control lblBuscarXID.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lblBuscarXID;
 
         /// <summary>
-        /// Control tbCategoriaporid.
+        /// Control tbCategoriaporID.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbCategoriaporid;
+        protected global::System.Web.UI.WebControls.TextBox tbCategoriaporID;
+
+        /// <summary>
+        /// Control lblBuscarXNombre.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBuscarXNombre;
+
+        /// <summary>
+        /// Control tbCategoriaporNombre.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbCategoriaporNombre;
 
         /// <summary>
         /// Control btnBuscarCat.
@@ -85,15 +103,6 @@ namespace Vistas.Admin.Categorias
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnVistaInicial;
-
-        /// <summary>
-        /// Control rfvBuscarcatxID.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvBuscarcatxID;
 
         /// <summary>
         /// Control gdvCategorias.

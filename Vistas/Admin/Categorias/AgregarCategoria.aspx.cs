@@ -29,7 +29,7 @@ namespace Vistas.Admin.Categorias
             tbNombre.Text = "";
             tbDescripcion.Text = "";
             bool agrego = manejoCat.agregarCategoria(nuevacategoria);
-            if (!agrego) 
+            if (agrego) 
             {
                 MessageBox.Show("Se agregó la Categoría correctamente","Mensaje");
             }

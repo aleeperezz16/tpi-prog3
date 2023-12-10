@@ -13,36 +13,67 @@
         .auto-style2 {
             height: 26px;
         }
-        .auto-style3 {
-            height: 26px;
-            text-align: center;
-        }
-        .auto-style6 {
-            width: 584px;
-        }
         .auto-style8 {
             height: 37px;
         }
-        .auto-style10 {
-            width: 297px;
-        }
-        .auto-style11 {
-            height: 26px;
-            width: 297px;
-        }
-        .auto-style12 {
-            height: 37px;
-            width: 297px;
-        }
-        .auto-style13 {
-            width: 297px;
-            height: 27px;
-        }
         .auto-style14 {
             height: 27px;
+            text-align: right;
         }
-        .auto-style15 {
+        .auto-style19 {
+            height: 36px;
+        }
+        .auto-style21 {
+            height: 27px;
+            width: 642px;
+        }
+        .auto-style22 {
+            height: 26px;
             text-align: center;
+            width: 642px;
+        }
+        .auto-style23 {
+            height: 37px;
+            width: 642px;
+        }
+        .auto-style24 {
+            width: 642px;
+            text-align: center;
+        }
+        .auto-style25 {
+            width: 642px;
+        }
+        .auto-style26 {
+            height: 26px;
+            width: 642px;
+        }
+        .auto-style27 {
+            height: 27px;
+            width: 393px;
+        }
+        .auto-style28 {
+            height: 26px;
+            text-align: center;
+            width: 393px;
+        }
+        .auto-style29 {
+            height: 37px;
+            width: 393px;
+        }
+        .auto-style30 {
+            width: 393px;
+            text-align: center;
+        }
+        .auto-style31 {
+            width: 393px;
+        }
+        .auto-style32 {
+            height: 26px;
+            width: 393px;
+        }
+        .auto-style33 {
+            width: 642px;
+            text-align: left;
         }
     </style>
      <link rel="stylesheet" href="../../StyleSheetG6.css"/>
@@ -52,45 +83,54 @@
         <div>
             <table class="auto-style1">
                 <tr>
-                    <td class="auto-style13">
+                    <td class="auto-style27">
                         <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Inicio.aspx">Volver al menu Principal</asp:HyperLink>
                     </td>
-                    <td class="auto-style14">
-                    </td>
+                    <td class="auto-style21">
+                        &nbsp;</td>
                     <td class="auto-style14">
                         <asp:Label ID="lblCuentaIngresada" runat="server"></asp:Label>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style11">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</td>
-                    <td class="auto-style3">
+                    <td class="auto-style28">
+                        &nbsp;</td>
+                    <td class="auto-style22">
                         <asp:Label ID="lbCategoria" CssClass="mainItem" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Categorías"></asp:Label>
                     </td>
                     <td class="auto-style2"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style12">
-                    </td>
-                    <td class="auto-style8"></td>
+                    <td class="auto-style29">&nbsp;</td>
+                    <td class="auto-style23"></td>
                     <td class="auto-style8"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style10">&nbsp;</td>
-                    <td class="auto-style6">
-                        <asp:Label ID="Label1" class="subItem" runat="server" Text="Buscar Categoría por Nombre:"></asp:Label>
-                        <asp:TextBox ID="tbCategoriaporid" runat="server" ValidationGroup="1"></asp:TextBox>
+                    <td class="auto-style30" rowspan="3">
+                        &nbsp;</td>
+                    <td class="auto-style33" rowspan="3">
+                        <asp:Label ID="lblBuscarXID" class="subItem" runat="server" Text="Buscar Categoría por ID:"></asp:Label>
+                        <asp:TextBox ID="tbCategoriaporID" runat="server"></asp:TextBox>
+                        <br />
+                        <asp:Label ID="lblBuscarXNombre" class="subItem" runat="server" Text="Buscar Categoría por Nombre:"></asp:Label>
+                        <asp:TextBox ID="tbCategoriaporNombre" runat="server"></asp:TextBox>
                         <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;<asp:Button ID="btnBuscarCat" CssClass="myButton" runat="server" OnClick="btnBuscarCat_Click" Text="Buscar" ValidationGroup="1" />
+                    &nbsp;<asp:Button ID="btnBuscarCat" CssClass="myButton" runat="server" OnClick="btnBuscarCat_Click" Text="Buscar" />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Button ID="btnVistaInicial" CssClass="myButton" runat="server" OnClick="btnVistaInicial_Click" Text="Vista Inicial" />
                     </td>
-                    <td>
-                        <asp:RequiredFieldValidator ID="rfvBuscarcatxID" runat="server" ControlToValidate="tbCategoriaporid" ForeColor="Red" ValidationGroup="1">*Por favor ingrese un Nombre  a buscar.</asp:RequiredFieldValidator>
-                    </td>
+                    <td class="auto-style19"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style10">&nbsp;</td>
-                    <td class="auto-style15">
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style30">
+                        &nbsp;</td>
+                    <td class="auto-style24">
                         <asp:GridView ID="gdvCategorias" runat="server" AutoGenerateDeleteButton="True" AllowPaging="True" AutoGenerateEditButton="True" OnPageIndexChanging="gdvCategorias_PageIndexChanging" OnRowCancelingEdit="gdvCategorias_RowCancelingEdit" OnRowDeleting="gdvCategorias_RowDeleting" OnRowEditing="gdvCategorias_RowEditing" OnRowUpdating="gdvCategorias_RowUpdating" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
@@ -134,20 +174,21 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style10">&nbsp;</td>
-                    <td>
+                    <td class="auto-style31">
+                        &nbsp;</td>
+                    <td class="auto-style25">
                         <asp:Label ID="lbObservaciones" runat="server" Font-Bold="True" Text="Observación: Las acciones dentro del Gridview serán Editar,Eliminar."></asp:Label>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style10">&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style31">&nbsp;</td>
+                    <td class="auto-style25">&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style11"></td>
-                    <td class="auto-style2"></td>
+                    <td class="auto-style32">&nbsp;</td>
+                    <td class="auto-style26"></td>
                     <td class="auto-style2"></td>
                 </tr>
             </table>

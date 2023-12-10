@@ -103,20 +103,56 @@ namespace Vistas.Admin.Categorias
         protected void btnBuscarCat_Click(object sender, EventArgs e)
         {
             NegocioCategorias negocio = new NegocioCategorias();
-            gdvCategorias.DataSource = negocio.ObtenerCategoriasXnombre(tbCategoriaporid.Text);
-            gdvCategorias.DataBind();
-            tbCategoriaporid.Text = "";
+            int aux = 0;
+            if (tbCategoriaporNombre.Text.Trim() == "" && tbCategoriaporID.Text.Trim()== "")
+            {
 
-            try
-            {
-                ///USO LA EXCEPCION DE FUERA DE RANGO del Row Con un Try Catch PARA CUANDO SÉ QUE NO ENCONTRÓ NADA
-                String IDCategoria = ((Label)gdvCategorias.Rows[0].FindControl("lbl_it_IDCategoria")).Text;//agarre cualquier dato
+                System.Windows.Forms.MessageBox.Show("Debe Ingresar algun valor, en alguna busqueda", "Mensaje");
+
             }
-            catch
+            else if(tbCategoriaporID.Text.Trim() != "")
             {
-                System.Windows.Forms.MessageBox.Show("No hubo coincidencias, por favor intente con otro Nombre de Categoria", "Informe");
+                int NumeroDevuelto;
+                bool ValorNumerico = int.TryParse(tbCategoriaporID.Text.Trim(), out NumeroDevuelto);
+                if (ValorNumerico)
+                {
+                    ///Busco X ID
+                    gdvCategorias.DataSource = negocio.ObtenerCategorias(Convert.ToInt32(tbCategoriaporID.Text));
+                    
+                }
+                else
+                {
+                    System.Windows.Forms.MessageBox.Show("Debe Ingresar un valor numerico.", "Mensaje");
+                    aux++;
+                }
             }
+            else if (tbCategoriaporNombre.Text.Trim() != "")
+            {
+                gdvCategorias.DataSource = negocio.ObtenerCategoriasXnombre(tbCategoriaporNombre.Text);
+            }
+            
+            gdvCategorias.DataBind();
+
+            if (aux == 0)
+            {
+                if (tbCategoriaporID.Text.Trim() != "" || tbCategoriaporNombre.Text.Trim() != "")
+                {
+                    try
+                    {
+                        ///USO LA EXCEPCION DE FUERA DE RANGO del Row Con un Try Catch PARA CUANDO SÉ QUE NO ENCONTRÓ NADA
+                        String IDCategoria = ((Label)gdvCategorias.Rows[0].FindControl("lbl_it_IDCategoria")).Text;//agarre cualquier dato
+                    }
+                    catch
+                    {
+                        System.Windows.Forms.MessageBox.Show("No hubo coincidencias, por favor intente con otro Nombre o ID", "Informe");
+                    }
+                }
+            }
+            tbCategoriaporNombre.Text = "";
+            tbCategoriaporID.Text = "";
+
         }
+
 
         //CARGA TODAS LAS CATEGORIAS
         private void cargarCategoriasEnGrilla()
@@ -128,10 +164,12 @@ namespace Vistas.Admin.Categorias
 
         protected void btnVistaInicial_Click(object sender, EventArgs e)
         {
-            tbCategoriaporid.Text = "";
+            tbCategoriaporNombre.Text = "";
             gdvCategorias.PageIndex = 0;
             cargarCategoriasEnGrilla();
         }
+        
+        //Habilita la busqueda x nombre (Cliente)  o x ID  (Admin)
         public void VerUsuarioConectado()
         {
             var datos = Session["Datos"];
@@ -140,12 +178,17 @@ namespace Vistas.Admin.Categorias
             {
                 Usuario usuarito = (Usuario)Session["Datos"];
                 lblCuentaIngresada.Text = usuarito.Alias;
+
             }
             else
             {
                 Cliente Clientesito = (Cliente)Session["Datos"];
                 lblCuentaIngresada.Text = Clientesito.Nombre + " " + Clientesito.Apellido;
+
             }
         }
+
+ 
+        
     }
 }
