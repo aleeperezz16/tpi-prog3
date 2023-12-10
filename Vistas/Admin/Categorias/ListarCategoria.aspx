@@ -119,13 +119,19 @@
                     &nbsp;<asp:Button ID="btnBuscarCat" CssClass="myButton" runat="server" OnClick="btnBuscarCat_Click" Text="Buscar" />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Button ID="btnVistaInicial" CssClass="myButton" runat="server" OnClick="btnVistaInicial_Click" Text="Vista Inicial" />
                     </td>
-                    <td class="auto-style19"></td>
+                    <td class="auto-style19">
+                        <asp:CustomValidator ID="cvPorID" runat="server" ControlToValidate="tbCategoriaporID" OnServerValidate="cvPorID_ServerValidate"></asp:CustomValidator>
+                    </td>
                 </tr>
                 <tr>
-                    <td>&nbsp;</td>
+                    <td>
+                        <asp:CustomValidator ID="cvSoloNumeros" runat="server" ControlToValidate="tbCategoriaporID" OnServerValidate="cvSoloNumeros_ServerValidate"></asp:CustomValidator>
+                    </td>
                 </tr>
                 <tr>
-                    <td>&nbsp;</td>
+                    <td>
+                        <asp:CustomValidator ID="cvPorNombre" runat="server" ControlToValidate="tbCategoriaporNombre" OnServerValidate="cvPorNombre_ServerValidate"></asp:CustomValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td class="auto-style30">

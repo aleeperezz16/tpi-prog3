@@ -105,6 +105,33 @@ namespace Vistas.Admin.Categorias
         protected global::System.Web.UI.WebControls.Button btnVistaInicial;
 
         /// <summary>
+        /// Control cvPorID.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator cvPorID;
+
+        /// <summary>
+        /// Control cvSoloNumeros.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator cvSoloNumeros;
+
+        /// <summary>
+        /// Control cvPorNombre.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator cvPorNombre;
+
+        /// <summary>
         /// Control gdvCategorias.
         /// </summary>
         /// <remarks>

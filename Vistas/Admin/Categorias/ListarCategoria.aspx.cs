@@ -103,49 +103,49 @@ namespace Vistas.Admin.Categorias
         protected void btnBuscarCat_Click(object sender, EventArgs e)
         {
             NegocioCategorias negocio = new NegocioCategorias();
-            int aux = 0;
-            if (tbCategoriaporNombre.Text.Trim() == "" && tbCategoriaporID.Text.Trim()== "")
+            ///el aux2 lo uso para que no salga - Que no hubo coincidencias si ya tuve algun otro mensaje de error antes
+            int aux2 = 0;
+            ///Primero me fijo que haya escrito algo en algun tb
+            if (tbCategoriaporID.Text.Trim() == "" && tbCategoriaporNombre.Text.Trim() == "")
             {
-
-                System.Windows.Forms.MessageBox.Show("Debe Ingresar algun valor, en alguna busqueda", "Mensaje");
-
+                System.Windows.Forms.MessageBox.Show("Por favor Ingrese algun valor para buscar", "Informe");
+                aux2++;
             }
-            else if(tbCategoriaporID.Text.Trim() != "")
+            else
             {
-                int NumeroDevuelto;
-                bool ValorNumerico = int.TryParse(tbCategoriaporID.Text.Trim(), out NumeroDevuelto);
-                if (ValorNumerico)
+                //Me fijo en cual escribio
+                if (tbCategoriaporID.Text.Trim() != "")
                 {
-                    ///Busco X ID
-                    gdvCategorias.DataSource = negocio.ObtenerCategorias(Convert.ToInt32(tbCategoriaporID.Text));
-                    
+                    //si escribio en ID me fijo que haya sido un numero nuevamente, (sino se rompe en el datasource x caracter invalido)
+                    int numerodevuelto;
+                    bool ValorNumerico = int.TryParse(tbCategoriaporID.Text.Trim(), out numerodevuelto);
+                    if (ValorNumerico)
+                    {
+                        gdvCategorias.DataSource = negocio.ObtenerCategorias(Convert.ToInt32(tbCategoriaporID.Text));
+                    }
+                    else
+                    {
+                        aux2++;
+                    }
                 }
                 else
                 {
-                    System.Windows.Forms.MessageBox.Show("Debe Ingresar un valor numerico.", "Mensaje");
-                    aux++;
+                    gdvCategorias.DataSource = negocio.ObtenerCategoriasXnombre(tbCategoriaporNombre.Text);
                 }
-            }
-            else if (tbCategoriaporNombre.Text.Trim() != "")
-            {
-                gdvCategorias.DataSource = negocio.ObtenerCategoriasXnombre(tbCategoriaporNombre.Text);
-            }
-            
-            gdvCategorias.DataBind();
+                gdvCategorias.DataBind();
 
-            if (aux == 0)
+            }
+
+            if (aux2 == 0)
             {
-                if (tbCategoriaporID.Text.Trim() != "" || tbCategoriaporNombre.Text.Trim() != "")
+                try
                 {
-                    try
-                    {
-                        ///USO LA EXCEPCION DE FUERA DE RANGO del Row Con un Try Catch PARA CUANDO SÉ QUE NO ENCONTRÓ NADA
-                        String IDCategoria = ((Label)gdvCategorias.Rows[0].FindControl("lbl_it_IDCategoria")).Text;//agarre cualquier dato
-                    }
-                    catch
-                    {
-                        System.Windows.Forms.MessageBox.Show("No hubo coincidencias, por favor intente con otro Nombre o ID", "Informe");
-                    }
+                    ///USO LA EXCEPCION DE FUERA DE RANGO del Row Con un Try Catch PARA CUANDO SÉ QUE NO ENCONTRÓ NADA
+                    String IDCategoria = ((Label)gdvCategorias.Rows[0].FindControl("lbl_it_IDCategoria")).Text;//agarre cualquier dato
+                }
+                catch
+                {
+                    System.Windows.Forms.MessageBox.Show("No hubo coincidencias, por favor intente con otro Nombre o ID", "Informe");
                 }
             }
             tbCategoriaporNombre.Text = "";
@@ -178,17 +178,39 @@ namespace Vistas.Admin.Categorias
             {
                 Usuario usuarito = (Usuario)Session["Datos"];
                 lblCuentaIngresada.Text = usuarito.Alias;
-
             }
             else
             {
                 Cliente Clientesito = (Cliente)Session["Datos"];
                 lblCuentaIngresada.Text = Clientesito.Nombre + " " + Clientesito.Apellido;
-
             }
         }
 
- 
-        
+        ///Y los CustomValidatos Los hardcodié para que NOTIFIQUEN con un messageBox En cada caso.
+        protected void cvPorID_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if(args.Value.Length == 0)
+            {
+               System.Windows.Forms.MessageBox.Show("Ingrese algun valor ", "Informe");
+            }
+        }
+
+        protected void cvSoloNumeros_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            int numerodevuelto;
+            bool ValorNumerico = int.TryParse(args.Value.ToString(), out numerodevuelto);
+            if (!ValorNumerico)
+            {
+             System.Windows.Forms.MessageBox.Show("Solo se aceptan caracteres numericos ", "Informe");
+            }
+        }
+
+        protected void cvPorNombre_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (args.Value.Length == 0)
+            {
+                 System.Windows.Forms.MessageBox.Show("Ingrese algun valor ", "Informe");
+            }
+        }
     }
 }
