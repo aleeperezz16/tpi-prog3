@@ -16,6 +16,7 @@ namespace Negocio
         public NegocioClientes() 
         {
             _clientes = _dao.ObtenerClientes();
+            _clientes.PrimaryKey = new DataColumn[] { _clientes.Columns["Alias"] };
         }
 
         public DataTable ObtenerClientes(bool actualizar = false)
@@ -37,13 +38,13 @@ namespace Negocio
                 {
                     Apellido = fila.Field<string>("Apellido"),
                     Nombre = fila.Field<string>("Nombre"),
-                    Dni = fila.Field<int>("DNI"),
+                    Dni = fila.Field<long>("DNI"),
                     Direccion = fila.Field<string>("Direccion"),
                     Telefono = fila.Field<string>("Telefono"),
                     Email = fila.Field<string>("EMail"),
                     Ciudad = new Ciudad
                     {
-                        Nombre = fila.Field<string>("Ciudad")
+                        Nombre = fila.Field<string>("NombreCiudad")
                     },
                     Usuario = usuario
                 };

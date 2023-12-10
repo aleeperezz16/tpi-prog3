@@ -21,7 +21,7 @@ namespace Negocio
             DaoUsuarios daoUsuarios = new DaoUsuarios();
             Usuario usuario = daoUsuarios.ObtenerUsuario(alias, contrasenia);
 
-            if (usuario?.Tipo != 'V')
+            if (usuario != null && usuario?.Tipo != 'V')
             {
                 NegocioClientes negocioClientes = new NegocioClientes();
                 return negocioClientes.ObtenerCliente(usuario);

@@ -24,7 +24,7 @@ namespace Dao
 
         public DataTable ObtenerClientes()
         {
-            string consulta = "SELECT DNI, CONCAT_WS(' ', Nombre, Apellido) AS Nombre," +
+            string consulta = "SELECT DNI, Nombre, Apellido," +
                 "C.Alias, Telefono, Email, Direccion," +
                 "C.CodigoCiudad, NombreCiudad," +
                 "Contrasenia, Tipo, LU.Estado " +
@@ -34,7 +34,7 @@ namespace Dao
             return _datos.ObtenerTabla("Clientes", consulta);
         }
 
-        public DataTable ObtenerHistorial(int dni)
+        public DataTable ObtenerHistorial(long dni)
         {
             string consulta = $"SELECT IDVenta, PrecioTotal, FechaVenta FROM VENTAS WHERE DNICliente = {dni}";
             return _datos.ObtenerTabla("Historial", consulta);

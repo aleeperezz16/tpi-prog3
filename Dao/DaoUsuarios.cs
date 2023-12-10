@@ -16,17 +16,25 @@ namespace Dao
 
         public Usuario ObtenerUsuario(string alias, string contrasenia)
         {
-            string consulta = "SELECT Alias, Contrasenia, Tipo " +
-                $"FROM LOGINUSUARIOS WHERE Estado = 1 AND Alias = '{alias}' AND Contrasenia = '{contrasenia}'";
 
-            DataRow dato = _datos.ObtenerTabla("Usuario", consulta).Rows?[0];
-            return dato != null ? new Usuario
+            try
             {
-                Alias = dato.Field<string>("Alias"),
-                Contrasenia = dato.Field<string>("Contrasenia"),
-                Tipo = dato.Field<string>("Tipo")[0],
-                Estado = true
-            } : null;
+                string consulta = "SELECT Alias, Contrasenia, Tipo " +
+                    $"FROM LOGINUSUARIOS WHERE Estado = 1 AND Alias = '{alias}' AND Contrasenia = '{contrasenia}'";
+                
+                DataRow dato = _datos.ObtenerTabla("Usuario", consulta).Rows[0];
+                return new Usuario
+                {
+                    Alias = dato.Field<string>("Alias"),
+                    Contrasenia = dato.Field<string>("Contrasenia"),
+                    Tipo = dato.Field<string>("Tipo")[0],
+                    Estado = true
+                };
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public int CambiarContrasenia(string user, string password)
