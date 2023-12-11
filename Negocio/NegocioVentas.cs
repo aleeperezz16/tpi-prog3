@@ -63,9 +63,11 @@ namespace Negocio
 
         public bool AgregarDetalleVenta(int idVenta, List<DetalleVenta> ventas)
         {
+            Venta venta = new Venta();
+            venta.Id = idVenta;
             foreach (DetalleVenta detalleVenta in ventas)
             {
-                detalleVenta.Venta.Id = idVenta;
+                detalleVenta.Venta = venta;
                 if (_dao.AgregarDetalleVenta(detalleVenta) == 0)
                     return false;
             }
