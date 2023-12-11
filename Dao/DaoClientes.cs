@@ -34,6 +34,20 @@ namespace Dao
             return _datos.ObtenerTabla("Clientes", consulta);
         }
 
+        public DataTable ObtenerDetalleDeVenta(Cliente cliente, int id)
+        {
+            string consulta = "SELECT DV.IDVenta as Venta, " +
+                "A.NombreArticulo as Articulo, " +
+                "(DV.Cantidad * DV.PrecioUnitario) as PrecioTotal, " +
+                "DV.Cantidad, " +
+                "V.FechaVenta " +
+                "FROM ARTICULOS as A INNER JOIN DETALLEVENTAS as DV ON A.IDArticulo = DV.IDArticulo " +
+                "INNER JOIN VENTAS as V ON V.IDVenta = DV.IDVenta " +
+                $"WHERE V.DNICliente = {cliente.Dni} AND DV.IDVenta = {id}";
+
+            return _datos.ObtenerTabla("Clientes", consulta);
+        }
+
         public DataTable ObtenerHistorial(long dni)
         {
             string consulta = $"SELECT IDVenta, PrecioTotal, FechaVenta FROM VENTAS WHERE DNICliente = {dni}";

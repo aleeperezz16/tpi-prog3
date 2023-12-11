@@ -61,7 +61,10 @@ namespace Negocio
                 return null;
             }
         }
-
+        public DataTable ObtenerDetalleVenta(Cliente cliente,int id)
+        {
+            return _dao.ObtenerDetalleDeVenta(cliente, id);
+        }
         public DataTable ObtenerHistorial(Cliente cliente)
         {
             return _dao.ObtenerHistorial(cliente.Dni);

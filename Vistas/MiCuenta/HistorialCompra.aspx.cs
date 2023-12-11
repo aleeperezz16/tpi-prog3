@@ -27,6 +27,8 @@ namespace Vistas.MiCuenta
         protected void gvHistorial_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvHistorial.PageIndex = e.NewPageIndex;
+            Cliente cliente = (Cliente)Session["Datos"];
+            gvHistorial.DataSource = _negocio.ObtenerHistorial(cliente);
             gvHistorial.DataBind();
         }
 

@@ -39,7 +39,11 @@ namespace Vistas.Admin.Articulos
             Articulo nuevoArticulo = new Articulo
             {
                 Nombre = txtNombreArticulo.Text.Trim(),
-                Categoria = _negocioCat.ObtenerCategoria(int.Parse(ddlCategoria.SelectedValue)),
+                Categoria = new Categoria
+                {
+                    Id = int.Parse(ddlCategoria.SelectedValue)
+                },
+
                 Proveedor = new Proveedor
                 {
                     Id = int.Parse(ddlProveedor.SelectedValue)
