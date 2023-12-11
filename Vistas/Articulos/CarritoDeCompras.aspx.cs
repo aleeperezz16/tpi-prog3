@@ -39,6 +39,8 @@ namespace Vistas.Articulos
         {
             if (ConfirmarAccion("comprar") == DialogResult.Yes)
             {
+                Cliente Cliente = (Cliente)Session["Datos"];
+                    decimal PrecioTotal = decimal.Parse(lblTotal.Text);
                 Venta venta = new Venta
                 {
                     Cliente = (Cliente)Session["Datos"],
@@ -90,7 +92,7 @@ namespace Vistas.Articulos
         protected void gvCarritoDeCompras_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             var fila = gvCarritoDeCompras.Rows[e.RowIndex];
-            int idArticulo = int.Parse(((Label)fila.FindControl("lbl_it_IdArticulo")).Text);
+            int idArticulo = int.Parse(((Label)fila.FindControl("lblArticuloID")).Text);
 
             foreach (DetalleVenta venta in _articulos)
             {

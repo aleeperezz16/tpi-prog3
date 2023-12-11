@@ -70,11 +70,11 @@ namespace Vistas.Articulos
                 DetalleVenta detalleVenta = new DetalleVenta
                 {
                     Cantidad = int.Parse(((TextBox)fila.FindControl("txt_it_Cantidad")).Text),
-                    PrecioUnitario = decimal.Parse(fila.Cells[2].Text),
+                    PrecioUnitario = decimal.Parse(fila.Cells[3].Text.Substring(1)),
                     Articulo = new Articulo
                     {
-                        Id = int.Parse(((Label)fila.FindControl("lbl_it_IdArticulo")).Text),
-                        Nombre = ((Label)fila.FindControl("lbl_it_Articulo")).Text
+                        Id = int.Parse(((Label)fila.FindControl("lblIDArticulo")).Text),
+                        Nombre = fila.Cells[1].Text
                     }
                 };
 
@@ -89,7 +89,7 @@ namespace Vistas.Articulos
             if (detalle != null)
             {
                 int cantidad = nuevoDetalle.Cantidad + detalle.Cantidad;
-                if (cantidad > int.Parse(fila.Cells[3].Text))
+                if (cantidad > int.Parse(fila.Cells[4].Text))
                 {
                     MessageBox.Show("Alcanzaste el stock máximo disponible", "Aviso");
                     return;
@@ -104,7 +104,19 @@ namespace Vistas.Articulos
                 lista.Add(nuevoDetalle);
             }
 
+            Session["Venta"] = lista;
+
             ((TextBox)fila.FindControl("txt_it_Cantidad")).Text = "";
+        }
+
+        protected void btnBuscarxID_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnVistaPrincipal_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

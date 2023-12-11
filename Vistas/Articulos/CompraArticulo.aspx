@@ -96,7 +96,11 @@
                         <asp:GridView ID="gvComprarArticulos" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnPageIndexChanging="gvComprarArticulos_PageIndexChanging" OnRowCommand="gvComprarArticulos_RowCommand" Width="871px">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
-                                <asp:BoundField DataField="IDArticulo" HeaderText="Id" Visible="False" />
+                                <asp:TemplateField HeaderText="IDARTICULO" Visible="False">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblIDArticulo" runat="server" Text='<%# Bind("IDArticulo") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                                 <asp:BoundField DataField="NombreArticulo" HeaderText="Articulo" />
                                 <asp:BoundField DataField="NombreCategoria" HeaderText="Categoria" />
                                 <asp:BoundField DataField="PrecioDeVenta" DataFormatString="{0:c}" HeaderText="Precio" />
@@ -104,7 +108,6 @@
                                 <asp:TemplateField HeaderText="Cantidad">
                                     <ItemTemplate>
                                         <asp:TextBox ID="txt_it_Cantidad" runat="server" TextMode="Number"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="rfv_it_Cantidad" runat="server" ControlToValidate="txt_it_Cantidad" ForeColor="Red">*</asp:RequiredFieldValidator>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:ButtonField ButtonType="Button" CommandName="EventoAgregar" Text="Agregar al Carrito" CausesValidation="True" />
