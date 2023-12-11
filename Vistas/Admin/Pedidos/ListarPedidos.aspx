@@ -98,6 +98,7 @@
                     </td>
                     <td>ID:<br />
                         <asp:TextBox ID="tbIDPedido" runat="server"></asp:TextBox>
+                        <asp:CompareValidator ID="cpvFiltroId" runat="server" ControlToValidate="tbIDPedido" ForeColor="Red" Operator="GreaterThan" Type="Integer" ValueToCompare="0">*</asp:CompareValidator>
                     </td>
                 </tr>
                 <tr>

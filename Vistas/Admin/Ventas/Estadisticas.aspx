@@ -20,6 +20,20 @@
         .auto-style4 {
             text-align: right;
         }
+        .auto-style5 {
+            text-align: center;
+        }
+        .auto-style6 {
+            width: 88px;
+            height: 27px;
+        }
+        .auto-style7 {
+            height: 27px;
+        }
+        .auto-style8 {
+            text-align: right;
+            height: 27px;
+        }
     </style>
     <link rel="stylesheet" href="../../StyleSheetG6.css"/>
 </head>
@@ -28,13 +42,22 @@
         <div>
             <table class="auto-style1">
                 <tr>
+                    <td class="auto-style6"></td>
+                    <td colspan="2" class="auto-style7">
+                        <asp:HyperLink ID="hlInicio" runat="server" NavigateUrl="~/Inicio.aspx">Volver al Menu principal</asp:HyperLink>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td class="auto-style8">
+                        <asp:Label ID="lblCuentaIngresada" runat="server"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
                     <td class="auto-style3">&nbsp;</td>
-                    <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <td colspan="2" class="auto-style5">
                         <asp:Label ID="lblTituloEstadisticas" runat="server" class="mainItem" Text="Estadisticas de compra/venta"></asp:Label>
                     </td>
                     <td class="auto-style4">
-                        <asp:Label ID="lblCuentaIngresada" runat="server"></asp:Label>
-                    </td>
+                        &nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style3">&nbsp;</td>

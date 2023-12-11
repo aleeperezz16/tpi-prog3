@@ -60,6 +60,15 @@ namespace Vistas.Admin.Pedidos
         protected global::System.Web.UI.WebControls.TextBox tbIDPedido;
 
         /// <summary>
+        /// Control cpvFiltroId.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cpvFiltroId;
+
+        /// <summary>
         /// Control ddlProveedor.
         /// </summary>
         /// <remarks>
