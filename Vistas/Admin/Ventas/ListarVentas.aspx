@@ -26,6 +26,10 @@
         .auto-style9 {
             text-align: center;
         }
+        .auto-style10 {
+            font-size: large;
+            height: 26px;
+        }
     </style>
      <link rel="stylesheet" href="../../StyleSheetG6.css"/>
 </head>
@@ -102,7 +106,7 @@
                     <td class="auto-style3"><strong>Fecha Venta</strong></td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">
+                    <td class="auto-style10">
                         <asp:TextBox ID="txtFechaVenta" runat="server" TextMode="Date"></asp:TextBox>
                     </td>
                 </tr>

@@ -32,9 +32,10 @@
             width: 872px;
         }
     </style>
+    <link rel="stylesheet" href="../StyleSheetG6.css" />
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" class="fontStyle" runat="server">
         <div>
             <table class="auto-style1">
                 <tr>
@@ -51,7 +52,7 @@
                     <td class="auto-style2">
                         &nbsp;</td>
                     <td class="auto-style5" >
-                        <asp:Label ID="lblTitulo" runat="server" Text="Carrito de Compras" Font-Bold="True" Font-Size="XX-Large"></asp:Label>
+                        <asp:Label ID="lblTitulo" runat="server" class="mainItem" Text="Carrito de Compras" Font-Bold="True" Font-Size="XX-Large"></asp:Label>
                     </td>
                     <td>
                     </td>
@@ -104,13 +105,13 @@
                     <td rowspan="1" class="auto-style6">
                         &nbsp;</td>
                      <td class="auto-style8">
-                        <asp:Button ID="btnComprar" runat="server" Text="Comprar" OnClick="btnComprar_Click" />
+                        <asp:Button ID="btnComprar" runat="server" CssClass="myButton" Text="Comprar" OnClick="btnComprar_Click" />
                      </td>
                 </tr>
                  <tr>
                     <td class="auto-style3"></td>
                     <td class="auto-style5">
-                        <asp:Button ID="btnEliminarTodo" runat="server" Text="Eliminar Todo" OnClick="btnEliminarTodo_Click" />
+                        <asp:Button ID="btnEliminarTodo" runat="server" CssClass="myButton" Text="Eliminar Todo" OnClick="btnEliminarTodo_Click" />
                      </td>
                 </tr>
             </table>

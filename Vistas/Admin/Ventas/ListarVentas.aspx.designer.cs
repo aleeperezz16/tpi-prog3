@@ -51,7 +51,7 @@ namespace Vistas.Admin.Ventas
         protected global::System.Web.UI.WebControls.GridView gvVentas;
 
         /// <summary>
-        /// Control txtArticulo.
+        /// txtArticulo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
@@ -69,7 +69,7 @@ namespace Vistas.Admin.Ventas
         protected global::System.Web.UI.WebControls.TextBox txtIdVenta;
 
         /// <summary>
-        /// Control txtFechaVenta.
+        /// txtFechaVenta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
@@ -78,7 +78,7 @@ namespace Vistas.Admin.Ventas
         protected global::System.Web.UI.WebControls.TextBox txtFechaVenta;
 
         /// <summary>
-        /// Control txtDniCliente.
+        /// txtDniCliente control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.

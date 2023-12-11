@@ -80,7 +80,7 @@
             <tr>
                 <td class="auto-style9">Nombre:</td>
                 <td class="auto-style3">
-                    <asp:TextBox ID="txtNombreProveedor" runat="server" Width="259px"></asp:TextBox>
+                    <asp:TextBox ID="txtNombreProveedor" runat="server" Width="259px" MaxLength="50"></asp:TextBox>
                 </td>
                 <td>
                     <asp:RequiredFieldValidator ID="rfvNombreProveedor" runat="server" ControlToValidate="txtNombreProveedor" ErrorMessage="Ingrese nombre"></asp:RequiredFieldValidator>
@@ -89,7 +89,7 @@
             <tr>
                 <td class="auto-style9">Telefono:</td>
                 <td class="auto-style3">
-                    <asp:TextBox ID="txtTelefono" runat="server" Width="258px"></asp:TextBox>
+                    <asp:TextBox ID="txtTelefono" runat="server" Width="258px" MaxLength="30"></asp:TextBox>
                 </td>
                 <td>
                     <asp:RequiredFieldValidator ID="rfvTelefono" runat="server" ControlToValidate="txtTelefono" ErrorMessage="Ingrese telefono"></asp:RequiredFieldValidator>
@@ -98,7 +98,7 @@
             <tr>
                 <td class="auto-style9">EMail:</td>
                 <td class="auto-style6">
-                    <asp:TextBox ID="txtEmail" runat="server" Width="256px"></asp:TextBox>
+                    <asp:TextBox ID="txtEmail" runat="server" Width="256px" MaxLength="50"></asp:TextBox>
                 </td>
                 <td class="auto-style7">
                     <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail" ErrorMessage="Ingrese email"></asp:RequiredFieldValidator>
@@ -107,7 +107,7 @@
             <tr>
                 <td class="auto-style9">Direccion:</td>
                 <td class="auto-style3">
-                    <asp:TextBox ID="txtDireccion" runat="server" CssClass="auto-style4" Width="256px"></asp:TextBox>
+                    <asp:TextBox ID="txtDireccion" runat="server" CssClass="auto-style4" Width="256px" MaxLength="100"></asp:TextBox>
                 </td>
                 <td>
                     <asp:RequiredFieldValidator ID="rfvDireccion" runat="server" ControlToValidate="txtDireccion" ErrorMessage="Ingrese direccion"></asp:RequiredFieldValidator>
