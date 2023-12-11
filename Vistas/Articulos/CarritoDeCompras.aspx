@@ -31,6 +31,14 @@
             text-align: left;
             width: 872px;
         }
+        .auto-style10 {
+            text-align: center;
+            width: 872px;
+            font-weight: bold;
+            font-size: xx-large;
+            color: #FFFAF0;
+            background-color: #DC143C;
+        }
     </style>
     <link rel="stylesheet" href="../StyleSheetG6.css" />
 </head>
@@ -51,9 +59,8 @@
                 <tr>
                     <td class="auto-style2">
                         &nbsp;</td>
-                    <td class="auto-style5" >
-                        <asp:Label ID="lblTitulo" runat="server" class="mainItem" Text="Carrito de Compras" Font-Bold="True" Font-Size="XX-Large"></asp:Label>
-                    </td>
+                    <td class="auto-style10" >
+                        Carrito de Compras</td>
                     <td>
                     </td>
                 </tr>
