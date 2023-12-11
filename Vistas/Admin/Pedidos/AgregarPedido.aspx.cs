@@ -35,17 +35,20 @@ namespace Vistas.Admin.Pedidos
             {
                 var fila = gvAgregarPedido.Rows[Convert.ToInt32(e.CommandArgument)];
                 int cantidad = int.Parse(((TextBox)fila.FindControl("txt_it_Cantidad")).Text.Trim());
-                decimal precio = decimal.Parse(fila.Cells[4].Text);
+                decimal precio = decimal.Parse(fila.Cells[4].Text.Split(' ')[1]);
+
                 Pedido nuevoPedido = new Pedido
                 {
                     Articulo = new Articulo
                     {
+
                         Id = int.Parse(fila.Cells[0].Text),
                         Nombre = fila.Cells[1].Text,
                         PrecioCompra = precio,
                         Categoria = new Categoria
                         {
-                            Id = int.Parse(fila.Cells[2].Text),
+                            Id = int.Parse(((Label)fila.FindControl("lbl_it_IdCategoria")).Text),
+                            Nombre = ((Label)fila.FindControl("lbl_it_Categoria")).Text
                         },
                         Estado = true
                     },
@@ -53,7 +56,8 @@ namespace Vistas.Admin.Pedidos
                     Cantidad = cantidad,
                     Proveedor = new Proveedor
                     {
-                        Id = int.Parse(fila.Cells[3].Text),
+                        Id = int.Parse(((Label)fila.FindControl("lbl_it_IdProveedor")).Text),
+                        Nombre = ((Label)fila.FindControl("lbl_it_Proveedor")).Text
                     }
                 };
 
@@ -64,6 +68,8 @@ namespace Vistas.Admin.Pedidos
                         MessageBox.Show("Pedido confirmado y realizado con éxito");
                     }
                 }
+
+                ((TextBox)fila.FindControl("txt_it_Cantidad")).Text = "";
             }
         }
 
@@ -89,7 +95,7 @@ namespace Vistas.Admin.Pedidos
             };
 
             gvAgregarPedido.DataSource = idArticulo.Length > 0 ? dv.ToTable() : _tablaInicial;
-            gvAgregarPedido.DataBind();            
+            gvAgregarPedido.DataBind();
         }
         protected void gvAgregarPedido_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {

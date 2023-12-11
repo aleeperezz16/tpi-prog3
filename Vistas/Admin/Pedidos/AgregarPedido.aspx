@@ -73,6 +73,13 @@
         .auto-style23 {
             text-align: right;
         }
+        .auto-style24 {
+            width: 48px;
+            height: 27px;
+        }
+        .auto-style25 {
+            height: 27px;
+        }
     </style>
      <link rel="stylesheet" href="../../StyleSheetG6.css"/>
 </head>
@@ -115,7 +122,7 @@
             </tr>
             <tr>
                 <td class="auto-style14">
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="tbBuscarArticuloxID" ErrorMessage="RegularExpressionValidator" ForeColor="#FF3300" ValidationExpression="^\d+$" ValidationGroup="1">*Solo debe ingresar Números</asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtIdArticulo" ErrorMessage="RegularExpressionValidator" ForeColor="#FF3300" ValidationExpression="^\d+$" ValidationGroup="1">*Solo debe ingresar Números</asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
@@ -131,13 +138,29 @@
                         <Columns>
                             <asp:BoundField DataField="IDArticulo" HeaderText="Id" />
                             <asp:BoundField DataField="NombreArticulo" HeaderText="Articulo" />
-                            <asp:BoundField DataField="NombreCategoria" HeaderText="Categoria" />
-                            <asp:BoundField DataField="NombreProveedor" HeaderText="Proveedor" />
-                            <asp:BoundField DataField="PrecioDeCompra" DataFormatString="{0:c}" HeaderText="Precio" />
+                            <asp:TemplateField HeaderText="Categoria">
+                                <EditItemTemplate>
+                                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("NombreCategoria") %>'></asp:TextBox>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="lbl_it_Categoria" runat="server" Text='<%# Bind("NombreCategoria") %>'></asp:Label>
+                                    <asp:Label ID="lbl_it_IdCategoria" runat="server" Text='<%# Eval("IDCategoria") %>' Visible="False"></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Proveedor">
+                                <EditItemTemplate>
+                                    <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("NombreProveedor") %>'></asp:TextBox>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="lbl_it_Proveedor" runat="server" Text='<%# Bind("NombreProveedor") %>'></asp:Label>
+                                    <asp:Label ID="lbl_it_IdProveedor" runat="server" Text='<%# Eval("IDProveedor") %>' Visible="False"></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:BoundField DataField="PrecioDeCompra" HeaderText="Precio" DataFormatString="$ {0:F}" />
                             <asp:TemplateField HeaderText="Cantidad">
                                 <ItemTemplate>
                                     <asp:TextBox ID="txt_it_Cantidad" runat="server" TextMode="Number"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="rfv_it_Cantidad" runat="server" ControlToValidate="txt_it_Cantidad" ForeColor="Red">*</asp:RequiredFieldValidator>
+                                    <asp:CompareValidator ID="cpv_it_Cantidad" runat="server" ControlToValidate="txt_it_Cantidad" ForeColor="Red" Operator="GreaterThan" Type="Integer" ValueToCompare="0">*</asp:CompareValidator>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:ButtonField ButtonType="Button" CommandName="EventoAgregar" Text="Comprar" CausesValidation="True" />
@@ -163,9 +186,9 @@
                 <td class="auto-style5"></td>
             </tr>
             <tr>
-                <td class="auto-style17">&nbsp;</td>
-                <td colspan="2">&nbsp;</td>
-                <td>&nbsp;</td>
+                <td class="auto-style24"></td>
+                <td colspan="2" class="auto-style25"></td>
+                <td class="auto-style25"></td>
             </tr>
             <tr>
                 <td class="auto-style21"></td>
