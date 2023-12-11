@@ -10,7 +10,7 @@ namespace Negocio
 {
     public class NegocioEstadisticas
     {
-         private DaoEstadisticas _daoEstadisticas = new DaoEstadisticas();
+        private DaoEstadisticas _daoEstadisticas = new DaoEstadisticas();
 
         public NegocioEstadisticas() { }
 

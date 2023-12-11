@@ -194,6 +194,9 @@
     <Compile Include="Articulos\CompraArticulo.aspx.designer.cs">
       <DependentUpon>CompraArticulo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Clientes.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Index.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

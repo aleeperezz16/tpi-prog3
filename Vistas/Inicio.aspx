@@ -241,7 +241,7 @@
                         <asp:Label ID="lblSecciones"  CssClass="subItem" runat="server" Text="▬ Secciones ▬" Font-Bold="True" Font-Italic="True" Font-Size="Large"></asp:Label>
                     </td>
                     <td class="auto-style34">
-                        <asp:Label ID="lblBienvenido" runat="server" Text="¡Bienvenido/a a la seccion administrativa!"></asp:Label>
+                        <asp:Label ID="lblBienvenido" runat="server"></asp:Label>
                     </td>
                     <td class="auto-style39">
                     </td>
@@ -262,6 +262,15 @@
                     <td class="auto-style56"></td>
                     <td class="auto-style64">
                         <asp:HyperLink ID="hlnkListarArticulos" runat="server" NavigateUrl="~/Admin/Articulos/ListarArticulos.aspx" Visible="False">Listar Articulos</asp:HyperLink>
+                        </td>
+                    <td class="auto-style57"></td>
+                    <td class="auto-style58"></td>
+                    <td class="auto-style69"></td>
+                </tr>
+                <tr>
+                    <td class="auto-style56"></td>
+                    <td class="auto-style64">
+                        <asp:HyperLink ID="hlnkAgregarArticulo" runat="server" NavigateUrl="~/Admin/Articulos/AgregarArticulo.aspx" Visible="False">Agregar Articulo</asp:HyperLink>
                         </td>
                     <td class="auto-style57"></td>
                     <td class="auto-style58"></td>
@@ -426,7 +435,7 @@
                     <td class="auto-style56">
                         &nbsp;</td>
                     <td class="auto-style64">
-                        <asp:HyperLink ID="hlEstadisticas" runat="server" NavigateUrl="~/Admin/Ventas/Estadisticas.aspx" Visible="False">Ver estadisticas de compra venta</asp:HyperLink>
+                        <asp:HyperLink ID="hlnkEstadisticas" runat="server" NavigateUrl="~/Admin/Ventas/Estadisticas.aspx" Visible="False">Ver estadisticas de compra venta</asp:HyperLink>
                     </td>
                     <td class="auto-style57">
                         &nbsp;</td>

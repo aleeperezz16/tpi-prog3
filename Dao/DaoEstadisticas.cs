@@ -13,7 +13,7 @@ namespace Dao
     {
         private AccesoDatos _datos = new AccesoDatos("TPIntegradorGrupo6");
 
-        private void ArmarParametrosParaAregar(ref SqlCommand cmd, DateTime fechaInicio,DateTime fechaCierre)
+        private void ArmarParametrosParaAregar(ref SqlCommand cmd, DateTime fechaInicio, DateTime fechaCierre)
         {
             cmd.Parameters.AddWithValue("@FechaInicio", fechaInicio);
             cmd.Parameters.AddWithValue("@FechaCierre", fechaCierre);

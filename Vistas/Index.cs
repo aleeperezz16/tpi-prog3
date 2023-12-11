@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Entidades;
 
 namespace Vistas
 {
@@ -17,7 +18,7 @@ namespace Vistas
             // Si estoy logueado, no deberia poder entrar ni al registro ni al login. Se va a Inicio
             if (datos != null && (uri == "/Login.aspx" || uri == "/Registro.aspx"))
             {
-                Response.Redirect("Inicio.aspx");
+                Response.Redirect("~/Inicio.aspx");
             }
             // No estoy logueado e ingreso a cualquier cosa que no sea ni login ni registro. Lo redirecciono a login
             else if (datos == null && uri != "/Login.aspx" && uri != "/Registro.aspx")

@@ -20,6 +20,8 @@ namespace Vistas.Admin.Articulos
         {
             if (!IsPostBack)
             {
+                VerUsuarioConectado();
+
                 ddlCategoria.DataSource = _negocioCat.ObtenerCategorias();
                 ddlCategoria.DataTextField = "NombreCategoria";
                 ddlCategoria.DataValueField = "IDCategoria";
@@ -29,8 +31,6 @@ namespace Vistas.Admin.Articulos
                 ddlProveedor.DataTextField = "NombreProveedor";
                 ddlProveedor.DataValueField = "IDProveedor";
                 ddlProveedor.DataBind();
-
-                VerUsuarioConectado();
             }
         }
 
@@ -55,18 +55,13 @@ namespace Vistas.Admin.Articulos
 
         public void VerUsuarioConectado()
         {
-            var datos = Session["Datos"];
+            var datos = (Usuario)Session["Datos"];
+            lblCuentaIngresada.Text = datos.Alias;
+        }
 
-            if (datos.GetType() == typeof(Usuario))
-            {
-                Usuario usuarito = (Usuario)Session["Datos"];
-                lblCuentaIngresada.Text = usuarito.Alias;
-            }
-            else
-            {
-                Cliente Clientesito = (Cliente)Session["Datos"];
-                lblCuentaIngresada.Text = Clientesito.Nombre + " " + Clientesito.Apellido;
-            }
+        protected void cvPrecios_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            args.IsValid = decimal.TryParse(args.Value, out decimal precio) && precio > 0;
         }
     }
 }

@@ -11,7 +11,7 @@ using Label = System.Web.UI.WebControls.Label;
 
 namespace Vistas.Articulos
 {
-    public partial class CarritoDeCompras : Index
+    public partial class CarritoDeCompras : Clientes
     {
         private NegocioVentas _negocio = new NegocioVentas();
         private List<DetalleVenta> _articulos;

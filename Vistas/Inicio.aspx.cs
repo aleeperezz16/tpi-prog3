@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Entidades;
+using static System.Collections.Specialized.BitVector32;
 
 namespace Vistas
 {
@@ -43,15 +44,18 @@ namespace Vistas
             hlnkListarVentas.Visible = true;
             hlnkListarClientes.Visible = true;
             hlnkListarCategorias.Visible = true;
+            hlnkAgregarArticulo.Visible = true;
             hlnkAgregarProveedores.Visible = true;
             hlnkAgregarPedido.Visible = true;
             hlnkAgregarCategorias.Visible = true;
-            hlEstadisticas.Visible = true;
+            hlnkEstadisticas.Visible = true;
 
             lblSeccionCategoria.Visible = true;
             lblSeccionPedidos.Visible = true;
             lblSeccionProveedores.Visible = true;
             lblSeccionVentas.Visible = true;
+
+            lblBienvenido.Text = "¡Bienvenido/a a la seccion administrativa!";
         }
 
         public void HabilitarCliente()
@@ -61,6 +65,8 @@ namespace Vistas
             hlnkHistorialCompras.Visible = true;
             hlnkCarrito.Visible = true;
             lblCuenta.Visible = true;
+
+            lblBienvenido.Text = "¡Bienvenido/a a nuestra tienda online!";
         }
     }
 }

@@ -9,7 +9,7 @@ using System.Data;
 
 namespace Vistas.Admin.Ventas
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class Estadisticas : System.Web.UI.Page
     {
         NegocioEstadisticas nEstadisticas = new NegocioEstadisticas();
         bool mostrarGrafico1 = false;
@@ -18,7 +18,7 @@ namespace Vistas.Admin.Ventas
         {
             if (!IsPostBack)
             {
-             
+
             }
 
             chGrafico1.Visible = mostrarGrafico1;
@@ -27,7 +27,7 @@ namespace Vistas.Admin.Ventas
 
         protected void calInicio_DayRender(object sender, DayRenderEventArgs e)
         {
-            
+
         }
 
         protected void calInicio_SelectionChanged(object sender, EventArgs e)
@@ -48,7 +48,7 @@ namespace Vistas.Admin.Ventas
             }
         }
 
-            protected void btnVisualizar_Click(object sender, EventArgs e)
+        protected void btnVisualizar_Click(object sender, EventArgs e)
         {
             DataTable datos = new DataTable();
 

@@ -11,7 +11,7 @@ using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace Vistas.Articulos
 {
-    public partial class CompraArticulo : Index
+    public partial class CompraArticulo : Clientes
     {
         private NegocioCategorias _negocioCat = new NegocioCategorias();
         private NegocioArticulos _negocioArt = new NegocioArticulos();
