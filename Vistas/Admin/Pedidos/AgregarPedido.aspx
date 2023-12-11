@@ -138,15 +138,32 @@
                         <Columns>
                             <asp:BoundField DataField="IDArticulo" HeaderText="Id" />
                             <asp:BoundField DataField="NombreArticulo" HeaderText="Articulo" />
-                            <asp:BoundField DataField="NombreCategoria" HeaderText="Categoria" />
-                            <asp:BoundField DataField="NombreProveedor" HeaderText="Proveedor" />
-                            <asp:BoundField DataField="PrecioDeCompra" DataFormatString="{0:c}" HeaderText="Precio" />
+                            <asp:TemplateField HeaderText="Categoria">
+                                <EditItemTemplate>
+                                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("NombreCategoria") %>'></asp:TextBox>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="lbl_it_Categoria" runat="server" Text='<%# Bind("NombreCategoria") %>'></asp:Label>
+                                    <asp:Label ID="lbl_it_IdCategoria" runat="server" Text='<%# Eval("IDCategoria") %>' Visible="False"></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Proveedor">
+                                <EditItemTemplate>
+                                    <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("NombreProveedor") %>'></asp:TextBox>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="lbl_it_Proveedor" runat="server" Text='<%# Bind("NombreProveedor") %>'></asp:Label>
+                                    <asp:Label ID="lbl_it_IdProveedor" runat="server" Text='<%# Eval("IDProveedor") %>' Visible="False"></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:BoundField DataField="PrecioDeCompra" HeaderText="Precio" DataFormatString="$ {0:F}" />
                             <asp:TemplateField HeaderText="Cantidad">
                                 <ItemTemplate>
                                     <asp:TextBox ID="txt_it_Cantidad" runat="server" TextMode="Number"></asp:TextBox>
+                                    <asp:CompareValidator ID="cpv_it_Cantidad" runat="server" ControlToValidate="txt_it_Cantidad" ForeColor="Red" Operator="GreaterThan" Type="Integer" ValueToCompare="0">*</asp:CompareValidator>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:ButtonField ButtonType="Button" CommandName="EventoAgregar" Text="Comprar" />
+                            <asp:ButtonField ButtonType="Button" CommandName="EventoAgregar" Text="Comprar" CausesValidation="True" />
                         </Columns>
                         <EditRowStyle BackColor="#2461BF" />
                         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

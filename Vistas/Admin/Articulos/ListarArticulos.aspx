@@ -112,7 +112,7 @@
                         <asp:Label ID="lblArticulos" CssClass="mainItem" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Artículos"></asp:Label>
                     </td>
                     <td class="auto-style14">&nbsp;</td>
-                    <td class="auto-style7">Filtros de Búsqueda</td>
+                    <td class="auto-style7 subItem"><strong>Filtros de Búsqueda</strong></td>
                 </tr>
                 <tr>
                     <td class="auto-style3">

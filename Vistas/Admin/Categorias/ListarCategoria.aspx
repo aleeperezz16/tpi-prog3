@@ -31,6 +31,10 @@
             height: 26px;
             text-align: center;
             width: 642px;
+            font-weight: bold;
+            font-size: xx-large;
+            color: #FFFAF0;
+            background-color: #DC143C;
         }
         .auto-style23 {
             height: 37px;
@@ -75,6 +79,12 @@
             width: 642px;
             text-align: left;
         }
+        .auto-style34 {
+            height: 26px;
+            color: #FF0000;
+            font-size: x-large;
+            background-color: #FFFFFF;
+        }
     </style>
      <link rel="stylesheet" href="../../StyleSheetG6.css"/>
 </head>
@@ -96,9 +106,8 @@
                     <td class="auto-style28">
                         &nbsp;</td>
                     <td class="auto-style22">
-                        <asp:Label ID="lblCategoria" CssClass="mainItem" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Categorías"></asp:Label>
-                    </td>
-                    <td class="auto-style2"></td>
+                        Categorías</td>
+                    <td class="auto-style34"><strong class="subItem">Filtros de Búsqueda</strong></td>
                 </tr>
                 <tr>
                     <td class="auto-style29">&nbsp;</td>
