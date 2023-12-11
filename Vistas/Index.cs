@@ -22,7 +22,7 @@ namespace Vistas
             // No estoy logueado e ingreso a cualquier cosa que no sea ni login ni registro. Lo redirecciono a login
             else if (datos == null && uri != "/Login.aspx" && uri != "/Registro.aspx")
             {
-                Response.Redirect("Login.aspx");
+                Response.Redirect("~/Login.aspx");
             }
         }
     }

@@ -84,6 +84,7 @@
     <Content Include="Articulos\CarritoDeCompras.aspx" />
     <Content Include="Articulos\CompraArticulo.aspx" />
     <Content Include="Inicio.aspx" />
+    <Content Include="MiCuenta\DetalleVenta.aspx" />
     <Content Include="MiCuenta\GestionCuenta.aspx" />
     <Content Include="MiCuenta\HistorialCompra.aspx" />
     <Content Include="Login.aspx" />
@@ -202,6 +203,13 @@
     </Compile>
     <Compile Include="Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MiCuenta\DetalleVenta.aspx.cs">
+      <DependentUpon>DetalleVenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MiCuenta\DetalleVenta.aspx.designer.cs">
+      <DependentUpon>DetalleVenta.aspx</DependentUpon>
     </Compile>
     <Compile Include="MiCuenta\GestionCuenta.aspx.cs">
       <DependentUpon>GestionCuenta.aspx</DependentUpon>

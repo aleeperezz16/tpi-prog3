@@ -22,5 +22,11 @@ namespace Vistas.MiCuenta
                 gvHistorial.DataBind();
             }
         }
+
+        protected void gvHistorial_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvHistorial.PageIndex = e.NewPageIndex;
+            gvHistorial.DataBind();
+        }
     }
 }

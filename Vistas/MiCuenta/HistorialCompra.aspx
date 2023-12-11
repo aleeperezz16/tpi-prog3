@@ -56,7 +56,7 @@
         <tr>
             <td class="auto-style2">&nbsp;</td>
             <td class="auto-style3">
-                        <asp:GridView ID="gvHistorial" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal" >
+                        <asp:GridView ID="gvHistorial" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal" OnPageIndexChanging="gvHistorial_PageIndexChanging" >
                             <Columns>
                                 <asp:BoundField DataField="IDVenta" HeaderText="Nro Venta" />
                                 <asp:BoundField DataField="PrecioTotal" HeaderText="Total" />
