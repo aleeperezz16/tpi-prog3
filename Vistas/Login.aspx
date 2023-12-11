@@ -73,7 +73,7 @@
     </style>
      <link rel="stylesheet" href="StyleSheetG6.css"/>
 </head>
-<body ID="FondoLocal">
+<body id="FondoLocal">
     <form id="form1" runat="server">
         <div>
             <br />
