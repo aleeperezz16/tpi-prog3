@@ -22,14 +22,25 @@ namespace Vistas.Admin.Articulos
         {
             if (!IsPostBack)
             {
+                ddlFiltroProveedor.DataSource = _negocioProv.ObtenerProveedores();
+                ddlFiltroProveedor.DataTextField = "NombreProveedor";
+                ddlFiltroProveedor.DataValueField = "IDProveedor";
+                ddlFiltroProveedor.DataBind();
+
+                ddlFiltroCategoria.DataSource = _negocioCat.ObtenerCategorias();
+                ddlFiltroCategoria.DataTextField = "NombreCategoria";
+                ddlFiltroCategoria.DataValueField = "IDCategoria";
+                ddlFiltroCategoria.DataBind();
+
+                VerUsuarioConectado();
                 CargarTablaInicial();
             }
         }
 
-        protected void btnBuscar_Click(object sender, EventArgs e)
+        protected void btnFiltrar_Click(object sender, EventArgs e)
         {
             string filtro = "";
-            switch (ddlEstado.SelectedValue)
+            switch (ddlFiltroEstado.SelectedValue)
             {
                 case "1":
                     filtro = "Estado = 1";
@@ -39,7 +50,47 @@ namespace Vistas.Admin.Articulos
                     break;
             }
 
-            string id = txtIdArticulo.Text.Trim();
+            if (ddlFiltroCategoria.SelectedValue != "-- Seleccione --")
+            {
+                if (filtro.Length > 0)
+                {
+                    filtro += " AND ";
+                }
+
+                filtro += "IDCategoria = " + ddlFiltroCategoria.SelectedValue;
+            }
+
+            if (ddlFiltroProveedor.SelectedValue != "-- Seleccione --")
+            {
+                if (filtro.Length > 0)
+                {
+                    filtro += " AND ";
+                }
+
+                filtro += "IDProveedor = " + ddlFiltroProveedor.SelectedValue;
+            }
+
+            string precio = txtFiltroPrecio.Text.Trim();
+
+            if (precio.Length > 0)
+            {
+                if (filtro.Length > 0)
+                {
+                    filtro += " AND ";
+                }
+
+                switch (ddlFiltroPrecio.SelectedValue)
+                {
+                    case "<=":
+                        filtro += "PrecioDeVenta <= " + precio;
+                        break;
+                    case ">=":
+                        filtro += "PrecioDeVenta >= " + precio;
+                        break;
+                }
+            }
+
+            string id = txtFiltroId.Text.Trim();
 
             if (id.Length > 0)
             {
@@ -83,7 +134,7 @@ namespace Vistas.Admin.Articulos
             Label idArticulo = (Label)gvArticulos.Rows[e.RowIndex].FindControl("lbl_it_Id");
             _negocioArt.EliminarArticulo(int.Parse(idArticulo.Text));
 
-            CargarTablaInicial();
+            CargarTablaInicial(true);
         }
 
         protected void gvArticulos_RowEditing(object sender, GridViewEditEventArgs e)
@@ -133,12 +184,13 @@ namespace Vistas.Admin.Articulos
                     ddlCat.DataSource = _negocioCat.ObtenerCategorias();
                     ddlCat.DataTextField = "NombreCategoria";
                     ddlCat.DataValueField = "IDCategoria";
+                    ddlCat.SelectedValue = ((Label)e.Row.FindControl("lbl_eit_IdCategoria")).Text;
                     ddlCat.DataBind();
-
 
                     ddlProv.DataSource = _negocioProv.ObtenerProveedores();
                     ddlProv.DataTextField = "NombreProveedor";
                     ddlProv.DataValueField = "IDProveedor";
+                    ddlProv.SelectedValue = ((Label)e.Row.FindControl("lbl_eit_IdProveedor")).Text;
                     ddlProv.DataBind();
                 }
             }
@@ -155,19 +207,18 @@ namespace Vistas.Admin.Articulos
 
         public void VerUsuarioConectado()
         {
-            var datos = Session["Datos"];
-
-            if (datos.GetType() == typeof(Usuario))
-            {
-                Usuario usuarito = (Usuario)Session["Datos"];
-                lblCuentaIngresada.Text = usuarito.Alias;
-            }
-            else
-            {
-                Cliente Clientesito = (Cliente)Session["Datos"];
-                lblCuentaIngresada.Text = Clientesito.Nombre + " " + Clientesito.Apellido;
-            }
+            var datos = (Usuario)Session["Datos"];
+            lblCuentaIngresada.Text = datos.Alias;
         }
 
+        protected void cv_eit_Precio_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            args.IsValid = decimal.TryParse(args.Value, out decimal precio) && precio > 0;
+        }
+
+        protected void cvFiltroPrecio_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            args.IsValid = decimal.TryParse(args.Value, out decimal precio) && precio > 0;
+        }
     }
 }
