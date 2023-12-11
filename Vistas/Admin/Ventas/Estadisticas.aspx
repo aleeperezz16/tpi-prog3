@@ -19,9 +19,14 @@
         }
         .auto-style4 {
             text-align: right;
+            height: 23px;
         }
         .auto-style5 {
             text-align: center;
+            height: 23px;
+            color: #FFFAF0;
+            font-size: xx-large;
+            background-color: #DC143C;
         }
         .auto-style6 {
             width: 88px;
@@ -33,6 +38,21 @@
         .auto-style8 {
             text-align: right;
             height: 27px;
+        }
+        .auto-style9 {
+            width: 88px;
+            height: 23px;
+        }
+        .auto-style10 {
+            width: 88px;
+            height: 45px;
+        }
+        .auto-style11 {
+            width: 270px;
+            height: 45px;
+        }
+        .auto-style12 {
+            height: 45px;
         }
     </style>
     <link rel="stylesheet" href="../../StyleSheetG6.css"/>
@@ -52,12 +72,11 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">&nbsp;</td>
+                    <td class="auto-style9"></td>
                     <td colspan="2" class="auto-style5">
-                        <asp:Label ID="lblTituloEstadisticas" runat="server" class="mainItem" Text="Estadisticas de compra/venta"></asp:Label>
-                    </td>
+                        <strong>Estadísticas de Compra/Venta</strong></td>
                     <td class="auto-style4">
-                        &nbsp;</td>
+                        </td>
                 </tr>
                 <tr>
                     <td class="auto-style3">&nbsp;</td>
@@ -66,8 +85,8 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style2">
+                    <td class="auto-style10"></td>
+                    <td class="auto-style11">
                         <asp:DropDownList ID="ddlCategorias" runat="server">
                             <asp:ListItem>--Seleccionar--</asp:ListItem>
                             <asp:ListItem>Recaudacion Total</asp:ListItem>
@@ -78,11 +97,11 @@
                         </asp:DropDownList>
                         <asp:RequiredFieldValidator ID="rfvTipoRsumen" runat="server" ControlToValidate="ddlCategorias" ErrorMessage="Seleccione una categoria" InitialValue="--Seleccionar--"></asp:RequiredFieldValidator>
                     </td>
-                    <td>
+                    <td class="auto-style12">
                         <asp:TextBox ID="txtFechaInicio" runat="server" CssClass="ocultar"></asp:TextBox>
                         <asp:TextBox ID="txtFechaCierre" runat="server" CssClass="ocultar"></asp:TextBox>
                     </td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style12"></td>
                 </tr>
                 <tr>
                     <td class="auto-style3">&nbsp;</td>
@@ -99,11 +118,29 @@
                 <tr>
                     <td class="auto-style3">&nbsp;</td>
                     <td class="auto-style2">
-                        <asp:Calendar ID="calInicio" runat="server" CssClass="myCalendar" OnDayRender="calInicio_DayRender" OnSelectionChanged="calInicio_SelectionChanged"></asp:Calendar>
+                        <asp:Calendar ID="calInicio" runat="server" CssClass="myCalendar" OnDayRender="calInicio_DayRender" OnSelectionChanged="calInicio_SelectionChanged" BackColor="White" BorderColor="#999999" CellPadding="4" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" Height="180px" Width="200px">
+                            <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" />
+                            <NextPrevStyle VerticalAlign="Bottom" />
+                            <OtherMonthDayStyle ForeColor="#808080" />
+                            <SelectedDayStyle BackColor="#666666" Font-Bold="True" ForeColor="White" />
+                            <SelectorStyle BackColor="#CCCCCC" />
+                            <TitleStyle BackColor="#999999" BorderColor="Black" Font-Bold="True" />
+                            <TodayDayStyle BackColor="#CCCCCC" ForeColor="Black" />
+                            <WeekendDayStyle BackColor="#FFFFCC" />
+                        </asp:Calendar>
                         <asp:RequiredFieldValidator ID="rfvFechaIncio" runat="server" ControlToValidate="txtFechaInicio" ErrorMessage="Seleccione una fecha de incio"></asp:RequiredFieldValidator>
                     </td>
                     <td>
-                        <asp:Calendar ID="calCierre" runat="server" CssClass="myCalendar" OnSelectionChanged="Calendar2_SelectionChanged"></asp:Calendar>
+                        <asp:Calendar ID="calCierre" runat="server" CssClass="myCalendar" OnSelectionChanged="Calendar2_SelectionChanged" BackColor="White" BorderColor="#999999" CellPadding="4" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" Height="180px" Width="200px">
+                            <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" />
+                            <NextPrevStyle VerticalAlign="Bottom" />
+                            <OtherMonthDayStyle ForeColor="#808080" />
+                            <SelectedDayStyle BackColor="#666666" Font-Bold="True" ForeColor="White" />
+                            <SelectorStyle BackColor="#CCCCCC" />
+                            <TitleStyle BackColor="#999999" BorderColor="Black" Font-Bold="True" />
+                            <TodayDayStyle BackColor="#CCCCCC" ForeColor="Black" />
+                            <WeekendDayStyle BackColor="#FFFFCC" />
+                        </asp:Calendar>
                         <asp:RequiredFieldValidator ID="rfvFechaCierre" runat="server" ControlToValidate="txtFechaCierre" ErrorMessage="Seleccione una fecha de cierre"></asp:RequiredFieldValidator>
                     </td>
                     <td>&nbsp;</td>

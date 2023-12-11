@@ -89,6 +89,10 @@
             text-align: center;
             height: 37px;
             width: 285px;
+            font-weight: bold;
+            font-size: xx-large;
+            color: #FFFFFF;
+            background-color: #DC143C;
         }
         .auto-style45 {
             text-align: center;
@@ -217,8 +221,7 @@
                     <td class="auto-style60">
                     </td>
                     <td class="auto-style43">
-                        <asp:Label ID="lblTitulo"  CssClass="mainItem" runat="server" Font-Bold="True" Font-Overline="False" Font-Size="XX-Large" Text="Inicio" ForeColor="White"></asp:Label>
-                    </td>
+                        Inicio</td>
                     <td class="auto-style38">
                     </td>
                     <td class="auto-style71">

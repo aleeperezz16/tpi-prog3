@@ -10,7 +10,7 @@ using Entidades;
 
 namespace Vistas.Admin.Ventas
 {
-    public partial class Estadisticas : System.Web.UI.Page
+    public partial class Estadisticas : Admin
     {
         NegocioEstadisticas nEstadisticas = new NegocioEstadisticas();
         bool mostrarGrafico1 = false;
