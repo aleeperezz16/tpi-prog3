@@ -93,9 +93,9 @@
                 <td class="auto-style15">
                     Nombre de la Categoría:</td>
                 <td class="auto-style6" colspan="2">
-                    <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtNombre" runat="server" MaxLength="50"></asp:TextBox>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:RequiredFieldValidator ID="rfvNombreCategoria" runat="server" ControlToValidate="tbNombre" ForeColor="#FF3300">Ingrese un nombre de categoria</asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvNombreCategoria" runat="server" ControlToValidate="txtNombre" ForeColor="#FF3300">Ingrese un nombre de categoria</asp:RequiredFieldValidator>
                 </td>
                 <td>&nbsp;</td>
             </tr>
@@ -103,7 +103,7 @@
                 <td class="auto-style15">
                     Descripción</td>
                 <td class="auto-style10" colspan="2">
-                    <asp:TextBox ID="txtDescripcion" runat="server" Height="146px" Width="626px"></asp:TextBox>
+                    <asp:TextBox ID="txtDescripcion" runat="server" Height="146px" Width="626px" MaxLength="100"></asp:TextBox>
                 </td>
                 <td>(Opcional)</td>
             </tr>

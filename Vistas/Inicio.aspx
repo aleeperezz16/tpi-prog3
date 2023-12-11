@@ -423,6 +423,18 @@
                     <td class="auto-style69"></td>
                 </tr>
                 <tr>
+                    <td class="auto-style56">
+                        &nbsp;</td>
+                    <td class="auto-style64">
+                        <asp:HyperLink ID="hlEstadisticas" runat="server" NavigateUrl="~/Admin/Ventas/Estadisticas.aspx" Visible="False">Ver estadisticas de compra venta</asp:HyperLink>
+                    </td>
+                    <td class="auto-style57">
+                        &nbsp;</td>
+                    <td class="auto-style58">
+                        &nbsp;</td>
+                    <td class="auto-style69">&nbsp;</td>
+                </tr>
+                <tr>
                     <td class="auto-style22">
                         &nbsp;</td>
                     <td class="auto-style67">

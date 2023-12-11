@@ -27,6 +27,11 @@ namespace Vistas.MiCuenta
                 if (datos.GetType() != typeof(Usuario))
                 {
                     CargarDatosCliente((Cliente)datos);
+
+                    ddlProvincias.DataSource = _negocioProv.ObtenerProvincias();
+                    ddlProvincias.DataTextField = "NombreProvincia";
+                    ddlProvincias.DataValueField = "CodigoProvincia";
+                    ddlProvincias.DataBind();
                 }
                 else
                 {
@@ -116,7 +121,7 @@ namespace Vistas.MiCuenta
             txtDireccion.Text = cliente.Direccion;
             txtTelefono.Text = cliente.Telefono;
             txtEmail.Text = cliente.Email;
-
+            /*
             ddlProvincias.DataSource = _negocioProv.ObtenerProvincias();
             ddlProvincias.DataTextField = "NombreProvincia";
             ddlProvincias.DataValueField = "CodigoProvincia";
@@ -124,7 +129,7 @@ namespace Vistas.MiCuenta
             ddlProvincias.DataBind();
 
             CargarCiudades(cliente.Ciudad.Provincia.Codigo);
-            ddlCiudades.SelectedValue = cliente.Ciudad.Codigo.ToString();
+            ddlCiudades.SelectedValue = cliente.Ciudad.Codigo.ToString();*/
         }
 
         private void OcultarControlesCliente()

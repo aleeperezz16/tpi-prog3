@@ -20,16 +20,12 @@ namespace Vistas
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {
+            {   
                 ddlProvincias.DataSource = _negocioProv.ObtenerProvincias();
                 ddlProvincias.DataTextField = "NombreProvincia";
                 ddlProvincias.DataValueField = "CodigoProvincia";
                 ddlProvincias.DataBind();
-
-                ddlCiudades.DataSource = _negocioCiu.ObtenerCiudades();
-                ddlCiudades.DataTextField = "NombreCiudad";
-                ddlCiudades.DataValueField = "CodigoCiudad";
-                ddlCiudades.DataBind();
+               
             }
         }
 
@@ -79,6 +75,31 @@ namespace Vistas
             };
 
             return cliente;
+        }
+
+        protected void ddlProvincias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlProvincias.SelectedValue != "-- Seleccionar --")
+            {
+                CargarCiudades(int.Parse(ddlProvincias.SelectedValue));
+            }
+            else
+            {
+                ddlCiudades.Items.Clear();
+                ddlCiudades.Items.Add(new ListItem("--Seleccione una provincia--", "--Seleccione una provincia--"));
+            }
+        }
+        private void CargarCiudades(int idProvincia)
+        {
+            DataView dv = new DataView(_negocioCiu.ObtenerCiudades())
+            {
+                RowFilter = "CodigoProvincia = " + idProvincia
+            };
+
+            ddlCiudades.DataSource = dv.ToTable();
+            ddlCiudades.DataTextField = "NombreCiudad";
+            ddlCiudades.DataValueField = "CodigoCiudad";
+            ddlCiudades.DataBind();
         }
     }
 }

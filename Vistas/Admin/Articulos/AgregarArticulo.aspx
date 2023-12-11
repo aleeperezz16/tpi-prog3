@@ -89,7 +89,7 @@
                                     <asp:Label ID="lblNombreArticulo" CssClass="subItem" runat="server" Text="Nombre:"></asp:Label>
                                 </td>
                                 <td class="auto-style24">
-                                    <asp:TextBox ID="txtNombreArticulo" runat="server" Width="210px"></asp:TextBox>
+                                    <asp:TextBox ID="txtNombreArticulo" runat="server" Width="210px" MaxLength="50"></asp:TextBox>
                                 </td>
                                 <td class="auto-style25">
                                     <asp:RequiredFieldValidator ID="rfvNombreArticulo" runat="server" ControlToValidate="txtNombreArticulo">Ingrese un nombre</asp:RequiredFieldValidator>

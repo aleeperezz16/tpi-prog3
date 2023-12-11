@@ -46,6 +46,7 @@ namespace Vistas
             hlnkAgregarProveedores.Visible = true;
             hlnkAgregarPedido.Visible = true;
             hlnkAgregarCategorias.Visible = true;
+            hlEstadisticas.Visible = true;
 
             lblSeccionCategoria.Visible = true;
             lblSeccionPedidos.Visible = true;

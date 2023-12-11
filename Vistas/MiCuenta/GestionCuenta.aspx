@@ -116,7 +116,7 @@
                         <asp:Label ID="lblNombres" runat="server" CssClass="subItem"  Text="Nombres"></asp:Label>
                     </td>
                     <td class="auto-style3">
-                        <asp:TextBox ID="txtNombres" runat="server" ValidationGroup="2"></asp:TextBox>
+                        <asp:TextBox ID="txtNombres" runat="server" ValidationGroup="2" MaxLength="50"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvNombres" runat="server" ControlToValidate="txtNombres" ErrorMessage="Campo Obligatorio" ValidationGroup="2"></asp:RequiredFieldValidator>
                     </td>
                     <td>&nbsp;</td>
@@ -126,7 +126,7 @@
                         <asp:Label ID="lblApellidos" runat="server" CssClass="subItem"  Text="Apellidos"></asp:Label>
                     </td>
                     <td class="auto-style3">
-                        <asp:TextBox ID="txtApellidos" runat="server" ValidationGroup="2"></asp:TextBox>
+                        <asp:TextBox ID="txtApellidos" runat="server" ValidationGroup="2" MaxLength="50"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvApellidos" runat="server" ControlToValidate="txtApellidos" ErrorMessage="Campo Obligatorio" ValidationGroup="2"></asp:RequiredFieldValidator>
                     </td>
                     <td>&nbsp;</td>
@@ -160,7 +160,7 @@
                         <asp:Label ID="lblDireccion" runat="server"  CssClass="subItem" Text="Direccion"></asp:Label>
                     </td>
                     <td class="auto-style3">
-                        <asp:TextBox ID="txtDireccion" runat="server" ValidationGroup="2"></asp:TextBox>
+                        <asp:TextBox ID="txtDireccion" runat="server" ValidationGroup="2" MaxLength="100"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvDireccion" runat="server" ControlToValidate="txtDireccion" ErrorMessage="Campo Obligatorio" ValidationGroup="2"></asp:RequiredFieldValidator>
                     </td>
                     <td>&nbsp;</td>
@@ -180,7 +180,7 @@
                         <asp:Label ID="lblEmail" runat="server" CssClass="subItem"  Text="Email"></asp:Label>
                     </td>
                     <td class="auto-style3">
-                        <asp:TextBox ID="txtEmail" runat="server" ValidationGroup="2"></asp:TextBox>
+                        <asp:TextBox ID="txtEmail" runat="server" ValidationGroup="2" MaxLength="50"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail" ErrorMessage="Campo Obligatorio" ValidationGroup="2"></asp:RequiredFieldValidator>
                     </td>
                     <td>&nbsp;</td>
