@@ -41,7 +41,15 @@ namespace Dao
 
             return _datos.ObtenerTabla("Articulos", consulta);
         }
+        public DataTable ObtenerArticuloPorNombre(string nombre)
+        {
+            string consulta = "SELECT A.*, NombreCategoria, NombreProveedor " +
+                              "FROM ARTICULOS A INNER JOIN CATEGORIAS C ON A.IDCategoria = C.IDCategoria " +
+                              "INNER JOIN PROVEEDORES P ON A.IDProveedor = P.IDProveedor " +
+                              $"WHERE A.NombreArticulo LIKE '%{nombre}%'";
 
+            return _datos.ObtenerTabla("Articulos", consulta);
+        }
         private void ArmarParametrosAgregar(ref SqlCommand cmd, Articulo art)
         {
             cmd.Parameters.AddWithValue("@NOMBRE", art.Nombre);

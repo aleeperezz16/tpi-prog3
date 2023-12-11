@@ -59,7 +59,10 @@ namespace Negocio
                 return null;
             }
         }
-
+        public DataTable ObtenerArticuloPorNombre(string nombreArticulo)
+        {
+            return _dao.ObtenerArticuloPorNombre(nombreArticulo);
+        }
         public bool AgregarArticulo(Articulo art)
         {
             return _dao.AgregarArticulo(art) == 1;

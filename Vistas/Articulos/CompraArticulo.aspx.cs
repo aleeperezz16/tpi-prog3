@@ -120,16 +120,6 @@ namespace Vistas.Articulos
             ((TextBox)fila.FindControl("txt_it_Cantidad")).Text = "";
         }
 
-        protected void btnBuscarxID_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void btnVistaPrincipal_Click(object sender, EventArgs e)
-        {
-
-        }
-
         protected void cv_it_Cantidad_ServerValidate(object source, ServerValidateEventArgs args)
         {
             args.IsValid = int.TryParse(args.Value, out int cantidad) && cantidad > 0;
@@ -139,6 +129,23 @@ namespace Vistas.Articulos
         {
             var datos = (Cliente)Session["Datos"];
             lblCuentaIngresada.Text = datos.Usuario.Alias;
+        }
+        protected void btnBuscarArt_Click(object sender, EventArgs e)
+        {
+            ddlCategorias.SelectedIndex = 0;
+            string nombre = tbBuscarArticulo.Text.Trim();
+            gvComprarArticulos.DataSource = _negocioArt.ObtenerArticuloPorNombre(nombre);
+            gvComprarArticulos.DataBind();
+            tbBuscarArticulo.Text = "";
+            if (gvComprarArticulos.Rows.Count == 0) System.Windows.Forms.MessageBox.Show("No se ha encontrado ningún artículo", "Aviso");
+        }
+
+        protected void btnVistaPrincipal_Click(object sender, EventArgs e)
+        {
+            tbBuscarArticulo.Text = "";
+            gvComprarArticulos.PageIndex = 0;
+            gvComprarArticulos.DataSource = _tablaInicial;
+            gvComprarArticulos.DataBind();
         }
     }
 }

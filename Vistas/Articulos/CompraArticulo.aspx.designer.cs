@@ -60,31 +60,31 @@ namespace Vistas.Articulos
         protected global::System.Web.UI.WebControls.HyperLink hpCarrito;
 
         /// <summary>
-        /// Control lblBuscarxID.
+        /// Control lblBuscarArt.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBuscarxID;
+        protected global::System.Web.UI.WebControls.Label lblBuscarArt;
 
         /// <summary>
-        /// Control tbBuscarxID.
+        /// Control tbBuscarArticulo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbBuscarxID;
+        protected global::System.Web.UI.WebControls.TextBox tbBuscarArticulo;
 
         /// <summary>
-        /// Control btnBuscarxID.
+        /// Control btnBuscarArt.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscarxID;
+        protected global::System.Web.UI.WebControls.Button btnBuscarArt;
 
         /// <summary>
         /// Control btnVistaPrincipal.
@@ -96,22 +96,22 @@ namespace Vistas.Articulos
         protected global::System.Web.UI.WebControls.Button btnVistaPrincipal;
 
         /// <summary>
-        /// Control rfvBuscarxID.
+        /// Control rfvBuscarArticulol.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvBuscarxID;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvBuscarArticulol;
 
         /// <summary>
-        /// Control revBuscarxID.
+        /// Control revBuscarArt.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revBuscarxID;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revBuscarArt;
 
         /// <summary>
         /// Control lblFiltrarxCategoria.

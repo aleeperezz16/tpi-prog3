@@ -60,23 +60,23 @@
                 <tr>
                     <td class="auto-style2" rowspan="2">&nbsp;</td>
                     <td class="auto-style4" rowspan="2">
-                        <asp:Label ID="lblBuscarxID" CssClass="subItem" runat="server" Text="Buscar Artículos por ID:"></asp:Label>
-                        <asp:TextBox ID="tbBuscarxID" runat="server" ValidationGroup="1"></asp:TextBox>
+                        <asp:Label ID="lblBuscarArt" runat="server" CssClass="subItem" Text="Buscar Artículo por nombre:"></asp:Label>
+                        <asp:TextBox ID="tbBuscarArticulo" runat="server" ValidationGroup="1"></asp:TextBox>
                         <br />
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btnBuscarxID" CssClass="myButton" runat="server" Text="Buscar" ValidationGroup="1" OnClick="btnBuscarxID_Click" />
+                        <asp:Button ID="btnBuscarArt" runat="server" CssClass="myButton" OnClick="btnBuscarArt_Click" Text="Buscar" ValidationGroup="2" />
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btnVistaPrincipal" CssClass="myButton" runat="server" OnClick="btnVistaPrincipal_Click" Text="Vista Principal" Width="176px" />
+                        <asp:Button ID="btnVistaPrincipal" runat="server" CssClass="myButton" OnClick="btnVistaPrincipal_Click" Text="Vista Principal" Width="176px" />
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
                     <td>
-                        <asp:RequiredFieldValidator ID="rfvBuscarxID" runat="server" ControlToValidate="tbBuscarxID" Font-Bold="False" ForeColor="#FF3300" ValidationGroup="1">*Por favor, ingrese algun valor ID numerico</asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvBuscarArticulol" runat="server" ControlToValidate="tbBuscarArticulo" ForeColor="Red" ValidationGroup="2">*Por favor, ingrese un artículo</asp:RequiredFieldValidator>
                     </td>
                     <td rowspan="2">&nbsp;</td>
                     <td rowspan="2">&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style5">
-                        <asp:RegularExpressionValidator ID="revBuscarxID" runat="server" ControlToValidate="tbBuscarxID" ForeColor="#FF3300" ValidationExpression="^\d+$" ValidationGroup="1">*Solo se deben ingresar números</asp:RegularExpressionValidator>
+                        <asp:RegularExpressionValidator ID="revBuscarArt" runat="server" ControlToValidate="tbBuscarArticulo" ErrorMessage="*Por favor, ingrese solo letras" ForeColor="Red" ValidationExpression="^[a-zA-Z]+$" ValidationGroup="2"></asp:RegularExpressionValidator>
                     </td>
                 </tr>
                 <tr>
