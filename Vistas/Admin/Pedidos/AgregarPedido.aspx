@@ -73,6 +73,13 @@
         .auto-style23 {
             text-align: right;
         }
+        .auto-style24 {
+            width: 48px;
+            height: 27px;
+        }
+        .auto-style25 {
+            height: 27px;
+        }
     </style>
      <link rel="stylesheet" href="../../StyleSheetG6.css"/>
 </head>
@@ -115,7 +122,7 @@
             </tr>
             <tr>
                 <td class="auto-style14">
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="tbBuscarArticuloxID" ErrorMessage="RegularExpressionValidator" ForeColor="#FF3300" ValidationExpression="^\d+$" ValidationGroup="1">*Solo debe ingresar Números</asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtIdArticulo" ErrorMessage="RegularExpressionValidator" ForeColor="#FF3300" ValidationExpression="^\d+$" ValidationGroup="1">*Solo debe ingresar Números</asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
@@ -137,10 +144,9 @@
                             <asp:TemplateField HeaderText="Cantidad">
                                 <ItemTemplate>
                                     <asp:TextBox ID="txt_it_Cantidad" runat="server" TextMode="Number"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="rfv_it_Cantidad" runat="server" ControlToValidate="txt_it_Cantidad" ForeColor="Red">*</asp:RequiredFieldValidator>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:ButtonField ButtonType="Button" CommandName="EventoAgregar" Text="Comprar" CausesValidation="True" />
+                            <asp:ButtonField ButtonType="Button" CommandName="EventoAgregar" Text="Comprar" />
                         </Columns>
                         <EditRowStyle BackColor="#2461BF" />
                         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -163,9 +169,9 @@
                 <td class="auto-style5"></td>
             </tr>
             <tr>
-                <td class="auto-style17">&nbsp;</td>
-                <td colspan="2">&nbsp;</td>
-                <td>&nbsp;</td>
+                <td class="auto-style24"></td>
+                <td colspan="2" class="auto-style25"></td>
+                <td class="auto-style25"></td>
             </tr>
             <tr>
                 <td class="auto-style21"></td>

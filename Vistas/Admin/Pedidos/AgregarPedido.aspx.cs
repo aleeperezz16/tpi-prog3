@@ -33,37 +33,48 @@ namespace Vistas.Admin.Pedidos
         {
             if (e.CommandName == "EventoAgregar")
             {
-                var fila = gvAgregarPedido.Rows[Convert.ToInt32(e.CommandArgument)];
-                int cantidad = int.Parse(((TextBox)fila.FindControl("txt_it_Cantidad")).Text.Trim());
-                decimal precio = decimal.Parse(fila.Cells[4].Text);
-                Pedido nuevoPedido = new Pedido
-                {
-                    Articulo = new Articulo
-                    {
-                        Id = int.Parse(fila.Cells[0].Text),
-                        Nombre = fila.Cells[1].Text,
-                        PrecioCompra = precio,
-                        Categoria = new Categoria
-                        {
-                            Id = int.Parse(fila.Cells[2].Text),
-                        },
-                        Estado = true
-                    },
-                    CostoTotal = precio * cantidad,
-                    Cantidad = cantidad,
-                    Proveedor = new Proveedor
-                    {
-                        Id = int.Parse(fila.Cells[3].Text),
-                    }
-                };
 
-                if (ConfirmarPedido(nuevoPedido) == DialogResult.Yes)
-                {
-                    if (_negocioPed.AgregarPedido(nuevoPedido))
+                    var fila = gvAgregarPedido.Rows[Convert.ToInt32(e.CommandArgument)];
+                    int cantidad = int.Parse(((TextBox)fila.FindControl("txt_it_Cantidad")).Text.Trim());
+                    decimal cantidadM = Convert.ToDecimal(cantidad);
+
+                    string Preciaso = fila.Cells[4].Text.Trim();
+                    string[] Precioreal = Preciaso.Split(' ');
+                    decimal precio = Convert.ToDecimal(Precioreal[0]);
+
+
+                    Pedido nuevoPedido = new Pedido
                     {
-                        MessageBox.Show("Pedido confirmado y realizado con éxito");
+                        Articulo = new Articulo
+                        {
+
+                            Id = int.Parse(fila.Cells[0].Text),
+                            Nombre = fila.Cells[1].Text,
+                            PrecioCompra = precio,
+                            Categoria = new Categoria
+                            {
+                                ///  Id = int.Parse(fila.Cells[2].Text), ///Aca esta tomando "Arduino"
+                            },
+                            Estado = true
+                        },
+                        CostoTotal = precio * cantidadM,
+                        Cantidad = cantidad,
+                        Proveedor = new Proveedor
+                        {
+                            ///  Id = int.Parse(int.Parse(fila.Cells[3].Text), //esta tomando sica
+                            Nombre = fila.Cells[3].Text,
+                        }
+                    };
+
+                    if (ConfirmarPedido(nuevoPedido) == DialogResult.Yes)
+                    {
+                        if (_negocioPed.AgregarPedido(nuevoPedido))
+                        {
+                            MessageBox.Show("Pedido confirmado y realizado con éxito");
+                        }
                     }
-                }
+                
+                ((TextBox)fila.FindControl("txt_it_Cantidad")).Text = "";
             }
         }
 
