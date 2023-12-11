@@ -67,16 +67,25 @@ namespace Vistas.Articulos
                 }
 
                 var fila = gvComprarArticulos.Rows[Convert.ToInt32(e.CommandArgument)];
+                CustomValidator cv = (CustomValidator)fila.FindControl("cv_it_Cantidad");
+                cv.Validate();
+
+                if (!cv.IsValid)
+                {
+                    return;
+                }
+                
                 DetalleVenta detalleVenta = new DetalleVenta
                 {
                     Cantidad = int.Parse(((TextBox)fila.FindControl("txt_it_Cantidad")).Text),
-                    PrecioUnitario = decimal.Parse(fila.Cells[3].Text.Substring(1)),
+                    PrecioUnitario = decimal.Parse(fila.Cells[2].Text.Substring(1)),
                     Articulo = new Articulo
                     {
-                        Id = int.Parse(((Label)fila.FindControl("lblIDArticulo")).Text),
-                        Nombre = fila.Cells[1].Text
+                        Id = int.Parse(((Label)fila.FindControl("lbl_it_IdArticulo")).Text),
+                        Nombre = ((Label)fila.FindControl("lbl_it_Articulo")).Text
                     }
                 };
+
 
                 AgregarDetalleVenta(detalleVenta, fila);
             }
@@ -89,7 +98,7 @@ namespace Vistas.Articulos
             if (detalle != null)
             {
                 int cantidad = nuevoDetalle.Cantidad + detalle.Cantidad;
-                if (cantidad > int.Parse(fila.Cells[4].Text))
+                if (cantidad > int.Parse(fila.Cells[3].Text))
                 {
                     MessageBox.Show("Alcanzaste el stock máximo disponible", "Aviso");
                     return;
@@ -117,6 +126,11 @@ namespace Vistas.Articulos
         protected void btnVistaPrincipal_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void cv_it_Cantidad_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            args.IsValid = int.TryParse(args.Value, out int cantidad) && cantidad > 0;
         }
     }
 }

@@ -96,21 +96,29 @@
                         <asp:GridView ID="gvComprarArticulos" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnPageIndexChanging="gvComprarArticulos_PageIndexChanging" OnRowCommand="gvComprarArticulos_RowCommand" Width="871px">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
-                                <asp:TemplateField HeaderText="IDARTICULO" Visible="False">
+                                <asp:TemplateField HeaderText="Articulo">
+                                    <EditItemTemplate>
+                                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("NombreArticulo") %>'></asp:TextBox>
+                                    </EditItemTemplate>
                                     <ItemTemplate>
-                                        <asp:Label ID="lblIDArticulo" runat="server" Text='<%# Bind("IDArticulo") %>'></asp:Label>
+                                        <asp:Label ID="lbl_it_Articulo" runat="server" Text='<%# Bind("NombreArticulo") %>'></asp:Label>
+                                        <asp:Label ID="lbl_it_IdArticulo" runat="server" Text='<%# Bind("IDArticulo") %>' Visible="False"></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:BoundField DataField="NombreArticulo" HeaderText="Articulo" />
                                 <asp:BoundField DataField="NombreCategoria" HeaderText="Categoria" />
                                 <asp:BoundField DataField="PrecioDeVenta" DataFormatString="$ {0:F}" HeaderText="Precio" />
                                 <asp:BoundField DataField="Stock" HeaderText="Stock" />
                                 <asp:TemplateField HeaderText="Cantidad">
                                     <ItemTemplate>
-                                        <asp:TextBox ID="txt_it_Cantidad" runat="server" TextMode="Number"></asp:TextBox>
+                                        <asp:TextBox ID="txt_it_Cantidad" runat="server" TextMode="Number" CausesValidation="True"></asp:TextBox>
+                                        <asp:CustomValidator ID="cv_it_Cantidad" runat="server" ControlToValidate="txt_it_Cantidad" ForeColor="Red" OnServerValidate="cv_it_Cantidad_ServerValidate" ValidateEmptyText="True">*</asp:CustomValidator>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:ButtonField ButtonType="Button" CommandName="EventoAgregar" Text="Agregar al Carrito" CausesValidation="True" />
+                                <asp:TemplateField ShowHeader="False">
+                                    <ItemTemplate>
+                                        <asp:Button ID="btn_it_Carrito" runat="server" CommandArgument='<%# ((GridViewRow)Container).RowIndex %>' CommandName="EventoAgregar" Text="Agregar al carrito" CausesValidation="False" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                             </Columns>
                             <EditRowStyle BackColor="#2461BF" />
                             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
