@@ -28,6 +28,7 @@ namespace Vistas.Admin.Proveedores
                 ddlFiltroCiudad.DataBind();
 
                 CargarTablaInicial();
+                VerUsuarioConectado();
             }
         }
 

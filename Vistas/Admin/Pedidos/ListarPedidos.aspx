@@ -32,17 +32,16 @@
         .auto-style11 {
             height: 74px;
         }
-        .auto-style15 {
-            height: 26px;
-            width: 1083px;
-        }
         .auto-style16 {
             width: 692px;
             text-align: center;
         }
-        .auto-style17 {
+        .auto-style18 {
+            text-align: center;
+        }
+        .auto-style19 {
             height: 26px;
-            width: 725px;
+            text-align: right;
         }
     </style>
      <link rel="stylesheet" href="../../StyleSheetG6.css"/>
@@ -53,47 +52,28 @@
             <table class="auto-style1">
                 <tr>
                     <td class="auto-style2">&nbsp;</td>
-                    <td class="auto-style5" colspan="2">
+                    <td class="auto-style5">
                         <asp:HyperLink ID="hlVolverinicio" runat="server" BorderStyle="None" NavigateUrl="~/Inicio.aspx">Volver al Menú Principal</asp:HyperLink>
                     </td>
-                    <td class="auto-style2">
+                    <td class="auto-style19">
                         <asp:Label ID="lblCuentaIngresada" runat="server"></asp:Label>
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style11">
                     </td>
-                    <td class="auto-style7" colspan="2">
+                    <td class="auto-style7">
                         Listar pedidos</td>
                     <td class="auto-style11"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style2" rowspan="2"></td>
-                    <td class="auto-style15" rowspan="2">
-                        <span class="auto-style16">Buscar pedido por id:</span><asp:TextBox ID="txtBuscar" runat="server" ValidationGroup="1"></asp:TextBox>
-                        <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="btnBuscar" CssClass="myButton" runat="server" Text="Buscar" OnClick="btnBuscar_Click" ValidationGroup="1" />
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </td>
-                    <td class="auto-style17">
-                        <asp:RequiredFieldValidator ID="rfvBuscarpedidoID" runat="server" ControlToValidate="txtBuscar" ForeColor="Red" ValidationGroup="1">*Por favor ingrese un Numero ID.</asp:RequiredFieldValidator>
-                    </td>
-                    <td class="auto-style2" rowspan="2"></td>
+                    <td>&nbsp;</td>
+                    <td class="auto-style6">&nbsp;</td>
+                    <td>Filtros de Búsqueda:</td>
                 </tr>
                 <tr>
-                    <td class="auto-style17">
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtBuscar" ErrorMessage="*Solo debe ingresar números." ForeColor="#FF3300" ValidationExpression="^\d+$" ValidationGroup="1"></asp:RegularExpressionValidator>
-                    </td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td class="auto-style6" colspan="2">&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td class="auto-style16" colspan="2">
+                    <td rowspan="6">&nbsp;</td>
+                    <td class="auto-style16" rowspan="6">
                         <asp:GridView ID="gvListarPedidos" runat="server" AutoGenerateColumns="False" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" OnPageIndexChanging="gdvListarPedidos_PageIndexChanging">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
@@ -116,28 +96,58 @@
                             <SortedDescendingHeaderStyle BackColor="#4870BE" />
                         </asp:GridView>
                     </td>
+                    <td>ID:<br />
+                        <asp:TextBox ID="tbIDPedido" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Proveedor:<br />
+                        <asp:DropDownList ID="ddlProveedor" runat="server" AppendDataBoundItems="True">
+                            <asp:ListItem Selected="True">-- Seleccione --</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Total:<br />
+                        <asp:DropDownList ID="ddlFiltroTotal" runat="server">
+                            <asp:ListItem Selected="True" Value="&gt;=">&gt;=</asp:ListItem>
+                            <asp:ListItem Value="&lt;=">&lt;=</asp:ListItem>
+                        </asp:DropDownList>
+                        <asp:TextBox ID="tbTotal" runat="server" Width="142px"></asp:TextBox>
+                        <asp:CustomValidator ID="cvFiltroPrecioTotal" runat="server" ControlToValidate="tbTotal" ForeColor="Red" OnServerValidate="cvFiltroPrecioTotal_ServerValidate">*</asp:CustomValidator>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style18">
+                        <asp:Button ID="btnFiltrar" CssClass="myButton" runat="server" Text="Filtrar" OnClick="btnFiltrar_Click" Height="38px" />
+                        </td>
+                </tr>
+                <tr>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
-                    <td class="auto-style6" colspan="2">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td class="auto-style6">&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
-                    <td class="auto-style6" colspan="2">
+                    <td class="auto-style6">
                         <asp:Label ID="lbObservaciones1" runat="server" Font-Bold="True" Text="Observación: Solo se buscará por ID."></asp:Label>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
-                    <td class="auto-style6" colspan="2">&nbsp;</td>
+                    <td class="auto-style6">&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
-                    <td class="auto-style6" colspan="2">&nbsp;</td>
+                    <td class="auto-style6">&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
             </table>

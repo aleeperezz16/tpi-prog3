@@ -22,6 +22,7 @@ namespace Vistas.Admin.Categorias
             if (!IsPostBack)
             {
                 CargarTablaInicial();
+                VerUsuarioConectado();
             }
         }
         

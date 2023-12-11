@@ -17,7 +17,7 @@ namespace Vistas.Admin.Categorias
         {
             lblResultado.Text = "";
 
-            //VerUsuarioConectado();
+            VerUsuarioConectado();
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
@@ -39,6 +39,23 @@ namespace Vistas.Admin.Categorias
             else
             {
                 MessageBox.Show("No se pudo agregar la categoria", "Mensaje");
+            }
+
+
+        }
+        public void VerUsuarioConectado()
+        {
+            var datos = Session["Datos"];
+
+            if (datos.GetType() == typeof(Usuario))
+            {
+                Usuario usuarito = (Usuario)Session["Datos"];
+                lblCuentaIngresada.Text = usuarito.Alias;
+            }
+            else
+            {
+                Cliente Clientesito = (Cliente)Session["Datos"];
+                lblCuentaIngresada.Text = Clientesito.Nombre + " " + Clientesito.Apellido;
             }
         }
     }

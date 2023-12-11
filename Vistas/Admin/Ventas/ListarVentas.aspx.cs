@@ -25,6 +25,7 @@ namespace Vistas.Admin.Ventas
 
                 gvVentas.DataSource = _tablaInicial;
                 gvVentas.DataBind();
+                VerUsuarioConectado();
             }
         }
 

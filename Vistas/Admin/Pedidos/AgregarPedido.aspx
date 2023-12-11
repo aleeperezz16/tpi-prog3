@@ -117,7 +117,8 @@
                     &nbsp;&nbsp;&nbsp;
                     </td>
                 <td class="auto-style16">
-                    &nbsp;</td>
+                    <asp:RequiredFieldValidator ID="rfvBuscarporID" runat="server" ControlToValidate="txtIdArticulo" ForeColor="Red" ValidationGroup="1">*Ingrese un valor a Buscar</asp:RequiredFieldValidator>
+                </td>
                 <td class="auto-style11" rowspan="2"></td>
             </tr>
             <tr>

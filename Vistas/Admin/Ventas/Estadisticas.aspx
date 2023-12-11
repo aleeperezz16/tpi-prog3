@@ -17,6 +17,9 @@
         .auto-style3 {
             width: 88px;
         }
+        .auto-style4 {
+            text-align: right;
+        }
     </style>
     <link rel="stylesheet" href="../../StyleSheetG6.css"/>
 </head>
@@ -29,7 +32,9 @@
                     <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Label ID="lblTituloEstadisticas" runat="server" class="mainItem" Text="Estadisticas de compra/venta"></asp:Label>
                     </td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style4">
+                        <asp:Label ID="lblCuentaIngresada" runat="server"></asp:Label>
+                    </td>
                 </tr>
                 <tr>
                     <td class="auto-style3">&nbsp;</td>

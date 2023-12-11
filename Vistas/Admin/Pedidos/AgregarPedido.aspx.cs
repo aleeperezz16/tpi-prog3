@@ -26,6 +26,7 @@ namespace Vistas.Admin.Pedidos
                 _tablaInicial = _negocioArt.ObtenerArticulos();
                 gvAgregarPedido.DataSource = _tablaInicial;
                 gvAgregarPedido.DataBind();
+                VerUsuarioConectado();
             }
         }
 
@@ -34,41 +35,52 @@ namespace Vistas.Admin.Pedidos
             if (e.CommandName == "EventoAgregar")
             {
                 var fila = gvAgregarPedido.Rows[Convert.ToInt32(e.CommandArgument)];
-                int cantidad = int.Parse(((TextBox)fila.FindControl("txt_it_Cantidad")).Text.Trim());
-                decimal precio = decimal.Parse(fila.Cells[4].Text.Split(' ')[1]);
 
-                Pedido nuevoPedido = new Pedido
-                {
-                    Articulo = new Articulo
-                    {
+                if (((TextBox)fila.FindControl("txt_it_Cantidad")).Text != "") {
 
-                        Id = int.Parse(fila.Cells[0].Text),
-                        Nombre = fila.Cells[1].Text,
-                        PrecioCompra = precio,
-                        Categoria = new Categoria
+                        int cantidad = int.Parse(((TextBox)fila.FindControl("txt_it_Cantidad")).Text.Trim());
+                        decimal precio = decimal.Parse(fila.Cells[4].Text.Split(' ')[1]);
+
+                        Pedido nuevoPedido = new Pedido
                         {
-                            Id = int.Parse(((Label)fila.FindControl("lbl_it_IdCategoria")).Text),
-                            Nombre = ((Label)fila.FindControl("lbl_it_Categoria")).Text
-                        },
-                        Estado = true
-                    },
-                    CostoTotal = precio * cantidad,
-                    Cantidad = cantidad,
-                    Proveedor = new Proveedor
-                    {
-                        Id = int.Parse(((Label)fila.FindControl("lbl_it_IdProveedor")).Text),
-                        Nombre = ((Label)fila.FindControl("lbl_it_Proveedor")).Text
-                    }
-                };
+                            Articulo = new Articulo
+                            {
 
-                if (ConfirmarPedido(nuevoPedido) == DialogResult.Yes)
-                {
-                    if (_negocioPed.AgregarPedido(nuevoPedido))
-                    {
-                        MessageBox.Show("Pedido confirmado y realizado con éxito");
-                    }
+                                Id = int.Parse(fila.Cells[0].Text),
+                                Nombre = fila.Cells[1].Text,
+                                PrecioCompra = precio,
+                                Categoria = new Categoria
+                                {
+                                    Id = int.Parse(((Label)fila.FindControl("lbl_it_IdCategoria")).Text),
+                                    Nombre = ((Label)fila.FindControl("lbl_it_Categoria")).Text
+                                },
+                                Estado = true
+                            },
+                            CostoTotal = precio * cantidad,
+                            Cantidad = cantidad,
+                            Proveedor = new Proveedor
+                            {
+                                Id = int.Parse(((Label)fila.FindControl("lbl_it_IdProveedor")).Text),
+                                Nombre = ((Label)fila.FindControl("lbl_it_Proveedor")).Text
+                            }
+                        };
+
+                        if (ConfirmarPedido(nuevoPedido) == DialogResult.Yes)
+                        {
+                            if (_negocioPed.AgregarPedido(nuevoPedido))
+                            {
+                                MessageBox.Show("Pedido confirmado y realizado con éxito");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("El pedido se canceló con éxito");
+                        }
                 }
-
+                else
+                {
+                    MessageBox.Show("Debe ingresar una cantidad a comprar");
+                }
                 ((TextBox)fila.FindControl("txt_it_Cantidad")).Text = "";
             }
         }
