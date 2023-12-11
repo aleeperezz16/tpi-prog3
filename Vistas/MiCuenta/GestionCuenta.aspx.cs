@@ -22,6 +22,7 @@ namespace Vistas.MiCuenta
         {
             if (!IsPostBack)
             {
+                VerUsuarioConectado();
                 var datos = Session["Datos"];
 
                 if (datos.GetType() != typeof(Usuario))
@@ -149,6 +150,21 @@ namespace Vistas.MiCuenta
             ddlProvincias.Visible = false;
             ddlCiudades.Visible = false;
             btnAceptarDatos.Visible = false;
+        }
+        public void VerUsuarioConectado()
+        {
+            var datos = Session["Datos"];
+
+            if (datos.GetType() == typeof(Usuario))
+            {
+                Usuario usuarito = (Usuario)Session["Datos"];
+                lblCuentaIngresada.Text = usuarito.Alias;
+            }
+            else
+            {
+                Cliente Clientesito = (Cliente)Session["Datos"];
+                lblCuentaIngresada.Text = Clientesito.Nombre + " " + Clientesito.Apellido;
+            }
         }
     }
 }

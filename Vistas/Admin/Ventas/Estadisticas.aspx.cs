@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Negocio;
 using System.Data;
+using Entidades;
 
 namespace Vistas.Admin.Ventas
 {
@@ -18,7 +19,7 @@ namespace Vistas.Admin.Ventas
         {
             if (!IsPostBack)
             {
-
+                VerUsuarioConectado();
             }
 
             chGrafico1.Visible = mostrarGrafico1;
@@ -45,6 +46,21 @@ namespace Vistas.Admin.Ventas
             if (calCierre.SelectedDate.ToString() == "01/01/0001 00:00:00")
             {
                 txtFechaCierre.Text = string.Empty;
+            }
+        }
+        public void VerUsuarioConectado()
+        {
+            var datos = Session["Datos"];
+
+            if (datos.GetType() == typeof(Usuario))
+            {
+                Usuario usuarito = (Usuario)Session["Datos"];
+                lblCuentaIngresada.Text = usuarito.Alias;
+            }
+            else
+            {
+                Cliente Clientesito = (Cliente)Session["Datos"];
+                lblCuentaIngresada.Text = Clientesito.Nombre + " " + Clientesito.Apellido;
             }
         }
 

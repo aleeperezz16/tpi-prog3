@@ -20,6 +20,9 @@
             width: 690px;
             text-align: center;
         }
+        .auto-style5 {
+            text-align: right;
+        }
     </style>
     <link rel="stylesheet" href="../StyleSheetG6.css"/>
 </head>
@@ -30,7 +33,9 @@
                 <tr>
                     <td class="auto-style2">&nbsp;</td>
                     <td class="auto-style3">&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style5">
+                        <asp:Label ID="lblCuentaIngresada" runat="server"></asp:Label>
+                    </td>
                 </tr>
                 <tr>
                     <td class="auto-style2">

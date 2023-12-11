@@ -227,7 +227,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style45">
-                        <asp:HyperLink ID="hlnkCarrito" runat="server" NavigateUrl="~/Articulos/Carrito.aspx" Visible="False">Mi carrito </asp:HyperLink>
+                        <asp:HyperLink ID="hlnkCarrito" runat="server" NavigateUrl="~/Articulos/CarritoDeCompras.aspx" Visible="False">Mi carrito </asp:HyperLink>
                     </td>
                     <td class="auto-style61">
                     </td>
