@@ -18,7 +18,10 @@ namespace Vistas.Articulos
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            VerUsuarioConectado();
+            if (!IsPostBack)
+            {
+                VerUsuarioConectado();
+            }
 
             if (Session["Venta"] != null)
             {
@@ -156,18 +159,10 @@ namespace Vistas.Articulos
             btnEliminarTodo.Enabled = false;
         }
 
-        public void VerUsuarioConectado()
+        private void VerUsuarioConectado()
         {
-            var datos = Session["Datos"];
-
-            if (datos.GetType() == typeof(Usuario))
-            {
-                lblCuentaIngresada.Text = ((Usuario)Session["Datos"]).Alias;
-            }
-            else
-            {
-                lblCuentaIngresada.Text = ((Cliente)Session["Datos"]).Usuario.Alias;
-            }
+            var datos = (Cliente)Session["Datos"];
+            lblCuentaIngresada.Text = datos.Usuario.Alias;
         }
     }
 }

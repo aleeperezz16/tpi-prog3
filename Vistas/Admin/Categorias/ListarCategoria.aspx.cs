@@ -127,21 +127,11 @@ namespace Vistas.Admin.Categorias
             gvCategorias.DataSource = _tablaInicial;
             gvCategorias.DataBind();
         }
-        
-        public void VerUsuarioConectado()
-        {
-            var datos = Session["Datos"];
 
-            if (datos.GetType() == typeof(Usuario))
-            {
-                Usuario usuarito = (Usuario)Session["Datos"];
-                lblCuentaIngresada.Text = usuarito.Alias;
-            }
-            else
-            {
-                Cliente Clientesito = (Cliente)Session["Datos"];
-                lblCuentaIngresada.Text = Clientesito.Nombre + " " + Clientesito.Apellido;
-            }
+        private void VerUsuarioConectado()
+        {
+            var datos = (Usuario)Session["Datos"];
+            lblCuentaIngresada.Text = datos.Alias;
         }
     }
 }

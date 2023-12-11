@@ -146,7 +146,7 @@ namespace Vistas.Admin.Proveedores
             gvProveedores.DataBind();
         }
 
-        public void VerUsuarioConectado()
+        private void VerUsuarioConectado()
         {
             var datos = (Usuario)Session["Datos"];
             lblCuentaIngresada.Text = datos.Alias;

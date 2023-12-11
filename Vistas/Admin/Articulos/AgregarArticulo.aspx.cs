@@ -53,7 +53,7 @@ namespace Vistas.Admin.Articulos
             lblResultado.Text = _negocioArt.AgregarArticulo(nuevoArticulo) ? "El articulo se ha agregado con exito" : "No se pudo agregar el articulo";
         }
 
-        public void VerUsuarioConectado()
+        private void VerUsuarioConectado()
         {
             var datos = (Usuario)Session["Datos"];
             lblCuentaIngresada.Text = datos.Alias;

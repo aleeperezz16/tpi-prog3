@@ -122,15 +122,15 @@ namespace Vistas.MiCuenta
             txtDireccion.Text = cliente.Direccion;
             txtTelefono.Text = cliente.Telefono;
             txtEmail.Text = cliente.Email;
-            /*
+            
             ddlProvincias.DataSource = _negocioProv.ObtenerProvincias();
             ddlProvincias.DataTextField = "NombreProvincia";
             ddlProvincias.DataValueField = "CodigoProvincia";
             ddlProvincias.SelectedValue = cliente.Ciudad.Provincia.Codigo.ToString();
             ddlProvincias.DataBind();
 
+            ddlCiudades.SelectedValue = cliente.Ciudad.Codigo.ToString();
             CargarCiudades(cliente.Ciudad.Provincia.Codigo);
-            ddlCiudades.SelectedValue = cliente.Ciudad.Codigo.ToString();*/
         }
 
         private void OcultarControlesCliente()
@@ -157,13 +157,11 @@ namespace Vistas.MiCuenta
 
             if (datos.GetType() == typeof(Usuario))
             {
-                Usuario usuarito = (Usuario)Session["Datos"];
-                lblCuentaIngresada.Text = usuarito.Alias;
+                lblCuentaIngresada.Text = ((Usuario)Session["Datos"]).Alias;
             }
             else
             {
-                Cliente Clientesito = (Cliente)Session["Datos"];
-                lblCuentaIngresada.Text = Clientesito.Nombre + " " + Clientesito.Apellido;
+                lblCuentaIngresada.Text = ((Cliente)Session["Datos"]).Usuario.Alias;
             }
         }
     }

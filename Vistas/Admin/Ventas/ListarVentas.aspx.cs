@@ -84,28 +84,18 @@ namespace Vistas.Admin.Ventas
             gvVentas.DataBind();
         }
 
-    protected void gvVentas_PageIndexChanging(object sender, GridViewPageEventArgs e)
-    {
-        gvVentas.PageIndex = e.NewPageIndex;
-
-        gvVentas.DataSource = _tabla;
-        gvVentas.DataBind();
-    }
-
-    public void VerUsuarioConectado()
-    {
-        var datos = Session["Datos"];
-
-        if (datos.GetType() == typeof(Usuario))
+        protected void gvVentas_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            Usuario usuarito = (Usuario)Session["Datos"];
-            lblCuentaIngresada.Text = usuarito.Alias;
+            gvVentas.PageIndex = e.NewPageIndex;
+
+            gvVentas.DataSource = _tabla;
+            gvVentas.DataBind();
         }
-        else
+
+        private void VerUsuarioConectado()
         {
-            Cliente Clientesito = (Cliente)Session["Datos"];
-            lblCuentaIngresada.Text = Clientesito.Nombre + " " + Clientesito.Apellido;
+            var datos = (Usuario)Session["Datos"];
+            lblCuentaIngresada.Text = datos.Alias;
         }
     }
-}
 }

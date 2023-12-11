@@ -32,6 +32,8 @@ namespace Vistas.Articulos
 
                 gvComprarArticulos.DataSource = _tablaInicial;
                 gvComprarArticulos.DataBind();
+
+                VerUsuarioConectado();
             }
         }
 
@@ -131,6 +133,12 @@ namespace Vistas.Articulos
         protected void cv_it_Cantidad_ServerValidate(object source, ServerValidateEventArgs args)
         {
             args.IsValid = int.TryParse(args.Value, out int cantidad) && cantidad > 0;
+        }
+
+        private void VerUsuarioConectado()
+        {
+            var datos = (Cliente)Session["Datos"];
+            lblCuentaIngresada.Text = datos.Usuario.Alias;
         }
     }
 }

@@ -43,20 +43,10 @@ namespace Vistas.Admin.Categorias
 
 
         }
-        public void VerUsuarioConectado()
+        private void VerUsuarioConectado()
         {
-            var datos = Session["Datos"];
-
-            if (datos.GetType() == typeof(Usuario))
-            {
-                Usuario usuarito = (Usuario)Session["Datos"];
-                lblCuentaIngresada.Text = usuarito.Alias;
-            }
-            else
-            {
-                Cliente Clientesito = (Cliente)Session["Datos"];
-                lblCuentaIngresada.Text = Clientesito.Nombre + " " + Clientesito.Apellido;
-            }
+            var datos = (Usuario)Session["Datos"];
+            lblCuentaIngresada.Text = datos.Alias;
         }
     }
 }

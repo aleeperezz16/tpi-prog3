@@ -205,7 +205,7 @@ namespace Vistas.Admin.Articulos
             gvArticulos.DataBind();
         }
 
-        public void VerUsuarioConectado()
+        private void VerUsuarioConectado()
         {
             var datos = (Usuario)Session["Datos"];
             lblCuentaIngresada.Text = datos.Alias;

@@ -9,11 +9,10 @@ using Negocio;
 
 namespace Vistas.MiCuenta
 {
-    public partial class DetalleVenta : Index
+    public partial class DetalleVenta : Clientes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
     }
 }
