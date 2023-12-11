@@ -42,7 +42,7 @@
                     <td class="auto-style2">
                         &nbsp;</td>
                     <td class="auto-style9" >
-                        <asp:HyperLink ID="hlVolverAMenu" runat="server" NavigateUrl="~/InicioClientes.aspx">Volver  al Menú Principal</asp:HyperLink>
+                        <asp:HyperLink ID="hlVolverAMenu" runat="server" NavigateUrl="~/Inicio.aspx">Volver  al Menú Principal</asp:HyperLink>
                     </td>
                     <td>
                         <asp:Label ID="lblCuentaIngresada" runat="server"></asp:Label>

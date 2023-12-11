@@ -28,7 +28,7 @@
                 <tr>
                     <td class="auto-style2">&nbsp;</td>
                     <td colspan="2">
-                        <asp:HyperLink ID="hlInicio" runat="server" NavigateUrl="~/InicioClientes.aspx">Volver al Menú Principal</asp:HyperLink>
+                        <asp:HyperLink ID="hlInicio" runat="server" NavigateUrl="~/Inicio.aspx">Volver al Menú Principal</asp:HyperLink>
                     </td>
                     <td>
                         <asp:Label ID="lblCuentaIngresada" runat="server"></asp:Label>
@@ -103,7 +103,7 @@
                                 </asp:TemplateField>
                                 <asp:BoundField DataField="NombreArticulo" HeaderText="Articulo" />
                                 <asp:BoundField DataField="NombreCategoria" HeaderText="Categoria" />
-                                <asp:BoundField DataField="PrecioDeVenta" DataFormatString="{0:c}" HeaderText="Precio" />
+                                <asp:BoundField DataField="PrecioDeVenta" DataFormatString="$ {0:F}" HeaderText="Precio" />
                                 <asp:BoundField DataField="Stock" HeaderText="Stock" />
                                 <asp:TemplateField HeaderText="Cantidad">
                                     <ItemTemplate>
