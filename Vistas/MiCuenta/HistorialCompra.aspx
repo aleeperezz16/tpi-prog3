@@ -59,9 +59,9 @@
                         <asp:GridView ID="gvHistorial" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal" >
                             <Columns>
                                 <asp:BoundField DataField="IDVenta" HeaderText="Nro Venta" />
-                                <asp:BoundField DataField="CostoTotal" HeaderText="Total" />
+                                <asp:BoundField DataField="PrecioTotal" HeaderText="Total" />
                                 <asp:BoundField DataField="FechaVenta" HeaderText="Fecha" />
-                                <asp:HyperLinkField DataNavigateUrlFields="NroVenta" DataNavigateUrlFormatString="~/DetalleVenta.aspx?id={0}" Text="Ver detalle" />
+                                <asp:HyperLinkField DataNavigateUrlFields="IDVenta" DataNavigateUrlFormatString="~/DetalleVenta.aspx?id={0}" Text="Ver detalle" />
                             </Columns>
                             <FooterStyle BackColor="White" ForeColor="#333333" />
                             <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
