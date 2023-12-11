@@ -44,7 +44,12 @@ namespace Negocio
                     Email = fila.Field<string>("EMail"),
                     Ciudad = new Ciudad
                     {
-                        Nombre = fila.Field<string>("NombreCiudad")
+                        Codigo = fila.Field<int>("CodigoCiudad"),
+                        Nombre = fila.Field<string>("NombreCiudad"),
+                        Provincia = new Provincia
+                        {
+                            Codigo = fila.Field<int>("CodigoProvincia")
+                        }
                     },
                     Usuario = usuario
                 };

@@ -12,7 +12,7 @@ using System.Windows.Forms;
 namespace Vistas.MiCuenta
 {
     public partial class GestionCuenta : Index
-    {       
+    {
         private NegocioClientes _negocioCli = new NegocioClientes();
         private NegocioCiudades _negocioCiu = new NegocioCiudades();
         private NegocioProvincia _negocioProv = new NegocioProvincia();
@@ -40,7 +40,7 @@ namespace Vistas.MiCuenta
                 }
             }
 
-        } 
+        }
 
         protected void ddlProvincias_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -80,20 +80,32 @@ namespace Vistas.MiCuenta
 
             if (resultado == DialogResult.Yes)
             {
-                Cliente nuevosDatos = (Cliente)Session["Datos"];
-                nuevosDatos.Nombre = txtNombres.Text.Trim();
-                nuevosDatos.Apellido = txtApellidos.Text.Trim();
-                nuevosDatos.Ciudad = new Ciudad
+                var actual = (Cliente)Session["Datos"];
+                Cliente nuevosDatos = new Cliente
                 {
-                    Codigo = int.Parse(ddlCiudades.SelectedValue)
+                    Nombre = txtNombres.Text.Trim(),
+                    Apellido = txtApellidos.Text.Trim(),
+                    Ciudad = new Ciudad
+                    {
+                        Codigo = int.Parse(ddlCiudades.SelectedValue),
+                        Nombre = ddlCiudades.SelectedItem.Text,
+                        Provincia = new Provincia
+                        {
+                            Codigo = int.Parse(ddlProvincias.SelectedValue),
+                            Nombre = ddlProvincias.SelectedItem.Text
+                        },
+                    },
+                    Direccion = txtDireccion.Text.Trim(),
+                    Telefono = txtTelefono.Text.Trim(),
+                    Email = txtEmail.Text.Trim(),
+                    Usuario = actual.Usuario,
+                    Dni = actual.Dni
                 };
-                nuevosDatos.Direccion = txtDireccion.Text.Trim();
-                nuevosDatos.Telefono = txtTelefono.Text.Trim();
-                nuevosDatos.Email = txtEmail.Text.Trim();
 
                 if (_negocioCli.ModificarCliente(nuevosDatos))
                 {
                     MessageBox.Show("Datos actualizados correctamente");
+                    Session["Datos"] = nuevosDatos;
                 }
                 else
                 {
@@ -101,6 +113,7 @@ namespace Vistas.MiCuenta
                 }
             }
         }
+
 
         private void CargarCiudades(int idProvincia)
         {
@@ -122,7 +135,7 @@ namespace Vistas.MiCuenta
             txtDireccion.Text = cliente.Direccion;
             txtTelefono.Text = cliente.Telefono;
             txtEmail.Text = cliente.Email;
-            
+
             ddlProvincias.DataSource = _negocioProv.ObtenerProvincias();
             ddlProvincias.DataTextField = "NombreProvincia";
             ddlProvincias.DataValueField = "CodigoProvincia";
