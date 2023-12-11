@@ -62,7 +62,7 @@
                                 <asp:BoundField DataField="NombreArticulo" HeaderText="Articulo" SortExpression="Articulo" />
                                 <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" SortExpression="Cantidad" />
                                 <asp:BoundField DataField="Total" HeaderText="Total" SortExpression="Total" />
-                                <asp:BoundField DataField="FechaVenta" HeaderText="Fecha Venta" SortExpression="Fecha Venta" />
+                                <asp:BoundField DataField="FechaDeVenta" HeaderText="Fecha Venta" SortExpression="Fecha Venta" DataFormatString="{0:dd/MM/yyyy}" />
                                 <asp:BoundField DataField="Comprador" HeaderText="Comprador" ReadOnly="True" SortExpression="Comprador" />
                                 <asp:BoundField DataField="DNI" HeaderText="DNI" SortExpression="DNI" />
                             </Columns>
@@ -96,7 +96,8 @@
                 </tr>
                 <tr>
                     <td class="auto-style3">
-                        <asp:TextBox ID="txtIdVenta" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtIdVenta" runat="server" TextMode="Number"></asp:TextBox>
+                        <asp:CompareValidator ID="cpvFiltroId" runat="server" ControlToValidate="txtIdVenta" ForeColor="Red" Operator="GreaterThan" Type="Integer" ValueToCompare="0">*</asp:CompareValidator>
                     </td>
                 </tr>
                 <tr>
@@ -118,7 +119,8 @@
                 </tr>
                 <tr>
                     <td class="auto-style3">
-                        <asp:TextBox ID="txtDniCliente" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtDniCliente" runat="server" TextMode="Number"></asp:TextBox>
+                        <asp:CompareValidator ID="cpvDniCliente" runat="server" ControlToValidate="txtDniCliente" ForeColor="Red" Operator="GreaterThan" Type="Integer" ValueToCompare="0">*</asp:CompareValidator>
                     </td>
                 </tr>
                 <tr>

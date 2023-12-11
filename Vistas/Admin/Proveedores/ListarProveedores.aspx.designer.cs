@@ -60,6 +60,15 @@ namespace Vistas.Admin.Proveedores
         protected global::System.Web.UI.WebControls.TextBox txtIdProveedor;
 
         /// <summary>
+        /// Control cpvIdProveedor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cpvIdProveedor;
+
+        /// <summary>
         /// Control txtNombreProveedor.
         /// </summary>
         /// <remarks>
@@ -67,6 +76,15 @@ namespace Vistas.Admin.Proveedores
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNombreProveedor;
+
+        /// <summary>
+        /// Control ddlFiltroCiudad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlFiltroCiudad;
 
         /// <summary>
         /// Control btnFiltrar.

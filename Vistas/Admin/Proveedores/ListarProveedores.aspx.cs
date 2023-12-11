@@ -20,6 +20,13 @@ namespace Vistas.Admin.Proveedores
         {
             if (!IsPostBack)
             {
+                VerUsuarioConectado();
+
+                ddlFiltroCiudad.DataSource = _negocioCiu.ObtenerCiudades();
+                ddlFiltroCiudad.DataTextField = "NombreCiudad";
+                ddlFiltroCiudad.DataValueField = "CodigoCiudad";
+                ddlFiltroCiudad.DataBind();
+
                 CargarTablaInicial();
             }
         }
@@ -27,13 +34,41 @@ namespace Vistas.Admin.Proveedores
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
             string nombre = txtNombreProveedor.Text.Trim();
+            string idProveedor = txtIdProveedor.Text.Trim();
+
+            string filtro = "";
+
+            if (nombre.Length > 0)
+            {
+                filtro += $"NombreProveedor LIKE '%{nombre}%'";
+            }
+
+            if (idProveedor.Length > 0)
+            {
+                if (filtro.Length > 0)
+                {
+                    filtro += " AND ";
+                }
+
+                filtro += $"IDProveedor = {idProveedor}";
+            }
+
+            if (ddlFiltroCiudad.SelectedValue != "-- Seleccione --")
+            {
+                if (filtro.Length > 0)
+                {
+                    filtro += " AND ";
+                }
+
+                filtro += $"CodigoCiudad = {ddlFiltroCiudad.SelectedValue}";
+            }
 
             DataView dv = new DataView(_tablaInicial)
             {
-                RowFilter = $"NombreProveedor LIKE '%{nombre}%'"
+                RowFilter = filtro
             };
 
-            _tabla = nombre.Length > 0 ? dv.ToTable() : _tablaInicial.Copy();
+            _tabla = filtro.Length > 0 ? dv.ToTable() : _tablaInicial.Copy();
 
             gvProveedores.DataSource = _tabla;
             gvProveedores.DataBind();
@@ -42,6 +77,8 @@ namespace Vistas.Admin.Proveedores
         protected void gvProveedores_RowEditing(object sender, GridViewEditEventArgs e)
         {
             gvProveedores.EditIndex = e.NewEditIndex;
+
+            gvProveedores.DataSource = _tabla;
             gvProveedores.DataBind();
 
             DropDownList ciudades = (DropDownList)gvProveedores.Rows[e.NewEditIndex].FindControl("ddl_eit_Ciudad");
@@ -49,6 +86,7 @@ namespace Vistas.Admin.Proveedores
             ciudades.DataSource = _negocioCiu.ObtenerCiudades();
             ciudades.DataTextField = "NombreCiudad";
             ciudades.DataValueField = "CodigoCiudad";
+            ciudades.SelectedValue = ((Label)gvProveedores.Rows[e.NewEditIndex].FindControl("lbl_eit_CodigoCiudad")).Text;
             ciudades.DataBind();
         }
 
@@ -80,7 +118,7 @@ namespace Vistas.Admin.Proveedores
                 Direccion = ((TextBox)fila.FindControl("txt_eit_Direccion")).Text.Trim(),
                 Ciudad = new Ciudad
                 {
-                    Codigo = int.Parse(((DropDownList)fila.FindControl("ddl_eit_Ciudad")).SelectedValue)
+                    Codigo = int.Parse(((DropDownList)fila.FindControl("ddl_eit_Ciudad")).SelectedValue),
                 }
             };
 
@@ -92,7 +130,7 @@ namespace Vistas.Admin.Proveedores
 
         protected void gvProveedores_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            int idProv = int.Parse(((Label)gvProveedores.Rows[e.RowIndex].FindControl("lbl_eit_Id")).Text);
+            int idProv = int.Parse(((Label)gvProveedores.Rows[e.RowIndex].FindControl("lbl_it_Id")).Text);
             _negocioProv.EliminarProveedor(idProv);
 
             CargarTablaInicial(true);
@@ -109,18 +147,8 @@ namespace Vistas.Admin.Proveedores
 
         public void VerUsuarioConectado()
         {
-            var datos = Session["Datos"];
-
-            if (datos.GetType() == typeof(Usuario))
-            {
-                Usuario usuarito = (Usuario)Session["Datos"];
-                lblCuentaIngresada.Text = usuarito.Alias;
-            }
-            else
-            {
-                Cliente Clientesito = (Cliente)Session["Datos"];
-                lblCuentaIngresada.Text = Clientesito.Nombre + " " + Clientesito.Apellido;
-            }
+            var datos = (Usuario)Session["Datos"];
+            lblCuentaIngresada.Text = datos.Alias;
         }
     }
 }
