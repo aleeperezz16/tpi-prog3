@@ -89,7 +89,7 @@
                 <tr>
                     <td class="auto-style4">&nbsp;</td>
                     <td class="auto-style8">
-                        <asp:GridView ID="gvClientes" runat="server" AllowPaging="True" AutoGenerateColumns="False" OnPageIndexChanging="gdvClientes_PageIndexChanging" OnRowDataBound="gdvClientes_RowDataBound" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
+                        <asp:GridView ID="gvClientes" runat="server" AllowPaging="True" AutoGenerateColumns="False" OnPageIndexChanging="gdvClientes_PageIndexChanging" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
                             <Columns>
                                 <asp:BoundField DataField="DNI" HeaderText="DNI" />
                                 <asp:BoundField DataField="Nombre" HeaderText="Nombre y Apellido" />

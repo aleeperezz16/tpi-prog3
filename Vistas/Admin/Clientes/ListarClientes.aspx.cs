@@ -44,17 +44,18 @@ namespace Vistas.Admin.Clientes
             gvClientes.DataBind();
         }
 
-        protected void gvClientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        private void VerUsuarioConectado()
+        {
+            var datos = (Usuario)Session["Datos"];
+            lblCuentaIngresada.Text = datos.Alias;
+        }
+
+        protected void gdvClientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvClientes.PageIndex = e.NewPageIndex;
 
             gvClientes.DataSource = _tabla;
             gvClientes.DataBind();
-        }
-        private void VerUsuarioConectado()
-        {
-            var datos = (Usuario)Session["Datos"];
-            lblCuentaIngresada.Text = datos.Alias;
         }
     }
 }
