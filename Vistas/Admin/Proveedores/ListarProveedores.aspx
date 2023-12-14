@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
@@ -146,7 +146,7 @@
                             <SortedDescendingHeaderStyle BackColor="#575357" />
                         </asp:GridView>
                     </td>
-                    <td class="auto-style8"><strong>ID Proveedor</td>
+                    <td class="auto-style8"><strong>ID Proveedor</strong></td>
                 </tr>
                 <tr>
                     <td>

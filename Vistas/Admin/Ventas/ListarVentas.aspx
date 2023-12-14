@@ -61,10 +61,10 @@
                                 <asp:BoundField DataField="IDVenta" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="ID Venta" />
                                 <asp:BoundField DataField="NombreArticulo" HeaderText="Articulo" SortExpression="Articulo" />
                                 <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" SortExpression="Cantidad" />
-                                <asp:BoundField DataField="Total" HeaderText="Total" SortExpression="Total" />
-                                <asp:BoundField DataField="FechaDeVenta" HeaderText="Fecha Venta" SortExpression="Fecha Venta" DataFormatString="{0:dd/MM/yyyy}" />
+                                <asp:BoundField DataField="PrecioTotal" HeaderText="Total" SortExpression="Total" />
+                                <asp:BoundField DataField="FechaVenta" HeaderText="Fecha Venta" SortExpression="Fecha Venta" DataFormatString="{0:dd/MM/yyyy}" />
                                 <asp:BoundField DataField="Comprador" HeaderText="Comprador" ReadOnly="True" SortExpression="Comprador" />
-                                <asp:BoundField DataField="DNI" HeaderText="DNI" SortExpression="DNI" />
+                                <asp:BoundField DataField="DNICliente" HeaderText="DNI" SortExpression="DNI" />
                             </Columns>
                             <EditRowStyle BackColor="#7C6F57" />
                             <EmptyDataTemplate>

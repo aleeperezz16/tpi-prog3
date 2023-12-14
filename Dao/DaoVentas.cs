@@ -30,8 +30,11 @@ namespace Dao
 
         public DataTable ObtenerVentas()
         {
-            string consulta = "SELECT IDVenta, CONCAT_WS(' ', Nombre, Apellido) AS Comprador," +
-                "PrecioTotal, FechaVenta FROM VENTAS V INNER JOIN CLIENTES C ON V.DNICliente = C.DNI";
+            string consulta = "SELECT V.IDVenta, DNICliente, PrecioTotal," +
+                              "FechaVenta, NombreArticulo, Cantidad, CONCAT_WS(' ', Nombre, Apellido) AS Comprador " +
+                              "FROM VENTAS V INNER JOIN DETALLEVENTAS DV ON V.IDVenta = DV.IDVenta " +
+                              "INNER JOIN ARTICULOS A ON A.IDArticulo = DV.IDArticulo " +
+                              "INNER JOIN CLIENTES C ON V.DNICliente = C.DNI";
 
             return _datos.ObtenerTabla("Ventas", consulta);
         }
